@@ -19,6 +19,9 @@
 		DB21A28326C184E80048FB17 /* alcohol.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB21A28026C184E80048FB17 /* alcohol.jpg */; };
 		DB21A28426C184E80048FB17 /* stories 'bout bangtan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB21A28126C184E80048FB17 /* stories 'bout bangtan.jpg */; };
 		DB21A28526C184E80048FB17 /* Plain Hair Scrunchies 4pack.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB21A28226C184E80048FB17 /* Plain Hair Scrunchies 4pack.jpg */; };
+		DB21A28726C18F4D0048FB17 /* MainPoemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21A28626C18F4D0048FB17 /* MainPoemTableViewCell.swift */; };
+		DB34288D26C1CDE3007C5A6A /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34288C26C1CDE3007C5A6A /* HistoryViewController.swift */; };
+		DB34288F26C1CDF9007C5A6A /* UserPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34288E26C1CDF9007C5A6A /* UserPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		DB21A28026C184E80048FB17 /* alcohol.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = alcohol.jpg; sourceTree = "<group>"; };
 		DB21A28126C184E80048FB17 /* stories 'bout bangtan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "stories 'bout bangtan.jpg"; sourceTree = "<group>"; };
 		DB21A28226C184E80048FB17 /* Plain Hair Scrunchies 4pack.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Plain Hair Scrunchies 4pack.jpg"; sourceTree = "<group>"; };
+		DB21A28626C18F4D0048FB17 /* MainPoemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPoemTableViewCell.swift; sourceTree = "<group>"; };
+		DB34288C26C1CDE3007C5A6A /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		DB34288E26C1CDF9007C5A6A /* UserPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,10 +97,10 @@
 			isa = PBXGroup;
 			children = (
 				DB21A27526C173920048FB17 /* Resources */,
-				DB21A27B26C173E20048FB17 /* Service */,
+				DB21A27826C173C80048FB17 /* Entity */,
 				DB21A27A26C173D40048FB17 /* Repository */,
 				DB21A27926C173D00048FB17 /* Model */,
-				DB21A27826C173C80048FB17 /* Entity */,
+				DB21A27B26C173E20048FB17 /* Service */,
 				DB21A27726C173C00048FB17 /* ViewModel */,
 				DB21A27626C173AF0048FB17 /* ViewControllers */,
 				DB21A27426C1736C0048FB17 /* View */,
@@ -111,6 +117,7 @@
 			children = (
 				DB21A26926C16B410048FB17 /* LaunchScreen.storyboard */,
 				DB21A26426C16B3F0048FB17 /* Main.storyboard */,
+				DB21A28626C18F4D0048FB17 /* MainPoemTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -131,6 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				DB21A27C26C174420048FB17 /* MainViewController.swift */,
+				DB34288C26C1CDE3007C5A6A /* HistoryViewController.swift */,
+				DB34288E26C1CDF9007C5A6A /* UserPageViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -289,9 +298,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB34288F26C1CDF9007C5A6A /* UserPageViewController.swift in Sources */,
 				DB21A27D26C174420048FB17 /* MainViewController.swift in Sources */,
 				DB21A25F26C16B3F0048FB17 /* AppDelegate.swift in Sources */,
 				DB21A26126C16B3F0048FB17 /* SceneDelegate.swift in Sources */,
+				DB34288D26C1CDE3007C5A6A /* HistoryViewController.swift in Sources */,
+				DB21A28726C18F4D0048FB17 /* MainPoemTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

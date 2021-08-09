@@ -10,6 +10,8 @@ import FSPagerView
 
 class MainViewController: UIViewController {
     
+    
+    
     @IBOutlet weak var dateLabel: UILabel!
     
     @IBOutlet weak var pageView: FSPagerView!{
@@ -24,7 +26,10 @@ class MainViewController: UIViewController {
         }
     }
     @IBOutlet weak var thisWeekBtn1: UIButton!
-    @IBOutlet weak var thisWeekBtn2: UIButton!
+    
+    @IBOutlet weak var writeBtn: UIButton!
+    @IBOutlet weak var writeChev: UIButton!
+    
     
     @IBOutlet weak var poemTableView: UITableView!
     
@@ -33,8 +38,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
     }
-    
-    
     
 }
