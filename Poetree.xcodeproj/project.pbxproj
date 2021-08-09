@@ -3,27 +3,41 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		837DEFCB984EC8B76674524A /* Pods_Poetree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A7CB735EE61484A0C8E1AA /* Pods_Poetree.framework */; };
 		DB21A25F26C16B3F0048FB17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21A25E26C16B3F0048FB17 /* AppDelegate.swift */; };
 		DB21A26126C16B3F0048FB17 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21A26026C16B3F0048FB17 /* SceneDelegate.swift */; };
-		DB21A26326C16B3F0048FB17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21A26226C16B3F0048FB17 /* ViewController.swift */; };
 		DB21A26626C16B3F0048FB17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB21A26426C16B3F0048FB17 /* Main.storyboard */; };
 		DB21A26826C16B410048FB17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB21A26726C16B410048FB17 /* Assets.xcassets */; };
 		DB21A26B26C16B410048FB17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB21A26926C16B410048FB17 /* LaunchScreen.storyboard */; };
+		DB21A27326C1700F0048FB17 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB21A27226C1700F0048FB17 /* GoogleService-Info.plist */; };
+		DB21A27D26C174420048FB17 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21A27C26C174420048FB17 /* MainViewController.swift */; };
+		DB21A27F26C175250048FB17 /* PoetreeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = DB21A27E26C175250048FB17 /* PoetreeIcon.png */; };
+		DB21A28326C184E80048FB17 /* alcohol.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB21A28026C184E80048FB17 /* alcohol.jpg */; };
+		DB21A28426C184E80048FB17 /* stories 'bout bangtan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB21A28126C184E80048FB17 /* stories 'bout bangtan.jpg */; };
+		DB21A28526C184E80048FB17 /* Plain Hair Scrunchies 4pack.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB21A28226C184E80048FB17 /* Plain Hair Scrunchies 4pack.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1ACB32708FFD3EB56C965507 /* Pods-Poetree.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poetree.release.xcconfig"; path = "Target Support Files/Pods-Poetree/Pods-Poetree.release.xcconfig"; sourceTree = "<group>"; };
+		1F25C0A03A4253B5E0F2D913 /* Pods-Poetree.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poetree.debug.xcconfig"; path = "Target Support Files/Pods-Poetree/Pods-Poetree.debug.xcconfig"; sourceTree = "<group>"; };
+		71A7CB735EE61484A0C8E1AA /* Pods_Poetree.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Poetree.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB21A25B26C16B3F0048FB17 /* Poetree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poetree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB21A25E26C16B3F0048FB17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB21A26026C16B3F0048FB17 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DB21A26226C16B3F0048FB17 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DB21A26526C16B3F0048FB17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB21A26726C16B410048FB17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB21A26A26C16B410048FB17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB21A26C26C16B410048FB17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB21A27226C1700F0048FB17 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DB21A27C26C174420048FB17 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		DB21A27E26C175250048FB17 /* PoetreeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PoetreeIcon.png; sourceTree = "<group>"; };
+		DB21A28026C184E80048FB17 /* alcohol.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = alcohol.jpg; sourceTree = "<group>"; };
+		DB21A28126C184E80048FB17 /* stories 'bout bangtan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "stories 'bout bangtan.jpg"; sourceTree = "<group>"; };
+		DB21A28226C184E80048FB17 /* Plain Hair Scrunchies 4pack.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Plain Hair Scrunchies 4pack.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +45,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				837DEFCB984EC8B76674524A /* Pods_Poetree.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9CF1D9FB11581F5EF328A32F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				71A7CB735EE61484A0C8E1AA /* Pods_Poetree.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C71350AC3118F16B6F26FFE5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1F25C0A03A4253B5E0F2D913 /* Pods-Poetree.debug.xcconfig */,
+				1ACB32708FFD3EB56C965507 /* Pods-Poetree.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		DB21A25226C16B3F0048FB17 = {
 			isa = PBXGroup;
 			children = (
 				DB21A25D26C16B3F0048FB17 /* Poetree */,
 				DB21A25C26C16B3F0048FB17 /* Products */,
+				C71350AC3118F16B6F26FFE5 /* Pods */,
+				9CF1D9FB11581F5EF328A32F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +90,84 @@
 		DB21A25D26C16B3F0048FB17 /* Poetree */ = {
 			isa = PBXGroup;
 			children = (
+				DB21A27526C173920048FB17 /* Resources */,
+				DB21A27B26C173E20048FB17 /* Service */,
+				DB21A27A26C173D40048FB17 /* Repository */,
+				DB21A27926C173D00048FB17 /* Model */,
+				DB21A27826C173C80048FB17 /* Entity */,
+				DB21A27726C173C00048FB17 /* ViewModel */,
+				DB21A27626C173AF0048FB17 /* ViewControllers */,
+				DB21A27426C1736C0048FB17 /* View */,
 				DB21A25E26C16B3F0048FB17 /* AppDelegate.swift */,
 				DB21A26026C16B3F0048FB17 /* SceneDelegate.swift */,
-				DB21A26226C16B3F0048FB17 /* ViewController.swift */,
-				DB21A26426C16B3F0048FB17 /* Main.storyboard */,
-				DB21A26726C16B410048FB17 /* Assets.xcassets */,
-				DB21A26926C16B410048FB17 /* LaunchScreen.storyboard */,
 				DB21A26C26C16B410048FB17 /* Info.plist */,
+				DB21A27226C1700F0048FB17 /* GoogleService-Info.plist */,
 			);
 			path = Poetree;
+			sourceTree = "<group>";
+		};
+		DB21A27426C1736C0048FB17 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DB21A26926C16B410048FB17 /* LaunchScreen.storyboard */,
+				DB21A26426C16B3F0048FB17 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DB21A27526C173920048FB17 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DB21A27E26C175250048FB17 /* PoetreeIcon.png */,
+				DB21A28026C184E80048FB17 /* alcohol.jpg */,
+				DB21A28226C184E80048FB17 /* Plain Hair Scrunchies 4pack.jpg */,
+				DB21A28126C184E80048FB17 /* stories 'bout bangtan.jpg */,
+				DB21A26726C16B410048FB17 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DB21A27626C173AF0048FB17 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DB21A27C26C174420048FB17 /* MainViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DB21A27726C173C00048FB17 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DB21A27826C173C80048FB17 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		DB21A27926C173D00048FB17 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DB21A27A26C173D40048FB17 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		DB21A27B26C173E20048FB17 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +177,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB21A26F26C16B410048FB17 /* Build configuration list for PBXNativeTarget "Poetree" */;
 			buildPhases = (
+				64A7D46F33153F2E7B4EE0E7 /* [CP] Check Pods Manifest.lock */,
 				DB21A25726C16B3F0048FB17 /* Sources */,
 				DB21A25826C16B3F0048FB17 /* Frameworks */,
 				DB21A25926C16B3F0048FB17 /* Resources */,
+				C940C75E0558FB75EF9F9FF6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -124,20 +229,67 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB21A28526C184E80048FB17 /* Plain Hair Scrunchies 4pack.jpg in Resources */,
 				DB21A26B26C16B410048FB17 /* LaunchScreen.storyboard in Resources */,
+				DB21A27326C1700F0048FB17 /* GoogleService-Info.plist in Resources */,
 				DB21A26826C16B410048FB17 /* Assets.xcassets in Resources */,
+				DB21A27F26C175250048FB17 /* PoetreeIcon.png in Resources */,
+				DB21A28326C184E80048FB17 /* alcohol.jpg in Resources */,
 				DB21A26626C16B3F0048FB17 /* Main.storyboard in Resources */,
+				DB21A28426C184E80048FB17 /* stories 'bout bangtan.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		64A7D46F33153F2E7B4EE0E7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Poetree-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C940C75E0558FB75EF9F9FF6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Poetree/Pods-Poetree-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Poetree/Pods-Poetree-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Poetree/Pods-Poetree-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DB21A25726C16B3F0048FB17 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB21A26326C16B3F0048FB17 /* ViewController.swift in Sources */,
+				DB21A27D26C174420048FB17 /* MainViewController.swift in Sources */,
 				DB21A25F26C16B3F0048FB17 /* AppDelegate.swift in Sources */,
 				DB21A26126C16B3F0048FB17 /* SceneDelegate.swift in Sources */,
 			);
@@ -283,6 +435,7 @@
 		};
 		DB21A27026C16B410048FB17 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F25C0A03A4253B5E0F2D913 /* Pods-Poetree.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +455,7 @@
 		};
 		DB21A27126C16B410048FB17 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1ACB32708FFD3EB56C965507 /* Pods-Poetree.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
