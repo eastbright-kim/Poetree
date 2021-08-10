@@ -15,4 +15,5 @@ target 'Poetree' do
 	pod 'Kingfisher', '~> 6.0'
 	pod 'SwiftyJSON', '~> 4.0'
 	pod 'FSPagerView'
+  	pod 'RealmSwift'
 end

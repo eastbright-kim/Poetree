@@ -70,6 +70,11 @@ PODS:
   - "NSObject+Rx (5.2.1)":
     - RxSwift (~> 6.0)
   - PromisesObjC (1.2.12)
+  - Realm (10.12.0):
+    - Realm/Headers (= 10.12.0)
+  - Realm/Headers (10.12.0)
+  - RealmSwift (10.12.0):
+    - Realm (= 10.12.0)
   - RxCocoa (6.2.0):
     - RxRelay (= 6.2.0)
     - RxSwift (= 6.2.0)
@@ -88,6 +93,7 @@ DEPENDENCIES:
   - FSPagerView
   - Kingfisher (~> 6.0)
   - "NSObject+Rx"
+  - RealmSwift
   - RxCocoa
   - RxDataSources
   - RxSwift
@@ -110,6 +116,8 @@ SPEC REPOS:
     - nanopb
     - "NSObject+Rx"
     - PromisesObjC
+    - Realm
+    - RealmSwift
     - RxCocoa
     - RxDataSources
     - RxRelay
@@ -132,12 +140,14 @@ SPEC CHECKSUMS:
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   "NSObject+Rx": 49ffbf55ad0bbc29a44547db63a9e33caf0c5d60
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
+  Realm: 32488213acb44660539c619d620cec1bac046166
+  RealmSwift: 0abdca6231d5ff8a4f84cef9c1121ef95a483faf
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 947f7f4b77112bb248a060e8a652e5db45bccbbf
+PODFILE CHECKSUM: 763dffb43bdfdc59c086feceb48dd094df5b2a10
 
 COCOAPODS: 1.10.0
