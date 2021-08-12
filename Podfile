@@ -16,5 +16,5 @@ target 'Poetree' do
   pod 'SwiftyJSON', '~> 4.0'
   pod 'FSPagerView'
   pod 'Firebase/Storage'
-  
+  pod 'Firebase/Auth'
 end

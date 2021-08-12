@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		837DEFCB984EC8B76674524A /* Pods_Poetree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A7CB735EE61484A0C8E1AA /* Pods_Poetree.framework */; };
+		DB15716826C52720003F58FC /* PoemEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15716726C52720003F58FC /* PoemEntity.swift */; };
+		DB15716C26C5301A003F58FC /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15716B26C5301A003F58FC /* Function.swift */; };
 		DB21A25F26C16B3F0048FB17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21A25E26C16B3F0048FB17 /* AppDelegate.swift */; };
 		DB21A26126C16B3F0048FB17 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21A26026C16B3F0048FB17 /* SceneDelegate.swift */; };
 		DB21A26626C16B3F0048FB17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB21A26426C16B3F0048FB17 /* Main.storyboard */; };
@@ -30,7 +32,6 @@
 		DBCE060526C2A8FB0008EBF8 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE060426C2A8FB0008EBF8 /* PhotoCollectionViewController.swift */; };
 		DBCE060A26C2ACEE0008EBF8 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE060926C2ACEE0008EBF8 /* MainViewModel.swift */; };
 		DBCE060D26C2C8F00008EBF8 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE060C26C2C8F00008EBF8 /* Protocol.swift */; };
-		DBCE060F26C2CF630008EBF8 /* BalnkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE060E26C2CF630008EBF8 /* BalnkViewController.swift */; };
 		DBCE061126C2D2430008EBF8 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE061026C2D2430008EBF8 /* Constant.swift */; };
 		DBFCE5E826C3AA8400E3FC16 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5E726C3AA8400E3FC16 /* HistoryViewModel.swift */; };
 		DBFCE5EA26C3AA9D00E3FC16 /* MyPoemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5E926C3AA9D00E3FC16 /* MyPoemViewModel.swift */; };
@@ -48,6 +49,8 @@
 		1ACB32708FFD3EB56C965507 /* Pods-Poetree.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poetree.release.xcconfig"; path = "Target Support Files/Pods-Poetree/Pods-Poetree.release.xcconfig"; sourceTree = "<group>"; };
 		1F25C0A03A4253B5E0F2D913 /* Pods-Poetree.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poetree.debug.xcconfig"; path = "Target Support Files/Pods-Poetree/Pods-Poetree.debug.xcconfig"; sourceTree = "<group>"; };
 		71A7CB735EE61484A0C8E1AA /* Pods_Poetree.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Poetree.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB15716726C52720003F58FC /* PoemEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemEntity.swift; sourceTree = "<group>"; };
+		DB15716B26C5301A003F58FC /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
 		DB21A25B26C16B3F0048FB17 /* Poetree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poetree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB21A25E26C16B3F0048FB17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB21A26026C16B3F0048FB17 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,7 +75,6 @@
 		DBCE060426C2A8FB0008EBF8 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
 		DBCE060926C2ACEE0008EBF8 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		DBCE060C26C2C8F00008EBF8 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
-		DBCE060E26C2CF630008EBF8 /* BalnkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalnkViewController.swift; sourceTree = "<group>"; };
 		DBCE061026C2D2430008EBF8 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		DBFCE5E726C3AA8400E3FC16 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		DBFCE5E926C3AA9D00E3FC16 /* MyPoemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoemViewModel.swift; sourceTree = "<group>"; };
@@ -186,7 +188,6 @@
 				DBCE060426C2A8FB0008EBF8 /* PhotoCollectionViewController.swift */,
 				DB2CFD6A26C2887100130078 /* WritingListViewController.swift */,
 				DBCE060226C2A8CA0008EBF8 /* WritingDetailViewController.swift */,
-				DBCE060E26C2CF630008EBF8 /* BalnkViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -208,6 +209,7 @@
 		DB21A27826C173C80048FB17 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				DB15716726C52720003F58FC /* PoemEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -275,6 +277,7 @@
 			children = (
 				DBCE060C26C2C8F00008EBF8 /* Protocol.swift */,
 				DBCE061026C2D2430008EBF8 /* Constant.swift */,
+				DB15716B26C5301A003F58FC /* Function.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -398,7 +401,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBCE060F26C2CF630008EBF8 /* BalnkViewController.swift in Sources */,
 				DBFCE5E826C3AA8400E3FC16 /* HistoryViewModel.swift in Sources */,
 				DB7AC1ED26C2E004001A62B6 /* PoemService.swift in Sources */,
 				DBFCE5EC26C3AAFA00E3FC16 /* WritePoemViewModel.swift in Sources */,
@@ -420,6 +422,8 @@
 				DB21A25F26C16B3F0048FB17 /* AppDelegate.swift in Sources */,
 				DB34289326C1D332007C5A6A /* User.swift in Sources */,
 				DBCE060526C2A8FB0008EBF8 /* PhotoCollectionViewController.swift in Sources */,
+				DB15716826C52720003F58FC /* PoemEntity.swift in Sources */,
+				DB15716C26C5301A003F58FC /* Function.swift in Sources */,
 				DB21A26126C16B3F0048FB17 /* SceneDelegate.swift in Sources */,
 				DB34288D26C1CDE3007C5A6A /* HistoryViewController.swift in Sources */,
 				DBCE060326C2A8CA0008EBF8 /* WritingDetailViewController.swift in Sources */,

@@ -13,7 +13,6 @@ import NSObject_Rx
 import RxDataSources
 import Kingfisher
 
-
 class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, HasDisposeBag{
     
     
@@ -37,7 +36,7 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
     
     func collectionViewAni() {
         collectionView.alpha = 0
-        UIView.animate(withDuration: 2) { [unowned self] in
+        UIView.animate(withDuration: 2, delay: 1, options: .curveEaseIn) { [unowned self] in
             self.collectionView.alpha = 1
         }
     }
@@ -90,10 +89,24 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
             .disposed(by: rx.disposeBag)
         
         viewModel.output.thisWeekPhotoURL
-            .bind(to: collectionView.rx.items(cellIdentifier: "cell", cellType: MainPhotoCollectionViewCell.self)) { index, url, cell in
-                cell.todayImage.kf.setImage(with: url)
+            .bind(to: collectionView.rx.items(cellIdentifier: "cell", cellType: MainPhotoCollectionViewCell.self)) { index, photo, cell in
+                cell.todayImage.image = photo.image
+                
             }
             .disposed(by: rx.disposeBag)
+        
+        collectionView.rx.modelSelected(WeekPhoto.self)
+            .subscribe(onNext:{[unowned self] weekPhoto in
+                
+                let viewModel = WritePoemViewModel(weekPhoto: weekPhoto, poemService: self.viewModel.poemService)
+                
+                var vc = WritingViewController.instantiate(storyboardID: "Main")
+                vc.bind(viewModel: viewModel)
+                self.navigationController?.pushViewController(vc, animated: true)
+                
+            })
+            .disposed(by: rx.disposeBag)
+        
     }
 }
 

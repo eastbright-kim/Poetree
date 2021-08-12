@@ -7,15 +7,12 @@
 
 import Foundation
 import RxSwift
+import FirebaseAuth
 
 class PoemService {
     
     
-//    var poemArr = poems
-    
-//    private lazy var store = BehaviorSubject<[Poem]>(value: poemArr)
-    
-    private lazy var photoStore = BehaviorSubject<[URL]>(value: whites)
+    private lazy var photoStore = BehaviorSubject<[WeekPhoto]>(value: whites)
     
     
     let poemRepository: PoemRepository
@@ -25,25 +22,25 @@ class PoemService {
     }
     
     
-    func getWeekPhotoURLs(completion: @escaping ([URL]) -> Void) {
-        poemRepository.getWeekPhoto  { [unowned self] url in
-            whites = url
-            self.photoStore.onNext(url)
-            completion(url)
+    func getWeekPhoto(completion: @escaping ([WeekPhoto]) -> Void) {
+        
+        poemRepository.getWeekPhoto  { [unowned self] weekPhoto in
+            
+            whites = weekPhoto
+            photoStore.onNext(weekPhoto)
+            completion(weekPhoto)
         }
     }
     
-    func photos() -> Observable<[URL]> {
+    func photos() -> Observable<[WeekPhoto]> {
         return photoStore
     }
     
     func getCurrentDate() -> String {
 
-        let date = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM-d"
+        let currentDate = convertDateToString(format: "MMM-d", date: Date())
         
-        let currentDate = dateFormatter.string(from: date)
+        
         let current = currentDate.components(separatedBy: "-")
         
         let day = Int(current[1])!
@@ -66,6 +63,31 @@ class PoemService {
             return "4th"
         default:
             return "5th"
+        }
+    }
+    
+    func getCurrentWritingTime() -> String {
+        
+        let monthDay = convertDateToString(format: "M월 d일", date: Date())
+        let time = Int(convertDateToString(format: "H", date: Date()))!
+        
+        let cycle = getCycleString(time: time)
+        
+        let user = Auth.auth().currentUser?.displayName ?? "user"
+        
+        return "\(user)님이 \(monthDay) \(cycle)에 보내는 글"
+    }
+    
+    func getCycleString(time: Int) -> String {
+        switch time {
+        case 6..<12:
+           return "아침"
+        case 12..<18:
+           return "낮"
+        case 18..<21:
+           return "저녁"
+        default:
+           return "밤"
         }
     }
 }

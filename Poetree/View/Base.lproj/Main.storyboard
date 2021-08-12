@@ -331,6 +331,10 @@
                     <navigationItem key="navigationItem" title="글 쓰기" id="Tbe-zb-zMp"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <size key="freeformSize" width="428" height="1400"/>
+                    <connections>
+                        <outlet property="selectedPhoto" destination="QlM-8h-VbG" id="4bu-Zp-Dr4"/>
+                        <outlet property="userDateLabel" destination="AT9-5k-iWb" id="Vw5-X6-LeL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xZu-tt-mxK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

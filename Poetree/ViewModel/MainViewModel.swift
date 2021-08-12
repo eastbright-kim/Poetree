@@ -23,7 +23,7 @@ class MainViewModel: ViewModelType {
     
     struct Output {
         let currentDate: Driver<String>
-        let thisWeekPhotoURL: Observable<[URL]>
+        let thisWeekPhotoURL: Observable<[WeekPhoto]>
     }
     
     var input: Input
@@ -38,12 +38,13 @@ class MainViewModel: ViewModelType {
         
         let thisWeekPhotoURL = poemService.photos()
             
-        
-        poemService.getWeekPhotoURLs { url in
-            print("\(url)뷰모델")
+        poemService.getWeekPhoto { photo in
+            print("\(photo)뷰모델")
         }
         
         self.input = Input()
         self.output = Output(currentDate: currentDate, thisWeekPhotoURL: thisWeekPhotoURL)
     }
+    
+    
 }

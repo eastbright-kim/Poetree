@@ -7,34 +7,34 @@
 
 import UIKit
 
-struct Poem: Equatable {
+struct Poem: Equatable, Identifiable {
     
     var title: String
     var content: String
-    let poemId: Int
-    let sourceId: Int
+    let id: Int
+    let photoId: Int
     let uploadAt: Date
-    let imageURL: URL
-    var likes: Int = 0
     var isPublic: Bool = true
-    var likers: [User]
+    var likers: [String]
+    let userEmail: String
+    var penName: String
+    let photoURL: URL
     
     static func == (lhs: Poem, rhs: Poem) -> Bool {
         return true
     }
 }
 
-struct PoemByPhoto: Equatable {
+struct PhotoPoem: Equatable, Identifiable {
     
-    let id: Int
-    let sourceId: Int
-    let imageURL: URL
+    var id: Int
+    var photoId: Int
     var poems: [Poem]
     
-    static func == (lhs: PoemByPhoto, rhs: PoemByPhoto) -> Bool {
-        return true
-    }
 }
 
-
-
+struct WeekPhoto: Identifiable {
+    let id: Int
+    let url: URL
+    let image: UIImage
+}

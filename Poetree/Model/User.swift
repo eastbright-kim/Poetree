@@ -10,10 +10,9 @@ import Foundation
 struct User {
     
     let email: String
-    var nickName: String
+    var penName: String?
     var likedPoems: [Poem]?
     var wrotePoems: [Poem]?
-    var userId: String
     
 }
 
