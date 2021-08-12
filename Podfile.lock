@@ -10,6 +10,9 @@ PODS:
     - FirebaseAnalytics (= 7.4.0)
   - Firebase/CoreOnly (7.4.0):
     - FirebaseCore (= 7.4.0)
+  - Firebase/Storage (7.4.0):
+    - Firebase/CoreOnly
+    - FirebaseStorage (~> 7.4.0)
   - FirebaseAnalytics (7.4.0):
     - FirebaseCore (~> 7.0)
     - FirebaseInstallations (~> 7.0)
@@ -33,6 +36,9 @@ PODS:
     - GoogleUtilities/Environment (~> 7.0)
     - GoogleUtilities/UserDefaults (~> 7.0)
     - PromisesObjC (~> 1.2)
+  - FirebaseStorage (7.4.0):
+    - FirebaseCore (~> 7.0)
+    - GTMSessionFetcher/Core (~> 1.4)
   - FSPagerView (0.8.3)
   - GoogleAppMeasurement (7.4.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
@@ -61,6 +67,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.2.0):
     - GoogleUtilities/Logger
+  - GTMSessionFetcher/Core (1.6.1)
   - Kingfisher (6.3.0)
   - nanopb (2.30907.0):
     - nanopb/decode (= 2.30907.0)
@@ -70,11 +77,6 @@ PODS:
   - "NSObject+Rx (5.2.1)":
     - RxSwift (~> 6.0)
   - PromisesObjC (1.2.12)
-  - Realm (10.12.0):
-    - Realm/Headers (= 10.12.0)
-  - Realm/Headers (10.12.0)
-  - RealmSwift (10.12.0):
-    - Realm (= 10.12.0)
   - RxCocoa (6.2.0):
     - RxRelay (= 6.2.0)
     - RxSwift (= 6.2.0)
@@ -90,10 +92,10 @@ PODS:
 DEPENDENCIES:
   - Action
   - Firebase/Analytics
+  - Firebase/Storage
   - FSPagerView
   - Kingfisher (~> 6.0)
   - "NSObject+Rx"
-  - RealmSwift
   - RxCocoa
   - RxDataSources
   - RxSwift
@@ -108,16 +110,16 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseInstallations
+    - FirebaseStorage
     - FSPagerView
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
+    - GTMSessionFetcher
     - Kingfisher
     - nanopb
     - "NSObject+Rx"
     - PromisesObjC
-    - Realm
-    - RealmSwift
     - RxCocoa
     - RxDataSources
     - RxRelay
@@ -132,22 +134,22 @@ SPEC CHECKSUMS:
   FirebaseCore: 99c06e5a1e8d6952e75cb1f0a6d0b23c0f5ccdcf
   FirebaseCoreDiagnostics: 3770093ac4f2be4590fa03cfa1d3a6e5602d4557
   FirebaseInstallations: 6e4e77396559bc2ae0504823837ed737b1c7e47f
+  FirebaseStorage: e8726dfe21ebe068ccbe8e9c332ea90688eeadae
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
   GoogleAppMeasurement: 688d7f00e2894d9e13823ed9a028b13b993bc277
   GoogleDataTransport: 1024b1a4dfbd7a0e92cb20d7e0a6f1fb66b449a4
   GoogleUtilities: d866834472f1324d080496bc67ab3ce5d0d46027
+  GTMSessionFetcher: 36689134877faeb055b27dfa4ccc9ceaa42e029e
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   "NSObject+Rx": 49ffbf55ad0bbc29a44547db63a9e33caf0c5d60
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
-  Realm: 32488213acb44660539c619d620cec1bac046166
-  RealmSwift: 0abdca6231d5ff8a4f84cef9c1121ef95a483faf
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 763dffb43bdfdc59c086feceb48dd094df5b2a10
+PODFILE CHECKSUM: 29021df68563729a8f36790446fde696804c7e4f
 
 COCOAPODS: 1.10.0

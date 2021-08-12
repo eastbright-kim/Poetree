@@ -7,10 +7,13 @@
 
 import Foundation
 
-struct UserInfo {
+struct User {
     
     let email: String
     var nickName: String
+    var likedPoems: [Poem]?
+    var wrotePoems: [Poem]?
+    var userId: String
     
 }
 

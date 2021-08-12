@@ -16,9 +16,6 @@
 		DB21A27326C1700F0048FB17 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB21A27226C1700F0048FB17 /* GoogleService-Info.plist */; };
 		DB21A27D26C174420048FB17 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21A27C26C174420048FB17 /* MainViewController.swift */; };
 		DB21A27F26C175250048FB17 /* PoetreeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = DB21A27E26C175250048FB17 /* PoetreeIcon.png */; };
-		DB21A28326C184E80048FB17 /* alcohol.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB21A28026C184E80048FB17 /* alcohol.jpg */; };
-		DB21A28426C184E80048FB17 /* stories 'bout bangtan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB21A28126C184E80048FB17 /* stories 'bout bangtan.jpg */; };
-		DB21A28526C184E80048FB17 /* Plain Hair Scrunchies 4pack.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB21A28226C184E80048FB17 /* Plain Hair Scrunchies 4pack.jpg */; };
 		DB21A28726C18F4D0048FB17 /* MainPoemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21A28626C18F4D0048FB17 /* MainPoemTableViewCell.swift */; };
 		DB2CFD6926C2884D00130078 /* WritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2CFD6826C2884D00130078 /* WritingViewController.swift */; };
 		DB2CFD6B26C2887100130078 /* WritingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2CFD6A26C2887100130078 /* WritingListViewController.swift */; };
@@ -26,8 +23,25 @@
 		DB34288F26C1CDF9007C5A6A /* UserPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34288E26C1CDF9007C5A6A /* UserPageViewController.swift */; };
 		DB34289126C1CEC1007C5A6A /* Poem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34289026C1CEC1007C5A6A /* Poem.swift */; };
 		DB34289326C1D332007C5A6A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34289226C1D332007C5A6A /* User.swift */; };
+		DB53ADAA26C3E53400FAA8B8 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53ADA926C3E53400FAA8B8 /* DummyData.swift */; };
+		DB7AC1ED26C2E004001A62B6 /* PoemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7AC1EC26C2E004001A62B6 /* PoemService.swift */; };
+		DB9D575E26C43E6000A86148 /* MainPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9D575D26C43E6000A86148 /* MainPhotoCollectionViewCell.swift */; };
 		DBCE060326C2A8CA0008EBF8 /* WritingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE060226C2A8CA0008EBF8 /* WritingDetailViewController.swift */; };
 		DBCE060526C2A8FB0008EBF8 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE060426C2A8FB0008EBF8 /* PhotoCollectionViewController.swift */; };
+		DBCE060A26C2ACEE0008EBF8 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE060926C2ACEE0008EBF8 /* MainViewModel.swift */; };
+		DBCE060D26C2C8F00008EBF8 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE060C26C2C8F00008EBF8 /* Protocol.swift */; };
+		DBCE060F26C2CF630008EBF8 /* BalnkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE060E26C2CF630008EBF8 /* BalnkViewController.swift */; };
+		DBCE061126C2D2430008EBF8 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE061026C2D2430008EBF8 /* Constant.swift */; };
+		DBFCE5E826C3AA8400E3FC16 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5E726C3AA8400E3FC16 /* HistoryViewModel.swift */; };
+		DBFCE5EA26C3AA9D00E3FC16 /* MyPoemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5E926C3AA9D00E3FC16 /* MyPoemViewModel.swift */; };
+		DBFCE5EC26C3AAFA00E3FC16 /* WritePoemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5EB26C3AAFA00E3FC16 /* WritePoemViewModel.swift */; };
+		DBFCE5EE26C3AB0B00E3FC16 /* PoemListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5ED26C3AB0B00E3FC16 /* PoemListViewModel.swift */; };
+		DBFCE5F026C3AB1A00E3FC16 /* ReadPoemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5EF26C3AB1A00E3FC16 /* ReadPoemViewModel.swift */; };
+		DBFCE5F226C3AB2B00E3FC16 /* PhotoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5F126C3AB2B00E3FC16 /* PhotoListViewModel.swift */; };
+		DBFCE5F426C3AF7300E3FC16 /* PoemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5F326C3AF7300E3FC16 /* PoemRepository.swift */; };
+		DBFCE5F826C3B21500E3FC16 /* image2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DBFCE5F526C3B21300E3FC16 /* image2.jpg */; };
+		DBFCE5F926C3B21500E3FC16 /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DBFCE5F626C3B21400E3FC16 /* image1.jpg */; };
+		DBFCE5FA26C3B21500E3FC16 /* image3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DBFCE5F726C3B21500E3FC16 /* image3.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,9 +58,6 @@
 		DB21A27226C1700F0048FB17 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DB21A27C26C174420048FB17 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DB21A27E26C175250048FB17 /* PoetreeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PoetreeIcon.png; sourceTree = "<group>"; };
-		DB21A28026C184E80048FB17 /* alcohol.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = alcohol.jpg; sourceTree = "<group>"; };
-		DB21A28126C184E80048FB17 /* stories 'bout bangtan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "stories 'bout bangtan.jpg"; sourceTree = "<group>"; };
-		DB21A28226C184E80048FB17 /* Plain Hair Scrunchies 4pack.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Plain Hair Scrunchies 4pack.jpg"; sourceTree = "<group>"; };
 		DB21A28626C18F4D0048FB17 /* MainPoemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPoemTableViewCell.swift; sourceTree = "<group>"; };
 		DB2CFD6826C2884D00130078 /* WritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewController.swift; sourceTree = "<group>"; };
 		DB2CFD6A26C2887100130078 /* WritingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingListViewController.swift; sourceTree = "<group>"; };
@@ -54,8 +65,25 @@
 		DB34288E26C1CDF9007C5A6A /* UserPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageViewController.swift; sourceTree = "<group>"; };
 		DB34289026C1CEC1007C5A6A /* Poem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poem.swift; sourceTree = "<group>"; };
 		DB34289226C1D332007C5A6A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DB53ADA926C3E53400FAA8B8 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
+		DB7AC1EC26C2E004001A62B6 /* PoemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemService.swift; sourceTree = "<group>"; };
+		DB9D575D26C43E6000A86148 /* MainPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		DBCE060226C2A8CA0008EBF8 /* WritingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingDetailViewController.swift; sourceTree = "<group>"; };
 		DBCE060426C2A8FB0008EBF8 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
+		DBCE060926C2ACEE0008EBF8 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		DBCE060C26C2C8F00008EBF8 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
+		DBCE060E26C2CF630008EBF8 /* BalnkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalnkViewController.swift; sourceTree = "<group>"; };
+		DBCE061026C2D2430008EBF8 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		DBFCE5E726C3AA8400E3FC16 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		DBFCE5E926C3AA9D00E3FC16 /* MyPoemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoemViewModel.swift; sourceTree = "<group>"; };
+		DBFCE5EB26C3AAFA00E3FC16 /* WritePoemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePoemViewModel.swift; sourceTree = "<group>"; };
+		DBFCE5ED26C3AB0B00E3FC16 /* PoemListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemListViewModel.swift; sourceTree = "<group>"; };
+		DBFCE5EF26C3AB1A00E3FC16 /* ReadPoemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadPoemViewModel.swift; sourceTree = "<group>"; };
+		DBFCE5F126C3AB2B00E3FC16 /* PhotoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewModel.swift; sourceTree = "<group>"; };
+		DBFCE5F326C3AF7300E3FC16 /* PoemRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemRepository.swift; sourceTree = "<group>"; };
+		DBFCE5F526C3B21300E3FC16 /* image2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image2.jpg; sourceTree = "<group>"; };
+		DBFCE5F626C3B21400E3FC16 /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image1.jpg; sourceTree = "<group>"; };
+		DBFCE5F726C3B21500E3FC16 /* image3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image3.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +158,7 @@
 				DB21A26926C16B410048FB17 /* LaunchScreen.storyboard */,
 				DB21A26426C16B3F0048FB17 /* Main.storyboard */,
 				DB21A28626C18F4D0048FB17 /* MainPoemTableViewCell.swift */,
+				DB9D575D26C43E6000A86148 /* MainPhotoCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -137,11 +166,12 @@
 		DB21A27526C173920048FB17 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DBCE060B26C2C8E40008EBF8 /* API */,
 				DB21A27E26C175250048FB17 /* PoetreeIcon.png */,
-				DB21A28026C184E80048FB17 /* alcohol.jpg */,
-				DB21A28226C184E80048FB17 /* Plain Hair Scrunchies 4pack.jpg */,
-				DB21A28126C184E80048FB17 /* stories 'bout bangtan.jpg */,
 				DB21A26726C16B410048FB17 /* Assets.xcassets */,
+				DBFCE5F626C3B21400E3FC16 /* image1.jpg */,
+				DBFCE5F526C3B21300E3FC16 /* image2.jpg */,
+				DBFCE5F726C3B21500E3FC16 /* image3.jpg */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -156,6 +186,7 @@
 				DBCE060426C2A8FB0008EBF8 /* PhotoCollectionViewController.swift */,
 				DB2CFD6A26C2887100130078 /* WritingListViewController.swift */,
 				DBCE060226C2A8CA0008EBF8 /* WritingDetailViewController.swift */,
+				DBCE060E26C2CF630008EBF8 /* BalnkViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -163,6 +194,13 @@
 		DB21A27726C173C00048FB17 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				DBCE060926C2ACEE0008EBF8 /* MainViewModel.swift */,
+				DBFCE5E926C3AA9D00E3FC16 /* MyPoemViewModel.swift */,
+				DBFCE5E726C3AA8400E3FC16 /* HistoryViewModel.swift */,
+				DBFCE5EB26C3AAFA00E3FC16 /* WritePoemViewModel.swift */,
+				DBFCE5ED26C3AB0B00E3FC16 /* PoemListViewModel.swift */,
+				DBFCE5EF26C3AB1A00E3FC16 /* ReadPoemViewModel.swift */,
+				DBFCE5F126C3AB2B00E3FC16 /* PhotoListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -186,6 +224,7 @@
 		DB21A27A26C173D40048FB17 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				DBFCE5F326C3AF7300E3FC16 /* PoemRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -193,8 +232,18 @@
 		DB21A27B26C173E20048FB17 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				DB53ADA826C3E52700FAA8B8 /* DummyData */,
+				DB7AC1EC26C2E004001A62B6 /* PoemService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		DB53ADA826C3E52700FAA8B8 /* DummyData */ = {
+			isa = PBXGroup;
+			children = (
+				DB53ADA926C3E53400FAA8B8 /* DummyData.swift */,
+			);
+			path = DummyData;
 			sourceTree = "<group>";
 		};
 		DBCE060626C2A9890008EBF8 /* Main */ = {
@@ -219,6 +268,15 @@
 				DB34288E26C1CDF9007C5A6A /* UserPageViewController.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		DBCE060B26C2C8E40008EBF8 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				DBCE060C26C2C8F00008EBF8 /* Protocol.swift */,
+				DBCE061026C2D2430008EBF8 /* Constant.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,14 +338,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB21A28526C184E80048FB17 /* Plain Hair Scrunchies 4pack.jpg in Resources */,
+				DBFCE5F926C3B21500E3FC16 /* image1.jpg in Resources */,
 				DB21A26B26C16B410048FB17 /* LaunchScreen.storyboard in Resources */,
 				DB21A27326C1700F0048FB17 /* GoogleService-Info.plist in Resources */,
 				DB21A26826C16B410048FB17 /* Assets.xcassets in Resources */,
 				DB21A27F26C175250048FB17 /* PoetreeIcon.png in Resources */,
-				DB21A28326C184E80048FB17 /* alcohol.jpg in Resources */,
+				DBFCE5F826C3B21500E3FC16 /* image2.jpg in Resources */,
 				DB21A26626C16B3F0048FB17 /* Main.storyboard in Resources */,
-				DB21A28426C184E80048FB17 /* stories 'bout bangtan.jpg in Resources */,
+				DBFCE5FA26C3B21500E3FC16 /* image3.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,11 +398,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBCE060F26C2CF630008EBF8 /* BalnkViewController.swift in Sources */,
+				DBFCE5E826C3AA8400E3FC16 /* HistoryViewModel.swift in Sources */,
+				DB7AC1ED26C2E004001A62B6 /* PoemService.swift in Sources */,
+				DBFCE5EC26C3AAFA00E3FC16 /* WritePoemViewModel.swift in Sources */,
+				DB9D575E26C43E6000A86148 /* MainPhotoCollectionViewCell.swift in Sources */,
 				DB34289126C1CEC1007C5A6A /* Poem.swift in Sources */,
+				DBFCE5EE26C3AB0B00E3FC16 /* PoemListViewModel.swift in Sources */,
 				DB2CFD6B26C2887100130078 /* WritingListViewController.swift in Sources */,
+				DBCE061126C2D2430008EBF8 /* Constant.swift in Sources */,
+				DB53ADAA26C3E53400FAA8B8 /* DummyData.swift in Sources */,
 				DB2CFD6926C2884D00130078 /* WritingViewController.swift in Sources */,
+				DBFCE5F026C3AB1A00E3FC16 /* ReadPoemViewModel.swift in Sources */,
+				DBFCE5EA26C3AA9D00E3FC16 /* MyPoemViewModel.swift in Sources */,
+				DBCE060D26C2C8F00008EBF8 /* Protocol.swift in Sources */,
+				DBFCE5F226C3AB2B00E3FC16 /* PhotoListViewModel.swift in Sources */,
 				DB34288F26C1CDF9007C5A6A /* UserPageViewController.swift in Sources */,
 				DB21A27D26C174420048FB17 /* MainViewController.swift in Sources */,
+				DBCE060A26C2ACEE0008EBF8 /* MainViewModel.swift in Sources */,
+				DBFCE5F426C3AF7300E3FC16 /* PoemRepository.swift in Sources */,
 				DB21A25F26C16B3F0048FB17 /* AppDelegate.swift in Sources */,
 				DB34289326C1D332007C5A6A /* User.swift in Sources */,
 				DBCE060526C2A8FB0008EBF8 /* PhotoCollectionViewController.swift in Sources */,

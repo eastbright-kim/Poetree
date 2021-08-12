@@ -13,10 +13,35 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        window = UIWindow(windowScene: windowScene)
+
+        let poemRepository = PoemRepository()
+        let poemService = PoemService(poemRepository: poemRepository)
+
+        var mainVC = MainViewController.instantiate(storyboardID: "Main")
+        mainVC.bind(viewModel: MainViewModel(poemService: poemService))
+        let mainNVC = UINavigationController(rootViewController: mainVC)
+        mainNVC.navigationController?.navigationBar.prefersLargeTitles = true
+
+        var historyVC = HistoryViewController.instantiate(storyboardID: "Main")
+        historyVC.bind(viewModel: HistoryViewModel(poemSevice: poemService))
+        let historyNVC = UINavigationController(rootViewController: historyVC)
+        
+
+        var userPoemVC = UserPageViewController.instantiate(storyboardID: "Main")
+        userPoemVC.bind(viewModel: MyPoemViewModel(poemService: poemService))
+        let userNAV = UINavigationController(rootViewController: userPoemVC)
+        
+
+        let tabBarController = UITabBarController()
+        tabBarController.setViewControllers([mainNVC, historyNVC, userNAV], animated: false)
+        
+
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

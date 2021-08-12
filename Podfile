@@ -6,14 +6,15 @@ target 'Poetree' do
   use_frameworks!
 
   # Pods for Poetree
-	pod 'Firebase/Analytics'
-	pod 'RxSwift'
-	pod 'RxCocoa'
-	pod 'NSObject+Rx'
-	pod 'Action'
-	pod 'RxDataSources'
-	pod 'Kingfisher', '~> 6.0'
-	pod 'SwiftyJSON', '~> 4.0'
-	pod 'FSPagerView'
-  	pod 'RealmSwift'
+  pod 'Firebase/Analytics'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'NSObject+Rx'
+  pod 'Action'
+  pod 'RxDataSources'
+  pod 'Kingfisher', '~> 6.0'
+  pod 'SwiftyJSON', '~> 4.0'
+  pod 'FSPagerView'
+  pod 'Firebase/Storage'
+  
 end

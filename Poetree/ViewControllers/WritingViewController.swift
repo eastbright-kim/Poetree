@@ -7,11 +7,18 @@
 
 import UIKit
 
-class WritingViewController: UIViewController {
+class WritingViewController: UIViewController, ViewModelBindable {
 
+    var viewModel: MainViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    
+    func bindViewModel() {
+        
     }
 
 }
