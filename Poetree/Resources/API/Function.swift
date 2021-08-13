@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 func convertDateToString(format: String, date: Date) -> String {
     
     let dateFormatter = DateFormatter()
@@ -14,4 +15,11 @@ func convertDateToString(format: String, date: Date) -> String {
     let dateString = dateFormatter.string(from: date)
     return dateString
     
+}
+
+func converStringToDate(dateFormat: String, dateString: String) -> Date {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = dateFormat
+    let date = dateFormatter.date(from: dateString)!
+    return date
 }

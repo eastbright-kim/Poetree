@@ -17,4 +17,5 @@ target 'Poetree' do
   pod 'FSPagerView'
   pod 'Firebase/Storage'
   pod 'Firebase/Auth'
+  pod 'Firebase/Database'
 end

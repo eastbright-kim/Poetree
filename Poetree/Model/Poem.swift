@@ -34,7 +34,7 @@ struct PhotoPoem: Equatable, Identifiable {
 }
 
 struct WeekPhoto: Identifiable {
+    let date: Date
     let id: Int
     let url: URL
-    let image: UIImage
 }

@@ -6,43 +6,29 @@
 //
 
 import Foundation
-import Firebase
 import Kingfisher
+import Firebase
 
 class PoemRepository {
     
-    let ref = Storage.storage().reference().child("images")
+    let ref = Database.database().reference()
     
-    func getWeekPhoto(completion: @escaping ([WeekPhoto]) -> Void) {
+    var weekPhotos = [WeekPhoto]()
+    
+    func fetchPhotos(completion: @escaping (([PhotoEntity]) -> Void)) {
         
-        var photo = [WeekPhoto]()
-        
-        self.ref.listAll { result, error in
-            guard error == nil else { print("storage list error")
-                return }
-            for item in result.items {
-                let name = item.name.components(separatedBy: ".")[0]
-                item.downloadURL { url, error in
-                    guard error == nil else { print( "url error")
-                        return}
-                    if let url = url {
-                        KingfisherManager.shared.retrieveImage(with: url) { result in
-                            switch result {
-                            case .success(let image):
-                                photo.append(WeekPhoto(id: Int(name)!, url: url, image: image.image))
-                                if photo.count == 3 {
-                                    completion(photo)
-                                }
-                            case .failure(let e):
-                                //사진 못불러왔을때.
-                                print(e)
-                                photo = whites
-                            }
-                            
-                        }
-                    }
-                }
+        ref.child("photos").observeSingleEvent(of: .value) { snapshot in
+            let valud = snapshot.value as? [String:Any] ?? [:]
+            
+            var photoEntity = [PhotoEntity]()
+            
+            for value in valud.values {
+                let dic = value as! [String : Any]
+                print(dic)
+                let photo = PhotoEntity(photoDic: dic)
+                photoEntity.append(photo)
             }
+            completion(photoEntity)
         }
     }
 }

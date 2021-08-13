@@ -90,13 +90,16 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
         
         viewModel.output.thisWeekPhotoURL
             .bind(to: collectionView.rx.items(cellIdentifier: "cell", cellType: MainPhotoCollectionViewCell.self)) { index, photo, cell in
-                cell.todayImage.image = photo.image
-                
+                let url = photo.url
+                cell.todayImage.kf.setImage(with: url)
             }
             .disposed(by: rx.disposeBag)
         
+        
         collectionView.rx.modelSelected(WeekPhoto.self)
             .subscribe(onNext:{[unowned self] weekPhoto in
+                
+                print(weekPhoto.url)
                 
                 let viewModel = WritePoemViewModel(weekPhoto: weekPhoto, poemService: self.viewModel.poemService)
                 

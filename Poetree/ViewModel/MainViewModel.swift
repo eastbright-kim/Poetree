@@ -36,15 +36,13 @@ class MainViewModel: ViewModelType {
         let currentDate = Observable<String>.just(poemService.getCurrentDate())
             .asDriver(onErrorJustReturn: "Jan 1st")
         
-        let thisWeekPhotoURL = poemService.photos()
+        let thisWeekPhotoURL = poemService.thisWeekPhotos()
             
-        poemService.getWeekPhoto { photo in
-            print("\(photo)뷰모델")
+        poemService.getWeekPhotos { weekPhotos in
+            print(weekPhotos)
         }
         
         self.input = Input()
         self.output = Output(currentDate: currentDate, thisWeekPhotoURL: thisWeekPhotoURL)
     }
-    
-    
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 struct PoemEntity: Codable {
     
@@ -30,6 +31,19 @@ struct PoemEntity: Codable {
         self.photoId = poemDic["photoId"] as? Int ?? 0
         self.isPublic = poemDic["isPublic"] as? String ?? ""
         self.likers = poemDic["likers"] as? [String] ?? [""]
+    }
+    
+}
+
+struct PhotoEntity: Codable {
+    let date: String
+    let photoId: Int
+    let imageURL: String
+    
+    init(photoDic: [String: Any]) {
+        self.date = photoDic["date"] as? String ?? ""
+        self.photoId = photoDic["id"] as? Int ?? 0
+        self.imageURL = photoDic["url"] as? String ?? ""
     }
     
 }

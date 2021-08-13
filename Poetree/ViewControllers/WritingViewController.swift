@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import NSObject_Rx
+import Kingfisher
 
 class WritingViewController: UIViewController, ViewModelBindable, StoryboardBased, HasDisposeBag {
     
@@ -27,7 +28,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
     
     func bindViewModel() {
       
-        selectedPhoto.image = viewModel.weekPhoto.image
+        selectedPhoto.kf.setImage(with: viewModel.selectedPhoto.url)
         
         viewModel.output.getCurrentDate
             .drive(userDateLabel.rx.text)

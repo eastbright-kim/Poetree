@@ -11,7 +11,7 @@ import RxCocoa
 
 class WritePoemViewModel: ViewModelType {
     
-    let weekPhoto: WeekPhoto
+    let selectedPhoto: WeekPhoto
     let poemService: PoemService
     
     struct Input {
@@ -27,7 +27,7 @@ class WritePoemViewModel: ViewModelType {
     
     init(weekPhoto: WeekPhoto, poemService: PoemService) {
         self.poemService = poemService
-        self.weekPhoto = weekPhoto
+        self.selectedPhoto = weekPhoto
         
         let getCurrentDate =  Observable<String>.just(poemService.getCurrentWritingTime())
             .asDriver(onErrorJustReturn: "좋은 날")

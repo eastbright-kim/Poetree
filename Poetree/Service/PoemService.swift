@@ -7,45 +7,65 @@
 
 import Foundation
 import RxSwift
+import Firebase
 import FirebaseAuth
-
+import Kingfisher
 class PoemService {
+    
+    private var weekPhotos = [WeekPhoto]()
     
     
     private lazy var photoStore = BehaviorSubject<[WeekPhoto]>(value: whites)
-    
+    private lazy var thisWeekPhotoStore = BehaviorSubject<[WeekPhoto]>(value: whites)
     
     let poemRepository: PoemRepository
     
     init(poemRepository: PoemRepository) {
         self.poemRepository = poemRepository
     }
-    
-    
-    func getWeekPhoto(completion: @escaping ([WeekPhoto]) -> Void) {
-        
-        poemRepository.getWeekPhoto  { [unowned self] weekPhoto in
-            
-            whites = weekPhoto
-            photoStore.onNext(weekPhoto)
-            completion(weekPhoto)
+   
+    func getWeekPhotos(completion: @escaping ([WeekPhoto]) -> Void) {
+        poemRepository.fetchPhotos {[unowned self] photoEntities in
+          let weekPhotos = photoEntities.map { entity -> WeekPhoto in
+            let url = URL(string: entity.imageURL)!
+            let photoId = entity.photoId
+            let date = converStringToDate(dateFormat: "YYYY MMM d", dateString: entity.date)
+                return WeekPhoto(date: date, id: photoId, url: url)
+            }
+            completion(weekPhotos)
+            self.weekPhotos = weekPhotos
+            self.getThisWeekPhoto(photos: weekPhotos)
+            self.photoStore.onNext(weekPhotos)
         }
     }
-    
+    @discardableResult
     func photos() -> Observable<[WeekPhoto]> {
         return photoStore
+    }
+    
+    @discardableResult
+    func thisWeekPhotos() -> Observable<[WeekPhoto]> {
+        return thisWeekPhotoStore
+    }
+    
+    @discardableResult
+    func getThisWeekPhoto(photos: [WeekPhoto]) -> Observable<[WeekPhoto]> {
+        
+        let sortedArr = photos.sorted { p1, p2 in
+            Double(p1.date.timeIntervalSince1970) > Double(p2.date.timeIntervalSince1970)
+        }.suffix(3)
+        print(Array(sortedArr))
+        self.thisWeekPhotoStore.onNext(Array(sortedArr))
+        return Observable.just(Array(sortedArr))
     }
     
     func getCurrentDate() -> String {
 
         let currentDate = convertDateToString(format: "MMM-d", date: Date())
-        
-        
         let current = currentDate.components(separatedBy: "-")
         
         let day = Int(current[1])!
         let week = getWeek(day: day)
-        
         
         return "\(current[0]) \(week)"
     }
