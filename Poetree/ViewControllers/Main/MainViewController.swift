@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import FSPagerView
 import RxSwift
 import RxCocoa
 import NSObject_Rx

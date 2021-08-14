@@ -59,6 +59,11 @@ class PoemService {
         return Observable.just(Array(sortedArr))
     }
     
+    func createPoem(poem: Poem) {
+        
+    }
+    
+    
     func getCurrentDate() -> String {
 
         let currentDate = convertDateToString(format: "MMM-d", date: Date())

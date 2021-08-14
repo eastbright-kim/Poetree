@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		837DEFCB984EC8B76674524A /* Pods_Poetree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A7CB735EE61484A0C8E1AA /* Pods_Poetree.framework */; };
+		DB048DCF26C7A4B80058302C /* UserRelated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB048DCE26C7A4B80058302C /* UserRelated.storyboard */; };
+		DB048DD126C7A4EE0058302C /* UserRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB048DD026C7A4EE0058302C /* UserRegisterViewController.swift */; };
+		DB048DD326C7A5C10058302C /* UserRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB048DD226C7A5C10058302C /* UserRegisterViewModel.swift */; };
+		DB048DD526C7A86D0058302C /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB048DD426C7A86D0058302C /* UserService.swift */; };
+		DB048DD726C7A8AF0058302C /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB048DD626C7A8AF0058302C /* UserRepository.swift */; };
+		DB048DD926C7ABC90058302C /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB048DD826C7ABC90058302C /* Error.swift */; };
 		DB15716826C52720003F58FC /* PoemEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15716726C52720003F58FC /* PoemEntity.swift */; };
 		DB15716C26C5301A003F58FC /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15716B26C5301A003F58FC /* Function.swift */; };
 		DB21A25F26C16B3F0048FB17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21A25E26C16B3F0048FB17 /* AppDelegate.swift */; };
@@ -49,6 +55,12 @@
 		1ACB32708FFD3EB56C965507 /* Pods-Poetree.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poetree.release.xcconfig"; path = "Target Support Files/Pods-Poetree/Pods-Poetree.release.xcconfig"; sourceTree = "<group>"; };
 		1F25C0A03A4253B5E0F2D913 /* Pods-Poetree.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poetree.debug.xcconfig"; path = "Target Support Files/Pods-Poetree/Pods-Poetree.debug.xcconfig"; sourceTree = "<group>"; };
 		71A7CB735EE61484A0C8E1AA /* Pods_Poetree.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Poetree.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB048DCE26C7A4B80058302C /* UserRelated.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserRelated.storyboard; sourceTree = "<group>"; };
+		DB048DD026C7A4EE0058302C /* UserRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterViewController.swift; sourceTree = "<group>"; };
+		DB048DD226C7A5C10058302C /* UserRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterViewModel.swift; sourceTree = "<group>"; };
+		DB048DD426C7A86D0058302C /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		DB048DD626C7A8AF0058302C /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		DB048DD826C7ABC90058302C /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		DB15716726C52720003F58FC /* PoemEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemEntity.swift; sourceTree = "<group>"; };
 		DB15716B26C5301A003F58FC /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
 		DB21A25B26C16B3F0048FB17 /* Poetree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poetree.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +173,7 @@
 				DB21A26426C16B3F0048FB17 /* Main.storyboard */,
 				DB21A28626C18F4D0048FB17 /* MainPoemTableViewCell.swift */,
 				DB9D575D26C43E6000A86148 /* MainPhotoCollectionViewCell.swift */,
+				DB048DCE26C7A4B80058302C /* UserRelated.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -168,6 +181,7 @@
 		DB21A27526C173920048FB17 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DBAFED0026C8376A00D96C46 /* Depreacated */,
 				DBCE060B26C2C8E40008EBF8 /* API */,
 				DB21A27E26C175250048FB17 /* PoetreeIcon.png */,
 				DB21A26726C16B410048FB17 /* Assets.xcassets */,
@@ -202,6 +216,7 @@
 				DBFCE5ED26C3AB0B00E3FC16 /* PoemListViewModel.swift */,
 				DBFCE5EF26C3AB1A00E3FC16 /* ReadPoemViewModel.swift */,
 				DBFCE5F126C3AB2B00E3FC16 /* PhotoListViewModel.swift */,
+				DB048DD226C7A5C10058302C /* UserRegisterViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -236,6 +251,7 @@
 			children = (
 				DB53ADA826C3E52700FAA8B8 /* DummyData */,
 				DB7AC1EC26C2E004001A62B6 /* PoemService.swift */,
+				DB048DD426C7A86D0058302C /* UserService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -246,6 +262,14 @@
 				DB53ADA926C3E53400FAA8B8 /* DummyData.swift */,
 			);
 			path = DummyData;
+			sourceTree = "<group>";
+		};
+		DBAFED0026C8376A00D96C46 /* Depreacated */ = {
+			isa = PBXGroup;
+			children = (
+				DB048DD626C7A8AF0058302C /* UserRepository.swift */,
+			);
+			path = Depreacated;
 			sourceTree = "<group>";
 		};
 		DBCE060626C2A9890008EBF8 /* Main */ = {
@@ -268,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				DB34288E26C1CDF9007C5A6A /* UserPageViewController.swift */,
+				DB048DD026C7A4EE0058302C /* UserRegisterViewController.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -278,6 +303,7 @@
 				DBCE060C26C2C8F00008EBF8 /* Protocol.swift */,
 				DBCE061026C2D2430008EBF8 /* Constant.swift */,
 				DB15716B26C5301A003F58FC /* Function.swift */,
+				DB048DD826C7ABC90058302C /* Error.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -342,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBFCE5F926C3B21500E3FC16 /* image1.jpg in Resources */,
+				DB048DCF26C7A4B80058302C /* UserRelated.storyboard in Resources */,
 				DB21A26B26C16B410048FB17 /* LaunchScreen.storyboard in Resources */,
 				DB21A27326C1700F0048FB17 /* GoogleService-Info.plist in Resources */,
 				DB21A26826C16B410048FB17 /* Assets.xcassets in Resources */,
@@ -409,6 +436,7 @@
 				DBFCE5EE26C3AB0B00E3FC16 /* PoemListViewModel.swift in Sources */,
 				DB2CFD6B26C2887100130078 /* WritingListViewController.swift in Sources */,
 				DBCE061126C2D2430008EBF8 /* Constant.swift in Sources */,
+				DB048DD326C7A5C10058302C /* UserRegisterViewModel.swift in Sources */,
 				DB53ADAA26C3E53400FAA8B8 /* DummyData.swift in Sources */,
 				DB2CFD6926C2884D00130078 /* WritingViewController.swift in Sources */,
 				DBFCE5F026C3AB1A00E3FC16 /* ReadPoemViewModel.swift in Sources */,
@@ -416,6 +444,8 @@
 				DBCE060D26C2C8F00008EBF8 /* Protocol.swift in Sources */,
 				DBFCE5F226C3AB2B00E3FC16 /* PhotoListViewModel.swift in Sources */,
 				DB34288F26C1CDF9007C5A6A /* UserPageViewController.swift in Sources */,
+				DB048DD926C7ABC90058302C /* Error.swift in Sources */,
+				DB048DD726C7A8AF0058302C /* UserRepository.swift in Sources */,
 				DB21A27D26C174420048FB17 /* MainViewController.swift in Sources */,
 				DBCE060A26C2ACEE0008EBF8 /* MainViewModel.swift in Sources */,
 				DBFCE5F426C3AF7300E3FC16 /* PoemRepository.swift in Sources */,
@@ -425,6 +455,8 @@
 				DB15716826C52720003F58FC /* PoemEntity.swift in Sources */,
 				DB15716C26C5301A003F58FC /* Function.swift in Sources */,
 				DB21A26126C16B3F0048FB17 /* SceneDelegate.swift in Sources */,
+				DB048DD126C7A4EE0058302C /* UserRegisterViewController.swift in Sources */,
+				DB048DD526C7A86D0058302C /* UserService.swift in Sources */,
 				DB34288D26C1CDE3007C5A6A /* HistoryViewController.swift in Sources */,
 				DBCE060326C2A8CA0008EBF8 /* WritingDetailViewController.swift in Sources */,
 				DB21A28726C18F4D0048FB17 /* MainPoemTableViewCell.swift in Sources */,

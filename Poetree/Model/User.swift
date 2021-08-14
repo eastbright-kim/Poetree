@@ -8,11 +8,8 @@
 import Foundation
 
 struct User {
-    
     let email: String
-    var penName: String?
-    var likedPoems: [Poem]?
-    var wrotePoems: [Poem]?
-    
+    let password: String
+    var penName: String
 }
 

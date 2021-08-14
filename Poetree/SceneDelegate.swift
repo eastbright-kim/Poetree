@@ -19,7 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
 
         let poemRepository = PoemRepository()
+        let userRepository = UserRepository()
         let poemService = PoemService(poemRepository: poemRepository)
+        let userService = UserService(userRepository: userRepository)
 
         var mainVC = MainViewController.instantiate(storyboardID: "Main")
         mainVC.bind(viewModel: MainViewModel(poemService: poemService))
@@ -29,16 +31,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         var historyVC = HistoryViewController.instantiate(storyboardID: "Main")
         historyVC.bind(viewModel: HistoryViewModel(poemSevice: poemService))
         let historyNVC = UINavigationController(rootViewController: historyVC)
-        
+
 
         var userPoemVC = UserPageViewController.instantiate(storyboardID: "Main")
-        userPoemVC.bind(viewModel: MyPoemViewModel(poemService: poemService))
+        userPoemVC.bind(viewModel: MyPoemViewModel(poemService: poemService, userServie: userService))
         let userNAV = UINavigationController(rootViewController: userPoemVC)
-        
+
 
         let tabBarController = UITabBarController()
         tabBarController.setViewControllers([mainNVC, historyNVC, userNAV], animated: false)
-        
+
 
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()

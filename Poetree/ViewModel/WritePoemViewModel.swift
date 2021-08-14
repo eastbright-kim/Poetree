@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+
 class WritePoemViewModel: ViewModelType {
     
     let selectedPhoto: WeekPhoto
@@ -34,5 +35,10 @@ class WritePoemViewModel: ViewModelType {
         
         self.input = Input()
         self.output = Output(getCurrentDate: getCurrentDate)
+    }
+    
+    func createPeom(poem: Poem) {
+        
+//        self.poemService.createPoem(poem)
     }
 }
