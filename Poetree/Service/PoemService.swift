@@ -59,8 +59,16 @@ class PoemService {
         return Observable.just(Array(sortedArr))
     }
     
-    func createPoem(poem: Poem) {
+    func createPoem(poem: Poem, completion: @escaping ((String) -> Void)) {
         
+        poemRepository.createPoem(poemModel: poem) { result in
+            switch result {
+            case .success(let s):
+                completion(s.rawValue)
+            case .failure:
+                completion("write poem error")
+            }
+        }
     }
     
     

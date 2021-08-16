@@ -273,6 +273,9 @@
                                                         <state key="normal" title="글 보내기">
                                                             <color key="titleColor" systemColor="systemOrangeColor"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="sendPoemTapped:" destination="g87-dz-2Lh" eventType="touchUpInside" id="bvm-dH-uGf"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -332,7 +335,10 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <size key="freeformSize" width="428" height="1400"/>
                     <connections>
+                        <outlet property="contentTextView" destination="KQI-i7-zUA" id="rPa-RX-1qg"/>
+                        <outlet property="privateChechBtn" destination="qoB-1u-CYd" id="hUh-iL-yXJ"/>
                         <outlet property="selectedPhoto" destination="QlM-8h-VbG" id="4bu-Zp-Dr4"/>
+                        <outlet property="titleTextField" destination="V7b-zI-8z9" id="fw4-8x-ahv"/>
                         <outlet property="userDateLabel" destination="AT9-5k-iWb" id="Vw5-X6-LeL"/>
                     </connections>
                 </viewController>

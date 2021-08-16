@@ -12,8 +12,4 @@ class UserService {
     
     
     
-    init(poemRepository: PoemRepository) {
-        
-    }
-    
 }

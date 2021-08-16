@@ -47,13 +47,9 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
         userRegister.rx.tap
             .subscribe(onNext:{[unowned self]
                 _ in
-                
-                let viewModel = UserRegisterViewModel(userService: self.viewModel.userService)
-                
+                let viewModel = UserRegisterViewModel()
                 var vc = UserRegisterViewController.instantiate(storyboardID: "UserRelated")
-                
                 vc.bind(viewModel: viewModel)
-                
                 self.present(vc, animated: true, completion: nil)
                 
             })

@@ -13,7 +13,7 @@
 		DB048DD326C7A5C10058302C /* UserRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB048DD226C7A5C10058302C /* UserRegisterViewModel.swift */; };
 		DB048DD526C7A86D0058302C /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB048DD426C7A86D0058302C /* UserService.swift */; };
 		DB048DD726C7A8AF0058302C /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB048DD626C7A8AF0058302C /* UserRepository.swift */; };
-		DB048DD926C7ABC90058302C /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB048DD826C7ABC90058302C /* Error.swift */; };
+		DB048DD926C7ABC90058302C /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB048DD826C7ABC90058302C /* Result.swift */; };
 		DB15716826C52720003F58FC /* PoemEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15716726C52720003F58FC /* PoemEntity.swift */; };
 		DB15716C26C5301A003F58FC /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15716B26C5301A003F58FC /* Function.swift */; };
 		DB21A25F26C16B3F0048FB17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21A25E26C16B3F0048FB17 /* AppDelegate.swift */; };
@@ -60,7 +60,7 @@
 		DB048DD226C7A5C10058302C /* UserRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterViewModel.swift; sourceTree = "<group>"; };
 		DB048DD426C7A86D0058302C /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		DB048DD626C7A8AF0058302C /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
-		DB048DD826C7ABC90058302C /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		DB048DD826C7ABC90058302C /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		DB15716726C52720003F58FC /* PoemEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemEntity.swift; sourceTree = "<group>"; };
 		DB15716B26C5301A003F58FC /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
 		DB21A25B26C16B3F0048FB17 /* Poetree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poetree.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -209,14 +209,12 @@
 		DB21A27726C173C00048FB17 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				DBCE060926C2ACEE0008EBF8 /* MainViewModel.swift */,
-				DBFCE5E926C3AA9D00E3FC16 /* MyPoemViewModel.swift */,
-				DBFCE5E726C3AA8400E3FC16 /* HistoryViewModel.swift */,
+				DBC2848326CA560E000D2E8B /* PoemListViewModel */,
+				DBC2848226CA55F4000D2E8B /* HistoryViewModel */,
+				DBC2848126CA55D2000D2E8B /* UserRelatedViewModel */,
+				DBC2848026CA55BF000D2E8B /* MainViewModel */,
 				DBFCE5EB26C3AAFA00E3FC16 /* WritePoemViewModel.swift */,
-				DBFCE5ED26C3AB0B00E3FC16 /* PoemListViewModel.swift */,
 				DBFCE5EF26C3AB1A00E3FC16 /* ReadPoemViewModel.swift */,
-				DBFCE5F126C3AB2B00E3FC16 /* PhotoListViewModel.swift */,
-				DB048DD226C7A5C10058302C /* UserRegisterViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -272,6 +270,40 @@
 			path = Depreacated;
 			sourceTree = "<group>";
 		};
+		DBC2848026CA55BF000D2E8B /* MainViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DBCE060926C2ACEE0008EBF8 /* MainViewModel.swift */,
+			);
+			path = MainViewModel;
+			sourceTree = "<group>";
+		};
+		DBC2848126CA55D2000D2E8B /* UserRelatedViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DBFCE5E926C3AA9D00E3FC16 /* MyPoemViewModel.swift */,
+				DB048DD226C7A5C10058302C /* UserRegisterViewModel.swift */,
+			);
+			path = UserRelatedViewModel;
+			sourceTree = "<group>";
+		};
+		DBC2848226CA55F4000D2E8B /* HistoryViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DBFCE5E726C3AA8400E3FC16 /* HistoryViewModel.swift */,
+			);
+			path = HistoryViewModel;
+			sourceTree = "<group>";
+		};
+		DBC2848326CA560E000D2E8B /* PoemListViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DBFCE5F126C3AB2B00E3FC16 /* PhotoListViewModel.swift */,
+				DBFCE5ED26C3AB0B00E3FC16 /* PoemListViewModel.swift */,
+			);
+			path = PoemListViewModel;
+			sourceTree = "<group>";
+		};
 		DBCE060626C2A9890008EBF8 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,7 +335,7 @@
 				DBCE060C26C2C8F00008EBF8 /* Protocol.swift */,
 				DBCE061026C2D2430008EBF8 /* Constant.swift */,
 				DB15716B26C5301A003F58FC /* Function.swift */,
-				DB048DD826C7ABC90058302C /* Error.swift */,
+				DB048DD826C7ABC90058302C /* Result.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -444,7 +476,7 @@
 				DBCE060D26C2C8F00008EBF8 /* Protocol.swift in Sources */,
 				DBFCE5F226C3AB2B00E3FC16 /* PhotoListViewModel.swift in Sources */,
 				DB34288F26C1CDF9007C5A6A /* UserPageViewController.swift in Sources */,
-				DB048DD926C7ABC90058302C /* Error.swift in Sources */,
+				DB048DD926C7ABC90058302C /* Result.swift in Sources */,
 				DB048DD726C7A8AF0058302C /* UserRepository.swift in Sources */,
 				DB21A27D26C174420048FB17 /* MainViewController.swift in Sources */,
 				DBCE060A26C2ACEE0008EBF8 /* MainViewModel.swift in Sources */,

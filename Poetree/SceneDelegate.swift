@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let poemRepository = PoemRepository()
         let userRepository = UserRepository()
         let poemService = PoemService(poemRepository: poemRepository)
-        let userService = UserService(userRepository: userRepository)
+        let userService = UserService()
 
         var mainVC = MainViewController.instantiate(storyboardID: "Main")
         mainVC.bind(viewModel: MainViewModel(poemService: poemService))
@@ -34,7 +34,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
         var userPoemVC = UserPageViewController.instantiate(storyboardID: "Main")
-        userPoemVC.bind(viewModel: MyPoemViewModel(poemService: poemService, userServie: userService))
+        userPoemVC.bind(viewModel: MyPoemViewModel(poemService: poemService))
         let userNAV = UINavigationController(rootViewController: userPoemVC)
 
 
