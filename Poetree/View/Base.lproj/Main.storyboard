@@ -937,7 +937,7 @@
         <!--글 보기-->
         <scene sceneID="aL7-DL-Uyt">
             <objects>
-                <viewController storyboardIdentifier="WritingDetailViewController" id="74A-wR-hPo" customClass="WritingDetailViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PoemDetailViewController" id="74A-wR-hPo" customClass="PoemDetailViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WBB-Qm-yoe">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="1400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1069,6 +1069,15 @@
                     <navigationItem key="navigationItem" title="글 보기" id="cic-F9-fBb"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <size key="freeformSize" width="428" height="1400"/>
+                    <connections>
+                        <outlet property="contentLabel" destination="kUt-Wa-cg9" id="4U7-ZR-8lr"/>
+                        <outlet property="deleteBtn" destination="vL6-oA-Rjq" id="qcV-HJ-28p"/>
+                        <outlet property="editBtn" destination="Gxh-dA-4XV" id="XxI-yl-SWZ"/>
+                        <outlet property="likeBtn" destination="ic3-eZ-vRZ" id="zJb-45-sDM"/>
+                        <outlet property="photoImageView" destination="2eI-FU-rj4" id="qjZ-rN-TuC"/>
+                        <outlet property="titleLabel" destination="Xm5-Uw-mzW" id="Iyi-vO-ybg"/>
+                        <outlet property="userLabel" destination="kIr-sl-E1R" id="4Ep-S6-j6X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SrK-vz-Did" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

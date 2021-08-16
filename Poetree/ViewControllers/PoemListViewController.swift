@@ -32,9 +32,16 @@ class PoemListViewController: UIViewController, StoryboardBased, ViewModelBindab
                 cell.poemImageView.kf.setImage(with: poem.photoURL)
                 
                 cell.titleLabel.text = poem.title
-                cell.likesLabel.text = "\(poem.likers.count)"
+                print(poem.likers)
+                cell.likesLabel.text = "\(poem.likersCount)"
                 cell.userLabel.text = poem.userNickname
             }
             .disposed(by: rx.disposeBag)
+        
+        tableView.rx.modelSelected(Poem.self)
+            .subscribe(onNext:{ poem in
+                
+            })
+        
     }
 }
