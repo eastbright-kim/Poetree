@@ -33,15 +33,19 @@ class PoemListViewController: UIViewController, StoryboardBased, ViewModelBindab
                 
                 cell.titleLabel.text = poem.title
                 print(poem.likers)
-                cell.likesLabel.text = "\(poem.likersCount)"
+                cell.likesLabel.text = "\(poem.likers.count)"
                 cell.userLabel.text = poem.userNickname
             }
             .disposed(by: rx.disposeBag)
         
         tableView.rx.modelSelected(Poem.self)
-            .subscribe(onNext:{ poem in
+            .subscribe(onNext:{[unowned self] poem in
                 
+                let viewModel = PoemDetailViewModel(poem: poem, poemService: self.viewModel.poemService)
+                var vc = PoemDetailViewController.instantiate(storyboardID: "Main")
+                vc.bind(viewModel: viewModel)
+                self.navigationController?.pushViewController(vc, animated: true)
             })
-        
+            .disposed(by: rx.disposeBag)
     }
 }

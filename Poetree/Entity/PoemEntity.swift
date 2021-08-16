@@ -17,7 +17,7 @@ struct PoemEntity: Codable {
     let photoId: Int
     let uploadAt: String
     var isPublic: Bool
-    var likers: [String]
+    var likers: [String:Bool]
     let photoURL: String
   
     init(poemDic: [String:Any]) {
@@ -30,7 +30,7 @@ struct PoemEntity: Codable {
         self.id = poemDic["id"] as? String ?? ""
         self.photoId = poemDic["photoId"] as? Int ?? 0
         self.isPublic = poemDic["isPublic"] as? Bool ?? true
-        self.likers = poemDic["likers"] as? [String] ?? [""]
+        self.likers = poemDic["likers"] as? [String:Bool] ?? [:]
     }
 }
 

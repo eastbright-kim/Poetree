@@ -20,12 +20,10 @@ class PoemDetailViewModel: ViewModelType {
     }
     
     struct Output {
-//        
-//        let photoURL: URL
-//        let title: Driver<String>
-//        let user: Driver<String>
-//        let content: Driver<String>
-//        let isLike: BehaviorSubject<Bool>
+        
+        let aPoem: Driver<Poem>
+        let user_date: String
+
     }
     
     var input: Input
@@ -35,11 +33,9 @@ class PoemDetailViewModel: ViewModelType {
         
         self.poemService = poemService
         
-        let imageURL = poem.photoURL
-        let title = BehaviorSubject<String>(value: poem.title)
-            .asDriver(onErrorJustReturn: "")
-        let content = BehaviorSubject<String>(value: poem.content)
-            .asDriver(onErrorJustReturn: "")
+        let aPoem = BehaviorSubject<Poem>(value: poem)
+            .asDriver(onErrorJustReturn: Poem(id: "", userEmail: "", userNickname: "", title: "", content: "", photoId: 0, uploadAt: Date(), isPublic: true, likers: [:], photoURL: URL(string: "https://firebasestorage.googleapis.com/v0/b/poetree-e472e.appspot.com/o/white%2F2-2.jpg?alt=media&token=3945142a-4a01-431b-9a0c-51ff8ee10538")!))
+        
         let userLabel = "\(poem.userNickname)님이 \(convertDateToString(format: "MMM d", date: poem.uploadAt))에 보낸 글"
         
 //
@@ -51,8 +47,7 @@ class PoemDetailViewModel: ViewModelType {
 //            )
 //
 //
-        
         self.input = Input()
-        self.output = Output()
+        self.output = Output(aPoem: aPoem, user_date: userLabel)
     }
 }

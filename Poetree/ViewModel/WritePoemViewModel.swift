@@ -49,7 +49,7 @@ class WritePoemViewModel: ViewModelType {
         
         let aPoem = Observable<Poem>.combineLatest(title, content, isPublic) { title, content, isPublic in
             
-            return Poem(id: user.uid, userEmail: user.email ?? "noEmail", userNickname: user.displayName ?? "noNickname", title: title, content: content, photoId: weekPhoto.id, uploadAt: Date(), isPublic: isPublic, likers: [], photoURL: weekPhoto.url)
+            return Poem(id: user.uid, userEmail: user.email ?? "noEmail", userNickname: user.displayName ?? "noNickname", title: title, content: content, photoId: weekPhoto.id, uploadAt: Date(), isPublic: isPublic, likers: [:], photoURL: weekPhoto.url)
         }
         
         self.input = Input(title: title, content: content, isPublic: isPublic)

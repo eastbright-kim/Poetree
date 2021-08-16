@@ -24,7 +24,7 @@ class PoemRepository {
             "photoId": poemModel.photoId,
             "uploadAt": convertDateToString(format: "MMM d", date: poemModel.uploadAt),
             "isPublic": poemModel.isPublic,
-            "likers": "",
+            "likers": [:],
             "photoURL": poemModel.photoURL.absoluteString
         ]
         poemRef.child(currentUser.uid).setValue(poemDic)

@@ -52,6 +52,7 @@ class PoemService {
                 let likers = poemEntity.likers
                 let photoURL = URL(string: poemEntity.photoURL)!
                 let userUID = Auth.auth().currentUser?.uid
+               
                 return Poem(id: id, userEmail: userEmail, userNickname: userNickname, title: title, content: content, photoId: photoId, uploadAt: uploadAt, isPublic: isPublic, likers: likers, photoURL: photoURL, userUID: userUID)
             }
             completion(poemModels, "모든 시 불러오기 성공")

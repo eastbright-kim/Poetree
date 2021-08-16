@@ -1006,6 +1006,13 @@
                                                             <color key="titleColor" systemColor="systemOrangeColor"/>
                                                         </state>
                                                     </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irg-RZ-KP3">
+                                                        <rect key="frame" x="59" y="8" width="42" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -1074,6 +1081,7 @@
                         <outlet property="deleteBtn" destination="vL6-oA-Rjq" id="qcV-HJ-28p"/>
                         <outlet property="editBtn" destination="Gxh-dA-4XV" id="XxI-yl-SWZ"/>
                         <outlet property="likeBtn" destination="ic3-eZ-vRZ" id="zJb-45-sDM"/>
+                        <outlet property="likesCountLabel" destination="Irg-RZ-KP3" id="V8F-5l-UxV"/>
                         <outlet property="photoImageView" destination="2eI-FU-rj4" id="qjZ-rN-TuC"/>
                         <outlet property="titleLabel" destination="Xm5-Uw-mzW" id="Iyi-vO-ybg"/>
                         <outlet property="userLabel" destination="kIr-sl-E1R" id="4Ep-S6-j6X"/>
