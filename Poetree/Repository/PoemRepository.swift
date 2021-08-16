@@ -6,32 +6,10 @@
 //
 
 import Foundation
-import Kingfisher
 import Firebase
 
 
 class PoemRepository {
-    
-    let ref = Database.database().reference()
-    
-    var weekPhotos = [WeekPhoto]()
-    
-    func fetchPhotos(completion: @escaping (([PhotoEntity]) -> Void)) {
-        
-        ref.child("photos").observeSingleEvent(of: .value) { snapshot in
-            let valud = snapshot.value as? [String:Any] ?? [:]
-            
-            var photoEntity = [PhotoEntity]()
-            
-            for value in valud.values {
-                let dic = value as! [String : Any]
-                print(dic)
-                let photo = PhotoEntity(photoDic: dic)
-                photoEntity.append(photo)
-            }
-            completion(photoEntity)
-        }
-    }
     
     func createPoem(poemModel: Poem,completion: @escaping ((Result<Complete, Errors>) -> Void)) {
         
@@ -49,10 +27,22 @@ class PoemRepository {
             "likers": [],
             "photoURL": poemModel.photoURL.absoluteString
         ]
-        
-        
-        
-        ref.child("poem").child(currentUser.uid).setValue(poemDic)
+        poemRef.child(currentUser.uid).setValue(poemDic)
         completion(.success(.writedPoem))
+    }
+    
+    func fetchPoems(completion: @escaping (([PoemEntity], Result<Complete, Error>)) -> Void) {
+        
+        poemRef.observeSingleEvent(of: .value) { snapshot in
+            
+            let snapshotValue = snapshot.value as? [String:Any] ?? [:]
+            var poemEntities = [PoemEntity]()
+            for value in snapshotValue.values {
+                let poemDic = value as! [String:Any]
+                let poemEntity = PoemEntity(poemDic: poemDic)
+                poemEntities.append(poemEntity)
+            }
+            completion((poemEntities, .success(.fetchedPoem)))
+        }
     }
 }

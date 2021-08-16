@@ -10,7 +10,7 @@ import FirebaseAuth
 
 struct PoemEntity: Codable {
     
-    let id: Int
+    let id: String
     let userEmail: String
     let userNickname: String
     var title: String
@@ -28,7 +28,7 @@ struct PoemEntity: Codable {
         self.photoURL = poemDic["photoURL"] as? String ?? ""
         self.userNickname = poemDic["userNickname"] as? String ?? ""
         self.uploadAt = poemDic["uploadAt"] as? String ?? ""
-        self.id = poemDic["id"] as? Int ?? 0
+        self.id = poemDic["id"] as? String ?? ""
         self.photoId = poemDic["photoId"] as? Int ?? 0
         self.isPublic = poemDic["isPublic"] as? Bool ?? true
         self.likers = poemDic["likers"] as? [String] ?? [""]

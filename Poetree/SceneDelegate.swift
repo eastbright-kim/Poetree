@@ -19,12 +19,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
 
         let poemRepository = PoemRepository()
-        let userRepository = UserRepository()
+        let photoRepository = PhotoRepository()
+        let photoServie = PhotoService(photoRepository: photoRepository)
         let poemService = PoemService(poemRepository: poemRepository)
-        let userService = UserService()
+     
 
         var mainVC = MainViewController.instantiate(storyboardID: "Main")
-        mainVC.bind(viewModel: MainViewModel(poemService: poemService))
+        mainVC.bind(viewModel: MainViewModel(poemService: poemService, photoService: photoServie))
         let mainNVC = UINavigationController(rootViewController: mainVC)
         mainNVC.navigationController?.navigationBar.prefersLargeTitles = true
 

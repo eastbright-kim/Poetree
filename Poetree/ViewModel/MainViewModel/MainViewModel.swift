@@ -13,6 +13,7 @@ import NSObject_Rx
 
 class MainViewModel: ViewModelType {
     
+    let photoService: PhotoService
     let poemService: PoemService
     let disposebag = DisposeBag()
     
@@ -28,16 +29,17 @@ class MainViewModel: ViewModelType {
     var input: Input
     var output: Output
     
-    init(poemService: PoemService){
+    init(poemService: PoemService, photoService: PhotoService){
         
         self.poemService = poemService
+        self.photoService = photoService
         
         let currentDate = Observable<String>.just(poemService.getCurrentDate())
             .asDriver(onErrorJustReturn: "Jan 1st")
         
-        let thisWeekPhotoURL = poemService.thisWeekPhotos()
+        let thisWeekPhotoURL = photoService.thisWeekPhotos()
             
-        poemService.getWeekPhotos { weekPhotos in
+        photoService.getWeekPhotos { weekPhotos in
             print(weekPhotos)
         }
         
