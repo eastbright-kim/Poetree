@@ -10,8 +10,12 @@ import UIKit
 class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBased {
 
     
+    @IBOutlet weak var allPoemsBtn: UIButton!
+    
     
     var viewModel: HistoryViewModel!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +40,14 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
     
     func bindViewModel() {
         
+        allPoemsBtn.rx.tap
+            .subscribe(onNext: { [unowned self] _ in
+                
+                let viewModel = PoemListViewModel(poemService: self.viewModel.poemSevice)
+                var vc = PoemListViewController.instantiate(storyboardID: "Main")
+                vc.bind(viewModel: viewModel)
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
+            .disposed(by: rx.disposeBag)
     }
-    
-    
-
 }

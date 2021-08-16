@@ -43,7 +43,7 @@ class PoemService {
             let poemModels = poemEntities.map { poemEntity -> Poem in
                 let id = poemEntity.id
                 let userEmail = poemEntity.userEmail
-                let userNickname = poemEntity.userEmail
+                let userNickname = poemEntity.userNickname
                 let title = poemEntity.title
                 let content = poemEntity.content
                 let photoId = poemEntity.photoId

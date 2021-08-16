@@ -349,16 +349,16 @@
         <!--글 리스트-->
         <scene sceneID="9Yk-DP-ZcT">
             <objects>
-                <viewController storyboardIdentifier="WritingListViewController" id="ZpD-PP-ykA" customClass="WritingListViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PoemListViewController" id="ZpD-PP-ykA" customClass="PoemListViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PhL-FX-DWu">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sEA-dt-tgL">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="110" estimatedRowHeight="110" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sEA-dt-tgL">
                                 <rect key="frame" x="0.0" y="88" width="428" height="804"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="110" id="mhG-af-nh9">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PoemListCell" rowHeight="110" id="mhG-af-nh9" customClass="PoemListTableViewCell" customModule="Poetree" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.333333969116211" width="428" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mhG-af-nh9" id="4Sf-Xu-LO3">
@@ -414,6 +414,12 @@
                                                 <constraint firstItem="eYV-SU-3pk" firstAttribute="top" secondItem="4Sf-Xu-LO3" secondAttribute="top" constant="29" id="t4g-XH-beT"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="likesLabel" destination="ehf-1d-OLu" id="uwY-1y-vo7"/>
+                                            <outlet property="poemImageView" destination="MeP-Kb-9id" id="oYy-gy-fgt"/>
+                                            <outlet property="titleLabel" destination="eYV-SU-3pk" id="XUi-CD-u6o"/>
+                                            <outlet property="userLabel" destination="Pdy-6l-l3W" id="8EF-mp-vRe"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -429,6 +435,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="글 리스트" id="mfD-2p-mbZ"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="sEA-dt-tgL" id="b7l-oA-sv4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AJq-ET-KWP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -659,6 +668,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="History" id="Qr4-wN-HHM"/>
+                    <connections>
+                        <outlet property="allPoemsBtn" destination="X2z-M8-yjQ" id="nrq-Cr-NQ9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EDi-tE-s4t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

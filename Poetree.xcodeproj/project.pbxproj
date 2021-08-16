@@ -25,7 +25,7 @@
 		DB21A27F26C175250048FB17 /* PoetreeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = DB21A27E26C175250048FB17 /* PoetreeIcon.png */; };
 		DB21A28726C18F4D0048FB17 /* MainPoemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21A28626C18F4D0048FB17 /* MainPoemTableViewCell.swift */; };
 		DB2CFD6926C2884D00130078 /* WritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2CFD6826C2884D00130078 /* WritingViewController.swift */; };
-		DB2CFD6B26C2887100130078 /* WritingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2CFD6A26C2887100130078 /* WritingListViewController.swift */; };
+		DB2CFD6B26C2887100130078 /* PoemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2CFD6A26C2887100130078 /* PoemListViewController.swift */; };
 		DB34288D26C1CDE3007C5A6A /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34288C26C1CDE3007C5A6A /* HistoryViewController.swift */; };
 		DB34288F26C1CDF9007C5A6A /* UserPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34288E26C1CDF9007C5A6A /* UserPageViewController.swift */; };
 		DB34289126C1CEC1007C5A6A /* Poem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34289026C1CEC1007C5A6A /* Poem.swift */; };
@@ -33,6 +33,7 @@
 		DB666DBE26CA907600A588AC /* FirebaseReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB666DBD26CA907600A588AC /* FirebaseReference.swift */; };
 		DB666DC026CAAF1E00A588AC /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB666DBF26CAAF1E00A588AC /* PhotoService.swift */; };
 		DB666DC226CAAF8D00A588AC /* PhotoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB666DC126CAAF8D00A588AC /* PhotoRepository.swift */; };
+		DB666DC626CAB6FA00A588AC /* PoemListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB666DC526CAB6FA00A588AC /* PoemListTableViewCell.swift */; };
 		DB7AC1ED26C2E004001A62B6 /* PoemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7AC1EC26C2E004001A62B6 /* PoemService.swift */; };
 		DB9D575E26C43E6000A86148 /* MainPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9D575D26C43E6000A86148 /* MainPhotoCollectionViewCell.swift */; };
 		DBCE060326C2A8CA0008EBF8 /* WritingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE060226C2A8CA0008EBF8 /* WritingDetailViewController.swift */; };
@@ -75,7 +76,7 @@
 		DB21A27E26C175250048FB17 /* PoetreeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PoetreeIcon.png; sourceTree = "<group>"; };
 		DB21A28626C18F4D0048FB17 /* MainPoemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPoemTableViewCell.swift; sourceTree = "<group>"; };
 		DB2CFD6826C2884D00130078 /* WritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewController.swift; sourceTree = "<group>"; };
-		DB2CFD6A26C2887100130078 /* WritingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingListViewController.swift; sourceTree = "<group>"; };
+		DB2CFD6A26C2887100130078 /* PoemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemListViewController.swift; sourceTree = "<group>"; };
 		DB34288C26C1CDE3007C5A6A /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		DB34288E26C1CDF9007C5A6A /* UserPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageViewController.swift; sourceTree = "<group>"; };
 		DB34289026C1CEC1007C5A6A /* Poem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poem.swift; sourceTree = "<group>"; };
@@ -83,6 +84,7 @@
 		DB666DBD26CA907600A588AC /* FirebaseReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseReference.swift; sourceTree = "<group>"; };
 		DB666DBF26CAAF1E00A588AC /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
 		DB666DC126CAAF8D00A588AC /* PhotoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRepository.swift; sourceTree = "<group>"; };
+		DB666DC526CAB6FA00A588AC /* PoemListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemListTableViewCell.swift; sourceTree = "<group>"; };
 		DB7AC1EC26C2E004001A62B6 /* PoemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemService.swift; sourceTree = "<group>"; };
 		DB9D575D26C43E6000A86148 /* MainPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		DBCE060226C2A8CA0008EBF8 /* WritingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingDetailViewController.swift; sourceTree = "<group>"; };
@@ -171,10 +173,10 @@
 		DB21A27426C1736C0048FB17 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DB666DC426CAB68700A588AC /* CollectionViewCell */,
+				DB666DC326CAB65800A588AC /* TableViewCell */,
 				DB21A26926C16B410048FB17 /* LaunchScreen.storyboard */,
 				DB21A26426C16B3F0048FB17 /* Main.storyboard */,
-				DB21A28626C18F4D0048FB17 /* MainPoemTableViewCell.swift */,
-				DB9D575D26C43E6000A86148 /* MainPhotoCollectionViewCell.swift */,
 				DB048DCE26C7A4B80058302C /* UserRelated.storyboard */,
 			);
 			path = View;
@@ -202,7 +204,7 @@
 				DBCE060826C2A9A30008EBF8 /* User */,
 				DB2CFD6826C2884D00130078 /* WritingViewController.swift */,
 				DBCE060426C2A8FB0008EBF8 /* PhotoCollectionViewController.swift */,
-				DB2CFD6A26C2887100130078 /* WritingListViewController.swift */,
+				DB2CFD6A26C2887100130078 /* PoemListViewController.swift */,
 				DBCE060226C2A8CA0008EBF8 /* WritingDetailViewController.swift */,
 			);
 			path = ViewControllers;
@@ -262,6 +264,23 @@
 				DB53ADA926C3E53400FAA8B8 /* DummyData.swift */,
 			);
 			path = DummyData;
+			sourceTree = "<group>";
+		};
+		DB666DC326CAB65800A588AC /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				DB21A28626C18F4D0048FB17 /* MainPoemTableViewCell.swift */,
+				DB666DC526CAB6FA00A588AC /* PoemListTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		DB666DC426CAB68700A588AC /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				DB9D575D26C43E6000A86148 /* MainPhotoCollectionViewCell.swift */,
+			);
+			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 		DBAFED0026C8376A00D96C46 /* Depreacated */ = {
@@ -469,7 +488,7 @@
 				DB9D575E26C43E6000A86148 /* MainPhotoCollectionViewCell.swift in Sources */,
 				DB34289126C1CEC1007C5A6A /* Poem.swift in Sources */,
 				DBFCE5EE26C3AB0B00E3FC16 /* PoemListViewModel.swift in Sources */,
-				DB2CFD6B26C2887100130078 /* WritingListViewController.swift in Sources */,
+				DB2CFD6B26C2887100130078 /* PoemListViewController.swift in Sources */,
 				DBCE061126C2D2430008EBF8 /* Constant.swift in Sources */,
 				DB048DD326C7A5C10058302C /* UserRegisterViewModel.swift in Sources */,
 				DB53ADAA26C3E53400FAA8B8 /* DummyData.swift in Sources */,
@@ -489,6 +508,7 @@
 				DBFCE5F426C3AF7300E3FC16 /* PoemRepository.swift in Sources */,
 				DB21A25F26C16B3F0048FB17 /* AppDelegate.swift in Sources */,
 				DBCE060526C2A8FB0008EBF8 /* PhotoCollectionViewController.swift in Sources */,
+				DB666DC626CAB6FA00A588AC /* PoemListTableViewCell.swift in Sources */,
 				DB15716826C52720003F58FC /* PoemEntity.swift in Sources */,
 				DB15716C26C5301A003F58FC /* Function.swift in Sources */,
 				DB21A26126C16B3F0048FB17 /* SceneDelegate.swift in Sources */,

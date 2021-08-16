@@ -9,8 +9,8 @@ import Foundation
 
 class HistoryViewModel: ViewModelType {
     
-    
     let poemSevice: PoemService!
+    let photoService: PhotoService!
     
     struct Input {
         
@@ -23,9 +23,13 @@ class HistoryViewModel: ViewModelType {
     var input: Input
     var output: Output
     
-    init(poemSevice: PoemService) {
+    init(poemSevice: PoemService, photoService: PhotoService) {
         self.input = Input()
         self.output = Output()
         self.poemSevice = poemSevice
+        self.photoService = photoService
     }
+    
+    
+    
 }

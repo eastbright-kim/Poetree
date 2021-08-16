@@ -30,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         mainNVC.navigationController?.navigationBar.prefersLargeTitles = true
 
         var historyVC = HistoryViewController.instantiate(storyboardID: "Main")
-        historyVC.bind(viewModel: HistoryViewModel(poemSevice: poemService))
+        historyVC.bind(viewModel: HistoryViewModel(poemSevice: poemService, photoService: photoServie))
         let historyNVC = UINavigationController(rootViewController: historyVC)
 
 
