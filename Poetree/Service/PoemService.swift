@@ -14,24 +14,25 @@ class PoemService {
     private var poems = [Poem]()
     private lazy var poemsStore = BehaviorSubject<[Poem]>(value: poems)
     
-    var poemForDetailView = BehaviorSubject<Poem>(value: Poem(id: "", userEmail: "", userNickname: "", title: "", content: "", photoId: 0, uploadAt: Date(), isPrivate: false , likers: ["":true], photoURL: URL(string: "https://firebasestorage.googleapis.com/v0/b/poetree-e472e.appspot.com/o/white%2F2-2.jpg?alt=media&token=3945142a-4a01-431b-9a0c-51ff8ee10538")!)) //
-    
     let poemRepository: PoemRepository
     
     init(poemRepository: PoemRepository) {
         self.poemRepository = poemRepository
     }
-    func allPoems() -> Observable<[Poem]> {
-        return poemsStore
-    }
+    
+    
+    var poemForDetailView = BehaviorSubject<Poem>(value: Poem(id: "", userEmail: "", userNickname: "", title: "", content: "", photoId: 0, uploadAt: Date(), isPrivate: false , likers: ["":true], photoURL: URL(string: "https://firebasestorage.googleapis.com/v0/b/poetree-e472e.appspot.com/o/white%2F2-2.jpg?alt=media&token=3945142a-4a01-431b-9a0c-51ff8ee10538")!)) //
     
     func onePoemForDetailView() -> Observable<Poem> {
         return poemForDetailView
     }
     
     
+    func allPoems() -> Observable<[Poem]> {
+        return poemsStore
+    }
+    
     func createPoem(poem: Poem, completion: @escaping ((String) -> Void)) {
-        
         poemRepository.createPoem(poemModel: poem) { result in
             switch result {
             case .success(let s):
@@ -87,7 +88,6 @@ class PoemService {
             self.poemsStore.onNext(poemModels)
         }
     }
-    
     
     func getCurrentDate() -> String {
 

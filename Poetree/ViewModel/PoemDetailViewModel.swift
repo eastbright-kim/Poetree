@@ -30,7 +30,6 @@ class PoemDetailViewModel: ViewModelType {
     var output: Output
     
     init(poem: Poem, poemService: PoemService) {
-        
         self.poemService = poemService
         
        
