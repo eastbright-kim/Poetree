@@ -51,6 +51,7 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
                 let viewModel = WriteViewModel(weekPhoto: nil, poemService: viewModel.poemService, editingPoem: self.currentPoem)
                 var vc = WritingViewController.instantiate(storyboardID: "Main")
                 vc.bind(viewModel: viewModel)
+                vc.poem = self.currentPoem
                 self.navigationController?.pushViewController(vc, animated: true)
             })
             .disposed(by: rx.disposeBag)
