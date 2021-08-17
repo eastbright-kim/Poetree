@@ -17,7 +17,6 @@ class WriteViewModel: ViewModelType {
     
     
     struct Input {
-        
         let title: BehaviorSubject<String>
         let content: BehaviorSubject<String>
         var isPrivate: BehaviorSubject<Bool>
@@ -41,8 +40,7 @@ class WriteViewModel: ViewModelType {
         let getCurrentDate =  Observable<String>.just(poemService.getCurrentWritingTime())
             .asDriver(onErrorJustReturn: "좋은 날")
         
-        print(editingPoem!.title)
-        let title = BehaviorSubject<String>(value: editingPoem?.title ?? "")
+        let title = BehaviorSubject<String>(value: "4조5")
         let content = BehaviorSubject<String>(value: "")
         let isPrivate = BehaviorSubject<Bool>(value: false)
         
@@ -60,7 +58,6 @@ class WriteViewModel: ViewModelType {
                 return Poem(id: user.uid, userEmail: user.email ?? "noEmail", userNickname: user.displayName ?? "noNickname", title: newTitle, content: content, photoId: editingPoem!.photoId, uploadAt: Date(), isPrivate: isPrivate, likers: [:], photoURL: editingPoem!.photoURL)
             }
         }
-        .debug()
         
         if let weekPhoto = weekPhoto {
             self.input = Input(title: title, content: content, isPrivate: isPrivate)
