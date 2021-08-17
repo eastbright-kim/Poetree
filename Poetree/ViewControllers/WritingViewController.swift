@@ -23,11 +23,31 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
     @IBOutlet weak var editComplete: UIButton!
     @IBOutlet weak var writeComplete: UIButton!
     
+    let likeNumLabel = UILabel()
+    
+    var poem: Poem?
+    
     var isPrvate = false
+    
+    var likeNum: Int? {
+        didSet {
+            likeNumLabel.text = "\(likeNum)"
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        updateUI()
+    }
+    
+    func updateUI() {
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        titleTextField.becomeFirstResponder()
     }
     
     func setupUI(){
@@ -38,9 +58,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
         } else {
             self.editComplete.isHidden = true
         }
-        
     }
-    
     
     func bindViewModel() {
       
@@ -49,12 +67,10 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
             .disposed(by: rx.disposeBag)
         
         titleTextField.rx.text.orEmpty
-            .debug()
             .bind(to: viewModel.input.title)
             .disposed(by: rx.disposeBag)
         
         contentTextView.rx.text.orEmpty
-            .debug()
             .bind(to: viewModel.input.content)
             .disposed(by: rx.disposeBag)
         
