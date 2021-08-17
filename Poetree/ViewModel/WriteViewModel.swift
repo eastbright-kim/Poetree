@@ -53,8 +53,7 @@ class WriteViewModel: ViewModelType {
             if let weekPhoto = weekPhoto {
                 return Poem(id: user.uid, userEmail: user.email ?? "noEmail", userNickname: user.displayName ?? "noNickname", title: newTitle, content: content, photoId: weekPhoto.id, uploadAt: Date(), isPrivate: isPrivate, likers: [:], photoURL: weekPhoto.url)
             } else {
-                print(newTitle)
-                print(content)
+               
                 return Poem(id: user.uid, userEmail: user.email ?? "noEmail", userNickname: user.displayName ?? "noNickname", title: newTitle, content: content, photoId: editingPoem!.photoId, uploadAt: Date(), isPrivate: isPrivate, likers: [:], photoURL: editingPoem!.photoURL)
             }
         }
