@@ -33,20 +33,14 @@ class PoemDetailViewModel: ViewModelType {
         
         self.poemService = poemService
         
-        let aPoem = BehaviorSubject<Poem>(value: poem)
-            .asDriver(onErrorJustReturn: Poem(id: "", userEmail: "", userNickname: "", title: "", content: "", photoId: 0, uploadAt: Date(), isPublic: true, likers: [:], photoURL: URL(string: "https://firebasestorage.googleapis.com/v0/b/poetree-e472e.appspot.com/o/white%2F2-2.jpg?alt=media&token=3945142a-4a01-431b-9a0c-51ff8ee10538")!))
+       
+        let aPoem = poemService.onePoemForDetailView()
+            .asDriver(onErrorJustReturn: Poem(id: "", userEmail: "", userNickname: "", title: "", content: "", photoId: 0, uploadAt: Date(), isPrivate: true, likers: [:], photoURL: URL(string: "https://firebasestorage.googleapis.com/v0/b/poetree-e472e.appspot.com/o/white%2F2-2.jpg?alt=media&token=3945142a-4a01-431b-9a0c-51ff8ee10538")!))
         
         let userLabel = "\(poem.userNickname)님이 \(convertDateToString(format: "MMM d", date: poem.uploadAt))에 보낸 글"
         
-//
-//
-//        poemService.updatePoem
-//            .subscribe(onNext: poem in
-//                       title.onNext(poem)
-//
-//            )
-//
-//
+        
+
         self.input = Input()
         self.output = Output(aPoem: aPoem, user_date: userLabel)
     }

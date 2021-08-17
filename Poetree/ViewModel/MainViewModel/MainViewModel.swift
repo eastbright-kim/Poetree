@@ -43,6 +43,10 @@ class MainViewModel: ViewModelType {
             print(weekPhotos)
         }
         
+        poemService.fetchPoems { poems, result in
+            print(result)
+        }
+        
         self.input = Input()
         self.output = Output(currentDate: currentDate, thisWeekPhotoURL: thisWeekPhotoURL)
     }

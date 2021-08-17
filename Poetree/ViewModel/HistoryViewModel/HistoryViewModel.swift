@@ -24,12 +24,10 @@ class HistoryViewModel: ViewModelType {
     var output: Output
     
     init(poemSevice: PoemService, photoService: PhotoService) {
+        
         self.input = Input()
         self.output = Output()
         self.poemSevice = poemSevice
         self.photoService = photoService
     }
-    
-    
-    
 }

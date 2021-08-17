@@ -22,16 +22,20 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
     @IBOutlet weak var likesCountLabel: UILabel!
     
     var viewModel: PoemDetailViewModel!
-    
+    var currentPoem: Poem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     func bindViewModel() {
         
+        self.userLabel.text = viewModel.output.user_date
+        
         viewModel.output.aPoem
             .drive(onNext:{[unowned self] poem in
+                print(poem.title)
+                self.currentPoem = poem
                 self.photoImageView.kf.setImage(with: poem.photoURL)
                 self.contentLabel.text = poem.content
                 self.titleLabel.text = poem.title
@@ -41,7 +45,14 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
             })
             .disposed(by: rx.disposeBag)
         
-        self.userLabel.text = viewModel.output.user_date
         
+        self.editBtn.rx.tap
+            .subscribe(onNext:{[unowned self] _ in
+                let viewModel = WriteViewModel(weekPhoto: nil, poemService: viewModel.poemService, editingPoem: self.currentPoem)
+                var vc = WritingViewController.instantiate(storyboardID: "Main")
+                vc.bind(viewModel: viewModel)
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
+            .disposed(by: rx.disposeBag)
     }
 }

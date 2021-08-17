@@ -26,10 +26,6 @@ class PoemListViewModel: ViewModelType {
     
     init(poemService: PoemService) {
         
-        poemService.fetchPoems { poems, result in
-            print(result)
-        }
-        
         let allPoems = poemService.allPoems()
         
         self.poemService = poemService

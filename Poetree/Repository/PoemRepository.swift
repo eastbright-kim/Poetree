@@ -11,9 +11,8 @@ import Firebase
 
 class PoemRepository {
     
-    func createPoem(poemModel: Poem,completion: @escaping ((Result<Complete, Errors>) -> Void)) {
+    func createPoem(poemModel: Poem, completion: @escaping ((Result<Complete, Errors>) -> Void)) {
         
-        let currentUser = Auth.auth().currentUser!
         
         let poemDic: [String:Any] = [
             "id" : currentUser.uid as Any,
@@ -23,13 +22,14 @@ class PoemRepository {
             "content": poemModel.content,
             "photoId": poemModel.photoId,
             "uploadAt": convertDateToString(format: "MMM d", date: poemModel.uploadAt),
-            "isPublic": poemModel.isPublic,
+            "isPrivate": poemModel.isPrivate,
             "likers": [:],
             "photoURL": poemModel.photoURL.absoluteString
         ]
         poemRef.child(currentUser.uid).setValue(poemDic)
         completion(.success(.writedPoem))
     }
+    
     
     func fetchPoems(completion: @escaping (([PoemEntity], Result<Complete, Error>)) -> Void) {
         

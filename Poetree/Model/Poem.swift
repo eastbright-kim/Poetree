@@ -17,12 +17,12 @@ class Poem: Equatable, Identifiable {
     var content: String
     let photoId: Int
     let uploadAt: Date
-    var isPublic: Bool = true
+    var isPrivate: Bool = false
     var likers = [String:Bool]()
     let photoURL: URL
     var isLike: Bool = false
     
-    init(id: String, userEmail: String, userNickname: String, title: String, content: String, photoId: Int, uploadAt: Date, isPublic: Bool, likers: [String:Bool], photoURL: URL, userUID: String? = nil) {
+    init(id: String, userEmail: String, userNickname: String, title: String, content: String, photoId: Int, uploadAt: Date, isPrivate: Bool, likers: [String:Bool], photoURL: URL, userUID: String? = nil) {
         self.id = id
         self.userEmail = userEmail
         self.userNickname = userNickname
@@ -30,7 +30,7 @@ class Poem: Equatable, Identifiable {
         self.content = content
         self.photoId = photoId
         self.uploadAt = uploadAt
-        self.isPublic = isPublic
+        self.isPrivate = isPrivate
         self.likers = likers
         self.photoURL = photoURL
         if let userUID = userUID {

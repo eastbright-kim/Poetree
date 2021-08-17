@@ -43,7 +43,7 @@
 		DBCE061126C2D2430008EBF8 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE061026C2D2430008EBF8 /* Constant.swift */; };
 		DBFCE5E826C3AA8400E3FC16 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5E726C3AA8400E3FC16 /* HistoryViewModel.swift */; };
 		DBFCE5EA26C3AA9D00E3FC16 /* MyPoemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5E926C3AA9D00E3FC16 /* MyPoemViewModel.swift */; };
-		DBFCE5EC26C3AAFA00E3FC16 /* WritePoemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5EB26C3AAFA00E3FC16 /* WritePoemViewModel.swift */; };
+		DBFCE5EC26C3AAFA00E3FC16 /* WriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5EB26C3AAFA00E3FC16 /* WriteViewModel.swift */; };
 		DBFCE5EE26C3AB0B00E3FC16 /* PoemListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5ED26C3AB0B00E3FC16 /* PoemListViewModel.swift */; };
 		DBFCE5F026C3AB1A00E3FC16 /* PoemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5EF26C3AB1A00E3FC16 /* PoemDetailViewModel.swift */; };
 		DBFCE5F226C3AB2B00E3FC16 /* PhotoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5F126C3AB2B00E3FC16 /* PhotoListViewModel.swift */; };
@@ -94,7 +94,7 @@
 		DBCE061026C2D2430008EBF8 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		DBFCE5E726C3AA8400E3FC16 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		DBFCE5E926C3AA9D00E3FC16 /* MyPoemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoemViewModel.swift; sourceTree = "<group>"; };
-		DBFCE5EB26C3AAFA00E3FC16 /* WritePoemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePoemViewModel.swift; sourceTree = "<group>"; };
+		DBFCE5EB26C3AAFA00E3FC16 /* WriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewModel.swift; sourceTree = "<group>"; };
 		DBFCE5ED26C3AB0B00E3FC16 /* PoemListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemListViewModel.swift; sourceTree = "<group>"; };
 		DBFCE5EF26C3AB1A00E3FC16 /* PoemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemDetailViewModel.swift; sourceTree = "<group>"; };
 		DBFCE5F126C3AB2B00E3FC16 /* PhotoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewModel.swift; sourceTree = "<group>"; };
@@ -217,7 +217,7 @@
 				DBC2848226CA55F4000D2E8B /* HistoryViewModel */,
 				DBC2848126CA55D2000D2E8B /* UserRelatedViewModel */,
 				DBC2848026CA55BF000D2E8B /* MainViewModel */,
-				DBFCE5EB26C3AAFA00E3FC16 /* WritePoemViewModel.swift */,
+				DBFCE5EB26C3AAFA00E3FC16 /* WriteViewModel.swift */,
 				DBFCE5EF26C3AB1A00E3FC16 /* PoemDetailViewModel.swift */,
 			);
 			path = ViewModel;
@@ -484,7 +484,7 @@
 			files = (
 				DBFCE5E826C3AA8400E3FC16 /* HistoryViewModel.swift in Sources */,
 				DB7AC1ED26C2E004001A62B6 /* PoemService.swift in Sources */,
-				DBFCE5EC26C3AAFA00E3FC16 /* WritePoemViewModel.swift in Sources */,
+				DBFCE5EC26C3AAFA00E3FC16 /* WriteViewModel.swift in Sources */,
 				DB9D575E26C43E6000A86148 /* MainPhotoCollectionViewCell.swift in Sources */,
 				DB34289126C1CEC1007C5A6A /* Poem.swift in Sources */,
 				DBFCE5EE26C3AB0B00E3FC16 /* PoemListViewModel.swift in Sources */,

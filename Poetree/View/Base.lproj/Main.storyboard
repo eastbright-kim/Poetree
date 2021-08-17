@@ -239,13 +239,7 @@
 더 바닥쪽으로 웅크렸으리라
 버둥거렸으리라 버둥거리다가
 어찌할 수 없어서
-살 속으로 스며드는 것을
-한 때의 어스름을
-꽃게는 천천히 받아들였으리라
-껍질이 먹먹해지기 전에
-가만히 알들에게 말했으리라
-저녁이야
-불 끄고 잘 시간이야</string>
+</string>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -266,6 +260,7 @@
                                                         <state key="normal" image="square" catalog="system">
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                                         </state>
+                                                        <state key="selected" image="square.fill" catalog="system"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2e-gp-QIT">
                                                         <rect key="frame" x="333" y="3.6666666666667425" width="64" height="33"/>
@@ -277,13 +272,25 @@
                                                             <action selector="sendPoemTapped:" destination="g87-dz-2Lh" eventType="touchUpInside" id="bvm-dH-uGf"/>
                                                         </connections>
                                                     </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMI-3N-GrJ">
+                                                        <rect key="frame" x="333" y="3.6666666666667425" width="64" height="33"/>
+                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                        <state key="normal" title="수정 완료">
+                                                            <color key="titleColor" systemColor="systemOrangeColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="editCompleteTapped:" destination="g87-dz-2Lh" eventType="touchUpInside" id="4iV-5K-7NK"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="3CI-jg-X9l"/>
                                                     <constraint firstAttribute="trailing" secondItem="m2e-gp-QIT" secondAttribute="trailing" constant="15" id="5BA-hb-Czb"/>
                                                     <constraint firstItem="qoB-1u-CYd" firstAttribute="leading" secondItem="Dk1-8G-ySV" secondAttribute="trailing" constant="8" symbolic="YES" id="Fol-oU-4L9"/>
+                                                    <constraint firstItem="gMI-3N-GrJ" firstAttribute="centerY" secondItem="5w3-8O-5FX" secondAttribute="centerY" id="IZc-GU-hX5"/>
                                                     <constraint firstItem="qoB-1u-CYd" firstAttribute="centerY" secondItem="Dk1-8G-ySV" secondAttribute="centerY" id="KD0-SH-gjV"/>
+                                                    <constraint firstItem="gMI-3N-GrJ" firstAttribute="trailing" secondItem="m2e-gp-QIT" secondAttribute="trailing" id="OQM-PQ-H5t"/>
                                                     <constraint firstItem="Dk1-8G-ySV" firstAttribute="centerY" secondItem="m2e-gp-QIT" secondAttribute="centerY" id="SPe-Xa-y4i"/>
                                                     <constraint firstItem="m2e-gp-QIT" firstAttribute="centerY" secondItem="5w3-8O-5FX" secondAttribute="centerY" id="e7C-MX-nG9"/>
                                                     <constraint firstItem="Dk1-8G-ySV" firstAttribute="leading" secondItem="5w3-8O-5FX" secondAttribute="leading" constant="8" id="mS8-1w-dlP"/>
@@ -336,10 +343,12 @@
                     <size key="freeformSize" width="428" height="1400"/>
                     <connections>
                         <outlet property="contentTextView" destination="KQI-i7-zUA" id="rPa-RX-1qg"/>
+                        <outlet property="editComplete" destination="gMI-3N-GrJ" id="xro-pj-7Nk"/>
                         <outlet property="privateChechBtn" destination="qoB-1u-CYd" id="hUh-iL-yXJ"/>
                         <outlet property="selectedPhoto" destination="QlM-8h-VbG" id="4bu-Zp-Dr4"/>
                         <outlet property="titleTextField" destination="V7b-zI-8z9" id="fw4-8x-ahv"/>
                         <outlet property="userDateLabel" destination="AT9-5k-iWb" id="Vw5-X6-LeL"/>
+                        <outlet property="writeComplete" destination="m2e-gp-QIT" id="yLL-t4-QwB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xZu-tt-mxK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1104,6 +1113,7 @@
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="square" catalog="system" width="128" height="114"/>
+        <image name="square.fill" catalog="system" width="128" height="114"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
