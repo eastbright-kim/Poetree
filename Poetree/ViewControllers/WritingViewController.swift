@@ -50,11 +50,6 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
         titleTextField.becomeFirstResponder()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        titleTextField.becomeFirstResponder()
-    }
-    
     func setupUI(){
         selectedPhoto.kf.setImage(with: viewModel.output.photoDisplayed)
         
