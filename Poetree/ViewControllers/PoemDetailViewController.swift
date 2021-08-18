@@ -22,36 +22,41 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
     @IBOutlet weak var likesCountLabel: UILabel!
     
     var viewModel: PoemDetailViewModel!
-    var currentPoem: Poem?
+    
+    var currentPoem: Poem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setUpUI()
+    }
+    
+    func setUpUI(){
+        
+        photoImageView.kf.setImage(with: currentPoem.photoURL)
+        titleLabel.text = currentPoem.title
+        userLabel.text = "\(currentPoem.userNickname)님이 \(convertDateToString(format: "MMM d", date: currentPoem.uploadAt))에 보낸 글"
+        contentLabel.text = currentPoem.content
+        likeBtn.isSelected = currentPoem.isLike
+        likesCountLabel.text = "\(currentPoem.likers.count)"
         
     }
+    
+    
     func bindViewModel() {
-        
-        self.userLabel.text = viewModel.output.user_date
-        
-        viewModel.output.aPoem
-            .drive(onNext:{[unowned self] poem in
-                print(poem.title)
-                self.currentPoem = poem
-                self.photoImageView.kf.setImage(with: poem.photoURL)
-                self.contentLabel.text = poem.content
-                self.titleLabel.text = poem.title
-                self.likesCountLabel.text = "\(poem.likers.count)"
-                let image = poem.isLike ? UIImage(systemName: "heart.fill")! : UIImage(systemName: "heart")!
-                self.likeBtn.setImage(image, for: .normal)
-            })
-            .disposed(by: rx.disposeBag)
         
         
         self.editBtn.rx.tap
             .subscribe(onNext:{[unowned self] _ in
-                let viewModel = WriteViewModel(weekPhoto: nil, poemService: viewModel.poemService, editingPoem: self.currentPoem)
+                let viewModel = WriteViewModel(poemService: viewModel.poemService, weekPhoto: nil, editingPoem: self.currentPoem)
                 var vc = WritingViewController.instantiate(storyboardID: "Main")
                 vc.bind(viewModel: viewModel)
-                vc.poem = self.currentPoem
+                vc.editingPoem = self.currentPoem
                 self.navigationController?.pushViewController(vc, animated: true)
             })
             .disposed(by: rx.disposeBag)

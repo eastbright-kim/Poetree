@@ -100,7 +100,7 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
                 
                 print(weekPhoto.url)
                 
-                let viewModel = WriteViewModel(weekPhoto: weekPhoto, poemService: self.viewModel.poemService, editingPoem: nil)
+                let viewModel = WriteViewModel(poemService: self.viewModel.poemService, weekPhoto: weekPhoto, editingPoem: nil)
                 
                 var vc = WritingViewController.instantiate(storyboardID: "Main")
                 vc.bind(viewModel: viewModel)
