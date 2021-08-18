@@ -23,48 +23,49 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
     @IBOutlet weak var editComplete: UIButton!
     @IBOutlet weak var writeComplete: UIButton!
     
-    let likeNumLabel = UILabel()
-    
-    var poem: Poem?
+    var editingPoem: Poem?
     
     var isPrvate = false
     
-    var likeNum: Int? {
-        didSet {
-            likeNumLabel.text = "\(likeNum)"
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-        updateUI()
-    }
-    
-    func updateUI() {
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setUpUI()
+    }
+    
+   
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         titleTextField.becomeFirstResponder()
     }
     
-    func setupUI(){
-        selectedPhoto.kf.setImage(with: viewModel.output.photoDisplayed)
+    func setUpUI(){
         
-        if let _ = viewModel.output.editingPoem {
+       if let editingPoem = editingPoem {
+            self.selectedPhoto.kf.setImage(with: editingPoem.photoURL)
+            self.userDateLabel.text = viewModel.poemService.getWritingTimeString(date: editingPoem.uploadAt)
+            self.titleTextField.text = editingPoem.title
+            self.contentTextView.text = editingPoem.content
+            self.privateChechBtn.isSelected = editingPoem.isPrivate
             self.writeComplete.isHidden = true
-        } else {
-            self.editComplete.isHidden = true
         }
+        
     }
     
     func bindViewModel() {
       
-        viewModel.output.getCurrentDate
-            .drive(userDateLabel.rx.text)
-            .disposed(by: rx.disposeBag)
+        if let weekPhoto = viewModel.output.weekPhoto {
+            self.selectedPhoto.kf.setImage(with: weekPhoto.url)
+            self.userDateLabel.text = viewModel.poemService.getWritingTimeString(date: Date())
+            self.editComplete.isHidden = true
+        }
+        
         
         titleTextField.rx.text.orEmpty
             .bind(to: viewModel.input.title)
@@ -82,12 +83,6 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
             .bind(to: viewModel.input.isPrivate)
             .disposed(by: rx.disposeBag)
         
-        if let editingPoem = viewModel.output.editingPoem {
-            self.contentTextView.text = editingPoem.content
-            self.titleTextField.text = editingPoem.title
-            self.isPrvate = editingPoem.isPrivate
-            self.privateChechBtn.isSelected = !isPrvate
-        }
     }
     
     @IBAction func sendPoemTapped(_ sender: UIButton) {
@@ -96,7 +91,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
             .take(1)
             .subscribe(on: ConcurrentDispatchQueueScheduler.init(queue: DispatchQueue.global()))
             .subscribe(onNext: {[unowned self] aPoem in
-                self.viewModel.createPeom(poem: aPoem)
+                self.viewModel.createPoem(poem: aPoem)
                 DispatchQueue.main.async {
                     self.navigationController?.popViewController(animated: true)
                 }
@@ -112,7 +107,10 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
             .subscribe(onNext:{ [unowned self] poem in
                 self.viewModel.editePoem(editedPoem: poem)
                 DispatchQueue.main.async {
+                    
                     self.navigationController?.popViewController(animated: true)
+                    guard let detailVC = self.navigationController?.topViewController as? PoemDetailViewController else {return}
+                    detailVC.currentPoem = poem
                 }
             })
             .disposed(by: rx.disposeBag)

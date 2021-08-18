@@ -21,15 +21,12 @@ class PoemService {
     }
     
     
-    var poemForDetailView = BehaviorSubject<Poem>(value: Poem(id: "", userEmail: "", userNickname: "", title: "", content: "", photoId: 0, uploadAt: Date(), isPrivate: false , likers: ["":true], photoURL: URL(string: "https://firebasestorage.googleapis.com/v0/b/poetree-e472e.appspot.com/o/white%2F2-2.jpg?alt=media&token=3945142a-4a01-431b-9a0c-51ff8ee10538")!)) //
-    
-    func onePoemForDetailView() -> Observable<Poem> {
-        return poemForDetailView
-    }
-    
-    
     func allPoems() -> Observable<[Poem]> {
         return poemsStore
+    }
+    
+    func currentUser() -> User {
+        return Auth.auth().currentUser!
     }
     
     func createPoem(poem: Poem, completion: @escaping ((String) -> Void)) {
@@ -54,7 +51,6 @@ class PoemService {
                     self.poems.remove(at: index)
                     self.poems.insert(editedPoem, at: index)
                     self.poemsStore.onNext(self.poems)
-                    self.poemForDetailView.onNext(editedPoem)
                     completion(s.rawValue)
                 }
             case .failure:
@@ -100,10 +96,10 @@ class PoemService {
         return "\(current[0]) \(week)"
     }
     
-    func getCurrentWritingTime() -> String {
+    func getWritingTimeString(date: Date) -> String {
         
-        let monthDay = convertDateToString(format: "M월 d일", date: Date())
-        let time = Int(convertDateToString(format: "H", date: Date()))!
+        let monthDay = convertDateToString(format: "M월 d일", date: date)
+        let time = Int(convertDateToString(format: "H", date: date))!
         
         let cycle = getCycleString(time: time)
         

@@ -40,9 +40,10 @@ class PoemListViewController: UIViewController, StoryboardBased, ViewModelBindab
         
         tableView.rx.modelSelected(Poem.self)
             .subscribe(onNext:{[unowned self] poem in
-                self.viewModel.poemService.poemForDetailView.onNext(poem)
-                let viewModel = PoemDetailViewModel(poem: poem, poemService: self.viewModel.poemService)
+
+                let viewModel = PoemDetailViewModel(poemService: self.viewModel.poemService)
                 var vc = PoemDetailViewController.instantiate(storyboardID: "Main")
+                vc.currentPoem = poem
                 vc.bind(viewModel: viewModel)
                 self.navigationController?.pushViewController(vc, animated: true)
             })
