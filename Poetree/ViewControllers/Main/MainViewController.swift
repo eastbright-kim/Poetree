@@ -98,7 +98,6 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
         collectionView.rx.modelSelected(WeekPhoto.self)
             .subscribe(onNext:{[unowned self] weekPhoto in
                 
-                print(weekPhoto.url)
                 
                 let viewModel = WriteViewModel(poemService: self.viewModel.poemService, weekPhoto: weekPhoto, editingPoem: nil)
                 

@@ -32,4 +32,8 @@ class PoemDetailViewModel: ViewModelType {
         self.input = Input()
         self.output = Output()
     }
+    
+    func deletePoem(deletingPoem: Poem) {
+        poemService.deletePoem(deletingPoem: deletingPoem)
+    }
 }

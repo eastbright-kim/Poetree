@@ -32,7 +32,7 @@ class PoemListViewController: UIViewController, StoryboardBased, ViewModelBindab
                 cell.poemImageView.kf.setImage(with: poem.photoURL)
                 
                 cell.titleLabel.text = poem.title
-                print(poem.likers)
+               
                 cell.likesLabel.text = "\(poem.likers.count)"
                 cell.userLabel.text = poem.userNickname
             }

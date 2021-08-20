@@ -34,7 +34,7 @@ class PoemService {
             switch result {
             case .success(let s):
                 completion(s.rawValue)
-                self.poems.append(poem)
+                self.poems.insert(poem, at: 0)
                 self.poemsStore.onNext(self.poems)
             case .failure:
                 completion("write poem error")
@@ -42,14 +42,20 @@ class PoemService {
         }
     }
     
-    func editPoem(editedPoem: Poem, completion: @escaping((String) -> Void)){
+    func editPoem(beforeEdited: Poem ,editedPoem: Poem, completion: @escaping((String) -> Void)){
         
         poemRepository.createPoem(poemModel: editedPoem) { result in
+            
             switch result {
             case .success(let s):
-                if let index = self.poems.firstIndex(of: editedPoem) {
+                //firstIndex where 사용하기
+                if let index = self.poems.firstIndex(where: { poem in
+                    poem.id == beforeEdited.id
+                }) {
+                    
                     self.poems.remove(at: index)
                     self.poems.insert(editedPoem, at: index)
+                    
                     self.poemsStore.onNext(self.poems)
                     completion(s.rawValue)
                 }
@@ -59,6 +65,12 @@ class PoemService {
         }
     }
     
+    func deletePoem(deletingPoem: Poem) {
+        poemRepository.deletePoem(poemModel: deletingPoem)
+        guard let index = self.poems.firstIndex(where: {$0.id == deletingPoem.id}) else {return}
+        poems.remove(at: index)
+        self.poemsStore.onNext(self.poems)
+    }
     
     func fetchPoems(completion: @escaping ([Poem], String) -> Void) {
         
