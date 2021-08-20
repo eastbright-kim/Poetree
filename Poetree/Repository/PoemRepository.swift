@@ -12,10 +12,9 @@ import Firebase
 class PoemRepository {
     
     func createPoem(poemModel: Poem, completion: @escaping ((Result<Complete, Errors>) -> Void)) {
-        
-        
+    
         let poemDic: [String:Any] = [
-            "id" : currentUser.uid as Any,
+            "id" : poemModel.id as Any,
             "userEmail": currentUser.email as Any,
             "userNickname": currentUser.displayName as Any,
             "title": poemModel.title,
@@ -26,10 +25,15 @@ class PoemRepository {
             "likers": [:],
             "photoURL": poemModel.photoURL.absoluteString
         ]
-        poemRef.child(currentUser.uid).setValue(poemDic)
+        poemRef.child(poemModel.id).setValue(poemDic)
         completion(.success(.writedPoem))
     }
     
+    func deletePoem(poemModel: Poem) {
+        
+        poemRef.child(poemModel.id).removeValue()
+        
+    }
     
     func fetchPoems(completion: @escaping (([PoemEntity], Result<Complete, Error>)) -> Void) {
         

@@ -105,7 +105,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
             .take(1)
             .subscribe(on: ConcurrentDispatchQueueScheduler.init(queue: DispatchQueue.global()))
             .subscribe(onNext:{ [unowned self] poem in
-                self.viewModel.editePoem(editedPoem: poem)
+                self.viewModel.editPoem(beforeEdited: editingPoem!, editedPoem: poem)
                 DispatchQueue.main.async {
                     
                     self.navigationController?.popViewController(animated: true)

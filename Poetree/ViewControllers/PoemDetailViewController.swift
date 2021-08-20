@@ -45,11 +45,14 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
         likeBtn.isSelected = currentPoem.isLike
         likesCountLabel.text = "\(currentPoem.likers.count)"
         
+        if currentUser.email != currentPoem.userEmail {
+            self.editBtn.isHidden = true
+            self.deleteBtn.isHidden = true
+        }
     }
     
     
     func bindViewModel() {
-        
         
         self.editBtn.rx.tap
             .subscribe(onNext:{[unowned self] _ in
@@ -60,5 +63,13 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
                 self.navigationController?.pushViewController(vc, animated: true)
             })
             .disposed(by: rx.disposeBag)
+        
+        self.deleteBtn.rx.tap
+            .subscribe(onNext:{[unowned self] _ in
+                self.viewModel.deletePoem(deletingPoem: currentPoem)
+                self.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: rx.disposeBag)
     }
+    
 }

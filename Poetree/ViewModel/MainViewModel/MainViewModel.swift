@@ -40,11 +40,11 @@ class MainViewModel: ViewModelType {
         let thisWeekPhotoURL = photoService.thisWeekPhotos()
             
         photoService.getWeekPhotos { weekPhotos in
-            print(weekPhotos)
+           
         }
         
         poemService.fetchPoems { poems, result in
-            print(result)
+            
         }
         
         self.input = Input()

@@ -45,9 +45,9 @@ class WriteViewModel: ViewModelType {
       
             if let weekPhoto = weekPhoto {
                 
-                return Poem(id: currentUser.uid, userEmail: currentUser.email!, userNickname: currentUser.displayName!, title: title, content: content, photoId: weekPhoto.id, uploadAt: Date(), isPrivate: isPrivate, likers: [:], photoURL: weekPhoto.url)
+                return Poem(id: UUID().uuidString, userEmail: currentUser.email!, userNickname: currentUser.displayName!, title: title, content: content, photoId: weekPhoto.id, uploadAt: Date(), isPrivate: isPrivate, likers: [:], photoURL: weekPhoto.url)
             } else {
-                return Poem(id: currentUser.uid, userEmail: currentUser.email!, userNickname: currentUser.displayName!, title: title, content: content, photoId: editingPoem!.photoId, uploadAt: Date(), isPrivate: isPrivate, likers: [:], photoURL: editingPoem!.photoURL)
+                return Poem(id: editingPoem!.id, userEmail: currentUser.email!, userNickname: currentUser.displayName!, title: title, content: content, photoId: editingPoem!.photoId, uploadAt: Date(), isPrivate: isPrivate, likers: [:], photoURL: editingPoem!.photoURL)
             }
         }
         
@@ -63,11 +63,12 @@ class WriteViewModel: ViewModelType {
         }
     }
     
-    func editePoem(editedPoem: Poem) {
+    func editPoem(beforeEdited: Poem, editedPoem: Poem) {
         
-        poemService.editPoem(editedPoem: editedPoem) { result in
+        poemService.editPoem(beforeEdited: beforeEdited, editedPoem: editedPoem) { result in
             
             print(result)
         }
     }
+    
 }
