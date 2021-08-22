@@ -41,8 +41,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let tabBarController = UITabBarController()
         tabBarController.setViewControllers([mainNVC, historyNVC, userNAV], animated: false)
+        
+        
 
-
+        
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
     }
