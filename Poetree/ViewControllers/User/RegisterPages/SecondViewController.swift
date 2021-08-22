@@ -87,10 +87,27 @@ class SecondViewController: UIViewController, ViewModelBindable, StoryboardBased
 
           let credential = GoogleAuthProvider.credential(withIDToken: idToken,
                                                          accessToken: authentication.accessToken)
-            Auth.auth().signIn(with: credential) { authResult, error in
-                if let error = error {
-                    print(error.localizedDescription)
+            Auth.auth().signIn(with: credential) { authDataResult, error in
+                //                if let user = authDataResult?.user {
+                //                    print(user.displayName)
+                //                    self.dismiss(animated: true, completion: nil)
+                //                }
+                
+                Auth.auth().addStateDidChangeListener { (auth, user) in
+                    guard let currentUser = auth.currentUser else { return }
+                    let changeRequest = currentUser.createProfileChangeRequest()
+                    changeRequest.displayName = "tohji"
+                    changeRequest.commitChanges { error in
+                        if let error = error {
+                            print("닉네임 등록 에러 : \(error.localizedDescription)")
+                            //                            completion(false)
+                        } else {
+                            print("닉네임 정상 등록")
+                            //                            completion(true)
+                        }
+                    }
                 }
+                print(currentUser.displayName)
                 self.dismiss(animated: true, completion: nil)
             }
         }
@@ -150,11 +167,26 @@ extension SecondViewController: ASAuthorizationControllerDelegate {
             let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: idTokenString, rawNonce: nonce)
             
             Auth.auth().signIn(with: credential) { authDataResult, error in
-                if let user = authDataResult?.user {
-                    print(user.displayName)
-                    self.dismiss(animated: true, completion: nil)
-                }
+                //                if let user = authDataResult?.user {
+                //                    print(user.displayName)
+                //                    self.dismiss(animated: true, completion: nil)
+                //                }
                 
+                Auth.auth().addStateDidChangeListener { (auth, user) in
+                    guard let currentUser = auth.currentUser else { return }
+                    let changeRequest = currentUser.createProfileChangeRequest()
+                    changeRequest.displayName = "tohji"
+                    changeRequest.commitChanges { error in
+                        if let error = error {
+                            print("닉네임 등록 에러 : \(error.localizedDescription)")
+                            //                            completion(false)
+                        } else {
+                            print("닉네임 정상 등록")
+                            //                            completion(true)
+                        }
+                    }
+                }
+                print(currentUser.displayName)
             }
         }
     }

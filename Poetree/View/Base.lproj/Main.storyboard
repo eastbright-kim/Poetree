@@ -809,10 +809,13 @@
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="12"/>
                                                         </state>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s5I-cJ-24p">
-                                                        <rect key="frame" x="220" y="-4" width="46" height="30"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hgi-tM-YXA">
+                                                        <rect key="frame" x="311" y="0.0" width="46" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="btn:" destination="KOu-EG-fOk" eventType="touchUpInside" id="3kc-qx-yrA"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -914,7 +917,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="userRegister" destination="s5I-cJ-24p" id="LS8-FF-rbT"/>
+                        <outlet property="navBarBtn" destination="bOx-SV-hoI" id="PsA-km-Gwz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B1U-12-Jkq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
