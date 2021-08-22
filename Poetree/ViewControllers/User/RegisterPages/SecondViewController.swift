@@ -107,7 +107,6 @@ class SecondViewController: UIViewController, ViewModelBindable, StoryboardBased
                         }
                     }
                 }
-                print(currentUser.displayName)
                 self.dismiss(animated: true, completion: nil)
             }
         }
@@ -186,7 +185,6 @@ extension SecondViewController: ASAuthorizationControllerDelegate {
                         }
                     }
                 }
-                print(currentUser.displayName)
             }
         }
     }
