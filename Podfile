@@ -16,4 +16,5 @@ target 'Poetree' do
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
   pod 'SideMenu'
+  pod 'FBSDKLoginKit'
 end
