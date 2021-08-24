@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -37,14 +37,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SideMenuCell" textLabel="4NG-pF-ia0" style="IBUITableViewCellStyleDefault" id="ECm-Od-hvt">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="24.333333969116211" width="414" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ECm-Od-hvt" id="Aoz-LL-uZU">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="회원 가입" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4NG-pF-ia0">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.666667938232422"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
@@ -136,10 +136,10 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="dgZ-mP-85n">
-                                        <rect key="frame" x="109.5" y="409" width="195" height="78"/>
+                                        <rect key="frame" x="109.66666666666669" y="409" width="195" height="78"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="로그인 방법을 선택하세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQo-Ff-dTy">
-                                                <rect key="frame" x="0.0" y="0.0" width="141" height="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="140.66666666666666" height="17"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="14"/>
                                                 <color key="textColor" systemColor="systemGreenColor"/>
                                                 <nil key="highlightedColor"/>
@@ -159,7 +159,7 @@
                                                         </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gz5-Pn-Z2w">
-                                                        <rect key="frame" x="75" y="0.0" width="45" height="45"/>
+                                                        <rect key="frame" x="74.999999999999986" y="0.0" width="45" height="45"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="45" id="UcK-c0-E9q"/>
                                                             <constraint firstAttribute="height" constant="45" id="rez-td-d0z"/>
@@ -189,6 +189,11 @@
                                     <constraint firstItem="ish-hw-GpN" firstAttribute="top" secondItem="6x7-QD-4Ay" secondAttribute="top" constant="160" id="n8c-Gg-LLN"/>
                                     <constraint firstItem="ish-hw-GpN" firstAttribute="leading" secondItem="6x7-QD-4Ay" secondAttribute="leading" constant="160" id="wbp-xi-NxM"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="5z9-vf-Xxz"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="I2D-nr-6fM"/>
@@ -218,10 +223,10 @@
     </scenes>
     <resources>
         <image name="PoetreeIcon.png" width="768" height="768"/>
-        <image name="apple-logo" width="666.5" height="666.5"/>
+        <image name="apple-logo" width="666.66668701171875" height="666.66668701171875"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="facebook-logo" width="533" height="533"/>
-        <image name="google-logo" width="341" height="341"/>
+        <image name="facebook-logo" width="533.33331298828125" height="533.33331298828125"/>
+        <image name="google-logo" width="341.33334350585938" height="341.33334350585938"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

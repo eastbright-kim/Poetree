@@ -11,13 +11,14 @@ import RxCocoa
 
 class UserRegisterViewModel: ViewModelType {
     
+    let userService: UserService!
+    
+    
     struct Input {
         
     }
     
     struct Output {
-        
-
         
     }
     
@@ -26,7 +27,11 @@ class UserRegisterViewModel: ViewModelType {
     var output: Output
     
     
-    init(){ self.input = Input()
+    init(userService: UserService){
+        
+        self.userService = userService
+        
+        self.input = Input()
         self.output = Output()
     }
     
