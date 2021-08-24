@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -112,133 +111,112 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6x7-QD-4Ay">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cF0-We-UfF">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="PoetreeIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="ish-hw-GpN">
+                                        <rect key="frame" x="160" y="160" width="94" height="94"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ish-hw-GpN" secondAttribute="height" multiplier="1:1" id="GZD-cA-6uF"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5z9-vf-Xxz">
+                                        <rect key="frame" x="73.5" y="382.5" width="267.5" height="131.5"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gxr-6h-Q43">
-                                                <rect key="frame" x="68" y="100" width="278" height="696"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="필명 입력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hO-nH-Lg4">
+                                                <rect key="frame" x="0.0" y="0.0" width="267.5" height="28"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="23"/>
+                                                <color key="textColor" systemColor="systemGrayColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hP7-cd-wrd">
+                                                <rect key="frame" x="0.0" y="48" width="267.5" height="83.5"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="HZm-ZO-hSt">
-                                                        <rect key="frame" x="0.0" y="20" width="278" height="676"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="m5h-zv-FBv">
+                                                        <rect key="frame" x="0.0" y="0.0" width="267.5" height="37.5"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1kK-QR-scQ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="278" height="93"/>
-                                                                <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BaM-gm-bhb">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="92.5" height="93"/>
-                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                    </view>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PoetreeIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="tpj-j9-HLn">
-                                                                        <rect key="frame" x="92.5" y="0.0" width="93" height="93"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" secondItem="tpj-j9-HLn" secondAttribute="height" multiplier="1:1" id="om4-fj-3f6"/>
-                                                                        </constraints>
-                                                                    </imageView>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j0C-l6-Uxl">
-                                                                        <rect key="frame" x="185.5" y="0.0" width="92.5" height="93"/>
-                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                    </view>
-                                                                </subviews>
-                                                            </stackView>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="g98-wN-Su2">
-                                                                <rect key="frame" x="0.0" y="143" width="278" height="533"/>
-                                                                <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5z9-vf-Xxz">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="278" height="94"/>
-                                                                        <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="필명 입력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hO-nH-Lg4">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="278" height="24"/>
-                                                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="20"/>
-                                                                                <nil key="textColor"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
-                                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="m5h-zv-FBv">
-                                                                                <rect key="frame" x="0.0" y="32" width="278" height="36"/>
-                                                                                <subviews>
-                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="필명을 입력하세요" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xF2-Ua-vDB">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="215.5" height="36"/>
-                                                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="30"/>
-                                                                                        <textInputTraits key="textInputTraits"/>
-                                                                                    </textField>
-                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxA-Rt-15u">
-                                                                                        <rect key="frame" x="228.5" y="0.0" width="49.5" height="36"/>
-                                                                                        <color key="tintColor" systemColor="systemGreenColor"/>
-                                                                                        <state key="normal" image="checkmark.circle.fill" catalog="system">
-                                                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="27"/>
-                                                                                        </state>
-                                                                                        <connections>
-                                                                                            <action selector="btnTapped:" destination="G5i-Sh-I4R" eventType="touchUpInside" id="UNv-8P-RbD"/>
-                                                                                        </connections>
-                                                                                    </button>
-                                                                                </subviews>
-                                                                            </stackView>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="필명은 이후 수정할 수 없습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziI-qm-RdN">
-                                                                                <rect key="frame" x="0.0" y="76" width="278" height="18"/>
-                                                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
-                                                                                <color key="textColor" systemColor="systemRedColor"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
-                                                                        </subviews>
-                                                                    </stackView>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Owp-0A-f8r">
-                                                                        <rect key="frame" x="0.0" y="102" width="278" height="431"/>
-                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                    </view>
-                                                                </subviews>
-                                                            </stackView>
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="필명을 입력하세요" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xF2-Ua-vDB">
+                                                                <rect key="frame" x="0.0" y="0.0" width="215.5" height="37.5"/>
+                                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="30"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxA-Rt-15u">
+                                                                <rect key="frame" x="235.5" y="0.0" width="32" height="37.5"/>
+                                                                <color key="tintColor" systemColor="systemRedColor"/>
+                                                                <state key="normal" image="checkmark.circle.fill" catalog="system">
+                                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="27"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="btnTapped:" destination="G5i-Sh-I4R" eventType="touchUpInside" id="UNv-8P-RbD"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                     </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="필명은 이후 수정할 수 없으니 신중히 선택해주세요 :)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziI-qm-RdN">
+                                                        <rect key="frame" x="0.0" y="47.5" width="267.5" height="36"/>
+                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                                                        <color key="textColor" systemColor="systemRedColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstItem="HZm-ZO-hSt" firstAttribute="leading" secondItem="gxr-6h-Q43" secondAttribute="leading" id="31G-aq-nLr"/>
-                                                    <constraint firstAttribute="bottom" secondItem="HZm-ZO-hSt" secondAttribute="bottom" id="EOj-uA-hr8"/>
-                                                    <constraint firstItem="HZm-ZO-hSt" firstAttribute="top" secondItem="gxr-6h-Q43" secondAttribute="top" constant="20" symbolic="YES" id="M4u-sz-d4q"/>
-                                                    <constraint firstAttribute="width" secondItem="gxr-6h-Q43" secondAttribute="height" multiplier="6:15" id="VTd-l9-Xh8"/>
-                                                    <constraint firstAttribute="trailing" secondItem="HZm-ZO-hSt" secondAttribute="trailing" id="mCE-yg-2ay"/>
-                                                </constraints>
-                                            </view>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="gxr-6h-Q43" firstAttribute="top" secondItem="cF0-We-UfF" secondAttribute="top" constant="100" id="MSb-pS-qwp"/>
-                                            <constraint firstItem="gxr-6h-Q43" firstAttribute="centerY" secondItem="cF0-We-UfF" secondAttribute="centerY" id="erq-Ks-3GY"/>
-                                            <constraint firstItem="gxr-6h-Q43" firstAttribute="centerX" secondItem="cF0-We-UfF" secondAttribute="centerX" id="gpd-Ce-jXM"/>
-                                        </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jiA-d5-siK">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    </stackView>
+                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="dgZ-mP-85n">
+                                        <rect key="frame" x="94.5" y="402" width="225" height="92"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z3Q-zB-vbT" customClass="GIDSignInButton">
-                                                <rect key="frame" x="85" y="505.5" width="244" height="40.5"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="Z3Q-zB-vbT" secondAttribute="height" multiplier="6:1" id="lLh-ux-SBY"/>
-                                                </constraints>
-                                            </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ZhM-Hc-5NO">
+                                                <rect key="frame" x="0.0" y="0.0" width="225" height="55"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4US-4x-o1R">
+                                                        <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="55" id="5nt-yq-FYc"/>
+                                                            <constraint firstAttribute="width" constant="55" id="j7q-va-ZuU"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                        <state key="normal" image="google-logo">
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                                        </state>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gz5-Pn-Z2w">
+                                                        <rect key="frame" x="85" y="0.0" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="55" id="UcK-c0-E9q"/>
+                                                            <constraint firstAttribute="height" constant="55" id="rez-td-d0z"/>
+                                                        </constraints>
+                                                        <state key="normal" image="facebook-logo"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4RM-p6-PR2">
+                                                        <rect key="frame" x="170" y="0.0" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="55" id="IrD-M5-d7u"/>
+                                                            <constraint firstAttribute="width" constant="55" id="qq6-Ef-aKT"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button" image="apple-logo"/>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="로그인 방법을 선택해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQo-Ff-dTy">
+                                                <rect key="frame" x="0.0" y="76" width="142" height="16"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="13"/>
+                                                <color key="textColor" systemColor="systemGreenColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="Z3Q-zB-vbT" firstAttribute="centerX" secondItem="jiA-d5-siK" secondAttribute="centerX" id="19a-Pc-2bQ"/>
-                                            <constraint firstAttribute="trailing" secondItem="Z3Q-zB-vbT" secondAttribute="trailing" constant="85" id="2YX-4o-SN7"/>
-                                            <constraint firstAttribute="bottom" secondItem="Z3Q-zB-vbT" secondAttribute="bottom" constant="350" id="iuR-54-woo"/>
-                                        </constraints>
-                                    </view>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="jiA-d5-siK" firstAttribute="leading" secondItem="6x7-QD-4Ay" secondAttribute="leading" id="O0U-RF-ACC"/>
-                                    <constraint firstItem="cF0-We-UfF" firstAttribute="leading" secondItem="6x7-QD-4Ay" secondAttribute="leading" id="POj-DP-bB5"/>
-                                    <constraint firstItem="cF0-We-UfF" firstAttribute="top" secondItem="6x7-QD-4Ay" secondAttribute="top" id="TCa-S0-9hE"/>
-                                    <constraint firstAttribute="bottom" secondItem="cF0-We-UfF" secondAttribute="bottom" id="W8H-KI-dD0"/>
-                                    <constraint firstItem="jiA-d5-siK" firstAttribute="top" secondItem="6x7-QD-4Ay" secondAttribute="top" id="aFJ-rx-EYO"/>
-                                    <constraint firstAttribute="bottom" secondItem="jiA-d5-siK" secondAttribute="bottom" id="aV7-9X-ddT"/>
-                                    <constraint firstAttribute="trailing" secondItem="cF0-We-UfF" secondAttribute="trailing" id="h7V-wg-vK9"/>
-                                    <constraint firstAttribute="trailing" secondItem="jiA-d5-siK" secondAttribute="trailing" id="kiR-6d-BMp"/>
+                                    <constraint firstItem="5z9-vf-Xxz" firstAttribute="centerY" secondItem="6x7-QD-4Ay" secondAttribute="centerY" id="GtZ-fj-sYJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="ish-hw-GpN" secondAttribute="trailing" constant="160" id="OqR-dQ-CmP"/>
+                                    <constraint firstItem="5z9-vf-Xxz" firstAttribute="centerX" secondItem="6x7-QD-4Ay" secondAttribute="centerX" id="YfD-bn-gbx"/>
+                                    <constraint firstItem="dgZ-mP-85n" firstAttribute="centerY" secondItem="6x7-QD-4Ay" secondAttribute="centerY" id="b0N-4B-on2"/>
+                                    <constraint firstItem="dgZ-mP-85n" firstAttribute="centerX" secondItem="6x7-QD-4Ay" secondAttribute="centerX" id="i0C-Em-Wg0"/>
+                                    <constraint firstItem="ish-hw-GpN" firstAttribute="top" secondItem="6x7-QD-4Ay" secondAttribute="top" constant="160" id="n8c-Gg-LLN"/>
+                                    <constraint firstItem="ish-hw-GpN" firstAttribute="leading" secondItem="6x7-QD-4Ay" secondAttribute="leading" constant="160" id="wbp-xi-NxM"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
-                                        <exclude reference="jiA-d5-siK"/>
+                                        <exclude reference="dgZ-mP-85n"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -253,10 +231,13 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="googleLoginBtn" destination="Z3Q-zB-vbT" id="RMd-O5-2W5"/>
-                        <outlet property="penNameSettingView" destination="cF0-We-UfF" id="BSb-Pe-4Lb"/>
+                        <outlet property="appleLogInBtn" destination="4RM-p6-PR2" id="Nsc-1x-QZl"/>
+                        <outlet property="facebookLogInBtn" destination="Gz5-Pn-Z2w" id="tEC-a7-aas"/>
+                        <outlet property="googleLogInBtn" destination="4US-4x-o1R" id="0bY-5F-EnV"/>
+                        <outlet property="logoImage" destination="ish-hw-GpN" id="UTY-Jg-Bkn"/>
+                        <outlet property="penNameStackView" destination="5z9-vf-Xxz" id="Il1-vp-QhE"/>
                         <outlet property="penNameTextField" destination="xF2-Ua-vDB" id="gIC-AK-1II"/>
-                        <outlet property="registerView" destination="jiA-d5-siK" id="IQG-up-Gro"/>
+                        <outlet property="registerStackView" destination="dgZ-mP-85n" id="vgJ-R3-zw2"/>
                         <outlet property="videoLayer" destination="6x7-QD-4Ay" id="e4U-qe-w64"/>
                     </connections>
                 </viewController>
@@ -267,9 +248,15 @@
     </scenes>
     <resources>
         <image name="PoetreeIcon.png" width="768" height="768"/>
+        <image name="apple-logo" width="666.5" height="666.5"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="facebook-logo" width="533" height="533"/>
+        <image name="google-logo" width="341" height="341"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

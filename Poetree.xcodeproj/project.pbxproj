@@ -13,6 +13,7 @@
 		DB048DD326C7A5C10058302C /* UserRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB048DD226C7A5C10058302C /* UserRegisterViewModel.swift */; };
 		DB048DD726C7A8AF0058302C /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB048DD626C7A8AF0058302C /* UserRepository.swift */; };
 		DB048DD926C7ABC90058302C /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB048DD826C7ABC90058302C /* Result.swift */; };
+		DB0EB76E26D4C27E0039D8F6 /* shadow.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DB0EB76D26D4C27E0039D8F6 /* shadow.mp4 */; };
 		DB15716826C52720003F58FC /* PoemEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15716726C52720003F58FC /* PoemEntity.swift */; };
 		DB15716C26C5301A003F58FC /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15716B26C5301A003F58FC /* Function.swift */; };
 		DB21A25F26C16B3F0048FB17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21A25E26C16B3F0048FB17 /* AppDelegate.swift */; };
@@ -39,7 +40,6 @@
 		DB666DC226CAAF8D00A588AC /* PhotoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB666DC126CAAF8D00A588AC /* PhotoRepository.swift */; };
 		DB666DC626CAB6FA00A588AC /* PoemListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB666DC526CAB6FA00A588AC /* PoemListTableViewCell.swift */; };
 		DB7AC1ED26C2E004001A62B6 /* PoemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7AC1EC26C2E004001A62B6 /* PoemService.swift */; };
-		DB83449326D170BD00A04F15 /* ureru.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DB83449226D170BD00A04F15 /* ureru.mp4 */; };
 		DB9D575E26C43E6000A86148 /* MainPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9D575D26C43E6000A86148 /* MainPhotoCollectionViewCell.swift */; };
 		DBCE060326C2A8CA0008EBF8 /* PoemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE060226C2A8CA0008EBF8 /* PoemDetailViewController.swift */; };
 		DBCE060526C2A8FB0008EBF8 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE060426C2A8FB0008EBF8 /* PhotoCollectionViewController.swift */; };
@@ -54,9 +54,6 @@
 		DBFCE5F026C3AB1A00E3FC16 /* PoemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5EF26C3AB1A00E3FC16 /* PoemDetailViewModel.swift */; };
 		DBFCE5F226C3AB2B00E3FC16 /* PhotoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5F126C3AB2B00E3FC16 /* PhotoListViewModel.swift */; };
 		DBFCE5F426C3AF7300E3FC16 /* PoemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5F326C3AF7300E3FC16 /* PoemRepository.swift */; };
-		DBFCE5F826C3B21500E3FC16 /* image2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DBFCE5F526C3B21300E3FC16 /* image2.jpg */; };
-		DBFCE5F926C3B21500E3FC16 /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DBFCE5F626C3B21400E3FC16 /* image1.jpg */; };
-		DBFCE5FA26C3B21500E3FC16 /* image3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DBFCE5F726C3B21500E3FC16 /* image3.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +65,7 @@
 		DB048DD226C7A5C10058302C /* UserRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterViewModel.swift; sourceTree = "<group>"; };
 		DB048DD626C7A8AF0058302C /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		DB048DD826C7ABC90058302C /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		DB0EB76D26D4C27E0039D8F6 /* shadow.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = shadow.mp4; sourceTree = "<group>"; };
 		DB15716726C52720003F58FC /* PoemEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemEntity.swift; sourceTree = "<group>"; };
 		DB15716B26C5301A003F58FC /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
 		DB21A25B26C16B3F0048FB17 /* Poetree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poetree.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,7 +94,6 @@
 		DB666DC126CAAF8D00A588AC /* PhotoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRepository.swift; sourceTree = "<group>"; };
 		DB666DC526CAB6FA00A588AC /* PoemListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemListTableViewCell.swift; sourceTree = "<group>"; };
 		DB7AC1EC26C2E004001A62B6 /* PoemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemService.swift; sourceTree = "<group>"; };
-		DB83449226D170BD00A04F15 /* ureru.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ureru.mp4; sourceTree = "<group>"; };
 		DB9D575D26C43E6000A86148 /* MainPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		DBCE060226C2A8CA0008EBF8 /* PoemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemDetailViewController.swift; sourceTree = "<group>"; };
 		DBCE060426C2A8FB0008EBF8 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
@@ -112,9 +109,6 @@
 		DBFCE5EF26C3AB1A00E3FC16 /* PoemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemDetailViewModel.swift; sourceTree = "<group>"; };
 		DBFCE5F126C3AB2B00E3FC16 /* PhotoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewModel.swift; sourceTree = "<group>"; };
 		DBFCE5F326C3AF7300E3FC16 /* PoemRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemRepository.swift; sourceTree = "<group>"; };
-		DBFCE5F526C3B21300E3FC16 /* image2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image2.jpg; sourceTree = "<group>"; };
-		DBFCE5F626C3B21400E3FC16 /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image1.jpg; sourceTree = "<group>"; };
-		DBFCE5F726C3B21500E3FC16 /* image3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image3.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,10 +197,7 @@
 				DBCE060B26C2C8E40008EBF8 /* API */,
 				DB21A27E26C175250048FB17 /* PoetreeIcon.png */,
 				DB21A26726C16B410048FB17 /* Assets.xcassets */,
-				DB83449226D170BD00A04F15 /* ureru.mp4 */,
-				DBFCE5F626C3B21400E3FC16 /* image1.jpg */,
-				DBFCE5F526C3B21300E3FC16 /* image2.jpg */,
-				DBFCE5F726C3B21500E3FC16 /* image3.jpg */,
+				DB0EB76D26D4C27E0039D8F6 /* shadow.mp4 */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -457,16 +448,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBFCE5F926C3B21500E3FC16 /* image1.jpg in Resources */,
 				DB048DCF26C7A4B80058302C /* UserRelated.storyboard in Resources */,
 				DB21A26B26C16B410048FB17 /* LaunchScreen.storyboard in Resources */,
 				DB21A27326C1700F0048FB17 /* GoogleService-Info.plist in Resources */,
 				DB21A26826C16B410048FB17 /* Assets.xcassets in Resources */,
+				DB0EB76E26D4C27E0039D8F6 /* shadow.mp4 in Resources */,
 				DB21A27F26C175250048FB17 /* PoetreeIcon.png in Resources */,
-				DBFCE5F826C3B21500E3FC16 /* image2.jpg in Resources */,
-				DB83449326D170BD00A04F15 /* ureru.mp4 in Resources */,
 				DB21A26626C16B3F0048FB17 /* Main.storyboard in Resources */,
-				DBFCE5FA26C3B21500E3FC16 /* image3.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
