@@ -18,47 +18,51 @@ import FBSDKLoginKit
 class FirstViewController: UIViewController, ViewModelBindable, StoryboardBased {
     
     
-    
-    
     var viewModel: UserRegisterViewModel!
+    @IBOutlet weak var logoImage: UIImageView!
+    
     
     // ------ AVPlayer
-       
-       @IBOutlet weak var videoLayer: UIView!
-       var avPlayerLooper: AVPlayerLooper!
-       var avQueuePlayer: AVQueuePlayer!
-       let asset = AVAsset(url: URL(fileURLWithPath: Bundle.main.path(forResource: "ureru", ofType: "mp4")!))
     
-    
+    @IBOutlet weak var videoLayer: UIView!
+    var avPlayerLooper: AVPlayerLooper!
+    var avQueuePlayer: AVQueuePlayer!
+    let asset = AVAsset(url: URL(fileURLWithPath: Bundle.main.path(forResource: "shadow", ofType: "mp4")!))
     
     // ------ PenNameSettingView
-    @IBOutlet weak var penNameSettingView: UIView!
     @IBOutlet weak var penNameTextField: UITextField!
     var penName: String?
+    @IBOutlet weak var penNameStackView: UIStackView!
+    
     
     
     // ------ regiserView
-    @IBOutlet weak var registerView: UIView!
-    @IBOutlet weak var googleLoginBtn: GIDSignInButton!
+    
+    @IBOutlet weak var registerStackView: UIStackView!
+    @IBOutlet weak var googleLogInBtn: UIButton!
+    @IBOutlet weak var appleLogInBtn: UIButton!
+    @IBOutlet weak var facebookLogInBtn: UIButton!
     
     
+//    @IBOutlet weak var facebookLogInBtn: FBLoginButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         playVideo()
+        setupBtn()
+    }
+    
+    
+    func setupBtn(){
         
+       
+//        facebookBtn.delegate = self
+//        facebookBtn.permissions = ["public_profile", "email"]
         
+        facebookLoginSetup()
         googleLoginSetup()
         appleLoginSetup()
-        
-        
-        let loginButton = FBLoginButton()
-        loginButton.center = view.center
-        view.addSubview(loginButton)
-        loginButton.delegate = self
-        loginButton.permissions = ["public_profile", "email"]
-        
     }
     
     
@@ -76,27 +80,27 @@ class FirstViewController: UIViewController, ViewModelBindable, StoryboardBased 
         
         let layer = AVPlayerLayer(player: self.avQueuePlayer)
         
+        
         layer.frame = self.view.bounds
         layer.videoGravity = .resizeAspectFill
         self.videoLayer.layer.addSublayer(layer)
         
         avQueuePlayer.play()
-        
-        self.videoLayer.bringSubviewToFront(self.penNameSettingView)
+     
+        self.videoLayer.bringSubviewToFront(self.logoImage)
+        self.videoLayer.bringSubviewToFront(self.penNameStackView)
+        self.videoLayer.sendSubviewToBack(self.registerStackView)
+        self.penNameStackView.isHidden = false
     }
     
     
     @IBAction func btnTapped(_ sender: Any) {
         self.penName = penNameTextField.text
-        self.videoLayer.sendSubviewToBack(self.penNameSettingView)
-//        self.penNameSettingView.isHidden = true
-        self.videoLayer.bringSubviewToFront(self.registerView)
+        self.videoLayer.sendSubviewToBack(self.penNameStackView)
+        self.videoLayer.bringSubviewToFront(self.registerStackView)
+        self.registerStackView.isHidden = false
     }
 }
-
-
-
-
 
 
 //MARK:- ----------------------GoogleLogin
@@ -104,8 +108,7 @@ extension FirstViewController {
     
     func googleLoginSetup(){
         
-        googleLoginBtn.layer.cornerRadius = 13
-        googleLoginBtn.addTarget(self, action: #selector(googleLogin), for: .touchUpInside)
+        googleLogInBtn.addTarget(self, action: #selector(googleLogin), for: .touchUpInside)
         
     }
     
@@ -131,11 +134,7 @@ extension FirstViewController {
           let credential = GoogleAuthProvider.credential(withIDToken: idToken,
                                                          accessToken: authentication.accessToken)
             Auth.auth().signIn(with: credential) { authDataResult, error in
-                //                if let user = authDataResult?.user {
-                //                    print(user.displayName)
-                //                    self.dismiss(animated: true, completion: nil)
-                //                }
-                
+            
                 Auth.auth().addStateDidChangeListener { (auth, user) in
                     guard let currentUser = auth.currentUser else { return }
                     let changeRequest = currentUser.createProfileChangeRequest()
@@ -163,20 +162,8 @@ extension FirstViewController {
     
     
     func appleLoginSetup(){
-        let button = ASAuthorizationAppleIDButton()
-        button.addTarget(self, action: #selector(handleSignInWithAppleTapped), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false//막힌부분
-        registerView.addSubview(button)//서브뷰먼저
-        
-        button.centerXAnchor.constraint(equalTo: self.registerView.centerXAnchor).isActive = true
-        
-        button.heightAnchor.constraint(equalTo: button.widthAnchor, multiplier: 1.0/6.0).isActive = true
-        
-        button.topAnchor.constraint(equalTo: self.googleLoginBtn.bottomAnchor, constant: 10).isActive = true
-        
-        button.trailingAnchor.constraint(equalTo: self.googleLoginBtn.trailingAnchor, constant: -3).isActive = true
-        
-        
+//        let button = ASAuthorizationAppleIDButton()
+        appleLogInBtn.addTarget(self, action: #selector(handleSignInWithAppleTapped), for: .touchUpInside)
     }
     
     @objc func handleSignInWithAppleTapped(){
@@ -303,48 +290,61 @@ private func randomNonceString(length: Int = 32) -> String {
         }
     }
     
+    
+    
     return result
 }
 
 
 //MARK: ----------------------Facebook Login
 
-extension FirstViewController: LoginButtonDelegate {
+extension FirstViewController {
+    
+    func facebookLoginSetup(){
+        facebookLogInBtn.addTarget(self, action: #selector(facebookLogin), for: .touchUpInside)
+    }
     
     
-    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+    @objc func facebookLogin(){
         
-        let credential = FacebookAuthProvider
-            .credential(withAccessToken: AccessToken.current!.tokenString)
         
-        Auth.auth().signIn(with: credential) { authResult, error in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
+        let loginManager = LoginManager()
+        loginManager.logIn(permissions: [.email], viewController: self) { result in
+            switch result {
             
-            Auth.auth().addStateDidChangeListener { (auth, user) in
-                guard let currentUser = auth.currentUser else { return }
-                let changeRequest = currentUser.createProfileChangeRequest()
-                changeRequest.displayName = self.penName
-                changeRequest.commitChanges { error in
+            case .success(granted: let permission, declined: let declined, token: let token):
+                
+                let credential = FacebookAuthProvider
+                    .credential(withAccessToken: token!.tokenString)
+                
+                Auth.auth().signIn(with: credential) { authResult, error in
                     if let error = error {
-                        print("닉네임 등록 에러 : \(error.localizedDescription)")
-                        //                            completion(false)
-                    } else {
-                        print("닉네임 정상 등록")
-                        //                            completion(true)
+                        print(error.localizedDescription)
+                        return
                     }
+                    
+                    Auth.auth().addStateDidChangeListener { (auth, user) in
+                        guard let currentUser = auth.currentUser else { return }
+                        let changeRequest = currentUser.createProfileChangeRequest()
+                        changeRequest.displayName = self.penName
+                        changeRequest.commitChanges { error in
+                            if let error = error {
+                                print("닉네임 등록 에러 : \(error.localizedDescription)")
+                                //                            completion(false)
+                            } else {
+                                print("닉네임 정상 등록")
+                                //                            completion(true)
+                            }
+                        }
+                    }
+                    self.dismiss(animated: true, completion: nil)
                 }
+            case .cancelled:
+                break
+                
+            case .failed:
+                break
             }
-            self.dismiss(animated: true, completion: nil)
         }
     }
-    
-    
-    
-    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
-        
-    }
-    
 }
