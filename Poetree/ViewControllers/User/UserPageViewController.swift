@@ -28,7 +28,7 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        print(Auth.auth().currentUser?.uid)
+       
         
     }
     
@@ -53,19 +53,16 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
         navBarBtn.rx.tap
             .subscribe(onNext:{ [unowned self] _ in
                 
-                
+                let vm = UserRegisterViewModel(userService: self.viewModel.userService)
                 let sb = UIStoryboard(name: "UserRelated", bundle: nil)
-                let vc = sb.instantiateViewController(identifier: "FirstViewController") as! UserRegisterViewController
-                
+                var vc = sb.instantiateViewController(identifier: "UserRegisterViewController") as! UserRegisterViewController
+                vc.bind(viewModel: vm)
                 
                 present(vc, animated: false, completion: nil)
 
-                
             })
             .disposed(by: rx.disposeBag)
-        
     }
-    
     
     @IBAction func btn(_ sender: Any) {
         print(currentUser.displayName)

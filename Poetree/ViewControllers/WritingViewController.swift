@@ -89,7 +89,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
         
         viewModel.output.aPoem
             .take(1)
-            .subscribe(on: ConcurrentDispatchQueueScheduler.init(queue: DispatchQueue.global()))
+            .observe(on: ConcurrentDispatchQueueScheduler.init(queue: DispatchQueue.global()))
             .subscribe(onNext: {[unowned self] aPoem in
                 self.viewModel.createPoem(poem: aPoem)
                 DispatchQueue.main.async {
@@ -103,7 +103,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
         
         viewModel.output.aPoem
             .take(1)
-            .subscribe(on: ConcurrentDispatchQueueScheduler.init(queue: DispatchQueue.global()))
+            .observe(on: ConcurrentDispatchQueueScheduler.init(queue: DispatchQueue.global()))
             .subscribe(onNext:{ [unowned self] poem in
                 self.viewModel.editPoem(beforeEdited: editingPoem!, editedPoem: poem)
                 DispatchQueue.main.async {

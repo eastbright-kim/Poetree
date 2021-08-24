@@ -10,7 +10,7 @@ import Foundation
 class MyPoemViewModel: ViewModelType {
     
     let poemService: PoemService!
-    
+    let userService: UserService!
     
     struct Input {
         
@@ -23,10 +23,10 @@ class MyPoemViewModel: ViewModelType {
     var input: Input
     var output: Output
     
-    init(poemService: PoemService) {
+    init(poemService: PoemService, userService: UserService) {
         self.input = Input()
         self.output = Output()
         self.poemService = poemService
-       
+        self.userService = userService
     }
 }
