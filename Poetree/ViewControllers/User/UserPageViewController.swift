@@ -55,7 +55,7 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
                 
                 
                 let sb = UIStoryboard(name: "UserRelated", bundle: nil)
-                let vc = sb.instantiateViewController(identifier: "FirstViewController") as! FirstViewController
+                let vc = sb.instantiateViewController(identifier: "FirstViewController") as! UserRegisterViewController
                 
                 
                 present(vc, animated: false, completion: nil)

@@ -15,7 +15,7 @@ import NSObject_Rx
 import GoogleSignIn
 import FBSDKLoginKit
 
-class FirstViewController: UIViewController, ViewModelBindable, StoryboardBased {
+class UserRegisterViewController: UIViewController, ViewModelBindable, StoryboardBased {
     
     
     var viewModel: UserRegisterViewModel!
@@ -44,7 +44,7 @@ class FirstViewController: UIViewController, ViewModelBindable, StoryboardBased 
     @IBOutlet weak var facebookLogInBtn: UIButton!
     
     
-//    @IBOutlet weak var facebookLogInBtn: FBLoginButton!
+    //    @IBOutlet weak var facebookLogInBtn: FBLoginButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,13 +56,10 @@ class FirstViewController: UIViewController, ViewModelBindable, StoryboardBased 
     
     func setupBtn(){
         
-       
-//        facebookBtn.delegate = self
-//        facebookBtn.permissions = ["public_profile", "email"]
-        
         facebookLoginSetup()
         googleLoginSetup()
         appleLoginSetup()
+        
     }
     
     
@@ -86,7 +83,7 @@ class FirstViewController: UIViewController, ViewModelBindable, StoryboardBased 
         self.videoLayer.layer.addSublayer(layer)
         
         avQueuePlayer.play()
-     
+        
         self.videoLayer.bringSubviewToFront(self.logoImage)
         self.videoLayer.bringSubviewToFront(self.penNameStackView)
         self.videoLayer.sendSubviewToBack(self.registerStackView)
@@ -104,7 +101,7 @@ class FirstViewController: UIViewController, ViewModelBindable, StoryboardBased 
 
 
 //MARK:- ----------------------GoogleLogin
-extension FirstViewController {
+extension UserRegisterViewController {
     
     func googleLoginSetup(){
         
@@ -118,23 +115,23 @@ extension FirstViewController {
         let config = GIDConfiguration(clientID: clientId)
         print(config.clientID)
         GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { [unowned self] user, error in
-
-          if let error = error {
-            print(error.localizedDescription)
-            return
-          }
-
-          guard
-            let authentication = user?.authentication,
-            let idToken = authentication.idToken
-          else {
-            return
-          }
-
-          let credential = GoogleAuthProvider.credential(withIDToken: idToken,
-                                                         accessToken: authentication.accessToken)
-            Auth.auth().signIn(with: credential) { authDataResult, error in
             
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            guard
+                let authentication = user?.authentication,
+                let idToken = authentication.idToken
+            else {
+                return
+            }
+            
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                           accessToken: authentication.accessToken)
+            Auth.auth().signIn(with: credential) { authDataResult, error in
+                
                 Auth.auth().addStateDidChangeListener { (auth, user) in
                     guard let currentUser = auth.currentUser else { return }
                     let changeRequest = currentUser.createProfileChangeRequest()
@@ -158,11 +155,11 @@ extension FirstViewController {
 
 //MARK: ----------------------AppleLogin
 
-extension FirstViewController {
+extension UserRegisterViewController {
     
     
     func appleLoginSetup(){
-//        let button = ASAuthorizationAppleIDButton()
+        //        let button = ASAuthorizationAppleIDButton()
         appleLogInBtn.addTarget(self, action: #selector(handleSignInWithAppleTapped), for: .touchUpInside)
     }
     
@@ -183,7 +180,7 @@ extension FirstViewController {
     func createAppleIDRequest() -> ASAuthorizationAppleIDRequest {
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
-        request.requestedScopes = [.email, .fullName]
+        request.requestedScopes = [.email]
         
         let nonce = randomNonceString()
         request.nonce = sha256(nonce)
@@ -194,7 +191,7 @@ extension FirstViewController {
 }
 
 
-extension FirstViewController: ASAuthorizationControllerDelegate {
+extension UserRegisterViewController: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
             guard let nonce = currentNonce else {
@@ -210,15 +207,11 @@ extension FirstViewController: ASAuthorizationControllerDelegate {
             let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: idTokenString, rawNonce: nonce)
             
             Auth.auth().signIn(with: credential) { authDataResult, error in
-                //                if let user = authDataResult?.user {
-                //                    print(user.displayName)
-                //                    self.dismiss(animated: true, completion: nil)
-                //                }
                 
                 Auth.auth().addStateDidChangeListener { (auth, user) in
                     guard let currentUser = auth.currentUser else { return }
                     let changeRequest = currentUser.createProfileChangeRequest()
-                    changeRequest.displayName = "tohji"
+                    changeRequest.displayName = self.penName
                     changeRequest.commitChanges { error in
                         if let error = error {
                             print("닉네임 등록 에러 : \(error.localizedDescription)")
@@ -230,12 +223,13 @@ extension FirstViewController: ASAuthorizationControllerDelegate {
                     }
                 }
             }
+            self.dismiss(animated: true, completion: nil)
         }
     }
 }
 
 
-extension FirstViewController: ASAuthorizationControllerPresentationContextProviding {
+extension UserRegisterViewController: ASAuthorizationControllerPresentationContextProviding {
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
         return self.view.window!
     }
@@ -289,16 +283,13 @@ private func randomNonceString(length: Int = 32) -> String {
             }
         }
     }
-    
-    
-    
     return result
 }
 
 
 //MARK: ----------------------Facebook Login
 
-extension FirstViewController {
+extension UserRegisterViewController {
     
     func facebookLoginSetup(){
         facebookLogInBtn.addTarget(self, action: #selector(facebookLogin), for: .touchUpInside)
@@ -312,7 +303,7 @@ extension FirstViewController {
         loginManager.logIn(permissions: [.email], viewController: self) { result in
             switch result {
             
-            case .success(granted: let permission, declined: let declined, token: let token):
+            case .success(granted: _, declined: _, token: let token):
                 
                 let credential = FacebookAuthProvider
                     .credential(withAccessToken: token!.tokenString)
