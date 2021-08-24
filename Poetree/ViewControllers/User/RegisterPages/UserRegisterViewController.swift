@@ -34,25 +34,45 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
     @IBOutlet weak var penNameTextField: UITextField!
     var penName: String?
     @IBOutlet weak var penNameStackView: UIStackView!
+    @IBOutlet weak var pennameCompleteBtn: UIButton!
+    @IBOutlet weak var validCheckLabel: UILabel!
+    
+    
+    
     
     
     // ------------------------------ regiserView
-    
     @IBOutlet weak var registerStackView: UIStackView!
     @IBOutlet weak var googleLogInBtn: UIButton!
     @IBOutlet weak var appleLogInBtn: UIButton!
     @IBOutlet weak var facebookLogInBtn: UIButton!
+    @IBOutlet weak var selectLoginLabel: UILabel!
+    
+    
+    
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configureUI()
         playVideo()
-        setupAppleBtn()
+        setupBtn()
     }
     
+    func configureUI(){
+
+        
+        pennameCompleteBtn.isEnabled = false
+        penNameTextField.borderStyle = .none
+        let border = CALayer()
+        border.frame = CGRect(x: 0, y: penNameTextField.frame.size.height - 1, width: penNameTextField.frame.width, height: 1)
+        border.backgroundColor = UIColor.lightGray.cgColor
+        penNameTextField.layer.addSublayer(border)
+    }
     
-    func setupAppleBtn(){
+    func setupBtn(){
+        
         appleLogInBtn.addTarget(self, action: #selector(performAppleSignIn), for: .touchUpInside)
     }
     
@@ -91,6 +111,18 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
             })
             .disposed(by: rx.disposeBag)
         
+        penNameTextField.rx.text.orEmpty
+            .bind(to: viewModel.input.pennameInput)
+            .disposed(by: rx.disposeBag)
+        
+        viewModel.output.isCompleteBtnValid
+            .drive(self.pennameCompleteBtn.rx.isEnabled)
+            .disposed(by: rx.disposeBag)
+        
+        viewModel.output.validLetter
+            .drive(self.validCheckLabel.rx.text)
+            .disposed(by: rx.disposeBag)
+        
     }
     
     
@@ -112,15 +144,21 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
         self.videoLayer.bringSubviewToFront(self.logoImage)
         self.videoLayer.bringSubviewToFront(self.penNameStackView)
         self.videoLayer.sendSubviewToBack(self.registerStackView)
-        self.penNameStackView.isHidden = false
+        
     }
     
     
-    @IBAction func btnTapped(_ sender: Any) {
+    @IBAction func completeBtnTapped(_ sender: Any) {
         self.penName = penNameTextField.text
         self.videoLayer.sendSubviewToBack(self.penNameStackView)
         self.videoLayer.bringSubviewToFront(self.registerStackView)
         self.registerStackView.isHidden = false
+    }
+    
+    
+    @IBAction func backBtnTapped(_ sender: UIButton) {
+        self.videoLayer.sendSubviewToBack(registerStackView)
+        self.videoLayer.bringSubviewToFront(penNameStackView)
     }
 }
 
