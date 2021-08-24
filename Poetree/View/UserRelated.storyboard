@@ -78,7 +78,7 @@
         <!--User Register View Controller-->
         <scene sceneID="Nmd-Jf-dQX">
             <objects>
-                <viewController storyboardIdentifier="FirstViewController" id="G5i-Sh-I4R" customClass="UserRegisterViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserRegisterViewController" id="G5i-Sh-I4R" customClass="UserRegisterViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="und-Zm-fwa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -93,27 +93,27 @@
                                         </constraints>
                                     </imageView>
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5z9-vf-Xxz">
-                                        <rect key="frame" x="73.5" y="382.5" width="267.5" height="131.5"/>
+                                        <rect key="frame" x="73.333333333333343" y="382.33333333333331" width="267.33333333333326" height="131.33333333333331"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="필명 입력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hO-nH-Lg4">
-                                                <rect key="frame" x="0.0" y="0.0" width="267.5" height="28"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="267.33333333333331" height="27.666666666666668"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="23"/>
                                                 <color key="textColor" systemColor="systemGreenColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hP7-cd-wrd">
-                                                <rect key="frame" x="0.0" y="48" width="267.5" height="83.5"/>
+                                                <rect key="frame" x="0.0" y="47.666666666666693" width="267.33333333333331" height="83.666666666666686"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="m5h-zv-FBv">
-                                                        <rect key="frame" x="0.0" y="0.0" width="267.5" height="37.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="267.33333333333331" height="37.666666666666664"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="필명을 입력하세요" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xF2-Ua-vDB">
-                                                                <rect key="frame" x="0.0" y="0.0" width="215.5" height="37.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="215.66666666666666" height="37.666666666666664"/>
                                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="30"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxA-Rt-15u">
-                                                                <rect key="frame" x="235.5" y="0.0" width="32" height="37.5"/>
+                                                                <rect key="frame" x="235.66666666666669" y="0.0" width="31.666666666666686" height="37.666666666666664"/>
                                                                 <color key="tintColor" systemColor="systemRedColor"/>
                                                                 <state key="normal" image="checkmark.circle.fill" catalog="system">
                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="27"/>
@@ -125,7 +125,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="필명은 이후 수정할 수 없으니 신중히 선택해주세요 :)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziI-qm-RdN">
-                                                        <rect key="frame" x="0.0" y="47.5" width="267.5" height="36"/>
+                                                        <rect key="frame" x="0.0" y="47.666666666666686" width="267.33333333333331" height="36"/>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
                                                         <color key="textColor" systemColor="systemRedColor"/>
                                                         <nil key="highlightedColor"/>
@@ -189,11 +189,6 @@
                                     <constraint firstItem="ish-hw-GpN" firstAttribute="top" secondItem="6x7-QD-4Ay" secondAttribute="top" constant="160" id="n8c-Gg-LLN"/>
                                     <constraint firstItem="ish-hw-GpN" firstAttribute="leading" secondItem="6x7-QD-4Ay" secondAttribute="leading" constant="160" id="wbp-xi-NxM"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="subviews">
-                                        <exclude reference="5z9-vf-Xxz"/>
-                                    </mask>
-                                </variation>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="I2D-nr-6fM"/>
