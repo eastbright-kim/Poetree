@@ -24,7 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     didFinishLaunchingWithOptions: launchOptions
                 )
         
-        // Override point for customization after application launch.
+        
+        PoemRepository.shared.fetchPoems { <#([PoemEntity], Result<Complete, Error>)#> in
+            <#code#>
+        }
+        
+        
+        
         return true
     }
 

@@ -11,5 +11,8 @@ class MainPhotoCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var todayImage: UIImageView!
     
-    
+    override func awakeFromNib() {
+        self.todayImage.layer.cornerRadius = 8
+        
+    }
 }

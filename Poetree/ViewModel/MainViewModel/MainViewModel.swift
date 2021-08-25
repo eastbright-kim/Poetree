@@ -15,15 +15,17 @@ class MainViewModel: ViewModelType {
     
     let photoService: PhotoService
     let poemService: PoemService
-    let disposebag = DisposeBag()
+    
     
     struct Input {
+        let selectedPoem: PublishSubject<[Poem]>
         
     }
     
     struct Output {
         let currentDate: Driver<String>
         let thisWeekPhotoURL: Observable<[WeekPhoto]>
+        let displayingPoems: Observable<[Poem]>
     }
     
     var input: Input
@@ -31,23 +33,34 @@ class MainViewModel: ViewModelType {
     
     init(poemService: PoemService, photoService: PhotoService){
         
-        self.poemService = poemService
-        self.photoService = photoService
-        
-        let currentDate = Observable<String>.just(poemService.getCurrentDate())
-            .asDriver(onErrorJustReturn: "Jan 1st")
-        
-        let thisWeekPhotoURL = photoService.thisWeekPhotos()
-            
         photoService.getWeekPhotos { weekPhotos in
-           
+            
         }
         
         poemService.fetchPoems { poems, result in
             
         }
         
-        self.input = Input()
-        self.output = Output(currentDate: currentDate, thisWeekPhotoURL: thisWeekPhotoURL)
+        
+        self.poemService = poemService
+        self.photoService = photoService
+        
+        let currentDate = Observable<String>.just(poemService.getCurrentDate())
+            .asDriver(onErrorJustReturn: "Jan 1st")
+        let thisWeekPhotoURL = photoService.thisWeekPhotos()
+        
+        let selectedPoem = PublishSubject<[Poem]>()
+        
+        let displayingPoems = selectedPoem
+            .map { poems -> [Poem] in
+                
+                let displayingPoems = poems
+                return displayingPoems
+            }
+            .asObservable()
+       
+        self.input = Input(selectedPoem: selectedPoem)
+        self.output = Output(currentDate: currentDate, thisWeekPhotoURL: thisWeekPhotoURL, displayingPoems: displayingPoems)
+
     }
 }

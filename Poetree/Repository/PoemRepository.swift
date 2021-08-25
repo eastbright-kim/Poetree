@@ -11,6 +11,9 @@ import Firebase
 
 class PoemRepository {
     
+    static let shared = PoemRepository()
+    
+    
     func createPoem(poemModel: Poem, completion: @escaping ((Result<Complete, Errors>) -> Void)) {
     
         let poemDic: [String:Any] = [
@@ -35,7 +38,7 @@ class PoemRepository {
         
     }
     
-    func fetchPoems(completion: @escaping (([PoemEntity], Result<Complete, Error>)) -> Void) {
+    public func fetchPoems(completion: @escaping (([PoemEntity], Result<Complete, Error>)) -> Void) {
         
         poemRef.observeSingleEvent(of: .value) { snapshot in
             
