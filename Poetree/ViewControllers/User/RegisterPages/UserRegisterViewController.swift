@@ -50,9 +50,6 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
     
     
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()

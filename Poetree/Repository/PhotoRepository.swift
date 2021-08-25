@@ -11,7 +11,9 @@ import Firebase
 
 class PhotoRepository {
     
-    func fetchPhotos(completion: @escaping (([PhotoEntity]) -> Void)) {
+    static let shared = PhotoRepository()
+    
+    public func fetchPhotos(completion: @escaping (([PhotoEntity]) -> Void)) {
         
         photoRef.observeSingleEvent(of: .value) { snapshot in
             let valud = snapshot.value as? [String:Any] ?? [:]

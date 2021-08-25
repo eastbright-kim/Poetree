@@ -97,6 +97,13 @@ class PoemService {
         }
     }
     
+    func fetchPoemForPhotoId(photoId: Int) -> [Poem] {
+ 
+        
+        let selectedPoems = self.poems.filter{$0.photoId == photoId}
+        return selectedPoems
+    }
+    
     func getCurrentDate() -> String {
 
         let currentDate = convertDateToString(format: "MMM-d", date: Date())

@@ -33,6 +33,7 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
         collectionViewDelegate()
     }
     
+    
     func collectionViewAni() {
         collectionView.alpha = 0
         UIView.animate(withDuration: 2, delay: 1, options: .curveEaseIn) { [unowned self] in
@@ -47,8 +48,8 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
         collectionView.delegate = self
         
         let flowlayout = UICollectionViewFlowLayout()
-        flowlayout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: collectionView.frame.size.height)
-        flowlayout.minimumInteritemSpacing = 0
+        flowlayout.itemSize = CGSize(width: UIScreen.main.bounds.width - 20, height: collectionView.frame.size.height)
+        flowlayout.minimumInteritemSpacing = 10
         flowlayout.minimumLineSpacing = 0
         flowlayout.scrollDirection = .horizontal
         collectionView.collectionViewLayout = flowlayout
@@ -108,6 +109,24 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
             })
             .disposed(by: rx.disposeBag)
         
+        collectionView.rx.willDisplayCell
+            .subscribe(onNext:{[unowned self] cell in
+                
+                let index = cell.at.item
+                print(index)
+                let photoId = self.viewModel.photoService.fetchPhotoId(index)
+                let currentPoems = self.viewModel.poemService.fetchPoemForPhotoId(photoId: photoId)
+                
+                self.viewModel.input.selectedPoem.onNext(currentPoems)
+                
+            })
+            .disposed(by: rx.disposeBag)
+        
+        viewModel.output.displayingPoems
+            .bind(to: poemTableView.rx.items(cellIdentifier: "poemCell", cellType: MainPoemTableViewCell.self)){ index, poem, cell in
+                cell.titleLabel.text = poem.title
+            }
+            .disposed(by: rx.disposeBag)
     }
 }
 
@@ -131,4 +150,6 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
             
             targetContentOffset.pointee = CGPoint(x: CGFloat(index) * cellWidthIncludingSpacing, y: 0)
         }
+    
+    
 }
