@@ -25,10 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 )
         
         
-        PoemRepository.shared.fetchPoems { <#([PoemEntity], Result<Complete, Error>)#> in
-            <#code#>
-        }
-        
         
         
         return true

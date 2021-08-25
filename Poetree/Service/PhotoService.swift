@@ -12,7 +12,7 @@ import Firebase
 class PhotoService {
     
     var weekPhotos = [WeekPhoto]()
-    private lazy var photoStore = BehaviorSubject<[WeekPhoto]>(value: whites)
+    lazy var photoStore = BehaviorSubject<[WeekPhoto]>(value: whites)
     private lazy var thisWeekPhotoStore = BehaviorSubject<[WeekPhoto]>(value: whites)
     
     let photoRepository: PhotoRepository
@@ -58,10 +58,10 @@ class PhotoService {
     }
     
     func fetchPhotoId(_ index: Int) -> Int {
-//        
-//        if self.weekPhotos.isEmpty {
-//            return 0
-//        }
+        
+        if self.weekPhotos.isEmpty {
+            return 0
+        }
         
         let id = self.weekPhotos[index].id
         return id
