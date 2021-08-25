@@ -10,9 +10,9 @@ import Firebase
 
 
 class PoemRepository {
-    
+
     static let shared = PoemRepository()
-    
+
     
     func createPoem(poemModel: Poem, completion: @escaping ((Result<Complete, Errors>) -> Void)) {
     

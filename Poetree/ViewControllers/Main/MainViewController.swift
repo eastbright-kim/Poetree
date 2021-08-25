@@ -36,7 +36,7 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
     
     func collectionViewAni() {
         collectionView.alpha = 0
-        UIView.animate(withDuration: 2, delay: 1, options: .curveEaseIn) { [unowned self] in
+        UIView.animate(withDuration: 0.8, delay: 0.3, options: .curveEaseIn) { [unowned self] in
             self.collectionView.alpha = 1
         }
     }
@@ -108,17 +108,17 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
                 
             })
             .disposed(by: rx.disposeBag)
-        
+
         collectionView.rx.willDisplayCell
             .subscribe(onNext:{[unowned self] cell in
-                
+
                 let index = cell.at.item
-                print(index)
+              
                 let photoId = self.viewModel.photoService.fetchPhotoId(index)
                 let currentPoems = self.viewModel.poemService.fetchPoemForPhotoId(photoId: photoId)
-                
+
                 self.viewModel.input.selectedPoem.onNext(currentPoems)
-                
+
             })
             .disposed(by: rx.disposeBag)
         

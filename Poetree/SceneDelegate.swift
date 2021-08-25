@@ -7,6 +7,8 @@
 
 import UIKit
 import FBSDKCoreKit
+import RxSwift
+import RxCocoa
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -14,6 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
@@ -26,6 +29,42 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let poemService = PoemService(poemRepository: poemRepository)
         let userService = UserService(userRegisterRepository: userRegisterRepository)
 
+        poemRepository.fetchPoems { poemEntities, result in
+            
+            let poemModels = poemEntities.map { poemEntity -> Poem in
+                let id = poemEntity.id
+                let userEmail = poemEntity.userEmail
+                let userNickname = poemEntity.userNickname
+                let title = poemEntity.title
+                let content = poemEntity.content
+                let photoId = poemEntity.photoId
+                let uploadAt = convertStringToDate(dateFormat: "MMM d", dateString: poemEntity.uploadAt)
+                let isPublic = poemEntity.isPublic
+                let likers = poemEntity.likers
+                let photoURL = URL(string: poemEntity.photoURL)!
+                let userUID = currentUser.uid
+               
+                return Poem(id: id, userEmail: userEmail, userNickname: userNickname, title: title, content: content, photoId: photoId, uploadAt: uploadAt, isPrivate: isPublic, likers: likers, photoURL: photoURL, userUID: userUID)
+            }
+
+            poemService.poems = poemModels
+            poemService.poemsStore.onNext(poemModels)
+        }
+        
+        photoRepository.fetchPhotos { photoEntities in
+            let weekPhotos = photoEntities.map { entity -> WeekPhoto in
+                let url = URL(string: entity.imageURL)!
+                let photoId = entity.photoId
+                let date = convertStringToDate(dateFormat: "YYYY MMM d", dateString: entity.date)
+                return WeekPhoto(date: date, id: photoId, url: url)
+            }
+
+            photoServie.weekPhotos = weekPhotos
+            photoServie.getThisWeekPhoto(photos: weekPhotos)
+            photoServie.photoStore.onNext(weekPhotos)
+        }
+        
+    
         var mainVC = MainViewController.instantiate(storyboardID: "Main")
         mainVC.bind(viewModel: MainViewModel(poemService: poemService, photoService: photoServie))
         let mainNVC = UINavigationController(rootViewController: mainVC)
