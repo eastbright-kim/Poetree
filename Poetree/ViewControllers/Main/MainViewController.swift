@@ -16,14 +16,13 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
     
     
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var thisWeekPoemBtn: UIButton!
-    @IBOutlet weak var writePoemBtn: UIButton!
     @IBOutlet weak var poemTableView: UITableView!
     @IBOutlet weak var logInBtn: UIBarButtonItem!
     @IBOutlet weak var writeChev: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var photoNumberLabel: UILabel!
     @IBOutlet weak var poemForPhotoNumberLabel: UIButton!
+    @IBOutlet weak var thisWeekPoemBtn: UIButton!
     
     
     
@@ -73,7 +72,7 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
     
     private func configureUI() {
         configureNavTab()
-
+        
         
     }
     
@@ -102,10 +101,6 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
             .disposed(by: rx.disposeBag)
         
         
-//        Observable.zip(collectionView.rx.modelSelected(WeekPhoto.self), collectionView.rx.itemSelected)
-//            .subscribe(onNext:{ photo, indexPath in
-        //
-        //            })
         
         collectionView.rx.itemSelected
             .subscribe(onNext:{ indexPath in
@@ -113,32 +108,14 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
                 let photoVC = PhotoViewController.instantiate(storyboardID: "Main")
                 
                 photoVC.photoService = self.viewModel.photoService
+                photoVC.poemService = self.viewModel.poemService
                 photoVC.selectedIndexPath = indexPath
                 photoVC.modalTransitionStyle = .crossDissolve
                 photoVC.modalPresentationStyle = .overFullScreen
                 self.navigationController?.pushViewController(photoVC, animated: true)
             })
             .disposed(by: rx.disposeBag)
-        //
-        //        collectionView.rx.modelSelected(WeekPhoto.self)
-//            .subscribe(onNext:{[unowned self] weekPhoto in
-//
-//
-////                let viewModel = WriteViewModel(poemService: self.viewModel.poemService, weekPhoto: weekPhoto, editingPoem: nil)
-////
-////                var vc = WritingViewController.instantiate(storyboardID: "WritingRelated")
-////                vc.bind(viewModel: viewModel)
-////                self.navigationController?.pushViewController(vc, animated: true)
-//
-//                let photoVC = PhotoViewController.instantiate(storyboardID: "Main")
-//                photoVC.photoService = self.viewModel.photoService
-//                photoVC.modalTransitionStyle = .crossDissolve
-//                photoVC.modalPresentationStyle = .overFullScreen
-//                self.navigationController?.pushViewController(photoVC, animated: true)
-//
-//            })
-//            .disposed(by: rx.disposeBag)
-
+        
         
         collectionView.rx.willDisplayCell
             .subscribe(onNext:{[unowned self] cell in
@@ -162,7 +139,7 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
                 let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
                 
                 let visibleItemNumber = self.collectionView.indexPathForItem(at: visiblePoint)?.item
-
+                
                 let photoId = self.viewModel.photoService.fetchPhotoId(visibleItemNumber!)
                 
                 self.photoNumberLabel.text = "#\(visibleItemNumber! + 1)"
@@ -176,7 +153,30 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
         viewModel.output.displayingPoems
             .bind(to: poemTableView.rx.items(cellIdentifier: "poemCell", cellType: MainPoemTableViewCell.self)){ index, poem, cell in
                 cell.titleLabel.text = poem.title
+                cell.selectionStyle = UITableViewCell.SelectionStyle.none
             }
+            .disposed(by: rx.disposeBag)
+        
+        
+        thisWeekPoemBtn.rx.tap
+            .subscribe(onNext:{[unowned self]_ in
+                
+                let viewModel = PoemListViewModel(poemService: self.viewModel.poemService, listType: .thisWeek)
+                var vc = PoemListViewController.instantiate(storyboardID: "ListRelated")
+                vc.bind(viewModel: viewModel)
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
+            .disposed(by: rx.disposeBag)
+        
+       
+        poemTableView.rx.modelSelected(Poem.self)
+            .subscribe(onNext:{ poem in
+                let viewModel = PoemListViewModel(poemService: self.viewModel.poemService, listType: .seletedPhoto, selectedPhotoId: poem.photoId)
+                
+                var vc = PoemListViewController.instantiate(storyboardID: "ListRelated")
+                vc.bind(viewModel: viewModel)
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
             .disposed(by: rx.disposeBag)
     }
 }
@@ -185,22 +185,22 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-            guard let layout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
-            
-            let cellWidthIncludingSpacing = layout.itemSize.width + layout.minimumLineSpacing
-            
-            let estimatedIndex = scrollView.contentOffset.x / cellWidthIncludingSpacing
-            let index: Int
-            if velocity.x > 0 {
-                index = Int(ceil(estimatedIndex))
-            } else if velocity.x < 0 {
-                index = Int(floor(estimatedIndex))
-            } else {
-                index = Int(round(estimatedIndex))
-            }
-            
-            targetContentOffset.pointee = CGPoint(x: CGFloat(index) * cellWidthIncludingSpacing, y: 0)
+        guard let layout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        
+        let cellWidthIncludingSpacing = layout.itemSize.width + layout.minimumLineSpacing
+        
+        let estimatedIndex = scrollView.contentOffset.x / cellWidthIncludingSpacing
+        let index: Int
+        if velocity.x > 0 {
+            index = Int(ceil(estimatedIndex))
+        } else if velocity.x < 0 {
+            index = Int(floor(estimatedIndex))
+        } else {
+            index = Int(round(estimatedIndex))
         }
+        
+        targetContentOffset.pointee = CGPoint(x: CGFloat(index) * cellWidthIncludingSpacing, y: 0)
+    }
     
     
 }

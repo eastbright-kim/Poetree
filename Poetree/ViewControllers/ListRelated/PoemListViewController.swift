@@ -26,7 +26,7 @@ class PoemListViewController: UIViewController, StoryboardBased, ViewModelBindab
     
     func bindViewModel() {
         
-        viewModel.output.allPoems
+        viewModel.output.displayingPoems
             .bind(to: tableView.rx.items(cellIdentifier: "PoemListCell", cellType: PoemListTableViewCell.self)) { row, poem, cell in
                 
                 cell.poemImageView.kf.setImage(with: poem.photoURL)

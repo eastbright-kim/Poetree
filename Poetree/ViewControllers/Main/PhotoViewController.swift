@@ -13,11 +13,11 @@ import NSObject_Rx
 
 class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased {
     
-    
     @IBOutlet weak var photoCollectionView: UICollectionView!
     @IBOutlet weak var firstNoticeLabel: UILabel!
     @IBOutlet weak var secondNoticeLabel: UILabel!
     
+    var poemService: PoemService!
     var photoService: PhotoService!
     var selectedIndexPath: IndexPath!
     override func viewDidLoad() {
@@ -35,7 +35,7 @@ class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased {
         } completion: { firstNoticeFadeIn in
             
             if firstNoticeFadeIn {
-                UIView.animate(withDuration: 2.5, delay: 1, options: .curveEaseIn) {
+                UIView.animate(withDuration: 1.5, delay: 1, options: .curveEaseIn) {
                     self.firstNoticeLabel.alpha = 0
                 } completion: { firstNoticeFadeout in
                     
@@ -78,7 +78,22 @@ class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased {
             }
             .disposed(by: rx.disposeBag)
         
-        photoCollectionView.scrollToItem(at: self.selectedIndexPath, at: .centeredHorizontally, animated: false)
+        
+        photoCollectionView.scrollToItem(at: selectedIndexPath, at: .centeredHorizontally, animated: false)
+        
+        
+        photoCollectionView.rx.modelSelected(WeekPhoto.self)
+            .subscribe(onNext:{[unowned self] weekPhoto in
+                
+                let viewModel = WriteViewModel(poemService: self.poemService, weekPhoto: weekPhoto, editingPoem: nil)
+                
+                var vc = WritingViewController.instantiate(storyboardID: "WritingRelated")
+                vc.bind(viewModel: viewModel)
+                self.navigationController?.pushViewController(vc, animated: true)
+                
+                
+            })
+            .disposed(by: rx.disposeBag)
         
     }
 }

@@ -23,7 +23,7 @@ class PoemRepository {
             "title": poemModel.title,
             "content": poemModel.content,
             "photoId": poemModel.photoId,
-            "uploadAt": convertDateToString(format: "MMM d", date: poemModel.uploadAt),
+            "uploadAt": convertDateToString(format: "yyyy MMM d", date: poemModel.uploadAt),
             "isPrivate": poemModel.isPrivate,
             "likers": [:],
             "photoURL": poemModel.photoURL.absoluteString
