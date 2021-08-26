@@ -93,7 +93,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
             .subscribe(onNext: {[unowned self] aPoem in
                 self.viewModel.createPoem(poem: aPoem)
                 DispatchQueue.main.async {
-                    self.navigationController?.popViewController(animated: true)
+                    self.navigationController?.popToRootViewController(animated: true)
                 }
             })
             .disposed(by: rx.disposeBag)

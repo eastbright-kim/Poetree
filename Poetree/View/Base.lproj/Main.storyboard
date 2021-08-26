@@ -91,9 +91,9 @@
                                                                     </state>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hn7-JN-bKV">
-                                                                    <rect key="frame" x="328" y="7.6666666666666679" width="37" height="29.000000000000004"/>
+                                                                    <rect key="frame" x="284" y="7.6666666666666679" width="81" height="29.000000000000004"/>
                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="14"/>
-                                                                    <state key="normal" title="글쓰기">
+                                                                    <state key="normal" title="이번주 글 보기">
                                                                         <color key="titleColor" systemColor="systemPinkColor"/>
                                                                     </state>
                                                                 </button>
@@ -197,9 +197,8 @@
                         <outlet property="photoNumberLabel" destination="GoF-Ds-r5t" id="h79-97-ihZ"/>
                         <outlet property="poemForPhotoNumberLabel" destination="khz-UM-wCX" id="6ZJ-aW-Vlt"/>
                         <outlet property="poemTableView" destination="jrN-g0-cPp" id="Obz-yZ-Sr9"/>
-                        <outlet property="thisWeekPoemBtn" destination="khz-UM-wCX" id="0VV-cR-ze9"/>
+                        <outlet property="thisWeekPoemBtn" destination="hn7-JN-bKV" id="hSq-7R-xe7"/>
                         <outlet property="writeChev" destination="rdc-Gb-wT6" id="Gy1-kO-0Ko"/>
-                        <outlet property="writePoemBtn" destination="hn7-JN-bKV" id="Bqz-Jv-LWH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="moq-Jw-Pcy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

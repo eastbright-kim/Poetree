@@ -38,7 +38,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 let title = poemEntity.title
                 let content = poemEntity.content
                 let photoId = poemEntity.photoId
-                let uploadAt = convertStringToDate(dateFormat: "MMM d", dateString: poemEntity.uploadAt)
+                let uploadAt = convertStringToDate(dateFormat: "yyyy MMM d", dateString: poemEntity.uploadAt)
                 let isPublic = poemEntity.isPublic
                 let likers = poemEntity.likers
                 let photoURL = URL(string: poemEntity.photoURL)!
@@ -55,7 +55,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let weekPhotos = photoEntities.map { entity -> WeekPhoto in
                 let url = URL(string: entity.imageURL)!
                 let photoId = entity.photoId
-                let date = convertStringToDate(dateFormat: "YYYY MMM d", dateString: entity.date)
+                let date = convertStringToDate(dateFormat: "yyyy MMM d", dateString: entity.date)
                 return WeekPhoto(date: date, id: photoId, url: url)
             }
 

@@ -83,12 +83,12 @@ class PoemService {
                 let title = poemEntity.title
                 let content = poemEntity.content
                 let photoId = poemEntity.photoId
-                let uploadAt = convertStringToDate(dateFormat: "MMM d", dateString: poemEntity.uploadAt)
+                let uploadAt = convertStringToDate(dateFormat: "yyyy MMM d", dateString: poemEntity.uploadAt)
                 let isPublic = poemEntity.isPublic
                 let likers = poemEntity.likers
                 let photoURL = URL(string: poemEntity.photoURL)!
                 let userUID = Auth.auth().currentUser?.uid
-               
+                
                 return Poem(id: id, userEmail: userEmail, userNickname: userNickname, title: title, content: content, photoId: photoId, uploadAt: uploadAt, isPrivate: isPublic, likers: likers, photoURL: photoURL, userUID: userUID)
             }
             completion(poemModels, "모든 시 불러오기 성공")
@@ -98,7 +98,7 @@ class PoemService {
     }
     
     func fetchPoemForPhotoId(photoId: Int) -> [Poem] {
- 
+        
         if self.poems.isEmpty {
             return [Poem(id: "", userEmail: "", userNickname: "", title: "글을 불러오고 있습니다.", content: "", photoId: 0, uploadAt: Date(), isPrivate: true, likers: [:], photoURL: URL(string: "https://firebasestorage.googleapis.com/v0/b/poetree-e472e.appspot.com/o/white%2F2-2.jpg?alt=media&token=3945142a-4a01-431b-9a0c-51ff8ee10538")!)]
         }
@@ -107,8 +107,28 @@ class PoemService {
         return selectedPoems
     }
     
+    func fetchThisWeekPoems() -> [Poem] {
+        
+        let thisWeekPoems = self.poems.filter { poem in
+            print(poem.uploadAt.timeIntervalSinceReferenceDate)
+            print(getMonday(myDate: Date()).timeIntervalSinceReferenceDate)
+            
+            return poem.uploadAt >= getMonday(myDate: Date())
+        }
+        print(thisWeekPoems)
+        return thisWeekPoems
+    }
+    
+    func getMonday(myDate: Date) -> Date {
+        let cal = Calendar.current
+        var comps = cal.dateComponents([.weekOfYear, .yearForWeekOfYear], from: myDate)
+        comps.weekday = 2 // Monday
+        let mondayInWeek = cal.date(from: comps)!
+        return mondayInWeek
+    }
+    
     func getCurrentDate() -> String {
-
+        
         let currentDate = convertDateToString(format: "MMM-d", date: Date())
         let current = currentDate.components(separatedBy: "-")
         
@@ -129,5 +149,5 @@ class PoemService {
         
         return "\(user)님이 \(monthDay) \(cycle)에 보내는 글"
     }
-
+    
 }

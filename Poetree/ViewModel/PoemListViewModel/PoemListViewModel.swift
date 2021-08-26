@@ -18,18 +18,37 @@ class PoemListViewModel: ViewModelType {
     }
     
     struct Output {
-        let allPoems: Observable<[Poem]>
+        let displayingPoems: Observable<[Poem]>
     }
     
     var input: Input
     var output: Output
     
-    init(poemService: PoemService) {
+    init(poemService: PoemService, listType: PoemListType, selectedPhotoId: Int? = nil) {
         
-        let allPoems = poemService.allPoems()
+        switch listType {
+        case .allPoems:
+            let displayingPoems = poemService.allPoems()
+            self.output = Output(displayingPoems: displayingPoems)
+        case .thisWeek:
+            let thisWeekPoems = poemService.fetchThisWeekPoems()
+            let displayingPoems = Observable.just(thisWeekPoems)
+            self.output = Output(displayingPoems: displayingPoems)
+        case .seletedPhoto:
+            let selectedPoems = poemService.fetchPoemForPhotoId(photoId: selectedPhotoId!)
+            let displayingPoems = Observable.just(selectedPoems)
+            self.output = Output(displayingPoems: displayingPoems)
+        }
         
         self.poemService = poemService
         self.input = Input()
-        self.output = Output(allPoems: allPoems)
     }
+}
+
+enum PoemListType {
+    case allPoems
+    case thisWeek
+    case seletedPhoto
+    //    case UserLiked
+    //    case UserWrote
 }
