@@ -41,7 +41,13 @@ class MainViewModel: ViewModelType {
             .asDriver(onErrorJustReturn: "Jan 1st")
         let thisWeekPhotoURL = photoService.thisWeekPhotos()
         
-        let selectedPoem = BehaviorSubject<[Poem]>(value: [Poem(id: "", userEmail: "", userNickname: "", title: "", content: "", photoId: 0, uploadAt: Date(), isPrivate: true, likers: [:], photoURL: URL(string: "https://firebasestorage.googleapis.com/v0/b/poetree-e472e.appspot.com/o/white%2F2-2.jpg?alt=media&token=3945142a-4a01-431b-9a0c-51ff8ee10538")!)])
+        
+        let photoId = self.photoService.fetchPhotoId(0)
+        let initialPoems = self.poemService.fetchPoemForPhotoId(photoId: photoId)
+        print(initialPoems.count)
+        let selectedPoem = BehaviorSubject<[Poem]>(value: initialPoems)
+        
+        
         
         let displayingPoems = selectedPoem
             .map { poems -> [Poem] in

@@ -22,6 +22,10 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
     @IBOutlet weak var logInBtn: UIBarButtonItem!
     @IBOutlet weak var writeChev: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var photoNumberLabel: UILabel!
+    @IBOutlet weak var poemForPhotoNumberLabel: UIButton!
+    
+    
     
     var viewModel: MainViewModel!
     
@@ -49,8 +53,8 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
         
         let flowlayout = UICollectionViewFlowLayout()
         flowlayout.itemSize = CGSize(width: UIScreen.main.bounds.width - 20, height: collectionView.frame.size.height)
-        flowlayout.minimumInteritemSpacing = 10
-        flowlayout.minimumLineSpacing = 0
+        flowlayout.minimumInteritemSpacing = 20
+        flowlayout.minimumLineSpacing = 20
         flowlayout.scrollDirection = .horizontal
         collectionView.collectionViewLayout = flowlayout
     }
@@ -69,6 +73,8 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
     
     private func configureUI() {
         configureNavTab()
+
+        
     }
     
     private func configureNavTab() {
@@ -109,16 +115,37 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
             })
             .disposed(by: rx.disposeBag)
 
+        
         collectionView.rx.willDisplayCell
             .subscribe(onNext:{[unowned self] cell in
-
+                
                 let index = cell.at.item
-              
-                let photoId = self.viewModel.photoService.fetchPhotoId(index)
+                if index == 0 {
+                    let photoId = self.viewModel.photoService.fetchPhotoId(index)
+                    let currentPoems = self.viewModel.poemService.fetchPoemForPhotoId(photoId: photoId)
+                    
+                    self.viewModel.input.selectedPoem.onNext(currentPoems)
+                }
+            })
+            .disposed(by: rx.disposeBag)
+        
+        
+        collectionView.rx.didEndDecelerating
+            .subscribe(onNext:{[unowned self] _ in
+                
+                
+                let visibleRect = CGRect(origin: self.collectionView.contentOffset, size: self.collectionView.bounds.size)
+                let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+                
+                let visibleItemNumber = self.collectionView.indexPathForItem(at: visiblePoint)?.item
+
+                let photoId = self.viewModel.photoService.fetchPhotoId(visibleItemNumber!)
+                
+                self.photoNumberLabel.text = "#\(visibleItemNumber! + 1)"
+                self.poemForPhotoNumberLabel.setTitle("#\(visibleItemNumber! + 1) 사진에 쓴 글", for: .normal)
+                
                 let currentPoems = self.viewModel.poemService.fetchPoemForPhotoId(photoId: photoId)
-
                 self.viewModel.input.selectedPoem.onNext(currentPoems)
-
             })
             .disposed(by: rx.disposeBag)
         
