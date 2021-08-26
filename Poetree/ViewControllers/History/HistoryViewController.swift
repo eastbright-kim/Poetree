@@ -44,7 +44,7 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
             .subscribe(onNext: { [unowned self] _ in
                 
                 let viewModel = PoemListViewModel(poemService: self.viewModel.poemSevice)
-                var vc = PoemListViewController.instantiate(storyboardID: "Main")
+                var vc = PoemListViewController.instantiate(storyboardID: "ListRelated")
                 vc.bind(viewModel: viewModel)
                 self.navigationController?.pushViewController(vc, animated: true)
             })

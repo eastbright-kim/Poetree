@@ -42,7 +42,7 @@ class PoemListViewController: UIViewController, StoryboardBased, ViewModelBindab
             .subscribe(onNext:{[unowned self] poem in
 
                 let viewModel = PoemDetailViewModel(poemService: self.viewModel.poemService)
-                var vc = PoemDetailViewController.instantiate(storyboardID: "Main")
+                var vc = PoemDetailViewController.instantiate(storyboardID: "WritingRelated")
                 vc.currentPoem = poem
                 vc.bind(viewModel: viewModel)
                 self.navigationController?.pushViewController(vc, animated: true)

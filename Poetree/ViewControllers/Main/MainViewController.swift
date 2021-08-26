@@ -102,18 +102,42 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
             .disposed(by: rx.disposeBag)
         
         
-        collectionView.rx.modelSelected(WeekPhoto.self)
-            .subscribe(onNext:{[unowned self] weekPhoto in
+//        Observable.zip(collectionView.rx.modelSelected(WeekPhoto.self), collectionView.rx.itemSelected)
+//            .subscribe(onNext:{ photo, indexPath in
+        //
+        //            })
+        
+        collectionView.rx.itemSelected
+            .subscribe(onNext:{ indexPath in
                 
+                let photoVC = PhotoViewController.instantiate(storyboardID: "Main")
                 
-                let viewModel = WriteViewModel(poemService: self.viewModel.poemService, weekPhoto: weekPhoto, editingPoem: nil)
-                
-                var vc = WritingViewController.instantiate(storyboardID: "Main")
-                vc.bind(viewModel: viewModel)
-                self.navigationController?.pushViewController(vc, animated: true)
-                
+                photoVC.photoService = self.viewModel.photoService
+                photoVC.selectedIndexPath = indexPath
+                photoVC.modalTransitionStyle = .crossDissolve
+                photoVC.modalPresentationStyle = .overFullScreen
+                self.navigationController?.pushViewController(photoVC, animated: true)
             })
             .disposed(by: rx.disposeBag)
+        //
+        //        collectionView.rx.modelSelected(WeekPhoto.self)
+//            .subscribe(onNext:{[unowned self] weekPhoto in
+//
+//
+////                let viewModel = WriteViewModel(poemService: self.viewModel.poemService, weekPhoto: weekPhoto, editingPoem: nil)
+////
+////                var vc = WritingViewController.instantiate(storyboardID: "WritingRelated")
+////                vc.bind(viewModel: viewModel)
+////                self.navigationController?.pushViewController(vc, animated: true)
+//
+//                let photoVC = PhotoViewController.instantiate(storyboardID: "Main")
+//                photoVC.photoService = self.viewModel.photoService
+//                photoVC.modalTransitionStyle = .crossDissolve
+//                photoVC.modalPresentationStyle = .overFullScreen
+//                self.navigationController?.pushViewController(photoVC, animated: true)
+//
+//            })
+//            .disposed(by: rx.disposeBag)
 
         
         collectionView.rx.willDisplayCell
