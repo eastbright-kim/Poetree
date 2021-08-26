@@ -46,6 +46,9 @@
 		DBCE060D26C2C8F00008EBF8 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE060C26C2C8F00008EBF8 /* Protocol.swift */; };
 		DBCE061126C2D2430008EBF8 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE061026C2D2430008EBF8 /* Constant.swift */; };
 		DBDC59FD26D790270066B45A /* WritingRelated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBDC59FC26D790270066B45A /* WritingRelated.storyboard */; };
+		DBDC59FF26D790DC0066B45A /* ListRelated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBDC59FE26D790DC0066B45A /* ListRelated.storyboard */; };
+		DBDC5A0426D793D40066B45A /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC5A0326D793D40066B45A /* PhotoViewController.swift */; };
+		DBDC5A0626D794BB0066B45A /* PhotoViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC5A0526D794BB0066B45A /* PhotoViewCollectionViewCell.swift */; };
 		DBF1E25926D18D60006474C8 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF1E25826D18D60006474C8 /* UserService.swift */; };
 		DBFCE5E826C3AA8400E3FC16 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5E726C3AA8400E3FC16 /* HistoryViewModel.swift */; };
 		DBFCE5EA26C3AA9D00E3FC16 /* MyPoemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5E926C3AA9D00E3FC16 /* MyPoemViewModel.swift */; };
@@ -100,6 +103,9 @@
 		DBCE060C26C2C8F00008EBF8 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		DBCE061026C2D2430008EBF8 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		DBDC59FC26D790270066B45A /* WritingRelated.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WritingRelated.storyboard; sourceTree = "<group>"; };
+		DBDC59FE26D790DC0066B45A /* ListRelated.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListRelated.storyboard; sourceTree = "<group>"; };
+		DBDC5A0326D793D40066B45A /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		DBDC5A0526D794BB0066B45A /* PhotoViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		DBE1DBDC26D1EFEC00D263C8 /* Poetree.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Poetree.entitlements; sourceTree = "<group>"; };
 		DBF1E25826D18D60006474C8 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		DBFCE5E726C3AA8400E3FC16 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
@@ -181,12 +187,13 @@
 		DB21A27426C1736C0048FB17 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DBDC5A0026D791F90066B45A /* LaunchScreen */,
 				DB666DC426CAB68700A588AC /* CollectionViewCell */,
 				DB666DC326CAB65800A588AC /* TableViewCell */,
-				DB21A26926C16B410048FB17 /* LaunchScreen.storyboard */,
 				DB21A26426C16B3F0048FB17 /* Main.storyboard */,
 				DB048DCE26C7A4B80058302C /* UserRelated.storyboard */,
 				DBDC59FC26D790270066B45A /* WritingRelated.storyboard */,
+				DBDC59FE26D790DC0066B45A /* ListRelated.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -206,13 +213,11 @@
 		DB21A27626C173AF0048FB17 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DBDC5A0226D793A90066B45A /* WritingRelated */,
+				DBDC5A0126D793930066B45A /* ListRelated */,
 				DBCE060726C2A99A0008EBF8 /* History */,
 				DBCE060626C2A9890008EBF8 /* Main */,
 				DBCE060826C2A9A30008EBF8 /* User */,
-				DB2CFD6826C2884D00130078 /* WritingViewController.swift */,
-				DBCE060426C2A8FB0008EBF8 /* PhotoCollectionViewController.swift */,
-				DB2CFD6A26C2887100130078 /* PoemListViewController.swift */,
-				DBCE060226C2A8CA0008EBF8 /* PoemDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -305,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				DB9D575D26C43E6000A86148 /* MainPhotoCollectionViewCell.swift */,
+				DBDC5A0526D794BB0066B45A /* PhotoViewCollectionViewCell.swift */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -355,6 +361,7 @@
 			isa = PBXGroup;
 			children = (
 				DB21A27C26C174420048FB17 /* MainViewController.swift */,
+				DBDC5A0326D793D40066B45A /* PhotoViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -387,6 +394,32 @@
 				DB666DBD26CA907600A588AC /* FirebaseReference.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		DBDC5A0026D791F90066B45A /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DB21A26926C16B410048FB17 /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		DBDC5A0126D793930066B45A /* ListRelated */ = {
+			isa = PBXGroup;
+			children = (
+				DBCE060426C2A8FB0008EBF8 /* PhotoCollectionViewController.swift */,
+				DB2CFD6A26C2887100130078 /* PoemListViewController.swift */,
+			);
+			path = ListRelated;
+			sourceTree = "<group>";
+		};
+		DBDC5A0226D793A90066B45A /* WritingRelated */ = {
+			isa = PBXGroup;
+			children = (
+				DB2CFD6826C2884D00130078 /* WritingViewController.swift */,
+				DBCE060226C2A8CA0008EBF8 /* PoemDetailViewController.swift */,
+			);
+			path = WritingRelated;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -451,6 +484,7 @@
 				DB048DCF26C7A4B80058302C /* UserRelated.storyboard in Resources */,
 				DB21A26B26C16B410048FB17 /* LaunchScreen.storyboard in Resources */,
 				DB21A27326C1700F0048FB17 /* GoogleService-Info.plist in Resources */,
+				DBDC59FF26D790DC0066B45A /* ListRelated.storyboard in Resources */,
 				DB21A26826C16B410048FB17 /* Assets.xcassets in Resources */,
 				DB0EB76E26D4C27E0039D8F6 /* shadow.mp4 in Resources */,
 				DBDC59FD26D790270066B45A /* WritingRelated.storyboard in Resources */,
@@ -524,6 +558,7 @@
 				DBFCE5EA26C3AA9D00E3FC16 /* MyPoemViewModel.swift in Sources */,
 				DBCE060D26C2C8F00008EBF8 /* Protocol.swift in Sources */,
 				DB666DC026CAAF1E00A588AC /* PhotoService.swift in Sources */,
+				DBDC5A0626D794BB0066B45A /* PhotoViewCollectionViewCell.swift in Sources */,
 				DBFCE5F226C3AB2B00E3FC16 /* PhotoListViewModel.swift in Sources */,
 				DB3CCEB126D0F4C8005C3074 /* SideMenuViewController.swift in Sources */,
 				DB34288F26C1CDF9007C5A6A /* UserPageViewController.swift in Sources */,
@@ -546,6 +581,7 @@
 				DBCE060326C2A8CA0008EBF8 /* PoemDetailViewController.swift in Sources */,
 				DB3CCEAF26D0F45E005C3074 /* SideMenuNavigationController.swift in Sources */,
 				DB21A28726C18F4D0048FB17 /* MainPoemTableViewCell.swift in Sources */,
+				DBDC5A0426D793D40066B45A /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
