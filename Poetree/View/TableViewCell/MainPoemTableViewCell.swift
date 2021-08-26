@@ -9,7 +9,8 @@ import UIKit
 
 class MainPoemTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var blackCircle: UIImageView!
+
+    @IBOutlet weak var lineLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     
     override func awakeFromNib() {

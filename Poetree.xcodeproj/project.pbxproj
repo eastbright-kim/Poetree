@@ -45,6 +45,7 @@
 		DBCE060A26C2ACEE0008EBF8 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE060926C2ACEE0008EBF8 /* MainViewModel.swift */; };
 		DBCE060D26C2C8F00008EBF8 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE060C26C2C8F00008EBF8 /* Protocol.swift */; };
 		DBCE061126C2D2430008EBF8 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE061026C2D2430008EBF8 /* Constant.swift */; };
+		DBDC59FD26D790270066B45A /* WritingRelated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBDC59FC26D790270066B45A /* WritingRelated.storyboard */; };
 		DBF1E25926D18D60006474C8 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF1E25826D18D60006474C8 /* UserService.swift */; };
 		DBFCE5E826C3AA8400E3FC16 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5E726C3AA8400E3FC16 /* HistoryViewModel.swift */; };
 		DBFCE5EA26C3AA9D00E3FC16 /* MyPoemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5E926C3AA9D00E3FC16 /* MyPoemViewModel.swift */; };
@@ -98,6 +99,7 @@
 		DBCE060926C2ACEE0008EBF8 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		DBCE060C26C2C8F00008EBF8 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		DBCE061026C2D2430008EBF8 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		DBDC59FC26D790270066B45A /* WritingRelated.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WritingRelated.storyboard; sourceTree = "<group>"; };
 		DBE1DBDC26D1EFEC00D263C8 /* Poetree.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Poetree.entitlements; sourceTree = "<group>"; };
 		DBF1E25826D18D60006474C8 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		DBFCE5E726C3AA8400E3FC16 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				DB21A26926C16B410048FB17 /* LaunchScreen.storyboard */,
 				DB21A26426C16B3F0048FB17 /* Main.storyboard */,
 				DB048DCE26C7A4B80058302C /* UserRelated.storyboard */,
+				DBDC59FC26D790270066B45A /* WritingRelated.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				DB21A27326C1700F0048FB17 /* GoogleService-Info.plist in Resources */,
 				DB21A26826C16B410048FB17 /* Assets.xcassets in Resources */,
 				DB0EB76E26D4C27E0039D8F6 /* shadow.mp4 in Resources */,
+				DBDC59FD26D790270066B45A /* WritingRelated.storyboard in Resources */,
 				DB21A27F26C175250048FB17 /* PoetreeIcon.png in Resources */,
 				DB21A26626C16B3F0048FB17 /* Main.storyboard in Resources */,
 			);

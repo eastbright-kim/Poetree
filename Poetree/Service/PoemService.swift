@@ -100,7 +100,7 @@ class PoemService {
     func fetchPoemForPhotoId(photoId: Int) -> [Poem] {
  
         if self.poems.isEmpty {
-            return [Poem(id: "", userEmail: "", userNickname: "", title: "", content: "", photoId: 0, uploadAt: Date(), isPrivate: true, likers: [:], photoURL: URL(string: "https://firebasestorage.googleapis.com/v0/b/poetree-e472e.appspot.com/o/white%2F2-2.jpg?alt=media&token=3945142a-4a01-431b-9a0c-51ff8ee10538")!)]
+            return [Poem(id: "", userEmail: "", userNickname: "", title: "글을 불러오고 있습니다.", content: "", photoId: 0, uploadAt: Date(), isPrivate: true, likers: [:], photoURL: URL(string: "https://firebasestorage.googleapis.com/v0/b/poetree-e472e.appspot.com/o/white%2F2-2.jpg?alt=media&token=3945142a-4a01-431b-9a0c-51ff8ee10538")!)]
         }
         
         let selectedPoems = self.poems.filter{$0.photoId == photoId}
