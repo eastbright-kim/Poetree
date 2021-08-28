@@ -45,7 +45,6 @@ class PoemService {
     func editPoem(beforeEdited: Poem ,editedPoem: Poem, completion: @escaping((String) -> Void)){
         
         poemRepository.createPoem(poemModel: editedPoem) { result in
-            
             switch result {
             case .success(let s):
                 //firstIndex where 사용하기
@@ -57,6 +56,7 @@ class PoemService {
                     self.poems.insert(editedPoem, at: index)
                     
                     self.poemsStore.onNext(self.poems)
+                    
                     completion(s.rawValue)
                 }
             case .failure:
@@ -97,16 +97,6 @@ class PoemService {
         }
     }
     
-    func fetchPoemForPhotoId(photoId: Int) -> [Poem] {
-        
-        if self.poems.isEmpty {
-            return [Poem(id: "", userEmail: "", userNickname: "", title: "글을 불러오고 있습니다.", content: "", photoId: 0, uploadAt: Date(), isPrivate: true, likers: [:], photoURL: URL(string: "https://firebasestorage.googleapis.com/v0/b/poetree-e472e.appspot.com/o/white%2F2-2.jpg?alt=media&token=3945142a-4a01-431b-9a0c-51ff8ee10538")!)]
-        }
-        
-        let selectedPoems = self.poems.filter{$0.photoId == photoId}
-        return selectedPoems
-    }
-    
     func fetchThisWeekPoems() -> [Poem] {
         
         let thisWeekPoems = self.poems.filter { poem in
@@ -118,6 +108,22 @@ class PoemService {
         print(thisWeekPoems)
         return thisWeekPoems
     }
+    
+    func fetchLastWeekPoems() -> [Poem] {
+        
+        let lowerBoundComp = DateComponents(day: -7)
+        let lastMonday = Calendar.current.date(byAdding: lowerBoundComp, to: getMonday(myDate: Date()))!
+        
+        let upperBoundComp = DateComponents(day: 7, second: -1)
+        let dealLine = Calendar.current.date(byAdding: upperBoundComp, to: lastMonday)!
+        
+        let lastWeekPoems = self.poems.filter { poem in
+            (lastMonday...dealLine).contains(poem.uploadAt)
+        }.sorted {$0.likers.count > $1.likers.count}.prefix(5)
+        
+        return Array(lastWeekPoems)
+    }
+    
     
     func getMonday(myDate: Date) -> Date {
         let cal = Calendar.current

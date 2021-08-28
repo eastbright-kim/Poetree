@@ -34,6 +34,7 @@
 		DB53ADAA26C3E53400FAA8B8 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53ADA926C3E53400FAA8B8 /* DummyData.swift */; };
 		DB54BD3926D4E63700711295 /* UserRegisterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB54BD3826D4E63700711295 /* UserRegisterRepository.swift */; };
 		DB5C351626D10E0600275863 /* UserRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C351526D10E0600275863 /* UserRegisterViewController.swift */; };
+		DB657B7926D94A7F005C33A8 /* HistoryPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB657B7826D94A7F005C33A8 /* HistoryPhotoCollectionViewCell.swift */; };
 		DB666DBE26CA907600A588AC /* FirebaseReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB666DBD26CA907600A588AC /* FirebaseReference.swift */; };
 		DB666DC026CAAF1E00A588AC /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB666DBF26CAAF1E00A588AC /* PhotoService.swift */; };
 		DB666DC226CAAF8D00A588AC /* PhotoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB666DC126CAAF8D00A588AC /* PhotoRepository.swift */; };
@@ -91,6 +92,7 @@
 		DB53ADA926C3E53400FAA8B8 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		DB54BD3826D4E63700711295 /* UserRegisterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterRepository.swift; sourceTree = "<group>"; };
 		DB5C351526D10E0600275863 /* UserRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterViewController.swift; sourceTree = "<group>"; };
+		DB657B7826D94A7F005C33A8 /* HistoryPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB666DBD26CA907600A588AC /* FirebaseReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseReference.swift; sourceTree = "<group>"; };
 		DB666DBF26CAAF1E00A588AC /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
 		DB666DC126CAAF8D00A588AC /* PhotoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRepository.swift; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 			children = (
 				DB9D575D26C43E6000A86148 /* MainPhotoCollectionViewCell.swift */,
 				DBDC5A0526D794BB0066B45A /* PhotoViewCollectionViewCell.swift */,
+				DB657B7826D94A7F005C33A8 /* HistoryPhotoCollectionViewCell.swift */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				DB3CCEAF26D0F45E005C3074 /* SideMenuNavigationController.swift in Sources */,
 				DB21A28726C18F4D0048FB17 /* MainPoemTableViewCell.swift in Sources */,
 				DBDC5A0426D793D40066B45A /* PhotoViewController.swift in Sources */,
+				DB657B7926D94A7F005C33A8 /* HistoryPhotoCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

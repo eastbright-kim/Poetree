@@ -44,6 +44,8 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
         self.tabBarItem.image = UIImage(systemName: "person.fill")
         self.tabBarItem.selectedImage = UIImage(systemName: "person.fill")
         self.tabBarItem.title = "My Poem"
+        let backItem = UIBarButtonItem(title: "", style: .done, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = backItem
     }
     
     func bindViewModel() {

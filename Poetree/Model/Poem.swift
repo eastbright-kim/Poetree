@@ -12,7 +12,7 @@ class Poem: Equatable, Identifiable {
     
     let id: String
     let userEmail: String
-    var userNickname: String
+    var userPenname: String
     var title: String
     var content: String
     let photoId: Int
@@ -25,7 +25,7 @@ class Poem: Equatable, Identifiable {
     init(id: String, userEmail: String, userNickname: String, title: String, content: String, photoId: Int, uploadAt: Date, isPrivate: Bool, likers: [String:Bool], photoURL: URL, userUID: String? = nil) {
         self.id = id
         self.userEmail = userEmail
-        self.userNickname = userNickname
+        self.userPenname = userNickname
         self.title = title
         self.content = content
         self.photoId = photoId

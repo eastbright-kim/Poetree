@@ -47,6 +47,9 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
     
     func setUpUI(){
         
+        selectedPhoto.layer.cornerRadius = 8
+        
+        
        if let editingPoem = editingPoem {
             self.selectedPhoto.kf.setImage(with: editingPoem.photoURL)
             self.userDateLabel.text = viewModel.poemService.getWritingTimeString(date: editingPoem.uploadAt)
@@ -103,15 +106,13 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
         
         viewModel.output.aPoem
             .take(1)
-            .observe(on: ConcurrentDispatchQueueScheduler.init(queue: DispatchQueue.global()))
             .subscribe(onNext:{ [unowned self] poem in
                 self.viewModel.editPoem(beforeEdited: editingPoem!, editedPoem: poem)
-                DispatchQueue.main.async {
                     
                     self.navigationController?.popViewController(animated: true)
                     guard let detailVC = self.navigationController?.topViewController as? PoemDetailViewController else {return}
                     detailVC.currentPoem = poem
-                }
+                
             })
             .disposed(by: rx.disposeBag)
     }
