@@ -18,8 +18,7 @@ class MainViewModel: ViewModelType {
     
     
     struct Input {
-        let selectedPoem: BehaviorSubject<[Poem]>
-        
+        let selectedPhotoId: BehaviorSubject<Int>
     }
     
     struct Output {
@@ -42,23 +41,18 @@ class MainViewModel: ViewModelType {
         let thisWeekPhotoURL = photoService.thisWeekPhotos()
         
         
-        let photoId = self.photoService.fetchPhotoId(0)
-        let initialPoems = self.poemService.fetchPoemForPhotoId(photoId: photoId)
-        print(initialPoems.count)
-        let selectedPoem = BehaviorSubject<[Poem]>(value: initialPoems)
         
+        let selectedPhotoId = BehaviorSubject<Int>(value: 0)
         
-        
-        let displayingPoems = selectedPoem
-            .map { poems -> [Poem] in
-                
-                let displayingPoems = poems
-                return displayingPoems
+        let displayingPoems = Observable.combineLatest(poemService.allPoems(), selectedPhotoId){ poems, photoId -> [Poem] in
+            let disPlayingPoem = poems.filter { poem in
+                poem.photoId == photoId
             }
-            .asObservable()
-       
+            return disPlayingPoem
+        }
+            
         
-        self.input = Input(selectedPoem: selectedPoem)
+        self.input = Input(selectedPhotoId: selectedPhotoId)
         self.output = Output(currentDate: currentDate, thisWeekPhotoURL: thisWeekPhotoURL, displayingPoems: displayingPoems)
 
     }

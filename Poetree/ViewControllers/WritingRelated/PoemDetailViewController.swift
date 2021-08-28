@@ -38,9 +38,10 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
     
     func setUpUI(){
         
+        photoImageView.layer.cornerRadius = 8
         photoImageView.kf.setImage(with: currentPoem.photoURL)
         titleLabel.text = currentPoem.title
-        userLabel.text = "\(currentPoem.userNickname)님이 \(convertDateToString(format: "MMM d", date: currentPoem.uploadAt))에 보낸 글"
+        userLabel.text = "\(currentPoem.userPenname)님이 \(convertDateToString(format: "MMM d", date: currentPoem.uploadAt))에 보낸 글"
         contentLabel.text = currentPoem.content
         likeBtn.isSelected = currentPoem.isLike
         likesCountLabel.text = "\(currentPoem.likers.count)"
@@ -57,7 +58,7 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
         self.editBtn.rx.tap
             .subscribe(onNext:{[unowned self] _ in
                 let viewModel = WriteViewModel(poemService: viewModel.poemService, weekPhoto: nil, editingPoem: self.currentPoem)
-                var vc = WritingViewController.instantiate(storyboardID: "Main")
+                var vc = WritingViewController.instantiate(storyboardID: "WritingRelated")
                 vc.bind(viewModel: viewModel)
                 vc.editingPoem = self.currentPoem
                 self.navigationController?.pushViewController(vc, animated: true)

@@ -62,6 +62,7 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.prefersLargeTitles = true
         resetDate()
+        self.navigationController?.navigationBar.tintColor = UIColor.black
         
     }
     func resetDate() {
@@ -78,12 +79,13 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
     
     private func configureNavTab() {
         
-        
         self.navigationItem.title = "Poetree"
         self.navigationItem.largeTitleDisplayMode = .always
         self.tabBarItem.image = UIImage(systemName: "pencil")
         self.tabBarItem.selectedImage = UIImage(systemName: "pencil")
         self.tabBarItem.title = "This Week"
+        let backItem = UIBarButtonItem(title: "", style: .done, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = backItem
     }
     
     
@@ -112,6 +114,7 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
                 photoVC.selectedIndexPath = indexPath
                 photoVC.modalTransitionStyle = .crossDissolve
                 photoVC.modalPresentationStyle = .overFullScreen
+                self.navigationController?.navigationBar.tintColor = UIColor.systemBlue
                 self.navigationController?.pushViewController(photoVC, animated: true)
             })
             .disposed(by: rx.disposeBag)
@@ -119,13 +122,13 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
         
         collectionView.rx.willDisplayCell
             .subscribe(onNext:{[unowned self] cell in
-                
+                print("willdisplay called")
                 let index = cell.at.item
                 if index == 0 {
                     let photoId = self.viewModel.photoService.fetchPhotoId(index)
-                    let currentPoems = self.viewModel.poemService.fetchPoemForPhotoId(photoId: photoId)
-                    
-                    self.viewModel.input.selectedPoem.onNext(currentPoems)
+                    self.photoNumberLabel.text = "#1"
+                    self.poemForPhotoNumberLabel.setTitle("#1 사진에 쓴 글", for: .normal)
+                    self.viewModel.input.selectedPhotoId.onNext(photoId)
                 }
             })
             .disposed(by: rx.disposeBag)
@@ -140,13 +143,13 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
                 
                 let visibleItemNumber = self.collectionView.indexPathForItem(at: visiblePoint)?.item
                 
-                let photoId = self.viewModel.photoService.fetchPhotoId(visibleItemNumber!)
-                
                 self.photoNumberLabel.text = "#\(visibleItemNumber! + 1)"
                 self.poemForPhotoNumberLabel.setTitle("#\(visibleItemNumber! + 1) 사진에 쓴 글", for: .normal)
                 
-                let currentPoems = self.viewModel.poemService.fetchPoemForPhotoId(photoId: photoId)
-                self.viewModel.input.selectedPoem.onNext(currentPoems)
+                
+                let photoId = self.viewModel.photoService.fetchPhotoId(visibleItemNumber!)
+                self.viewModel.input.selectedPhotoId.onNext(photoId)
+                
             })
             .disposed(by: rx.disposeBag)
         

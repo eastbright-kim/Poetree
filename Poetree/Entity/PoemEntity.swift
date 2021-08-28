@@ -25,7 +25,7 @@ struct PoemEntity: Codable {
         self.content = poemDic["content"] as? String ?? ""
         self.userEmail = poemDic["userEmail"] as? String ?? ""
         self.photoURL = poemDic["photoURL"] as? String ?? ""
-        self.userNickname = poemDic["userNickname"] as? String ?? ""
+        self.userNickname = poemDic["userPenname"] as? String ?? ""
         self.uploadAt = poemDic["uploadAt"] as? String ?? ""
         self.id = poemDic["id"] as? String ?? ""
         self.photoId = poemDic["photoId"] as? Int ?? 0

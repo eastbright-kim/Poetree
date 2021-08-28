@@ -36,7 +36,7 @@ class PhotoService {
         
         let sortedArr = photos.sorted { p1, p2 in
             Double(p1.date.timeIntervalSince1970) > Double(p2.date.timeIntervalSince1970)
-        }.suffix(3)
+        }.prefix(3)
        
         self.thisWeekPhotoStore.onNext(Array(sortedArr))
         return Observable.just(Array(sortedArr))

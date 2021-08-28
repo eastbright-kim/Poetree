@@ -407,6 +407,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Poem" id="lNB-Oa-cjC">
+                        <barButtonItem key="backBarButtonItem" title=" " id="k3K-3F-F4h"/>
                         <barButtonItem key="rightBarButtonItem" image="line.horizontal.3" catalog="system" id="hJz-Ys-7qE">
                             <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>

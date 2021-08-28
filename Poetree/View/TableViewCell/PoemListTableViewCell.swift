@@ -14,5 +14,8 @@ class PoemListTableViewCell: UITableViewCell {
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var likesLabel: UILabel!
     
+    override func awakeFromNib() {
+        poemImageView.layer.cornerRadius = 8
+    }
 
 }

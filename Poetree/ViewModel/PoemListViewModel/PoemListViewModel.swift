@@ -35,11 +35,15 @@ class PoemListViewModel: ViewModelType {
             let displayingPoems = Observable.just(thisWeekPoems)
             self.output = Output(displayingPoems: displayingPoems)
         case .seletedPhoto:
-            let selectedPoems = poemService.fetchPoemForPhotoId(photoId: selectedPhotoId!)
-            let displayingPoems = Observable.just(selectedPoems)
+            let displayingPoems = poemService.allPoems()
+                .map { poems -> [Poem] in
+                    let selected = poems.filter { poem in
+                        poem.photoId == selectedPhotoId
+                    }
+                    return selected
+                }
             self.output = Output(displayingPoems: displayingPoems)
         }
-        
         self.poemService = poemService
         self.input = Input()
     }
