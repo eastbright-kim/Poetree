@@ -16,8 +16,8 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
     
     @IBOutlet weak var allPoemsBtn: UIButton!
     
-    @IBOutlet weak var LastWeekPhotoCollectionView: UICollectionView!
-    @IBOutlet weak var AllPhotoCollectionView: UICollectionView!
+    @IBOutlet weak var lastWeekPhotoCollectionView: UICollectionView!
+    @IBOutlet weak var allPhotoCollectionView: UICollectionView!
     
     
     
@@ -32,23 +32,35 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
     
     func collectionViewDelegate() {
         
-        AllPhotoCollectionView.decelerationRate = .fast
-        AllPhotoCollectionView.isPagingEnabled = false
-        AllPhotoCollectionView.delegate = self
-        LastWeekPhotoCollectionView.delegate = self
-        LastWeekPhotoCollectionView.decelerationRate = .fast
-        LastWeekPhotoCollectionView.isPagingEnabled = false
-//        LastWeekPhotoCollectionView.decelerationRate = .fast
-//        LastWeekPhotoCollectionView.isPagingEnabled = false
-//        LastWeekPhotoCollectionView.delegate = self
+        allPhotoCollectionView.decelerationRate = .fast
+        allPhotoCollectionView.isPagingEnabled = false
+        allPhotoCollectionView.delegate = self
+        lastWeekPhotoCollectionView.delegate = self
+        lastWeekPhotoCollectionView.decelerationRate = .fast
+        lastWeekPhotoCollectionView.isPagingEnabled = false
         
-//        let flowlayout = UICollectionViewFlowLayout()
-//        flowlayout.itemSize = CGSize(width: 100, height: 100 * 10 / 7)
-//        flowlayout.minimumInteritemSpacing = 10
-//        flowlayout.minimumLineSpacing = 10
-//        flowlayout.scrollDirection = .horizontal
-//        AllPhotoCollectionView.collectionViewLayout = flowlayout
-//        LastWeekPhotoCollectionView.collectionViewLayout = flowlayout
+        
+        
+        //        LastWeekPhotoCollectionView.decelerationRate = .fast
+        //        LastWeekPhotoCollectionView.isPagingEnabled = false
+        //        LastWeekPhotoCollectionView.delegate = self
+        
+        let flowlayout = UICollectionViewFlowLayout()
+        flowlayout.itemSize = CGSize(width: 100, height: 100 * 10 / 7)
+        flowlayout.minimumInteritemSpacing = 30
+        flowlayout.minimumLineSpacing = 30
+        flowlayout.scrollDirection = .horizontal
+        
+        let totalCellWidth = 100 * 3
+        let totalSpacingWidth = 30 * 2
+        
+        let leftInset = (lastWeekPhotoCollectionView.bounds.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
+        let rightInset = leftInset
+        
+        let inset = UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
+        flowlayout.sectionInset = inset
+        
+        lastWeekPhotoCollectionView.collectionViewLayout = flowlayout
     }
     
     private func configureUI() {
@@ -74,7 +86,7 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
       
         viewModel.output.allPhotos
             .bind(to:
-                    AllPhotoCollectionView.rx.items(cellIdentifier: "AllPhotoCell", cellType: HistoryPhotoCollectionViewCell.self)){indexPath, photo, cell in
+                    allPhotoCollectionView.rx.items(cellIdentifier: "AllPhotoCell", cellType: HistoryPhotoCollectionViewCell.self)){indexPath, photo, cell in
                 print("all photo \(self.viewModel.photoService.photos())")
                 print("all photo id \(photo.id)")
 
@@ -93,8 +105,11 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
             })
             .disposed(by: rx.disposeBag)
         
-        
-        
+        viewModel.output.lastWeekPhotos
+            .bind(to: lastWeekPhotoCollectionView.rx.items(cellIdentifier: "LastWeekPhotoCell", cellType: LastWeekPhotoCollectionViewCell.self)){indexPath, photos, cell in
+                cell.lastWeekPhotoImageView.kf.setImage(with: photos.url)
+            }
+            .disposed(by: rx.disposeBag)
     }
 }
 
@@ -102,8 +117,9 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
 extension HistoryViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let heigt = collectionView.frame.height
-        let width = CGFloat(100)
+        
         return CGSize(width: 100, height: 100 * 10 / 7)
     }
+    
+    
 }

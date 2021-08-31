@@ -262,7 +262,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="즐겁게 사진 감상하세요 😄" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heu-kG-8pI">
-                                <rect key="frame" x="128" y="677" width="172.33333333333337" height="19.333333333333371"/>
+                                <rect key="frame" x="128" y="677" width="172" height="19.666666666666629"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -472,9 +472,9 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="5t9-Gs-k0w"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="AllPhotoCollectionView" destination="FUG-xb-Kqu" id="CjM-sf-kMy"/>
-                        <outlet property="LastWeekPhotoCollectionView" destination="r8N-ng-bC4" id="sOF-gC-lPr"/>
+                        <outlet property="allPhotoCollectionView" destination="FUG-xb-Kqu" id="CjM-sf-kMy"/>
                         <outlet property="allPoemsBtn" destination="Wdt-lw-Fp0" id="DKe-pe-n7l"/>
+                        <outlet property="lastWeekPhotoCollectionView" destination="r8N-ng-bC4" id="sOF-gC-lPr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EDi-tE-s4t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
