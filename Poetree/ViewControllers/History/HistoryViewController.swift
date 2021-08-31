@@ -33,18 +33,21 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
     func collectionViewDelegate() {
         
         AllPhotoCollectionView.decelerationRate = .fast
-//        LastWeekPhotoCollectionView.decelerationRate = .fast
         AllPhotoCollectionView.isPagingEnabled = false
-//        LastWeekPhotoCollectionView.isPagingEnabled = false
         AllPhotoCollectionView.delegate = self
+        LastWeekPhotoCollectionView.delegate = self
+        LastWeekPhotoCollectionView.decelerationRate = .fast
+        LastWeekPhotoCollectionView.isPagingEnabled = false
+//        LastWeekPhotoCollectionView.decelerationRate = .fast
+//        LastWeekPhotoCollectionView.isPagingEnabled = false
 //        LastWeekPhotoCollectionView.delegate = self
         
-        let flowlayout = UICollectionViewFlowLayout()
-        flowlayout.itemSize = CGSize(width: 100, height: 100 * 10 / 7)
-        flowlayout.minimumInteritemSpacing = 10
-        flowlayout.minimumLineSpacing = 10
-        flowlayout.scrollDirection = .horizontal
-        AllPhotoCollectionView.collectionViewLayout = flowlayout
+//        let flowlayout = UICollectionViewFlowLayout()
+//        flowlayout.itemSize = CGSize(width: 100, height: 100 * 10 / 7)
+//        flowlayout.minimumInteritemSpacing = 10
+//        flowlayout.minimumLineSpacing = 10
+//        flowlayout.scrollDirection = .horizontal
+//        AllPhotoCollectionView.collectionViewLayout = flowlayout
 //        LastWeekPhotoCollectionView.collectionViewLayout = flowlayout
     }
     
@@ -90,17 +93,17 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
             })
             .disposed(by: rx.disposeBag)
         
+        
+        
     }
 }
-//
-//
-//extension HistoryViewController: UICollectionViewDelegateFlowLayout {
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let heigt = collectionView.frame.height
-//        let width = CGFloat(100)
-//        return CGSize(width: width, height: heigt)
-//    }
-//
-//
-//}
+
+
+extension HistoryViewController: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let heigt = collectionView.frame.height
+        let width = CGFloat(100)
+        return CGSize(width: 100, height: 100 * 10 / 7)
+    }
+}
