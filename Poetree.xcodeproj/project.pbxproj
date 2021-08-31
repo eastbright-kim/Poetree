@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		837DEFCB984EC8B76674524A /* Pods_Poetree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A7CB735EE61484A0C8E1AA /* Pods_Poetree.framework */; };
+		DB02496A26DE770800FC948A /* ThreePoemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB02496926DE770800FC948A /* ThreePoemsTableViewCell.swift */; };
 		DB048DCF26C7A4B80058302C /* UserRelated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB048DCE26C7A4B80058302C /* UserRelated.storyboard */; };
 		DB048DD326C7A5C10058302C /* UserRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB048DD226C7A5C10058302C /* UserRegisterViewModel.swift */; };
 		DB048DD726C7A8AF0058302C /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB048DD626C7A8AF0058302C /* UserRepository.swift */; };
@@ -65,6 +66,7 @@
 		1ACB32708FFD3EB56C965507 /* Pods-Poetree.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poetree.release.xcconfig"; path = "Target Support Files/Pods-Poetree/Pods-Poetree.release.xcconfig"; sourceTree = "<group>"; };
 		1F25C0A03A4253B5E0F2D913 /* Pods-Poetree.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poetree.debug.xcconfig"; path = "Target Support Files/Pods-Poetree/Pods-Poetree.debug.xcconfig"; sourceTree = "<group>"; };
 		71A7CB735EE61484A0C8E1AA /* Pods_Poetree.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Poetree.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB02496926DE770800FC948A /* ThreePoemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreePoemsTableViewCell.swift; sourceTree = "<group>"; };
 		DB048DCE26C7A4B80058302C /* UserRelated.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserRelated.storyboard; sourceTree = "<group>"; };
 		DB048DD226C7A5C10058302C /* UserRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterViewModel.swift; sourceTree = "<group>"; };
 		DB048DD626C7A8AF0058302C /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 			children = (
 				DB21A28626C18F4D0048FB17 /* MainPoemTableViewCell.swift */,
 				DB666DC526CAB6FA00A588AC /* PoemListTableViewCell.swift */,
+				DB02496926DE770800FC948A /* ThreePoemsTableViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -568,6 +571,7 @@
 				DBDC5A0626D794BB0066B45A /* PhotoViewCollectionViewCell.swift in Sources */,
 				DBFCE5F226C3AB2B00E3FC16 /* PhotoListViewModel.swift in Sources */,
 				DB3CCEB126D0F4C8005C3074 /* SideMenuViewController.swift in Sources */,
+				DB02496A26DE770800FC948A /* ThreePoemsTableViewCell.swift in Sources */,
 				DB34288F26C1CDF9007C5A6A /* UserPageViewController.swift in Sources */,
 				DB666DBE26CA907600A588AC /* FirebaseReference.swift in Sources */,
 				DB048DD926C7ABC90058302C /* Result.swift in Sources */,

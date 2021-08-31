@@ -18,6 +18,7 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
     
     @IBOutlet weak var lastWeekPhotoCollectionView: UICollectionView!
     @IBOutlet weak var allPhotoCollectionView: UICollectionView!
+    @IBOutlet weak var threePoemsTableView: UITableView!
     
     
     
@@ -41,10 +42,6 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
         
         
         
-        //        LastWeekPhotoCollectionView.decelerationRate = .fast
-        //        LastWeekPhotoCollectionView.isPagingEnabled = false
-        //        LastWeekPhotoCollectionView.delegate = self
-        
         let flowlayout = UICollectionViewFlowLayout()
         flowlayout.itemSize = CGSize(width: 100, height: 100 * 10 / 7)
         flowlayout.minimumInteritemSpacing = 30
@@ -64,7 +61,7 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
     }
     
     private func configureUI() {
-        
+        self.threePoemsTableView.delegate = self
         configureNavTab()
         allPoemsBtn.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
         allPoemsBtn.layer.cornerRadius = 8
@@ -110,6 +107,27 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
                 cell.lastWeekPhotoImageView.kf.setImage(with: photos.url)
             }
             .disposed(by: rx.disposeBag)
+        
+        lastWeekPhotoCollectionView.rx.modelSelected(WeekPhoto.self)
+            .bind(to: viewModel.input.photoSelected)
+            .disposed(by: rx.disposeBag)
+        
+        self.viewModel.output.displayingPoems
+            .bind(to: self.threePoemsTableView.rx.items(cellIdentifier: "ThreePoemsTableViewCell", cellType: ThreePoemsTableViewCell.self)){indexPath, poem, cell in
+                
+                switch indexPath {
+                case 0:
+                    cell.prizeImage.image = UIImage(named: "gold-medal")
+                case 1:
+                    cell.prizeImage.image = UIImage(named: "silver-medal")
+                default:
+                    cell.prizeImage.image = UIImage(named: "bronze-medal")
+                }
+                
+                cell.titleLabel.text = "by. \(poem.title)"
+                cell.authorLabel.text = poem.userPenname
+            }
+            .disposed(by: rx.disposeBag)
     }
 }
 
@@ -120,6 +138,12 @@ extension HistoryViewController: UICollectionViewDelegateFlowLayout {
         
         return CGSize(width: 100, height: 100 * 10 / 7)
     }
+}
+
+extension HistoryViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return (self.threePoemsTableView.frame.height) / 3
+    }
     
 }
