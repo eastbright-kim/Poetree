@@ -32,7 +32,6 @@ class HistoryViewModel: ViewModelType {
         
         let allPhotos = photoService.photos()
         
-        
         let lastWeekPhotos = allPhotos.map(photoService.fetchLastWeekPhotos)
         
         self.input = Input()
