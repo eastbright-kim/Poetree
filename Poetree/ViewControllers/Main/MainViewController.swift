@@ -125,10 +125,13 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
                 print("willdisplay called")
                 let index = cell.at.item
                 if index == 0 {
-                    let photoId = self.viewModel.photoService.fetchPhotoId(index)
+                    
+                    //selcted index를 input으로 vm에 넘겨준다. vm은 넘겨받은 index로 photoid 가져온다.
+                    
+                    
                     self.photoNumberLabel.text = "#1"
                     self.poemForPhotoNumberLabel.setTitle("#1 사진에 쓴 글", for: .normal)
-                    self.viewModel.input.selectedPhotoId.onNext(photoId)
+                    self.viewModel.input.selectedIndex.onNext(index)
                 }
             })
             .disposed(by: rx.disposeBag)
@@ -140,16 +143,12 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
                 
                 let visibleRect = CGRect(origin: self.collectionView.contentOffset, size: self.collectionView.bounds.size)
                 let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
-                
                 let visibleItemNumber = self.collectionView.indexPathForItem(at: visiblePoint)?.item
                 
                 self.photoNumberLabel.text = "#\(visibleItemNumber! + 1)"
                 self.poemForPhotoNumberLabel.setTitle("#\(visibleItemNumber! + 1) 사진에 쓴 글", for: .normal)
                 
-                
-                let photoId = self.viewModel.photoService.fetchPhotoId(visibleItemNumber!)
-                self.viewModel.input.selectedPhotoId.onNext(photoId)
-                
+                self.viewModel.input.selectedIndex.onNext(visibleItemNumber!)
             })
             .disposed(by: rx.disposeBag)
         

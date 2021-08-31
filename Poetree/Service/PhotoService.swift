@@ -57,14 +57,17 @@ class PhotoService {
         }
     }
     
-    func fetchPhotoId(_ index: Int) -> Int {
+    func fetchPhotoId(photos: [WeekPhoto], _ index: Int) -> Int {
         
         if self.weekPhotos.isEmpty {
             return 0
         }
         
-        let id = self.weekPhotos[index].id
+        let sortedArr = photos.sorted { p1, p2 in
+            Double(p1.date.timeIntervalSince1970) > Double(p2.date.timeIntervalSince1970)
+        }.prefix(3)
+        
+        let id = sortedArr[index].id
         return id
     }
-    
 }
