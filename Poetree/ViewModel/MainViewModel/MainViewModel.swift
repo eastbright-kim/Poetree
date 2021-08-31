@@ -41,7 +41,10 @@ class MainViewModel: ViewModelType {
         
         let currentDate = Observable<String>.just(poemService.getCurrentDate())
             .asDriver(onErrorJustReturn: "Jan 1st")
-        let thisWeekPhotoURL = photoService.thisWeekPhotos()
+        
+        
+        let thisWeekPhotoURL = photos.map(photoService.getThisWeekPhoto)
+        
         
         let selectedIndex = BehaviorSubject<Int>(value: 0)
         

@@ -125,13 +125,7 @@ class PoemService {
     }
     
     
-    func getMonday(myDate: Date) -> Date {
-        let cal = Calendar.current
-        var comps = cal.dateComponents([.weekOfYear, .yearForWeekOfYear], from: myDate)
-        comps.weekday = 2 // Monday
-        let mondayInWeek = cal.date(from: comps)!
-        return mondayInWeek
-    }
+    
     
     func getCurrentDate() -> String {
         

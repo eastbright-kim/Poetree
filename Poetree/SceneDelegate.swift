@@ -60,12 +60,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }.sorted { p1, p2 in
                 p1.date.timeIntervalSinceReferenceDate > p1.date.timeIntervalSinceReferenceDate
             }.filter { weekPhoto in
-                let thisMonday = poemService.getMonday(myDate: Date())
-                return weekPhoto.date.timeIntervalSinceReferenceDate < thisMonday.timeIntervalSinceReferenceDate
+                let thisMonday = getMonday(myDate: Date())
+                return weekPhoto.date.timeIntervalSinceReferenceDate <= thisMonday.timeIntervalSinceReferenceDate
             }
             
             photoServie.weekPhotos = weekPhotos
-            photoServie.getThisWeekPhoto(photos: weekPhotos)
             photoServie.photoStore.onNext(weekPhotos)
         }
         

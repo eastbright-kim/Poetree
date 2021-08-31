@@ -13,7 +13,7 @@ class PhotoService {
     
     var weekPhotos = [WeekPhoto]()
     lazy var photoStore = BehaviorSubject<[WeekPhoto]>(value: whites)
-    private lazy var thisWeekPhotoStore = BehaviorSubject<[WeekPhoto]>(value: whites)
+    
     
     let photoRepository: PhotoRepository
     
@@ -26,20 +26,14 @@ class PhotoService {
         return photoStore
     }
     
-    @discardableResult
-    func thisWeekPhotos() -> Observable<[WeekPhoto]> {
-        return thisWeekPhotoStore
-    }
     
-    @discardableResult
-    func getThisWeekPhoto(photos: [WeekPhoto]) -> Observable<[WeekPhoto]> {
+    func getThisWeekPhoto(_ photos: [WeekPhoto]) -> [WeekPhoto] {
         
         let sortedArr = photos.sorted { p1, p2 in
             Double(p1.date.timeIntervalSince1970) > Double(p2.date.timeIntervalSince1970)
         }.prefix(3)
        
-        self.thisWeekPhotoStore.onNext(Array(sortedArr))
-        return Observable.just(Array(sortedArr))
+        return Array(sortedArr)
     }
     
     func getWeekPhotos(completion: @escaping ([WeekPhoto]) -> Void) {
@@ -52,22 +46,16 @@ class PhotoService {
             }
             completion(weekPhotos)
             self.weekPhotos = weekPhotos
-            self.getThisWeekPhoto(photos: weekPhotos)
             self.photoStore.onNext(weekPhotos)
         }
     }
     
     func fetchPhotoId(photos: [WeekPhoto], _ index: Int) -> Int {
         
-        if self.weekPhotos.isEmpty {
-            return 0
-        }
+        let thisWeekPhotos = getThisWeekPhoto(photos)
         
-        let sortedArr = photos.sorted { p1, p2 in
-            Double(p1.date.timeIntervalSince1970) > Double(p2.date.timeIntervalSince1970)
-        }.prefix(3)
-        
-        let id = sortedArr[index].id
+        let id = thisWeekPhotos[index].id
         return id
     }
+    
 }

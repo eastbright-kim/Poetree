@@ -72,7 +72,10 @@ class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased {
     
     func bindCollectionView() {
         
-        photoService.thisWeekPhotos()
+        let photos = photoService.photos().map(photoService.getThisWeekPhoto)
+        
+        
+        photos
             .bind(to: photoCollectionView.rx.items(cellIdentifier: "PhotoViewCell", cellType: PhotoViewCollectionViewCell.self)){ index, photo, cell in
                 cell.imageView.kf.setImage(with: photo.url)
             }
