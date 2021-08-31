@@ -11,12 +11,15 @@ import RxCocoa
 import NSObject_Rx
 import Kingfisher
 
-class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBased {
+class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBased, UICollectionViewDelegate {
 
     
     @IBOutlet weak var allPoemsBtn: UIButton!
-    @IBOutlet weak var lastWeekPoemTableView: UITableView!
-    @IBOutlet weak var photoCollectionView: UICollectionView!
+    
+    @IBOutlet weak var LastWeekPhotoCollectionView: UICollectionView!
+    @IBOutlet weak var AllPhotoCollectionView: UICollectionView!
+    
+    
     
     var viewModel: HistoryViewModel!
     
@@ -24,8 +27,26 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        collectionViewDelegate()
     }
     
+    func collectionViewDelegate() {
+        
+        AllPhotoCollectionView.decelerationRate = .fast
+//        LastWeekPhotoCollectionView.decelerationRate = .fast
+        AllPhotoCollectionView.isPagingEnabled = false
+//        LastWeekPhotoCollectionView.isPagingEnabled = false
+        AllPhotoCollectionView.delegate = self
+//        LastWeekPhotoCollectionView.delegate = self
+        
+        let flowlayout = UICollectionViewFlowLayout()
+        flowlayout.itemSize = CGSize(width: 100, height: 100 * 10 / 7)
+        flowlayout.minimumInteritemSpacing = 10
+        flowlayout.minimumLineSpacing = 10
+        flowlayout.scrollDirection = .horizontal
+        AllPhotoCollectionView.collectionViewLayout = flowlayout
+//        LastWeekPhotoCollectionView.collectionViewLayout = flowlayout
+    }
     
     private func configureUI() {
         
@@ -47,22 +68,18 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
     
     func bindViewModel() {
         
-        viewModel.output.lastWeekPoems
-            .bind(to: lastWeekPoemTableView.rx.items(cellIdentifier: "lastWeekCell", cellType: PoemListTableViewCell.self)){ indexPath, poem, cell in
-                
-                cell.poemImageView.kf.setImage(with: poem.photoURL)
-                cell.titleLabel.text = poem.title
-                cell.userLabel.text = poem.userPenname
-                
-            }
-            .disposed(by: rx.disposeBag)
-        
+      
         viewModel.output.allPhotos
-            .bind(to: photoCollectionView.rx.items(cellIdentifier: "HistoryPhotoCollectionViewCell", cellType: HistoryPhotoCollectionViewCell.self)){indexPath, photo, cell in
-                
+            .bind(to:
+                    AllPhotoCollectionView.rx.items(cellIdentifier: "AllPhotoCell", cellType: HistoryPhotoCollectionViewCell.self)){indexPath, photo, cell in
+                print("all photo \(self.viewModel.photoService.photos())")
+                print("all photo id \(photo.id)")
+
                 cell.photoImageView.kf.setImage(with: photo.url)
             }
             .disposed(by: rx.disposeBag)
+        
+       
         
         allPoemsBtn.rx.tap
             .subscribe(onNext: { [unowned self] _ in
@@ -72,17 +89,18 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
                 self.navigationController?.pushViewController(vc, animated: true)
             })
             .disposed(by: rx.disposeBag)
+        
     }
 }
-
-
-extension HistoryViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let heigt = collectionView.frame.height
-        let width = CGFloat(100)
-        return CGSize(width: width, height: heigt)
-    }
-    
-    
-}
+//
+//
+//extension HistoryViewController: UICollectionViewDelegateFlowLayout {
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let heigt = collectionView.frame.height
+//        let width = CGFloat(100)
+//        return CGSize(width: width, height: heigt)
+//    }
+//
+//
+//}

@@ -46,7 +46,7 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
         likeBtn.isSelected = currentPoem.isLike
         likesCountLabel.text = "\(currentPoem.likers.count)"
         
-        if currentUser.email != currentPoem.userEmail {
+        if currentUser!.email != currentPoem.userEmail {
             self.editBtn.isHidden = true
             self.deleteBtn.isHidden = true
         }

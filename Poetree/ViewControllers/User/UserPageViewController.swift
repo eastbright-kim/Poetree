@@ -67,7 +67,7 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
     }
     
     @IBAction func btn(_ sender: Any) {
-        print(currentUser.displayName)
+        print(currentUser?.displayName)
     }
     
 }
