@@ -62,4 +62,8 @@ class PhotoService {
         let id = thisWeekPhotos[index].id
         return id
     }
+    
+    func getInitialPhoto(_ photos: [WeekPhoto]) -> WeekPhoto? {
+        return photos.first
+    }
 }

@@ -124,7 +124,12 @@ class PoemService {
         return Array(lastWeekPoems)
     }
     
-    
+    func getThreeTopPoems(_ poems: [Poem]) -> [Poem]{
+        
+        let sorted = poems.sorted{$0.likers.count > $1.likers.count}.prefix(3)
+        
+        return Array(sorted)
+    }
     
     
     func getCurrentDate() -> String {
@@ -149,5 +154,6 @@ class PoemService {
         
         return "\(user)님이 \(monthDay) \(cycle)에 보내는 글"
     }
+    
     
 }
