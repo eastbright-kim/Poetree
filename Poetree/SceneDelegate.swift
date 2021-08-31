@@ -42,7 +42,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 let isPublic = poemEntity.isPublic
                 let likers = poemEntity.likers
                 let photoURL = URL(string: poemEntity.photoURL)!
-                let userUID = currentUser.uid
+                let userUID = currentUser?.uid ?? "no login"
                
                 return Poem(id: id, userEmail: userEmail, userNickname: userNickname, title: title, content: content, photoId: photoId, uploadAt: uploadAt, isPrivate: isPublic, likers: likers, photoURL: photoURL, userUID: userUID)
             }
@@ -58,8 +58,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 let date = convertStringToDate(dateFormat: "yyyy MMM d", dateString: entity.date)
                 return WeekPhoto(date: date, id: photoId, url: url)
             }.sorted { p1, p2 in
-                p1.date.timeIntervalSinceReferenceDate > p1.date.timeIntervalSinceReferenceDate
+                p1.date.timeIntervalSinceReferenceDate > p2.date.timeIntervalSinceReferenceDate
             }.filter { weekPhoto in
+                
                 let thisMonday = getMonday(myDate: Date())
                 return weekPhoto.date.timeIntervalSinceReferenceDate <= thisMonday.timeIntervalSinceReferenceDate
             }

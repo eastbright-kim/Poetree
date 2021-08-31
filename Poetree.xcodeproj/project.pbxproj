@@ -33,6 +33,7 @@
 		DB3CCEB126D0F4C8005C3074 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3CCEB026D0F4C8005C3074 /* SideMenuViewController.swift */; };
 		DB53ADAA26C3E53400FAA8B8 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53ADA926C3E53400FAA8B8 /* DummyData.swift */; };
 		DB54BD3926D4E63700711295 /* UserRegisterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB54BD3826D4E63700711295 /* UserRegisterRepository.swift */; };
+		DB59877D26DE175F00EDF72C /* LastWeekPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB59877C26DE175F00EDF72C /* LastWeekPhotoCollectionViewCell.swift */; };
 		DB5C351626D10E0600275863 /* UserRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C351526D10E0600275863 /* UserRegisterViewController.swift */; };
 		DB657B7926D94A7F005C33A8 /* HistoryPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB657B7826D94A7F005C33A8 /* HistoryPhotoCollectionViewCell.swift */; };
 		DB666DBE26CA907600A588AC /* FirebaseReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB666DBD26CA907600A588AC /* FirebaseReference.swift */; };
@@ -91,6 +92,7 @@
 		DB3CCEB026D0F4C8005C3074 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		DB53ADA926C3E53400FAA8B8 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		DB54BD3826D4E63700711295 /* UserRegisterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterRepository.swift; sourceTree = "<group>"; };
+		DB59877C26DE175F00EDF72C /* LastWeekPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastWeekPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB5C351526D10E0600275863 /* UserRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterViewController.swift; sourceTree = "<group>"; };
 		DB657B7826D94A7F005C33A8 /* HistoryPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB666DBD26CA907600A588AC /* FirebaseReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseReference.swift; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 				DB9D575D26C43E6000A86148 /* MainPhotoCollectionViewCell.swift */,
 				DBDC5A0526D794BB0066B45A /* PhotoViewCollectionViewCell.swift */,
 				DB657B7826D94A7F005C33A8 /* HistoryPhotoCollectionViewCell.swift */,
+				DB59877C26DE175F00EDF72C /* LastWeekPhotoCollectionViewCell.swift */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 				DB5C351626D10E0600275863 /* UserRegisterViewController.swift in Sources */,
 				DB2CFD6926C2884D00130078 /* WritingViewController.swift in Sources */,
 				DBFCE5F026C3AB1A00E3FC16 /* PoemDetailViewModel.swift in Sources */,
+				DB59877D26DE175F00EDF72C /* LastWeekPhotoCollectionViewCell.swift in Sources */,
 				DBFCE5EA26C3AA9D00E3FC16 /* MyPoemViewModel.swift in Sources */,
 				DBCE060D26C2C8F00008EBF8 /* Protocol.swift in Sources */,
 				DB666DC026CAAF1E00A588AC /* PhotoService.swift in Sources */,

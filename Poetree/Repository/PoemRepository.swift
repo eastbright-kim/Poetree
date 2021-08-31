@@ -18,8 +18,8 @@ class PoemRepository {
     
         let poemDic: [String:Any] = [
             "id" : poemModel.id as Any,
-            "userEmail": currentUser.email as Any,
-            "userPenname": currentUser.displayName as Any,
+            "userEmail": currentUser!.email as Any,
+            "userPenname": currentUser!.displayName as Any,
             "title": poemModel.title,
             "content": poemModel.content,
             "photoId": poemModel.photoId,

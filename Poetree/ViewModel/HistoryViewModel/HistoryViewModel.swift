@@ -19,8 +19,9 @@ class HistoryViewModel: ViewModelType {
     }
     
     struct Output {
-        let lastWeekPoems: Observable<[Poem]>
+       
         let allPhotos: Observable<[WeekPhoto]>
+        let lastWeekPhotos: Observable<[WeekPhoto]>
     }
     
     var input: Input
@@ -29,12 +30,13 @@ class HistoryViewModel: ViewModelType {
     init(poemSevice: PoemService, photoService: PhotoService) {
         
         
-        let lastWeekPoems = Observable.just(poemSevice.fetchLastWeekPoems())
-        print(photoService.weekPhotos)
         let allPhotos = photoService.photos()
         
+        
+        let lastWeekPhotos = allPhotos.map(photoService.fetchLastWeekPhotos)
+        
         self.input = Input()
-        self.output = Output(lastWeekPoems: lastWeekPoems, allPhotos: allPhotos)
+        self.output = Output(allPhotos: allPhotos, lastWeekPhotos: lastWeekPhotos)
         self.poemSevice = poemSevice
         self.photoService = photoService
     }

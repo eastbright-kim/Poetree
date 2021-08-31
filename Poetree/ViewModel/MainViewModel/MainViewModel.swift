@@ -55,12 +55,9 @@ class MainViewModel: ViewModelType {
         
         let displayingPoems = Observable.combineLatest(poems, selectedPhotoId){ poems, photoId -> [Poem] in
             
-            print("\(photoId) photo id")
             let disPlayingPoem = poems.filter { poem in
                 poem.photoId == photoId
             }
-            
-            print("\(disPlayingPoem)displaying")
             
             return disPlayingPoem
         }
