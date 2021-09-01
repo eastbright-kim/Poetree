@@ -15,6 +15,13 @@ import SideMenu
 class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBased {
 
     @IBOutlet weak var navBarBtn: UIBarButtonItem!
+    @IBOutlet weak var greetingLabel: UIView!
+    @IBOutlet weak var userWritingLabel: UILabel!
+    @IBOutlet weak var myWritingTableView: UITableView!
+    @IBOutlet weak var userLikedLabel: UILabel!
+    @IBOutlet weak var likedWrtingsTableView: UITableView!
+    @IBOutlet weak var logout: UIButton!
+    
     
     
     var viewModel: MyPoemViewModel!
@@ -50,24 +57,62 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
     
     func bindViewModel() {
         
-
-        
-        navBarBtn.rx.tap
-            .subscribe(onNext:{ [unowned self] _ in
+        self.viewModel.output.loginUser
+            .drive(onNext:{ [unowned self] loginUser in
                 
-                let vm = UserRegisterViewModel(userService: self.viewModel.userService)
-                let sb = UIStoryboard(name: "UserRelated", bundle: nil)
-                var vc = sb.instantiateViewController(identifier: "UserRegisterViewController") as! UserRegisterViewController
-                vc.bind(viewModel: vm)
-                
-                present(vc, animated: false, completion: nil)
-
+                if loginUser.userEmail == "unknowned" {
+                    self.userWritingLabel.text = "비회원"
+                    self.userLikedLabel.text = "비회원"
+                }else {
+                    self.userWritingLabel.rx.text.onNext("\(loginUser.userPenname)님의 글")
+                    self.userLikedLabel.rx.text.onNext("\(loginUser.userPenname)님의 글")
+                }
             })
+            .disposed(by: rx.disposeBag)
+        
+        self.navBarBtn.rx.tap
+            .subscribe(onNext:{[unowned self] _ in
+                let vm = UserRegisterViewModel(userService: self.viewModel.userService)
+                var vc = UserRegisterViewController.instantiate(storyboardID: "UserRelated")
+                vc.bind(viewModel: vm)
+                self.present(vc, animated: true, completion: nil)
+            })
+            .disposed(by: rx.disposeBag)
+        
+        self.viewModel.output.userWritings
+            .bind(to: myWritingTableView.rx.items(cellIdentifier: "UserWritingTableViewCell", cellType: UserWritingTableViewCell.self)){ indexPath, poem, cell in
+                
+                cell.titleLabel.text = poem.title
+                cell.likesCountLabel.text = "\(poem.likers.count)"
+            }
+            .disposed(by: rx.disposeBag)
+        
+        self.viewModel.output.userLikedWritings
+            .bind(to: likedWrtingsTableView.rx.items(cellIdentifier: "UserLikedWritingTableViewCell", cellType: UserLikedWritingTableViewCell.self)){ indexPath, poem, cell in
+                
+                cell.titleLabel.text = poem.title
+                cell.authorLabel.text = poem.userPenname
+                cell.likesCountLabel.text = "\(poem.likers.count)"
+            }
             .disposed(by: rx.disposeBag)
     }
     
-    @IBAction func btn(_ sender: Any) {
-        print(currentUser?.displayName)
+    
+    @IBAction func logout(_ sender: Any) {
+        
+        let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+          print("Error signing out: %@", signOutError)
+        }
+    }
+}
+
+extension UserPageViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return (tableView.frame.height) / 5
     }
     
 }

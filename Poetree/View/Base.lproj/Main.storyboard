@@ -308,13 +308,19 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bFe-jN-32d">
                                                 <rect key="frame" x="10" y="10" width="408" height="400"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZP9-eZ-F97">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YvL-sR-eeB">
+                                                        <rect key="frame" x="20" y="8.0000000000000018" width="74" height="20.666666666666671"/>
+                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZP9-eZ-F97">
                                                         <rect key="frame" x="0.0" y="28.666666666666657" width="408" height="371.33333333333337"/>
                                                         <subviews>
-                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="r8N-ng-bC4">
-                                                                <rect key="frame" x="0.0" y="0.0" width="408" height="185.66666666666666"/>
+                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="r8N-ng-bC4">
+                                                                <rect key="frame" x="0.0" y="0.0" width="408" height="209.33333333333334"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vT3-Ds-Pum">
+                                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vT3-Ds-Pum">
                                                                     <size key="itemSize" width="128" height="150"/>
                                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -322,7 +328,7 @@
                                                                 </collectionViewFlowLayout>
                                                                 <cells>
                                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LastWeekPhotoCell" id="qpu-57-gd3" customClass="LastWeekPhotoCollectionViewCell" customModule="Poetree" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="150"/>
+                                                                        <rect key="frame" x="0.0" y="29.666666666666668" width="128" height="150"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="JDS-A8-0Pi">
                                                                             <rect key="frame" x="0.0" y="0.0" width="128" height="150"/>
@@ -346,8 +352,15 @@
                                                                     </collectionViewCell>
                                                                 </cells>
                                                             </collectionView>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2l-y2-7d1">
+                                                                <rect key="frame" x="0.0" y="209.33333333333334" width="408" height="30"/>
+                                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                                                                <state key="normal" title="Writings for #1">
+                                                                    <color key="titleColor" systemColor="systemGrayColor"/>
+                                                                </state>
+                                                            </button>
                                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yww-QB-wtX">
-                                                                <rect key="frame" x="0.0" y="185.66666666666669" width="408" height="185.66666666666669"/>
+                                                                <rect key="frame" x="0.0" y="239.33333333333337" width="408" height="132"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <prototypes>
                                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ThreePoemsTableViewCell" rowHeight="59" id="Akp-Ht-Swo" customClass="ThreePoemsTableViewCell" customModule="Poetree" customModuleProvider="target">
@@ -398,12 +411,6 @@
                                                             </tableView>
                                                         </subviews>
                                                     </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YvL-sR-eeB">
-                                                        <rect key="frame" x="20" y="8.0000000000000018" width="74" height="20.666666666666671"/>
-                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
@@ -417,7 +424,7 @@
                                                 </constraints>
                                             </view>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FUG-xb-Kqu">
-                                                <rect key="frame" x="10" y="458.66666666666669" width="408" height="185.66666666666669"/>
+                                                <rect key="frame" x="10" y="458.66666666666669" width="408" height="209.33333333333331"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ign-Fx-oxT">
                                                     <size key="itemSize" width="123" height="144"/>
@@ -427,7 +434,7 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AllPhotoCell" id="JCQ-Yp-C6Z" customClass="HistoryPhotoCollectionViewCell" customModule="Poetree" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="21" width="123" height="144"/>
+                                                        <rect key="frame" x="0.0" y="32.666666666666664" width="123" height="144"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="QNv-Nf-JiE">
                                                             <rect key="frame" x="0.0" y="0.0" width="123" height="144"/>
@@ -452,7 +459,7 @@
                                                 </cells>
                                             </collectionView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wdt-lw-Fp0">
-                                                <rect key="frame" x="159" y="684.33333333333337" width="110" height="55.666666666666629"/>
+                                                <rect key="frame" x="159" y="708" width="110" height="32"/>
                                                 <color key="backgroundColor" systemColor="systemPinkColor"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
                                                 <state key="normal" title="이전 글 모두 보기">
@@ -510,6 +517,7 @@
                     <connections>
                         <outlet property="allPhotoCollectionView" destination="FUG-xb-Kqu" id="CjM-sf-kMy"/>
                         <outlet property="allPoemsBtn" destination="Wdt-lw-Fp0" id="DKe-pe-n7l"/>
+                        <outlet property="indexCountLabel" destination="z2l-y2-7d1" id="Pxo-7p-ghZ"/>
                         <outlet property="lastWeekPhotoCollectionView" destination="r8N-ng-bC4" id="sOF-gC-lPr"/>
                         <outlet property="threePoemsTableView" destination="yww-QB-wtX" id="FVS-cw-d44"/>
                     </connections>

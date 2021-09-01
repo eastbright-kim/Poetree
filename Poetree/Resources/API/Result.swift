@@ -18,5 +18,5 @@ enum Complete: String {
 enum Errors: String, Error {
     
     case emailError = "시 쓰기 에러 발생"
-    
+    case userRegisterError = "유저 등록 에러 발생"
 }

@@ -262,7 +262,7 @@
                                                 <rect key="frame" x="25" y="25" width="364" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="좋은 아침입니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkR-wt-q9g">
-                                                        <rect key="frame" x="88" y="12" width="188" height="36"/>
+                                                        <rect key="frame" x="88.000000000000014" y="12" width="188.33333333333337" height="36"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -278,38 +278,75 @@
                                                 <rect key="frame" x="20" y="115" width="374" height="300"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User123님의 글" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvw-Dj-x47">
-                                                        <rect key="frame" x="5" y="5" width="112" height="21"/>
+                                                        <rect key="frame" x="5" y="5" width="112" height="20.333333333333332"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QTE-8w-H9O">
-                                                        <rect key="frame" x="8" y="36" width="358" height="256"/>
+                                                        <rect key="frame" x="8" y="35.333333333333343" width="358" height="256.66666666666663"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="YCf-Sp-8Zi">
-                                                                <rect key="frame" x="0.0" y="24.333333969116211" width="358" height="43.666667938232422"/>
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserWritingTableViewCell" rowHeight="56" id="YCf-Sp-8Zi" customClass="UserWritingTableViewCell" customModule="Poetree" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="24.333333969116211" width="358" height="56"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YCf-Sp-8Zi" id="qtO-jS-oNH">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="358" height="43.666667938232422"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="358" height="56"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이별 택시" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Sqf-lS-n1O">
+                                                                            <rect key="frame" x="20.000000000000004" y="17.666666666666664" width="63.333333333333343" height="20.666666666666664"/>
+                                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qO8-dB-YFD">
+                                                                            <rect key="frame" x="296.66666666666669" y="17.666666666666664" width="46.333333333333314" height="20.666666666666664"/>
+                                                                            <subviews>
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gJS-8r-mtR">
+                                                                                    <rect key="frame" x="0.0" y="1.9999999999999982" width="20.666666666666668" height="17.666666666666671"/>
+                                                                                    <color key="tintColor" systemColor="systemPinkColor"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="width" secondItem="gJS-8r-mtR" secondAttribute="height" multiplier="1:1" id="KhA-WM-wga"/>
+                                                                                    </constraints>
+                                                                                </imageView>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bhw-Bv-IIK">
+                                                                                    <rect key="frame" x="25.666666666666629" y="0.0" width="20.666666666666671" height="20.666666666666668"/>
+                                                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                                                                                    <color key="textColor" systemColor="systemPinkColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
+                                                                        </stackView>
+                                                                    </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstItem="Sqf-lS-n1O" firstAttribute="centerY" secondItem="qtO-jS-oNH" secondAttribute="centerY" id="5Ss-DM-9dS"/>
+                                                                        <constraint firstItem="qO8-dB-YFD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Sqf-lS-n1O" secondAttribute="trailing" constant="5" id="BeO-bN-THq"/>
+                                                                        <constraint firstItem="qO8-dB-YFD" firstAttribute="centerY" secondItem="Sqf-lS-n1O" secondAttribute="centerY" id="OCc-8Z-8LG"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="qO8-dB-YFD" secondAttribute="trailing" constant="15" id="WNS-we-gJg"/>
+                                                                        <constraint firstItem="Sqf-lS-n1O" firstAttribute="leading" secondItem="qtO-jS-oNH" secondAttribute="leadingMargin" id="is1-za-XBl"/>
+                                                                    </constraints>
                                                                 </tableViewCellContentView>
+                                                                <connections>
+                                                                    <outlet property="likesCountLabel" destination="Bhw-Bv-IIK" id="UH1-ts-ON5"/>
+                                                                    <outlet property="titleLabel" destination="Sqf-lS-n1O" id="u5N-mE-BUl"/>
+                                                                </connections>
                                                             </tableViewCell>
                                                         </prototypes>
                                                     </tableView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vky-OQ-wtl">
-                                                        <rect key="frame" x="122" y="4.6666666666666714" width="9" height="22"/>
+                                                        <rect key="frame" x="122" y="4.3333333333333286" width="9" height="22"/>
                                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" image="chevron.right" catalog="system">
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="12"/>
                                                         </state>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Qy-Lo-oHm">
-                                                        <rect key="frame" x="311" y="0.0" width="46" height="30"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3hM-RC-N5b">
+                                                        <rect key="frame" x="306" y="0.0" width="46" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Button"/>
                                                         <connections>
-                                                            <action selector="btn:" destination="G2R-vu-61A" eventType="touchUpInside" id="k30-5u-h1E"/>
+                                                            <action selector="logout:" destination="G2R-vu-61A" eventType="touchUpInside" id="t4H-dA-0tx"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -330,27 +367,73 @@
                                                 <rect key="frame" x="20" y="445" width="374" height="300"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User123님이 좋아한 글" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g09-lc-ivX">
-                                                        <rect key="frame" x="5" y="5" width="160.66666666666666" height="21"/>
+                                                        <rect key="frame" x="5" y="5" width="160.33333333333334" height="20.333333333333332"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QBK-sG-NF0">
-                                                        <rect key="frame" x="8" y="36" width="358" height="256"/>
+                                                        <rect key="frame" x="8" y="35.333333333333314" width="358" height="256.66666666666669"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="O3l-WZ-Fkp">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserLikedWritingTableViewCell" id="O3l-WZ-Fkp" customClass="UserLikedWritingTableViewCell" customModule="Poetree" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="24.333333969116211" width="358" height="43.666667938232422"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="O3l-WZ-Fkp" id="6Tf-Fs-GmV">
                                                                     <rect key="frame" x="0.0" y="0.0" width="358" height="43.666667938232422"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="그 사람을 모르시나요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yxo-Nm-8jq">
+                                                                            <rect key="frame" x="20" y="11.666666666666666" width="141.33333333333334" height="20.666666666666671"/>
+                                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="UPr-Ay-arM">
+                                                                            <rect key="frame" x="296.66666666666669" y="11.666666666666666" width="46.333333333333314" height="20.666666666666671"/>
+                                                                            <subviews>
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Eme-El-PEb">
+                                                                                    <rect key="frame" x="0.0" y="1.9999999999999982" width="20.666666666666668" height="17.666666666666671"/>
+                                                                                    <color key="tintColor" systemColor="systemPinkColor"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="width" secondItem="Eme-El-PEb" secondAttribute="height" multiplier="1:1" id="l99-0Y-pns"/>
+                                                                                    </constraints>
+                                                                                </imageView>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7KD-Pw-i3T">
+                                                                                    <rect key="frame" x="25.666666666666629" y="0.0" width="20.666666666666671" height="20.666666666666668"/>
+                                                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                                                                                    <color key="textColor" systemColor="systemPinkColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
+                                                                        </stackView>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by.author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgU-xq-D2r">
+                                                                            <rect key="frame" x="231.33333333333334" y="13" width="60.333333333333343" height="18"/>
+                                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstItem="FgU-xq-D2r" firstAttribute="centerY" secondItem="yxo-Nm-8jq" secondAttribute="centerY" id="J9M-kX-Dwj"/>
+                                                                        <constraint firstItem="yxo-Nm-8jq" firstAttribute="leading" secondItem="6Tf-Fs-GmV" secondAttribute="leadingMargin" id="T3k-1J-PXi"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="UPr-Ay-arM" secondAttribute="trailing" constant="15" id="moT-cA-Rco"/>
+                                                                        <constraint firstItem="UPr-Ay-arM" firstAttribute="leading" secondItem="FgU-xq-D2r" secondAttribute="trailing" constant="5" id="qwc-zk-GR7"/>
+                                                                        <constraint firstItem="yxo-Nm-8jq" firstAttribute="centerY" secondItem="6Tf-Fs-GmV" secondAttribute="centerY" id="r7M-Ug-8Ul"/>
+                                                                        <constraint firstItem="FgU-xq-D2r" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yxo-Nm-8jq" secondAttribute="trailing" constant="5" id="rU2-oM-y8k"/>
+                                                                        <constraint firstItem="UPr-Ay-arM" firstAttribute="centerY" secondItem="yxo-Nm-8jq" secondAttribute="centerY" id="tdU-dm-0dT"/>
+                                                                    </constraints>
                                                                 </tableViewCellContentView>
+                                                                <connections>
+                                                                    <outlet property="authorLabel" destination="FgU-xq-D2r" id="3TC-Ss-VFm"/>
+                                                                    <outlet property="likesCountLabel" destination="7KD-Pw-i3T" id="qv5-au-XCl"/>
+                                                                    <outlet property="titleLabel" destination="yxo-Nm-8jq" id="oRf-2O-RT7"/>
+                                                                </connections>
                                                             </tableViewCell>
                                                         </prototypes>
                                                     </tableView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUX-OI-JcV">
-                                                        <rect key="frame" x="170.66666666666666" y="4.6666666666666856" width="9" height="22"/>
+                                                        <rect key="frame" x="170.33333333333334" y="4.3333333333333144" width="9" height="22"/>
                                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" image="chevron.right" catalog="system">
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="12"/>
@@ -413,12 +496,18 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="navBarBtn" destination="hJz-Ys-7qE" id="acC-eA-5Cj"/>
+                        <outlet property="greetingLabel" destination="Av5-4k-AUg" id="p9F-0I-fHi"/>
+                        <outlet property="likedWrtingsTableView" destination="QBK-sG-NF0" id="Or9-Cv-A0P"/>
+                        <outlet property="logout" destination="3hM-RC-N5b" id="gEq-A4-1wb"/>
+                        <outlet property="myWritingTableView" destination="QTE-8w-H9O" id="fUm-Tv-1cz"/>
+                        <outlet property="navBarBtn" destination="hJz-Ys-7qE" id="0Nf-05-QGr"/>
+                        <outlet property="userLikedLabel" destination="g09-lc-ivX" id="1Kd-uJ-8D1"/>
+                        <outlet property="userWritingLabel" destination="pvw-Dj-x47" id="igj-M3-9Ys"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQ6-L0-05l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="238" y="29"/>
+            <point key="canvasLocation" x="237.68115942028987" y="28.794642857142854"/>
         </scene>
         <!--My Poem-->
         <scene sceneID="uIk-cQ-cTq">
@@ -451,6 +540,7 @@
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="facebook-logo" width="533.33331298828125" height="533.33331298828125"/>
         <image name="google-logo" width="341.33334350585938" height="341.33334350585938"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
