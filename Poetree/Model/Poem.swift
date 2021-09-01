@@ -33,6 +33,7 @@ class Poem: Equatable, Identifiable {
         self.isPrivate = isPrivate
         self.likers = likers
         self.photoURL = photoURL
+        //나중에 수정 필요 poemservice에서 해당 로직 구동중
         if let userUID = userUID {
             self.isLike = likers[userUID] ?? false
         }

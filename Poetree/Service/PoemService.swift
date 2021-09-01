@@ -42,6 +42,24 @@ class PoemService {
         }
     }
     
+    func fetchUserWriting(poem: [Poem], currentUser: CurrentUser) -> [Poem] {
+        
+        let userWrting = poem.filter { poem in
+            poem.userEmail == currentUser.userEmail
+        }
+        
+        return userWrting
+    }
+    
+    func fetchUserLikedWriting(poems: [Poem], currentUser: CurrentUser) -> [Poem] {
+  
+        let userLikedPoems = poems.filter { poem in
+           poem.likers[currentUser.userUID] ?? false
+        }
+        
+        return userLikedPoems
+    }
+    
     func editPoem(beforeEdited: Poem ,editedPoem: Poem, completion: @escaping((String) -> Void)){
         
         poemRepository.createPoem(poemModel: editedPoem) { result in

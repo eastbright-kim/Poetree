@@ -19,6 +19,7 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
     @IBOutlet weak var lastWeekPhotoCollectionView: UICollectionView!
     @IBOutlet weak var allPhotoCollectionView: UICollectionView!
     @IBOutlet weak var threePoemsTableView: UITableView!
+    @IBOutlet weak var indexCountLabel: UIButton!
     
     
     
@@ -30,6 +31,7 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
         configureUI()
         collectionViewDelegate()
     }
+    
     
     func collectionViewDelegate() {
         
@@ -44,8 +46,8 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
         
         let flowlayout = UICollectionViewFlowLayout()
         flowlayout.itemSize = CGSize(width: 100, height: 100 * 10 / 7)
-        flowlayout.minimumInteritemSpacing = 30
-        flowlayout.minimumLineSpacing = 30
+        flowlayout.minimumInteritemSpacing = 28
+        flowlayout.minimumLineSpacing = 28
         flowlayout.scrollDirection = .horizontal
         
         let totalCellWidth = 100 * 3
@@ -108,9 +110,20 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
             }
             .disposed(by: rx.disposeBag)
         
+        lastWeekPhotoCollectionView.rx.itemSelected
+            .subscribe(onNext:{ index in
+                print(index.section)
+                print(index.item)
+                print("\(index) indexPath")
+                self.indexCountLabel.setTitle("Wrtings for #\(index.item + 1)", for: .normal)
+            })
+            .disposed(by: rx.disposeBag)
+        
         lastWeekPhotoCollectionView.rx.modelSelected(WeekPhoto.self)
             .bind(to: viewModel.input.photoSelected)
             .disposed(by: rx.disposeBag)
+        
+        
         
         self.viewModel.output.displayingPoems
             .bind(to: self.threePoemsTableView.rx.items(cellIdentifier: "ThreePoemsTableViewCell", cellType: ThreePoemsTableViewCell.self)){indexPath, poem, cell in
@@ -124,8 +137,8 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
                     cell.prizeImage.image = UIImage(named: "bronze-medal")
                 }
                 
-                cell.titleLabel.text = "by. \(poem.title)"
-                cell.authorLabel.text = poem.userPenname
+                cell.titleLabel.text = poem.title
+                cell.authorLabel.text = "by. \(poem.userPenname)"
             }
             .disposed(by: rx.disposeBag)
     }

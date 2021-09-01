@@ -9,15 +9,22 @@ import Foundation
 import GoogleSignIn
 import FBSDKLoginKit
 import Firebase
+import RxSwift
 
 class UserService {
     
     let userRegisterRepository: UserRegisterRepository!
-    
+    private var defaultUser = CurrentUser(userEmail: currentUser?.email ?? "unknowned", userPenname: currentUser?.displayName ?? "unknowned", userUID: currentUser?.uid ?? "unknowned")
+    private lazy var loginUser = BehaviorSubject<CurrentUser>(value: defaultUser)
     
     init(userRegisterRepository: UserRegisterRepository){
         self.userRegisterRepository = userRegisterRepository
     }
+    
+    func loggedInUser() -> Observable<CurrentUser> {
+        return loginUser
+    }
+    
     
     func googleLogin(penname: String, presentingVC: UIViewController, completion: @escaping ((Bool) -> Void)){
         
@@ -41,10 +48,13 @@ class UserService {
             
             self.userRegisterRepository.RegisterToFirebase(penname: penname, flatform:FlatFormType.Google_Facebook(credential)) { result in
                 switch result {
-                case true:
+                case .success(let loggedInUser):
                     completion(true)
-                case false:
+                    
+                    self.loginUser.onNext(loggedInUser)
+                case .failure(let error):
                     completion(false)
+                    print(error)
                 }
             }
         }
@@ -63,10 +73,13 @@ class UserService {
                 self.userRegisterRepository.RegisterToFirebase(penname: penname, flatform: .Google_Facebook(credential)) { result in
                     
                     switch result {
-                    case true:
+                    case .success(let loggedInUser):
                         completion(true)
-                    case false:
+                        
+                        self.loginUser.onNext(loggedInUser)
+                    case .failure(let error):
                         completion(false)
+                        print(error)
                     }
                 }
             case .cancelled:
@@ -82,13 +95,14 @@ class UserService {
     func appleLogin(penname: String, credential: OAuthCredential, completion: @escaping ((Bool) -> Void)){
         self.userRegisterRepository.RegisterToFirebase(penname: penname, flatform: .Apple(credential)) { result in
             
-            switch result{
-            case true:
-                print("애플 등록")
+            switch result {
+            case .success(let loggedInUser):
                 completion(true)
-            case false:
-                print("애플 안됨")
+             
+                self.loginUser.onNext(loggedInUser)
+            case .failure(let error):
                 completion(false)
+                print(error)
             }
         }
     }
