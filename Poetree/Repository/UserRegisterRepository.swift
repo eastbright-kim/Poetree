@@ -11,15 +11,38 @@ import Firebase
 
 class UserRegisterRepository{
     
+    static let shared = UserRegisterRepository()
+    var emails = [String]()
+    
+    func fetchUserUID() {
+        
+        userRef.observeSingleEvent(of: .value) { snapshot in
+            
+            let uids = snapshot.value as? [String:String] ?? [:]
+            
+            for email in uids.values {
+                self.emails.append(email)
+            }
+        }
+    }
     
     func RegisterToFirebase(penname: String, flatform: FlatFormType, completion: @escaping ((Result<CurrentUser, Errors>) -> Void)){
+        
         
         switch flatform {
         case .Google_Facebook(let credential):
             Auth.auth().signIn(with: credential) { authDataResult, error in
+                
                 Auth.auth().addStateDidChangeListener { (auth, user) in
+                    
                     guard let currentUser = auth.currentUser else { return }
-                    //user의 기존 가입 여부 확인
+                    userRef.child(currentUser.uid).setValue(currentUser.email)
+                    if self.checkRegisterValid(email: currentUser.email!) {
+                        completion(.failure(.userExists))
+                        return
+                    }
+                    
+                    
                     let changeRequest = currentUser.createProfileChangeRequest()
                     changeRequest.displayName = penname
                     changeRequest.commitChanges { error in
@@ -37,9 +60,16 @@ class UserRegisterRepository{
             }
         case .Apple(let credential):
             Auth.auth().signIn(with: credential) { authDataResult, error in
-                
                 Auth.auth().addStateDidChangeListener { (auth, user) in
+                    
                     guard let currentUser = auth.currentUser else { return }
+                    
+                    userRef.child(currentUser.uid).setValue(currentUser.email)
+                    if self.checkRegisterValid(email: currentUser.email!) {
+                        completion(.failure(.userExists))
+                        return
+                    }
+
                     let changeRequest = currentUser.createProfileChangeRequest()
                     changeRequest.displayName = penname
                     changeRequest.commitChanges { error in
@@ -56,6 +86,12 @@ class UserRegisterRepository{
             }
         }
     }
+    
+    func checkRegisterValid(email: String) -> Bool {
+        
+        return self.emails.contains(email)
+    }
+    
 }
 
 

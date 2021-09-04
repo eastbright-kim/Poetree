@@ -12,3 +12,4 @@ import Firebase
 let poemRef = Database.database().reference().child("poem")
 let photoRef = Database.database().reference().child("photos")
 let currentUser = Auth.auth().currentUser
+let userRef = Database.database().reference().child("users")
