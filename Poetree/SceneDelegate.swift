@@ -69,6 +69,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             photoServie.photoStore.onNext(weekPhotos)
         }
         
+        userRegisterRepository.fetchUserUID()
     
         var mainVC = MainViewController.instantiate(storyboardID: "Main")
         mainVC.bind(viewModel: MainViewModel(poemService: poemService, photoService: photoServie))

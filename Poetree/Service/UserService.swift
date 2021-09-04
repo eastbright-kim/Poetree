@@ -26,7 +26,7 @@ class UserService {
     }
     
     
-    func googleLogin(penname: String, presentingVC: UIViewController, completion: @escaping ((Bool) -> Void)){
+    func googleLogin(penname: String, presentingVC: UIViewController, completion: @escaping ((Result<Bool, Errors>) -> Void)){
         
         guard let clientId = FirebaseApp.app()?.options.clientID else {return}
         let config = GIDConfiguration(clientID: clientId)
@@ -49,18 +49,17 @@ class UserService {
             self.userRegisterRepository.RegisterToFirebase(penname: penname, flatform:FlatFormType.Google_Facebook(credential)) { result in
                 switch result {
                 case .success(let loggedInUser):
-                    completion(true)
-                    
+                    completion(.success(true))
                     self.loginUser.onNext(loggedInUser)
                 case .failure(let error):
-                    completion(false)
-                    print(error)
+                    print(error.rawValue)
+                    completion(.failure(error))
                 }
             }
         }
     }
     
-    func facebookLogin(penname: String, presentingVC: UIViewController, completion: @escaping ((Bool) -> Void)){
+    func facebookLogin(penname: String, presentingVC: UIViewController, completion: @escaping ((Result<Bool, Errors>) -> Void)){
         
         let loginManager = LoginManager()
         loginManager.logIn(permissions: [.email], viewController: presentingVC) { result in
@@ -74,12 +73,12 @@ class UserService {
                     
                     switch result {
                     case .success(let loggedInUser):
-                        completion(true)
+                        completion(.success(true))
                         
                         self.loginUser.onNext(loggedInUser)
                     case .failure(let error):
-                        completion(false)
-                        print(error)
+                        completion(.failure(error))
+                        print(error.rawValue)
                     }
                 }
             case .cancelled:
@@ -92,17 +91,17 @@ class UserService {
         }
     }
     
-    func appleLogin(penname: String, credential: OAuthCredential, completion: @escaping ((Bool) -> Void)){
+    func appleLogin(penname: String, credential: OAuthCredential, completion: @escaping ((Result<Bool, Errors>) -> Void)){
         self.userRegisterRepository.RegisterToFirebase(penname: penname, flatform: .Apple(credential)) { result in
             
             switch result {
             case .success(let loggedInUser):
-                completion(true)
+                completion(.success(true))
              
                 self.loginUser.onNext(loggedInUser)
             case .failure(let error):
-                completion(false)
-                print(error)
+                completion(.failure(error))
+                print(error.rawValue)
             }
         }
     }

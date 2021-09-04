@@ -58,7 +58,7 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
     }
     
     func configureUI(){
-
+        
         
         pennameCompleteBtn.isEnabled = false
         penNameTextField.borderStyle = .none
@@ -78,16 +78,7 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
         googleLogInBtn.rx.tap
             .subscribe { [unowned self] _ in
                 self.viewModel.userService.googleLogin(penname: self.penName!, presentingVC: self) { result in
-                    switch result {
-                    case true:
-                        print("구글성공")
-                        DispatchQueue.main.async {
-                            self.dismiss(animated: true, completion: nil)
-                        }
-                    case false:
-                        print("구글안됨")
-                    }
-                }
+                    self.handleLogInResult(result)                }
             }
             .disposed(by: rx.disposeBag)
         
@@ -95,15 +86,7 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
         facebookLogInBtn.rx.tap
             .subscribe(onNext:{[unowned self] _ in
                 self.viewModel.userService.facebookLogin(penname: penName!, presentingVC: self) { result in
-                    switch result {
-                    case true:
-                        print("페북성공")
-                        DispatchQueue.main.async {
-                            self.dismiss(animated: true, completion: nil)
-                        }
-                    case false:
-                        print("페북안됨")
-                    }
+                    self.handleLogInResult(result)
                 }
             })
             .disposed(by: rx.disposeBag)
@@ -150,12 +133,39 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
         self.videoLayer.sendSubviewToBack(self.penNameStackView)
         self.videoLayer.bringSubviewToFront(self.registerStackView)
         self.registerStackView.isHidden = false
+        self.penNameTextField.resignFirstResponder()
     }
     
     
     @IBAction func backBtnTapped(_ sender: UIButton) {
         self.videoLayer.sendSubviewToBack(registerStackView)
         self.videoLayer.bringSubviewToFront(penNameStackView)
+    }
+    
+    func handleLogInResult(_ result: Result<Bool, Errors>) {
+        DispatchQueue.main.async {
+            switch result {
+            case .success:
+                self.dismiss(animated: true, completion: nil)
+            case .failure(let error):
+                
+                let alert = UIAlertController(title: "회원 가입 에러", message: "", preferredStyle: .alert)
+                
+                let action = UIAlertAction(title: "확인", style: .default){ action in
+                    self.dismiss(animated: true, completion: nil)
+                }
+                
+                alert.addAction(action)
+                switch error {
+                case .userExists:
+                    alert.message = "이미 가입된 유저입니다\n기존 로그인 정보로 로그인합니다"
+                    self.present(alert, animated: true, completion: nil)
+                default:
+                    alert.message = "다시 시도해주세요"
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        }
     }
 }
 
@@ -207,13 +217,7 @@ extension UserRegisterViewController: ASAuthorizationControllerDelegate {
 
             self.viewModel.userService.appleLogin(penname: penName!, credential: credential) { result in
                 
-                switch result{
-                case true:
-                    print("애플 등록")
-                    self.dismiss(animated: true, completion: nil)
-                case false:
-                    print("애플 안됨")
-                }
+                self.handleLogInResult(result)
             }
         }
     }

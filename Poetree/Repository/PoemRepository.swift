@@ -43,8 +43,10 @@ class PoemRepository {
         poemRef.observeSingleEvent(of: .value) { snapshot in
             
             let snapshotValue = snapshot.value as? [String:Any] ?? [:]
+            
             var poemEntities = [PoemEntity]()
             for value in snapshotValue.values {
+          
                 let poemDic = value as! [String:Any]
                 let poemEntity = PoemEntity(poemDic: poemDic)
                 poemEntities.append(poemEntity)

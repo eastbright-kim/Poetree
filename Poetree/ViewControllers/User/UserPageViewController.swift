@@ -103,6 +103,7 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
         let firebaseAuth = Auth.auth()
         do {
           try firebaseAuth.signOut()
+            print("로그아웃")
         } catch let signOutError as NSError {
           print("Error signing out: %@", signOutError)
         }
