@@ -93,6 +93,25 @@
                                             <constraint firstAttribute="width" secondItem="ish-hw-GpN" secondAttribute="height" multiplier="1:1" id="GZD-cA-6uF"/>
                                         </constraints>
                                     </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dI7-Xg-0vO">
+                                        <rect key="frame" x="157.66666666666666" y="410.66666666666669" width="98.999999999999972" height="75"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIg-IP-I0G">
+                                                <rect key="frame" x="0.0" y="0.0" width="99" height="30"/>
+                                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                                <state key="normal" title="기존 회원 로그인">
+                                                    <color key="titleColor" red="0.99215692280000001" green="0.99215692280000001" blue="0.99215680360000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOX-7w-XT6">
+                                                <rect key="frame" x="0.0" y="45" width="99" height="30"/>
+                                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                                <state key="normal" title="간편 회원 가입">
+                                                    <color key="titleColor" red="0.99215692280000001" green="0.99215692280000001" blue="0.99215680360000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5z9-vf-Xxz">
                                         <rect key="frame" x="73.333333333333343" y="382.33333333333331" width="267.33333333333326" height="131.33333333333331"/>
                                         <subviews>
@@ -207,6 +226,8 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="dI7-Xg-0vO" firstAttribute="centerX" secondItem="6x7-QD-4Ay" secondAttribute="centerX" id="73K-BA-6XA"/>
+                                    <constraint firstItem="dI7-Xg-0vO" firstAttribute="centerY" secondItem="6x7-QD-4Ay" secondAttribute="centerY" id="CVs-5O-le0"/>
                                     <constraint firstItem="5z9-vf-Xxz" firstAttribute="centerY" secondItem="6x7-QD-4Ay" secondAttribute="centerY" id="GtZ-fj-sYJ"/>
                                     <constraint firstAttribute="trailing" secondItem="ish-hw-GpN" secondAttribute="trailing" constant="160" id="OqR-dQ-CmP"/>
                                     <constraint firstItem="5z9-vf-Xxz" firstAttribute="centerX" secondItem="6x7-QD-4Ay" secondAttribute="centerX" id="YfD-bn-gbx"/>
@@ -215,6 +236,12 @@
                                     <constraint firstItem="ish-hw-GpN" firstAttribute="top" secondItem="6x7-QD-4Ay" secondAttribute="top" constant="160" id="n8c-Gg-LLN"/>
                                     <constraint firstItem="ish-hw-GpN" firstAttribute="leading" secondItem="6x7-QD-4Ay" secondAttribute="leading" constant="160" id="wbp-xi-NxM"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="5z9-vf-Xxz"/>
+                                        <exclude reference="dgZ-mP-85n"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="I2D-nr-6fM"/>
@@ -230,10 +257,13 @@
                         <outlet property="appleLogInBtn" destination="4RM-p6-PR2" id="Nsc-1x-QZl"/>
                         <outlet property="facebookLogInBtn" destination="Gz5-Pn-Z2w" id="tEC-a7-aas"/>
                         <outlet property="googleLogInBtn" destination="4US-4x-o1R" id="0bY-5F-EnV"/>
+                        <outlet property="loginBtn" destination="WIg-IP-I0G" id="mEQ-4Q-a0o"/>
                         <outlet property="logoImage" destination="ish-hw-GpN" id="UTY-Jg-Bkn"/>
+                        <outlet property="optionStackView" destination="dI7-Xg-0vO" id="Wvg-PN-0Vd"/>
                         <outlet property="penNameStackView" destination="5z9-vf-Xxz" id="Il1-vp-QhE"/>
                         <outlet property="penNameTextField" destination="xF2-Ua-vDB" id="gIC-AK-1II"/>
                         <outlet property="pennameCompleteBtn" destination="gxA-Rt-15u" id="Vr7-mo-Ail"/>
+                        <outlet property="registerBtn" destination="VOX-7w-XT6" id="PhH-Df-8Uc"/>
                         <outlet property="registerStackView" destination="dgZ-mP-85n" id="vgJ-R3-zw2"/>
                         <outlet property="selectLoginLabel" destination="jQo-Ff-dTy" id="QZJ-3B-gJa"/>
                         <outlet property="validCheckLabel" destination="ziI-qm-RdN" id="MSw-HX-Hiw"/>
@@ -345,9 +375,6 @@
                                                         <rect key="frame" x="306" y="0.0" width="46" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Button"/>
-                                                        <connections>
-                                                            <action selector="logout:" destination="G2R-vu-61A" eventType="touchUpInside" id="t4H-dA-0tx"/>
-                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -548,6 +575,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

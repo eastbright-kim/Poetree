@@ -48,6 +48,11 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
     @IBOutlet weak var facebookLogInBtn: UIButton!
     @IBOutlet weak var selectLoginLabel: UILabel!
     
+    // ------------------------------ chooseOptionView
+    @IBOutlet weak var optionStackView: UIStackView!
+    @IBOutlet weak var loginBtn: UIButton!
+    @IBOutlet weak var registerBtn: UIButton!
+    
     
     
     override func viewDidLoad() {
@@ -66,6 +71,12 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
         border.frame = CGRect(x: 0, y: penNameTextField.frame.size.height - 1, width: penNameTextField.frame.width, height: 1)
         border.backgroundColor = UIColor.lightGray.cgColor
         penNameTextField.layer.addSublayer(border)
+        
+        loginBtn.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+        loginBtn.layer.cornerRadius = 8
+        
+        registerBtn.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+        registerBtn.layer.cornerRadius = 8
     }
     
     func setupBtn(){
