@@ -105,4 +105,14 @@ class UserService {
             }
         }
     }
+    
+    func logout(){
+        let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut()
+            loginUser.onNext(CurrentUser(userEmail: "unknowned", userPenname: "", userUID: ""))
+        } catch let signOutError as NSError {
+          print("Error signing out: %@", signOutError)
+        }
+    }
 }

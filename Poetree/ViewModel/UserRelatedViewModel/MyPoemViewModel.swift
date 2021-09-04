@@ -57,4 +57,8 @@ class MyPoemViewModel: ViewModelType {
         self.input = Input()
         self.output = Output(loginUser: currentUser, userWritings: userWritings, userLikedWritings: userLikedWritings)
     }
+    
+    func logout(){
+        userService.logout()
+    }
 }

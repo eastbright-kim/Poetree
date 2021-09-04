@@ -95,18 +95,13 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
                 cell.likesCountLabel.text = "\(poem.likers.count)"
             }
             .disposed(by: rx.disposeBag)
-    }
-    
-    
-    @IBAction func logout(_ sender: Any) {
         
-        let firebaseAuth = Auth.auth()
-        do {
-          try firebaseAuth.signOut()
-            print("로그아웃")
-        } catch let signOutError as NSError {
-          print("Error signing out: %@", signOutError)
-        }
+        self.logout.rx.tap
+            .subscribe(onNext:{_ in
+                print("log out")
+                self.viewModel.logout()
+            })
+            .disposed(by: rx.disposeBag)
     }
 }
 
