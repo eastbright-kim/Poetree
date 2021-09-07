@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import Firebase
 
 enum Complete: String {
    
@@ -14,10 +14,20 @@ enum Complete: String {
     case fetchedPoem = "전체 시 불러오기 성공"
 }
 
+enum SignInErorr: Error {
+    case LoginError(LoginError)
+    case RegisterError(RegisterError)
+}
 
-enum Errors: String, Error {
+enum RegisterError: Error {
+    case flatFormError
+    case registerError
+}
+
+enum LoginError: Error {
     
-    case emailError = "시 쓰기 에러 발생"
-    case userRegisterError = "유저 등록 에러 발생"
-    case userExists = "유저 이메일 기등록 상태"
+    case newUser
+    case logInError
+    case flatFormError
+    
 }

@@ -14,7 +14,7 @@ class PoemRepository {
     static let shared = PoemRepository()
 
     
-    func createPoem(poemModel: Poem, completion: @escaping ((Result<Complete, Errors>) -> Void)) {
+    func createPoem(poemModel: Poem, completion: @escaping ((Result<Complete, Error>) -> Void)) {
     
         let poemDic: [String:Any] = [
             "id" : poemModel.id as Any,
@@ -26,15 +26,16 @@ class PoemRepository {
             "uploadAt": convertDateToString(format: "yyyy MMM d", date: poemModel.uploadAt),
             "isPrivate": poemModel.isPrivate,
             "likers": [:],
-            "photoURL": poemModel.photoURL.absoluteString
+            "photoURL": poemModel.photoURL.absoluteString,
+            "userUID": poemModel.userUID
         ]
-        poemRef.child(poemModel.id).setValue(poemDic)
+        poemRef.child(poemModel.userUID).child(poemModel.id).setValue(poemDic)
         completion(.success(.writedPoem))
     }
     
     func deletePoem(poemModel: Poem) {
         
-        poemRef.child(poemModel.id).removeValue()
+        poemRef.child(poemModel.userUID).child(poemModel.id).removeValue()
         
     }
     
@@ -42,16 +43,17 @@ class PoemRepository {
         
         poemRef.observeSingleEvent(of: .value) { snapshot in
             
-            let snapshotValue = snapshot.value as? [String:Any] ?? [:]
+            let allUsers = snapshot.value as? [String:Any] ?? [:]
             
             var poemEntities = [PoemEntity]()
-            for value in snapshotValue.values {
-          
-                let poemDic = value as! [String:Any]
-                let poemEntity = PoemEntity(poemDic: poemDic)
+            
+            for user in allUsers {
+                let poemDict = user.value as! [String:Any]
+                let poemEntity = PoemEntity(poemDic: poemDict)
                 poemEntities.append(poemEntity)
             }
             completion((poemEntities, .success(.fetchedPoem)))
+
         }
     }
 }

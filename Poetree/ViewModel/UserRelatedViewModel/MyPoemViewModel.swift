@@ -19,7 +19,7 @@ class MyPoemViewModel: ViewModelType {
     }
     
     struct Output {
-        let loginUser: Driver<CurrentUser>
+        let loginUser: Driver<CurrentAuth>
         let userWritings: Observable<[Poem]>
         let userLikedWritings: Observable<[Poem]>
     }
@@ -35,7 +35,7 @@ class MyPoemViewModel: ViewModelType {
         let user = userService.loggedInUser()
         let poem = poemService.allPoems()
         
-        let currentUser = user.asDriver(onErrorJustReturn: CurrentUser(userEmail: "unknowned", userPenname: "unknowned", userUID: "unknowned"))
+        let currentUser = user.asDriver(onErrorJustReturn: CurrentAuth(userEmail: "unknowned", userPenname: "unknowned", userUID: "unknowned"))
         
         let userWritings = Observable.combineLatest(user, poem){
             user, poem -> [Poem] in

@@ -12,10 +12,10 @@ import RxCocoa
 class PoemDetailViewModel: ViewModelType {
     
     let poemService: PoemService
+    let userService: UserService
     
     struct Input {
         
-//        let isLike: BehaviorSubject<Bool>
         
     }
     
@@ -26,9 +26,9 @@ class PoemDetailViewModel: ViewModelType {
     var input: Input
     var output: Output
     
-    init(poemService: PoemService) {
+    init(poemService: PoemService, userService: UserService) {
         self.poemService = poemService
-        
+        self.userService = userService
         self.input = Input()
         self.output = Output()
     }

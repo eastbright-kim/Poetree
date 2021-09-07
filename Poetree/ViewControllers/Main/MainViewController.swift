@@ -111,6 +111,7 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
                 
                 photoVC.photoService = self.viewModel.photoService
                 photoVC.poemService = self.viewModel.poemService
+                photoVC.userService = self.viewModel.userService
                 photoVC.selectedIndexPath = indexPath
                 photoVC.modalTransitionStyle = .crossDissolve
                 photoVC.modalPresentationStyle = .overFullScreen
@@ -125,9 +126,6 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
                 print("willdisplay called")
                 let index = cell.at.item
                 if index == 0 {
-                    
-                    //selcted index를 input으로 vm에 넘겨준다. vm은 넘겨받은 index로 photoid 가져온다.
-                    
                     
                     self.photoNumberLabel.text = "#1"
                     self.poemForPhotoNumberLabel.setTitle("#1 사진에 쓴 글", for: .normal)
@@ -163,7 +161,7 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
         thisWeekPoemBtn.rx.tap
             .subscribe(onNext:{[unowned self]_ in
                 
-                let viewModel = PoemListViewModel(poemService: self.viewModel.poemService, listType: .thisWeek)
+                let viewModel = PoemListViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, listType: .thisWeek)
                 var vc = PoemListViewController.instantiate(storyboardID: "ListRelated")
                 vc.bind(viewModel: viewModel)
                 self.navigationController?.pushViewController(vc, animated: true)
@@ -173,7 +171,7 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
        
         poemTableView.rx.modelSelected(Poem.self)
             .subscribe(onNext:{ poem in
-                let viewModel = PoemListViewModel(poemService: self.viewModel.poemService, listType: .seletedPhoto, selectedPhotoId: poem.photoId)
+                let viewModel = PoemListViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, listType: .seletedPhoto, selectedPhotoId: poem.photoId)
                 
                 var vc = PoemListViewController.instantiate(storyboardID: "ListRelated")
                 vc.bind(viewModel: viewModel)

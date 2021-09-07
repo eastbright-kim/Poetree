@@ -32,13 +32,10 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
     
     // ------------------------------ PenNameSettingView
     @IBOutlet weak var penNameTextField: UITextField!
-    var penName: String?
+    var penname: String?
     @IBOutlet weak var penNameStackView: UIStackView!
     @IBOutlet weak var pennameCompleteBtn: UIButton!
     @IBOutlet weak var validCheckLabel: UILabel!
-    
-    
-    
     
     
     // ------------------------------ regiserView
@@ -64,7 +61,6 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
     
     func configureUI(){
         
-        
         pennameCompleteBtn.isEnabled = false
         penNameTextField.borderStyle = .none
         let border = CALayer()
@@ -87,19 +83,27 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
     func bindViewModel() {
         
         googleLogInBtn.rx.tap
-            .subscribe { [unowned self] _ in
-                self.viewModel.userService.googleLogin(penname: self.penName!, presentingVC: self) { result in
-                    self.handleLogInResult(result)                }
+            .subscribe { [weak self] _ in
+                
+                guard let self = self else {return}
+                
+                self.viewModel.userService.googleRegister(penname: self.penname, presentingVC: self) { result in
+                    self.handleLogInResult(result)
+                }
             }
             .disposed(by: rx.disposeBag)
         
         
         facebookLogInBtn.rx.tap
-            .subscribe(onNext:{[unowned self] _ in
-                self.viewModel.userService.facebookLogin(penname: penName!, presentingVC: self) { result in
+            .subscribe { [weak self] _ in
+                
+                guard let self = self else {return}
+                
+                self.viewModel.userService.facebookRegister(penname: self.penname, presentingVC: self) { result in
                     self.handleLogInResult(result)
                 }
-            })
+                
+            }
             .disposed(by: rx.disposeBag)
         
         penNameTextField.rx.text.orEmpty
@@ -125,7 +129,6 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
         
         let layer = AVPlayerLayer(player: self.avQueuePlayer)
         
-        
         layer.frame = self.view.bounds
         layer.videoGravity = .resizeAspectFill
         self.videoLayer.layer.addSublayer(layer)
@@ -133,14 +136,29 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
         avQueuePlayer.play()
         
         self.videoLayer.bringSubviewToFront(self.logoImage)
-        self.videoLayer.bringSubviewToFront(self.penNameStackView)
+        self.videoLayer.bringSubviewToFront(self.optionStackView)
         self.videoLayer.sendSubviewToBack(self.registerStackView)
+        self.videoLayer.sendSubviewToBack(self.penNameStackView)
+        self.optionStackView.isHidden = false
         
     }
     
+    @IBAction func logInBtnTapped(_ sender: UIButton) {
+        self.videoLayer.bringSubviewToFront(self.registerStackView)
+        self.registerStackView.isHidden = false
+        self.videoLayer.sendSubviewToBack(self.optionStackView)
+    }
     
-    @IBAction func completeBtnTapped(_ sender: Any) {
-        self.penName = penNameTextField.text
+    
+    @IBAction func registerBtnTapped(_ sender: UIButton) {
+        self.videoLayer.bringSubviewToFront(self.penNameStackView)
+        self.penNameStackView.isHidden = false
+        self.videoLayer.sendSubviewToBack(self.optionStackView)
+    }
+    
+    
+    @IBAction func pennameCompleteBtnTapped(_ sender: Any) {
+        self.penname = penNameTextField.text
         self.videoLayer.sendSubviewToBack(self.penNameStackView)
         self.videoLayer.bringSubviewToFront(self.registerStackView)
         self.registerStackView.isHidden = false
@@ -153,35 +171,85 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
         self.videoLayer.bringSubviewToFront(penNameStackView)
     }
     
-    func handleLogInResult(_ result: Result<Bool, Errors>) {
+    
+    
+    func handleLogInResult(_ result: Result<CurrentAuth, SignInErorr>) {
         DispatchQueue.main.async {
             switch result {
+            
             case .success:
                 self.dismiss(animated: true, completion: nil)
+                
             case .failure(let error):
                 
-                let alert = UIAlertController(title: "회원 가입 에러", message: "", preferredStyle: .alert)
-                
-                let action = UIAlertAction(title: "확인", style: .default){ action in
-                    self.dismiss(animated: true, completion: nil)
-                }
-                
-                alert.addAction(action)
-                switch error {
-                case .userExists:
-                    alert.message = "이미 가입된 유저입니다\n기존 로그인 정보로 로그인합니다"
-                    self.present(alert, animated: true, completion: nil)
-                default:
-                    alert.message = "다시 시도해주세요"
-                    self.present(alert, animated: true, completion: nil)
+                switch error{
+                case .LoginError(let error):
+                    self.loginErrorHandle(error: error)
+                case .RegisterError(let error):
+                    //에러 핸들링 필요
+                    self.registerErrorHandle(error: error)
+                    break
                 }
             }
         }
     }
+    
+    func loginErrorHandle(error: LoginError){
+        
+        switch error {
+        case .newUser:
+            self.firstUserHandle()
+            break
+        case .logInError:
+            //에러 핸들링 필요
+            break
+        case .flatFormError:
+            self.flatformErrorHandle()
+        }
+    }
+    
+    func registerErrorHandle(error: RegisterError){
+        switch error {
+        case .flatFormError:
+            self.flatformErrorHandle()
+        default:
+            break
+        }
+    }
+    
+    func firstUserHandle() {
+        
+        let alert = UIAlertController(title: "회원 정보 없음", message: "필명과 함께 회원 가입을 먼저 해주세요", preferredStyle: .alert)
+        let action = UIAlertAction(title: "확인", style: .default) { action in
+            
+            self.viewModel.userService.deleteUser()
+            
+            DispatchQueue.main.async{
+                self.videoLayer.sendSubviewToBack(self.registerStackView)
+                self.videoLayer.bringSubviewToFront(self.penNameStackView)
+                self.penNameStackView.isHidden = false
+            }
+        }
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func flatformErrorHandle() {
+        self.avQueuePlayer.play()
+        let alert = UIAlertController(title: "로그인 플랫폼 오류", message: "기존에 회원가입한 SNS 플랫폼이 아닙니다\n기존에 회원가입한 플랫폼을 선택해주세요", preferredStyle: .alert)
+        let action = UIAlertAction(title: "확인", style: .default) { action in
+            
+            self.viewModel.userService.deleteUser()
+            DispatchQueue.main.async {
+                self.avQueuePlayer.play()
+            }
+            
+        }
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
 }
-
-
-
 
 //MARK: ----------------------AppleLogin
 
@@ -190,18 +258,18 @@ extension UserRegisterViewController {
     @objc func performAppleSignIn(){
         let request = createAppleIDRequest()
         let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-
+        
         authorizationController.delegate = self
         authorizationController.presentationContextProvider = self
-
+        
         authorizationController.performRequests()
     }
-
+    
     func createAppleIDRequest() -> ASAuthorizationAppleIDRequest {
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
         request.requestedScopes = [.email]
-
+        
         let nonce = randomNonceString()
         request.nonce = sha256(nonce)
         currentNonce = nonce
@@ -211,7 +279,7 @@ extension UserRegisterViewController {
 
 
 extension UserRegisterViewController: ASAuthorizationControllerDelegate {
-
+    
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
             guard let nonce = currentNonce else {
@@ -220,13 +288,13 @@ extension UserRegisterViewController: ASAuthorizationControllerDelegate {
             guard let appleIDToken = appleIDCredential.identityToken else {print("unable to fetch id token")
                 return
             }
-
+            
             guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {print("idTokenString error")
                 return}
-
+            
             let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: idTokenString, rawNonce: nonce)
-
-            self.viewModel.userService.appleLogin(penname: penName!, credential: credential) { result in
+            
+            self.viewModel.userService.appleRegister(penname: penname, credential: credential) { result in
                 
                 self.handleLogInResult(result)
             }
@@ -239,55 +307,4 @@ extension UserRegisterViewController: ASAuthorizationControllerPresentationConte
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
         return self.view.window!
     }
-}
-
-import CryptoKit
-
-// Unhashed nonce.
-fileprivate var currentNonce: String?
-
-@available(iOS 13, *)
-
-@available(iOS 13, *)
-private func sha256(_ input: String) -> String {
-    let inputData = Data(input.utf8)
-    let hashedData = SHA256.hash(data: inputData)
-    let hashString = hashedData.compactMap {
-        return String(format: "%02x", $0)
-    }.joined()
-
-    return hashString
-}
-
-
-
-private func randomNonceString(length: Int = 32) -> String {
-    precondition(length > 0)
-    let charset: Array<Character> =
-        Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
-    var result = ""
-    var remainingLength = length
-
-    while remainingLength > 0 {
-        let randoms: [UInt8] = (0 ..< 16).map { _ in
-            var random: UInt8 = 0
-            let errorCode = SecRandomCopyBytes(kSecRandomDefault, 1, &random)
-            if errorCode != errSecSuccess {
-                fatalError("Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)")
-            }
-            return random
-        }
-
-        randoms.forEach { random in
-            if remainingLength == 0 {
-                return
-            }
-
-            if random < charset.count {
-                result.append(charset[Int(random)])
-                remainingLength -= 1
-            }
-        }
-    }
-    return result
 }

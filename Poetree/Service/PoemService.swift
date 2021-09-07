@@ -25,8 +25,8 @@ class PoemService {
         return poemsStore
     }
     
-    func currentUser() -> User {
-        return Auth.auth().currentUser!
+    func currentUserInApp() -> User {
+        return currentUser!
     }
     
     func createPoem(poem: Poem, completion: @escaping ((String) -> Void)) {
@@ -42,16 +42,16 @@ class PoemService {
         }
     }
     
-    func fetchUserWriting(poem: [Poem], currentUser: CurrentUser) -> [Poem] {
+    func fetchUserWriting(poem: [Poem], currentUser: CurrentAuth) -> [Poem] {
         
         let userWrting = poem.filter { poem in
-            poem.userEmail == currentUser.userEmail
+            poem.userUID == currentUser.userUID
         }
         
         return userWrting
     }
     
-    func fetchUserLikedWriting(poems: [Poem], currentUser: CurrentUser) -> [Poem] {
+    func fetchUserLikedWriting(poems: [Poem], currentUser: CurrentAuth) -> [Poem] {
   
         let userLikedPoems = poems.filter { poem in
            poem.likers[currentUser.userUID] ?? false
@@ -65,7 +65,7 @@ class PoemService {
         poemRepository.createPoem(poemModel: editedPoem) { result in
             switch result {
             case .success(let s):
-                //firstIndex where 사용하기
+         
                 if let index = self.poems.firstIndex(where: { poem in
                     poem.id == beforeEdited.id
                 }) {
@@ -102,12 +102,12 @@ class PoemService {
                 let content = poemEntity.content
                 let photoId = poemEntity.photoId
                 let uploadAt = convertStringToDate(dateFormat: "yyyy MMM d", dateString: poemEntity.uploadAt)
-                let isPublic = poemEntity.isPublic
+                let isPrivate = poemEntity.isPrivate
                 let likers = poemEntity.likers
                 let photoURL = URL(string: poemEntity.photoURL)!
-                let userUID = Auth.auth().currentUser?.uid
+                let userUID = poemEntity.userUID
                 
-                return Poem(id: id, userEmail: userEmail, userNickname: userNickname, title: title, content: content, photoId: photoId, uploadAt: uploadAt, isPrivate: isPublic, likers: likers, photoURL: photoURL, userUID: userUID)
+                return Poem(id: id, userEmail: userEmail, userNickname: userNickname, title: title, content: content, photoId: photoId, uploadAt: uploadAt, isPrivate: isPrivate, likers: likers, photoURL: photoURL, userUID: userUID)
             }
             completion(poemModels, "모든 시 불러오기 성공")
             self.poems = poemModels

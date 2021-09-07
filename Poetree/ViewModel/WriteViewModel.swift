@@ -14,7 +14,7 @@ class WriteViewModel: ViewModelType {
     
     
     let poemService: PoemService
-   
+    let userService: UserService
     
     struct Input {
         let title: BehaviorSubject<String>
@@ -32,22 +32,22 @@ class WriteViewModel: ViewModelType {
     var input: Input
     var output: Output
     
-    init(poemService: PoemService, weekPhoto: WeekPhoto? = nil, editingPoem: Poem? = nil) {
+    init(poemService: PoemService, userService: UserService, weekPhoto: WeekPhoto? = nil, editingPoem: Poem? = nil) {
         self.poemService = poemService
-        
+        self.userService = userService
         let title = BehaviorSubject<String>(value: "")
         let content = BehaviorSubject<String>(value: "")
         let isPrivate = BehaviorSubject<Bool>(value: false)
-        let currentUser = poemService.currentUser()
+        let currentUser = userService.loggedInUser()
         
         
-        let aPoem = Observable<Poem>.combineLatest(title, content, isPrivate) { title, content, isPrivate in
+        let aPoem = Observable<Poem>.combineLatest(title, content, isPrivate, currentUser) { title, content, isPrivate, currentAuth in
       
             if let weekPhoto = weekPhoto {
                 
-                return Poem(id: UUID().uuidString, userEmail: currentUser.email!, userNickname: currentUser.displayName!, title: title, content: content, photoId: weekPhoto.id, uploadAt: Date(), isPrivate: isPrivate, likers: [:], photoURL: weekPhoto.url)
+                return Poem(id: UUID().uuidString, userEmail: currentAuth.userEmail, userNickname: currentAuth.userPenname, title: title, content: content, photoId: weekPhoto.id, uploadAt: Date(), isPrivate: isPrivate, likers: [:], photoURL: weekPhoto.url, userUID: currentAuth.userUID)
             } else {
-                return Poem(id: editingPoem!.id, userEmail: currentUser.email!, userNickname: currentUser.displayName!, title: title, content: content, photoId: editingPoem!.photoId, uploadAt: Date(), isPrivate: isPrivate, likers: [:], photoURL: editingPoem!.photoURL)
+                return Poem(id: editingPoem!.id, userEmail: currentAuth.userEmail, userNickname: currentAuth.userPenname, title: title, content: content, photoId: editingPoem!.photoId, uploadAt: Date(), isPrivate: isPrivate, likers: [:], photoURL: editingPoem!.photoURL, userUID: currentAuth.userUID)
             }
         }
         

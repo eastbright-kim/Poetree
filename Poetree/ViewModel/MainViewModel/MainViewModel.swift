@@ -15,7 +15,7 @@ class MainViewModel: ViewModelType {
     
     let photoService: PhotoService
     let poemService: PoemService
-    
+    let userService: UserService
     
     struct Input {
         let selectedIndex: BehaviorSubject<Int>
@@ -30,12 +30,12 @@ class MainViewModel: ViewModelType {
     var input: Input
     var output: Output
     
-    init(poemService: PoemService, photoService: PhotoService){
+    init(poemService: PoemService, photoService: PhotoService, userService: UserService){
         
         
         self.poemService = poemService
         self.photoService = photoService
-        
+        self.userService = userService
         let poems = poemService.allPoems()
         let photos = photoService.photos()
         

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CurrentUser {
+struct CurrentAuth {
     
     let userEmail: String
     let userPenname: String

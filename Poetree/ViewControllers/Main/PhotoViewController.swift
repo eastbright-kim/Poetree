@@ -11,7 +11,7 @@ import RxCocoa
 import Kingfisher
 import NSObject_Rx
 
-class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased {
+class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased, ViewModelBindable {
     
     @IBOutlet weak var photoCollectionView: UICollectionView!
     @IBOutlet weak var firstNoticeLabel: UILabel!
@@ -19,7 +19,12 @@ class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased {
     
     var poemService: PoemService!
     var photoService: PhotoService!
+    var userService: UserService!
+    
+    var viewModel: PhotoViewModel!
+    
     var selectedIndexPath: IndexPath!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionViewDelegate()
@@ -27,6 +32,9 @@ class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased {
         noticeLabelAni()
     }
     
+    func bindViewModel() {
+        
+    }
     
     func noticeLabelAni(){
         
@@ -88,7 +96,7 @@ class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased {
         photoCollectionView.rx.modelSelected(WeekPhoto.self)
             .subscribe(onNext:{[unowned self] weekPhoto in
                 
-                let viewModel = WriteViewModel(poemService: self.poemService, weekPhoto: weekPhoto, editingPoem: nil)
+                let viewModel = WriteViewModel(poemService: self.poemService, userService: self.userService, weekPhoto: weekPhoto, editingPoem: nil)
                 
                 var vc = WritingViewController.instantiate(storyboardID: "WritingRelated")
                 vc.bind(viewModel: viewModel)
