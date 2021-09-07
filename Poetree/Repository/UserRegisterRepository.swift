@@ -12,90 +12,55 @@ import Firebase
 class UserRegisterRepository{
     
     static let shared = UserRegisterRepository()
-    var emails = [String]()
     
-    func fetchUserUID() {
+    // 기존의 사용자가 penname을 바꾸는 경우 or 처음 가입하는 경우
+    func RegisterToFirebase(penname: String, credential: AuthCredential, completion: @escaping ((Result<CurrentAuth, RegisterError>) -> Void)){
         
-        userRef.observeSingleEvent(of: .value) { snapshot in
+        Auth.auth().signIn(with: credential) { authDataResult, error in
             
-            let uids = snapshot.value as? [String:String] ?? [:]
-            
-            for email in uids.values {
-                self.emails.append(email)
-            }
-        }
-    }
-    
-    func RegisterToFirebase(penname: String, flatform: FlatFormType, completion: @escaping ((Result<CurrentUser, Errors>) -> Void)){
-        
-        
-        switch flatform {
-        case .Google_Facebook(let credential):
-            Auth.auth().signIn(with: credential) { authDataResult, error in
+            Auth.auth().addStateDidChangeListener { (auth, user) in
                 
-                Auth.auth().addStateDidChangeListener { (auth, user) in
-                    
-                    guard let currentUser = auth.currentUser else { return }
-                    userRef.child(currentUser.uid).setValue(currentUser.email)
-                    if self.checkRegisterValid(email: currentUser.email!) {
-                        completion(.failure(.userExists))
-                        return
-                    }
-                    
-                    
-                    let changeRequest = currentUser.createProfileChangeRequest()
-                    changeRequest.displayName = penname
-                    changeRequest.commitChanges { error in
-                        if let error = error {
-                            print("닉네임 등록 에러 : \(error.localizedDescription)")
-                            completion(.failure(.userRegisterError))
-                        } else {
-                            print("닉네임 정상 등록")
-                            let currentUser = CurrentUser(userEmail: currentUser.email!, userPenname: currentUser.displayName!, userUID: currentUser.uid)
-                            
-                            completion(.success(currentUser))
-                        }
-                    }
-                }
-            }
-        case .Apple(let credential):
-            Auth.auth().signIn(with: credential) { authDataResult, error in
-                Auth.auth().addStateDidChangeListener { (auth, user) in
-                    
-                    guard let currentUser = auth.currentUser else { return }
-                    
-                    userRef.child(currentUser.uid).setValue(currentUser.email)
-                    if self.checkRegisterValid(email: currentUser.email!) {
-                        completion(.failure(.userExists))
-                        return
-                    }
-
-                    let changeRequest = currentUser.createProfileChangeRequest()
-                    changeRequest.displayName = penname
-                    changeRequest.commitChanges { error in
-                        if let error = error {
-                            print("닉네임 등록 에러 : \(error.localizedDescription)")
-                            completion(.failure(.userRegisterError))
-                        } else {
-                            print("닉네임 정상 등록")
-                            let currentUser = CurrentUser(userEmail: currentUser.email!, userPenname: currentUser.displayName!, userUID: currentUser.uid)
-                            completion(.success(currentUser))
-                        }
+                guard let currentUser = auth.currentUser else { completion(.failure(.flatFormError))
+                    return }
+                
+                let changeRequest = currentUser.createProfileChangeRequest()
+              
+                changeRequest.displayName = penname
+                changeRequest.commitChanges { error in
+                    if let _ = error {
+                        completion(.failure(.registerError))
+                    } else {
+                        let currentAuth = CurrentAuth(userEmail: currentUser.email!, userPenname: currentUser.displayName!, userUID: currentUser.uid)
+                        
+                        completion(.success(currentAuth))
                     }
                 }
             }
         }
     }
     
-    func checkRegisterValid(email: String) -> Bool {
+    // 처음 사용자가 login하는 경우 or 기존 사용자가 login하는 경우
+    func firebaseLogIn(credential: AuthCredential,  completion: @escaping ((Result<CurrentAuth, LoginError>) -> Void)){
         
-        return self.emails.contains(email)
+        Auth.auth().signIn(with: credential) { authDataResult, error in
+            
+
+            if let isNew = authDataResult?.additionalUserInfo?.isNewUser {
+                if isNew == true {
+                    completion(.failure(.newUser))
+                        return
+                }
+            }
+            
+            Auth.auth().addStateDidChangeListener { auth, user in
+                
+                if let currentUser = auth.currentUser {
+                    let currentAuth = CurrentAuth(userEmail: currentUser.email ?? "unknowned", userPenname: currentUser.displayName ?? "unknowned", userUID: currentUser.uid)
+                    completion(.success(currentAuth))
+                } else {
+                    completion(.failure(.flatFormError))
+                }
+            }
+        }
     }
-    
-}
-
-
-enum FlatFormType{
-    case Google_Facebook(AuthCredential)
-    case Apple(OAuthCredential)
 }

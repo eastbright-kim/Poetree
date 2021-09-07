@@ -12,7 +12,7 @@ import RxSwift
 class PoemListViewModel: ViewModelType {
     
     let poemService: PoemService
-    
+    let userService: UserService
     struct Input {
         
     }
@@ -24,7 +24,7 @@ class PoemListViewModel: ViewModelType {
     var input: Input
     var output: Output
     
-    init(poemService: PoemService, listType: PoemListType, selectedPhotoId: Int? = nil) {
+    init(poemService: PoemService, userService: UserService, listType: PoemListType, selectedPhotoId: Int? = nil) {
         
         switch listType {
         case .allPoems:
@@ -45,6 +45,7 @@ class PoemListViewModel: ViewModelType {
             self.output = Output(displayingPoems: displayingPoems)
         }
         self.poemService = poemService
+        self.userService = userService
         self.input = Input()
     }
 }

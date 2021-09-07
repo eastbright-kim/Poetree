@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PoemEntity: Codable {
+struct PoemEntity {
     
     let id: String
     let userEmail: String
@@ -16,9 +16,10 @@ struct PoemEntity: Codable {
     var content: String
     let photoId: Int
     let uploadAt: String
-    var isPublic: Bool
+    var isPrivate: Bool
     var likers: [String:Bool]
     let photoURL: String
+    let userUID: String
   
     init(poemDic: [String:Any]) {
         self.title = poemDic["title"] as? String ?? ""
@@ -29,12 +30,13 @@ struct PoemEntity: Codable {
         self.uploadAt = poemDic["uploadAt"] as? String ?? ""
         self.id = poemDic["id"] as? String ?? ""
         self.photoId = poemDic["photoId"] as? Int ?? 0
-        self.isPublic = poemDic["isPublic"] as? Bool ?? true
+        self.isPrivate = poemDic["isPublic"] as? Bool ?? true
         self.likers = poemDic["likers"] as? [String:Bool] ?? [:]
+        self.userUID = poemDic["userUID"] as? String ?? ""
     }
 }
 
-struct PhotoEntity: Codable {
+struct PhotoEntity {
     let date: String
     let photoId: Int
     let imageURL: String

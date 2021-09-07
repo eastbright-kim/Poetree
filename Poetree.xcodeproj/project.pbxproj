@@ -29,11 +29,13 @@
 		DB2B4DF726DFEEAB00A3F597 /* UserLikedWritingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B4DF626DFEEAB00A3F597 /* UserLikedWritingTableViewCell.swift */; };
 		DB2CFD6926C2884D00130078 /* WritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2CFD6826C2884D00130078 /* WritingViewController.swift */; };
 		DB2CFD6B26C2887100130078 /* PoemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2CFD6A26C2887100130078 /* PoemListViewController.swift */; };
+		DB2DC3A826E7B0B0009D5F47 /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2DC3A726E7B0B0009D5F47 /* PhotoViewModel.swift */; };
 		DB34288D26C1CDE3007C5A6A /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34288C26C1CDE3007C5A6A /* HistoryViewController.swift */; };
 		DB34288F26C1CDF9007C5A6A /* UserPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34288E26C1CDF9007C5A6A /* UserPageViewController.swift */; };
 		DB34289126C1CEC1007C5A6A /* Poem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34289026C1CEC1007C5A6A /* Poem.swift */; };
 		DB3CCEAF26D0F45E005C3074 /* SideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3CCEAE26D0F45E005C3074 /* SideMenuNavigationController.swift */; };
 		DB3CCEB126D0F4C8005C3074 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3CCEB026D0F4C8005C3074 /* SideMenuViewController.swift */; };
+		DB407B9D26E45F3300D7DF41 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB407B9C26E45F3300D7DF41 /* User.swift */; };
 		DB53ADAA26C3E53400FAA8B8 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53ADA926C3E53400FAA8B8 /* DummyData.swift */; };
 		DB54BD3926D4E63700711295 /* UserRegisterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB54BD3826D4E63700711295 /* UserRegisterRepository.swift */; };
 		DB59877D26DE175F00EDF72C /* LastWeekPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB59877C26DE175F00EDF72C /* LastWeekPhotoCollectionViewCell.swift */; };
@@ -50,7 +52,7 @@
 		DBCE060A26C2ACEE0008EBF8 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE060926C2ACEE0008EBF8 /* MainViewModel.swift */; };
 		DBCE060D26C2C8F00008EBF8 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE060C26C2C8F00008EBF8 /* Protocol.swift */; };
 		DBCE061126C2D2430008EBF8 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE061026C2D2430008EBF8 /* Constant.swift */; };
-		DBD5CFC826DFA37500BDEBDA /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5CFC726DFA37500BDEBDA /* CurrentUser.swift */; };
+		DBD5CFC826DFA37500BDEBDA /* CurrentAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5CFC726DFA37500BDEBDA /* CurrentAuth.swift */; };
 		DBDC59FD26D790270066B45A /* WritingRelated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBDC59FC26D790270066B45A /* WritingRelated.storyboard */; };
 		DBDC59FF26D790DC0066B45A /* ListRelated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBDC59FE26D790DC0066B45A /* ListRelated.storyboard */; };
 		DBDC5A0426D793D40066B45A /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC5A0326D793D40066B45A /* PhotoViewController.swift */; };
@@ -92,11 +94,13 @@
 		DB2B4DF626DFEEAB00A3F597 /* UserLikedWritingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLikedWritingTableViewCell.swift; sourceTree = "<group>"; };
 		DB2CFD6826C2884D00130078 /* WritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewController.swift; sourceTree = "<group>"; };
 		DB2CFD6A26C2887100130078 /* PoemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemListViewController.swift; sourceTree = "<group>"; };
+		DB2DC3A726E7B0B0009D5F47 /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
 		DB34288C26C1CDE3007C5A6A /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		DB34288E26C1CDF9007C5A6A /* UserPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageViewController.swift; sourceTree = "<group>"; };
 		DB34289026C1CEC1007C5A6A /* Poem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poem.swift; sourceTree = "<group>"; };
 		DB3CCEAE26D0F45E005C3074 /* SideMenuNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuNavigationController.swift; sourceTree = "<group>"; };
 		DB3CCEB026D0F4C8005C3074 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		DB407B9C26E45F3300D7DF41 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DB53ADA926C3E53400FAA8B8 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		DB54BD3826D4E63700711295 /* UserRegisterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterRepository.swift; sourceTree = "<group>"; };
 		DB59877C26DE175F00EDF72C /* LastWeekPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastWeekPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -113,7 +117,7 @@
 		DBCE060926C2ACEE0008EBF8 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		DBCE060C26C2C8F00008EBF8 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		DBCE061026C2D2430008EBF8 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		DBD5CFC726DFA37500BDEBDA /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
+		DBD5CFC726DFA37500BDEBDA /* CurrentAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentAuth.swift; sourceTree = "<group>"; };
 		DBDC59FC26D790270066B45A /* WritingRelated.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WritingRelated.storyboard; sourceTree = "<group>"; };
 		DBDC59FE26D790DC0066B45A /* ListRelated.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListRelated.storyboard; sourceTree = "<group>"; };
 		DBDC5A0326D793D40066B45A /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
@@ -251,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				DB15716726C52720003F58FC /* PoemEntity.swift */,
+				DB407B9C26E45F3300D7DF41 /* User.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -259,7 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				DB34289026C1CEC1007C5A6A /* Poem.swift */,
-				DBD5CFC726DFA37500BDEBDA /* CurrentUser.swift */,
+				DBD5CFC726DFA37500BDEBDA /* CurrentAuth.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -345,6 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				DBCE060926C2ACEE0008EBF8 /* MainViewModel.swift */,
+				DB2DC3A726E7B0B0009D5F47 /* PhotoViewModel.swift */,
 			);
 			path = MainViewModel;
 			sourceTree = "<group>";
@@ -562,7 +568,8 @@
 			files = (
 				DBFCE5E826C3AA8400E3FC16 /* HistoryViewModel.swift in Sources */,
 				DB7AC1ED26C2E004001A62B6 /* PoemService.swift in Sources */,
-				DBD5CFC826DFA37500BDEBDA /* CurrentUser.swift in Sources */,
+				DB407B9D26E45F3300D7DF41 /* User.swift in Sources */,
+				DBD5CFC826DFA37500BDEBDA /* CurrentAuth.swift in Sources */,
 				DBFCE5EC26C3AAFA00E3FC16 /* WriteViewModel.swift in Sources */,
 				DB9D575E26C43E6000A86148 /* MainPhotoCollectionViewCell.swift in Sources */,
 				DB34289126C1CEC1007C5A6A /* Poem.swift in Sources */,
@@ -596,6 +603,7 @@
 				DBCE060526C2A8FB0008EBF8 /* PhotoCollectionViewController.swift in Sources */,
 				DB666DC626CAB6FA00A588AC /* PoemListTableViewCell.swift in Sources */,
 				DB15716826C52720003F58FC /* PoemEntity.swift in Sources */,
+				DB2DC3A826E7B0B0009D5F47 /* PhotoViewModel.swift in Sources */,
 				DB15716C26C5301A003F58FC /* Function.swift in Sources */,
 				DBF1E25926D18D60006474C8 /* UserService.swift in Sources */,
 				DB21A26126C16B3F0048FB17 /* SceneDelegate.swift in Sources */,

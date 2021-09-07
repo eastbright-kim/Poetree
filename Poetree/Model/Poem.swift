@@ -21,8 +21,9 @@ class Poem: Equatable, Identifiable {
     var likers = [String:Bool]()
     let photoURL: URL
     var isLike: Bool = false
+    let userUID: String
     
-    init(id: String, userEmail: String, userNickname: String, title: String, content: String, photoId: Int, uploadAt: Date, isPrivate: Bool, likers: [String:Bool], photoURL: URL, userUID: String? = nil) {
+    init(id: String, userEmail: String, userNickname: String, title: String, content: String, photoId: Int, uploadAt: Date, isPrivate: Bool, likers: [String:Bool], photoURL: URL, userUID: String) {
         self.id = id
         self.userEmail = userEmail
         self.userPenname = userNickname
@@ -33,14 +34,9 @@ class Poem: Equatable, Identifiable {
         self.isPrivate = isPrivate
         self.likers = likers
         self.photoURL = photoURL
-        //나중에 수정 필요 poemservice에서 해당 로직 구동중
-        if let userUID = userUID {
-            self.isLike = likers[userUID] ?? false
-        }
+        self.userUID = userUID
+        self.isLike = likers[userUID] ?? false
     }
-    
-    
-    
     static func == (lhs: Poem, rhs: Poem) -> Bool {
         return true
     }

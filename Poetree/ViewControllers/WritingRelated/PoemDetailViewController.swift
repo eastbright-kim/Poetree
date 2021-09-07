@@ -57,7 +57,7 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
         
         self.editBtn.rx.tap
             .subscribe(onNext:{[unowned self] _ in
-                let viewModel = WriteViewModel(poemService: viewModel.poemService, weekPhoto: nil, editingPoem: self.currentPoem)
+                let viewModel = WriteViewModel(poemService: viewModel.poemService, userService: viewModel.userService, weekPhoto: nil, editingPoem: self.currentPoem)
                 var vc = WritingViewController.instantiate(storyboardID: "WritingRelated")
                 vc.bind(viewModel: viewModel)
                 vc.editingPoem = self.currentPoem

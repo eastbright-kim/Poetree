@@ -11,8 +11,9 @@ import RxCocoa
 
 class HistoryViewModel: ViewModelType {
     let disposeBag = DisposeBag()
-    let poemSevice: PoemService!
-    let photoService: PhotoService!
+    let poemSevice: PoemService
+    let photoService: PhotoService
+    let userService: UserService
     
     struct Input {
         let photoSelected: ReplaySubject<WeekPhoto>
@@ -28,7 +29,7 @@ class HistoryViewModel: ViewModelType {
     var input: Input
     var output: Output
     
-    init(poemSevice: PoemService, photoService: PhotoService) {
+    init(poemSevice: PoemService, photoService: PhotoService,  userService: UserService) {
         
         
         let allPhotos = photoService.photos()
@@ -59,5 +60,6 @@ class HistoryViewModel: ViewModelType {
         self.output = Output(allPhotos: allPhotos, lastWeekPhotos: lastWeekPhotos, displayingPoems: displayingPoems)
         self.poemSevice = poemSevice
         self.photoService = photoService
+        self.userService = userService
     }
 }

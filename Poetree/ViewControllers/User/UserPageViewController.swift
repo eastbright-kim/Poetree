@@ -13,7 +13,7 @@ import FirebaseAuth
 import SideMenu
 
 class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBased {
-
+    
     @IBOutlet weak var navBarBtn: UIBarButtonItem!
     @IBOutlet weak var greetingLabel: UIView!
     @IBOutlet weak var userWritingLabel: UILabel!
@@ -22,27 +22,15 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
     @IBOutlet weak var likedWrtingsTableView: UITableView!
     @IBOutlet weak var logout: UIButton!
     
-    
-    
     var viewModel: MyPoemViewModel!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-       
-        
-    }
-    
     private func configureUI() {
-        
         configureNavTab()
-        
     }
     
     private func configureNavTab() {
@@ -72,10 +60,16 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
         
         self.navBarBtn.rx.tap
             .subscribe(onNext:{[unowned self] _ in
+                
+                let currentUser = Auth.auth().currentUser
+                
+                guard currentUser == nil else {return}
+                
                 let vm = UserRegisterViewModel(userService: self.viewModel.userService)
                 var vc = UserRegisterViewController.instantiate(storyboardID: "UserRelated")
                 vc.bind(viewModel: vm)
                 self.present(vc, animated: true, completion: nil)
+                
             })
             .disposed(by: rx.disposeBag)
         
@@ -99,7 +93,7 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
         self.logout.rx.tap
             .subscribe(onNext:{_ in
                 print("log out")
-                self.viewModel.logout()
+                self.viewModel.userService.logout()
             })
             .disposed(by: rx.disposeBag)
     }

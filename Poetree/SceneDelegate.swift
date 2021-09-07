@@ -28,7 +28,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let photoServie = PhotoService(photoRepository: photoRepository)
         let poemService = PoemService(poemRepository: poemRepository)
         let userService = UserService(userRegisterRepository: userRegisterRepository)
-
+        
+        
         poemRepository.fetchPoems { poemEntities, result in
             
             let poemModels = poemEntities.map { poemEntity -> Poem in
@@ -39,12 +40,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 let content = poemEntity.content
                 let photoId = poemEntity.photoId
                 let uploadAt = convertStringToDate(dateFormat: "yyyy MMM d", dateString: poemEntity.uploadAt)
-                let isPublic = poemEntity.isPublic
+                let isPrivate = poemEntity.isPrivate
                 let likers = poemEntity.likers
                 let photoURL = URL(string: poemEntity.photoURL)!
                 let userUID = currentUser?.uid ?? "no login"
                
-                return Poem(id: id, userEmail: userEmail, userNickname: userNickname, title: title, content: content, photoId: photoId, uploadAt: uploadAt, isPrivate: isPublic, likers: likers, photoURL: photoURL, userUID: userUID)
+                return Poem(id: id, userEmail: userEmail, userNickname: userNickname, title: title, content: content, photoId: photoId, uploadAt: uploadAt, isPrivate: isPrivate, likers: likers, photoURL: photoURL, userUID: userUID)
             }
 
             poemService.poems = poemModels
@@ -68,16 +69,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             photoServie.weekPhotos = weekPhotos
             photoServie.photoStore.onNext(weekPhotos)
         }
-        
-        userRegisterRepository.fetchUserUID()
-    
+
         var mainVC = MainViewController.instantiate(storyboardID: "Main")
-        mainVC.bind(viewModel: MainViewModel(poemService: poemService, photoService: photoServie))
+        mainVC.bind(viewModel: MainViewModel(poemService: poemService, photoService: photoServie, userService: userService))
         let mainNVC = UINavigationController(rootViewController: mainVC)
         mainNVC.navigationController?.navigationBar.prefersLargeTitles = true
 
         var historyVC = HistoryViewController.instantiate(storyboardID: "Main")
-        historyVC.bind(viewModel: HistoryViewModel(poemSevice: poemService, photoService: photoServie))
+        historyVC.bind(viewModel: HistoryViewModel(poemSevice: poemService, photoService: photoServie, userService: userService))
         let historyNVC = UINavigationController(rootViewController: historyVC)
 
 

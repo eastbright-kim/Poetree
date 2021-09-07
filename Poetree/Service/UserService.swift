@@ -14,19 +14,21 @@ import RxSwift
 class UserService {
     
     let userRegisterRepository: UserRegisterRepository!
-    private var defaultUser = CurrentUser(userEmail: currentUser?.email ?? "unknowned", userPenname: currentUser?.displayName ?? "unknowned", userUID: currentUser?.uid ?? "unknowned")
-    private lazy var loginUser = BehaviorSubject<CurrentUser>(value: defaultUser)
+    
+    private var defaultUser = CurrentAuth(userEmail: currentUser?.email ?? "unknowned", userPenname: currentUser?.displayName ?? "unknowned", userUID: currentUser?.uid ?? "unknowned")
+    
+    private lazy var loginUser = BehaviorSubject<CurrentAuth>(value: defaultUser)
     
     init(userRegisterRepository: UserRegisterRepository){
         self.userRegisterRepository = userRegisterRepository
     }
     
-    func loggedInUser() -> Observable<CurrentUser> {
+    func loggedInUser() -> Observable<CurrentAuth> {
         return loginUser
     }
     
     
-    func googleLogin(penname: String, presentingVC: UIViewController, completion: @escaping ((Result<Bool, Errors>) -> Void)){
+    func googleRegister(penname: String?, presentingVC: UIViewController, completion: @escaping ((Result<CurrentAuth, SignInErorr>) -> Void)){
         
         guard let clientId = FirebaseApp.app()?.options.clientID else {return}
         let config = GIDConfiguration(clientID: clientId)
@@ -37,29 +39,38 @@ class UserService {
                 return
             }
             
-            guard
-                let authentication = user?.authentication,
-                let idToken = authentication.idToken
-            else {
-                return
-            }
+            guard let authentication = user?.authentication,
+                  let idToken = authentication.idToken else { return }
             
             let credential = GoogleAuthProvider.credential(withIDToken: idToken,accessToken: authentication.accessToken)
             
-            self.userRegisterRepository.RegisterToFirebase(penname: penname, flatform:FlatFormType.Google_Facebook(credential)) { result in
+            
+            guard let penname = penname else { self.userRegisterRepository.firebaseLogIn(credential: credential) { result in
+         
                 switch result {
-                case .success(let loggedInUser):
-                    completion(.success(true))
-                    self.loginUser.onNext(loggedInUser)
+                case .success(let currentAuth):
+                    self.loginUser.onNext(currentAuth)
+                    completion(.success(currentAuth))
                 case .failure(let error):
-                    print(error.rawValue)
-                    completion(.failure(error))
+                    completion(.failure(.LoginError(error)))
+                }
+            }
+            return
+            }
+            
+            self.register(penname: penname, credential: credential) { result in
+   
+                switch result {
+                case .success(let currentUser):
+                    completion(.success(currentUser))
+                case .failure(let error):
+                    completion(.failure(.RegisterError(error)))
                 }
             }
         }
     }
     
-    func facebookLogin(penname: String, presentingVC: UIViewController, completion: @escaping ((Result<Bool, Errors>) -> Void)){
+    func facebookRegister(penname: String?, presentingVC: UIViewController, completion: @escaping ((Result<CurrentAuth, SignInErorr>) -> Void)){
         
         let loginManager = LoginManager()
         loginManager.logIn(permissions: [.email], viewController: presentingVC) { result in
@@ -69,18 +80,29 @@ class UserService {
                 
                 let credential = FacebookAuthProvider
                     .credential(withAccessToken: token!.tokenString)
-                self.userRegisterRepository.RegisterToFirebase(penname: penname, flatform: .Google_Facebook(credential)) { result in
-                    
+                
+                guard let penname = penname else { self.userRegisterRepository.firebaseLogIn(credential: credential) { result in
+             
                     switch result {
-                    case .success(let loggedInUser):
-                        completion(.success(true))
-                        
-                        self.loginUser.onNext(loggedInUser)
+                    case .success(let currentAuth):
+                        self.loginUser.onNext(currentAuth)
+                        completion(.success(currentAuth))
                     case .failure(let error):
-                        completion(.failure(error))
-                        print(error.rawValue)
+                        completion(.failure(.LoginError(error)))
                     }
                 }
+                return
+                }
+                self.register(penname: penname, credential: credential) { result in
+       
+                    switch result {
+                    case .success(let currentUser):
+                        completion(.success(currentUser))
+                    case .failure(let error):
+                        completion(.failure(.RegisterError(error)))
+                    }
+                }
+                
             case .cancelled:
                 print("facebooklogin cancelled")
                 break
@@ -91,17 +113,42 @@ class UserService {
         }
     }
     
-    func appleLogin(penname: String, credential: OAuthCredential, completion: @escaping ((Result<Bool, Errors>) -> Void)){
-        self.userRegisterRepository.RegisterToFirebase(penname: penname, flatform: .Apple(credential)) { result in
-            
+    func appleRegister(penname: String?, credential: OAuthCredential, completion: @escaping ((Result<CurrentAuth, SignInErorr>) -> Void)){
+        
+        guard let penname = penname else { self.userRegisterRepository.firebaseLogIn(credential: credential) { result in
+     
+            switch result {
+            case .success(let currentAuth):
+                self.loginUser.onNext(currentAuth)
+                completion(.success(currentAuth))
+            case .failure(let error):
+                completion(.failure(.LoginError(error)))
+            }
+        }
+        return
+        }
+        
+        self.register(penname: penname, credential: credential) { result in
+
+            switch result {
+            case .success(let currentUser):
+                completion(.success(currentUser))
+            case .failure(let error):
+                completion(.failure(.RegisterError(error)))
+            }
+        }
+    }
+    
+    
+    func register(penname: String, credential: AuthCredential, completion: @escaping ((Result<CurrentAuth, RegisterError>) -> Void)) {
+        
+        self.userRegisterRepository.RegisterToFirebase(penname: penname, credential: credential) { result in
             switch result {
             case .success(let loggedInUser):
-                completion(.success(true))
-             
                 self.loginUser.onNext(loggedInUser)
+                completion(.success(loggedInUser))
             case .failure(let error):
                 completion(.failure(error))
-                print(error.rawValue)
             }
         }
     }
@@ -109,10 +156,33 @@ class UserService {
     func logout(){
         let firebaseAuth = Auth.auth()
         do {
-          try firebaseAuth.signOut()
-            loginUser.onNext(CurrentUser(userEmail: "unknowned", userPenname: "", userUID: ""))
+            try firebaseAuth.signOut()
+            currentUser = nil
+            loginUser.onNext(CurrentAuth(userEmail: "unknowned", userPenname: "", userUID: ""))
         } catch let signOutError as NSError {
-          print("Error signing out: %@", signOutError)
+            print("Error signing out: %@", signOutError)
         }
     }
+    
+    func deleteUser() {
+        
+        let currentUser = Auth.auth().currentUser
+        
+        currentUser?.delete { error in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                print("user deleted")
+            }
+        }
+    }
+    
+}
+
+
+enum SignInFlatform {
+    
+    case google
+    case facebook
+    
 }
