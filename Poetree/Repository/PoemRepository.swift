@@ -15,7 +15,9 @@ class PoemRepository {
 
     
     func createPoem(poemModel: Poem, completion: @escaping ((Result<Complete, Error>) -> Void)) {
-    
+        
+        let currentUser = Auth.auth().currentUser
+        
         let poemDic: [String:Any] = [
             "id" : poemModel.id as Any,
             "userEmail": currentUser!.email as Any,
@@ -39,23 +41,26 @@ class PoemRepository {
         
     }
     
-    public func fetchPoems(completion: @escaping (([PoemEntity], Result<Complete, Error>)) -> Void) {
+    public func fetchPoems(completion: @escaping (([PoemEntity], Result<[String:[Poem]], Error>)) -> Void) {
         
         poemRef.observeSingleEvent(of: .value) { snapshot in
             
             let allUsers = snapshot.value as? [String:Any] ?? [:]
-            
+       
             var poemEntities = [PoemEntity]()
-            
+            var uid_poem = [String:[Poem]]()
             
             for user in allUsers {
-                
-                let poemDict = user.value as! [String:Any]
-                let poemEntity = PoemEntity(poemDic: poemDict)
-                poemEntities.append(poemEntity)
+                let userDict = user.value as! [String:Any]
+                let uid = user.key
+                uid_poem.updateValue([], forKey: uid)
+                for poemDict in userDict.values {
+                    let poemDict = poemDict as! [String:Any]
+                    let poemEntity = PoemEntity(poemDic: poemDict)
+                    poemEntities.append(poemEntity)
+                }
             }
-            completion((poemEntities, .success(.fetchedPoem)))
-
+            completion((poemEntities, .success(uid_poem)))
         }
     }
 }

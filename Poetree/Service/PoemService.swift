@@ -12,7 +12,7 @@ import Firebase
 class PoemService {
     
     var poems = [Poem]()
-    var poemsByUsers = [String: [Poem]]()
+    var poemsByUID = [String: [Poem]]()
     lazy var poemsStore = BehaviorSubject<[Poem]>(value: poems)
     
     let poemRepository: PoemRepository
@@ -24,10 +24,6 @@ class PoemService {
     
     func allPoems() -> Observable<[Poem]> {
         return poemsStore
-    }
-    
-    func currentUserInApp() -> User {
-        return currentUser!
     }
     
     func createPoem(poem: Poem, completion: @escaping ((String) -> Void)) {
