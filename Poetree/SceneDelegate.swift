@@ -9,7 +9,7 @@ import UIKit
 import FBSDKCoreKit
 import RxSwift
 import RxCocoa
-
+import Firebase
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -28,11 +28,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let photoServie = PhotoService(photoRepository: photoRepository)
         let poemService = PoemService(poemRepository: poemRepository)
         let userService = UserService(userRegisterRepository: userRegisterRepository)
-        
+        let currentUser = Auth.auth().currentUser
         
         poemRepository.fetchPoems { poemEntities, result in
             
+            var uidDicts = [String: [Poem]]()
             
+            switch result {
+            case .success(let dict):
+                uidDicts = dict
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
             
             let poemModels = poemEntities.map { poemEntity -> Poem in
                 let id = poemEntity.id
@@ -46,10 +53,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 let likers = poemEntity.likers
                 let photoURL = URL(string: poemEntity.photoURL)!
                 let userUID = currentUser?.uid ?? "no login"
-               
-                return Poem(id: id, userEmail: userEmail, userNickname: userNickname, title: title, content: content, photoId: photoId, uploadAt: uploadAt, isPrivate: isPrivate, likers: likers, photoURL: photoURL, userUID: userUID)
+                
+                let poem = Poem(id: id, userEmail: userEmail, userNickname: userNickname, title: title, content: content, photoId: photoId, uploadAt: uploadAt, isPrivate: isPrivate, likers: likers, photoURL: photoURL, userUID: userUID)
+                
+                uidDicts[userUID]?.append(poem)
+                
+                return poem
             }
-
+            
+            poemService.poemsByUID = uidDicts
             poemService.poems = poemModels
             poemService.poemsStore.onNext(poemModels)
         }

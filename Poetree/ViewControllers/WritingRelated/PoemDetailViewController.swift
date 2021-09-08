@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import NSObject_Rx
-
+import Firebase
 class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardBased, HasDisposeBag {
 
     @IBOutlet weak var photoImageView: UIImageView!
@@ -46,6 +46,7 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
         likeBtn.isSelected = currentPoem.isLike
         likesCountLabel.text = "\(currentPoem.likers.count)"
         
+        let currentUser = Auth.auth().currentUser
         if currentUser!.email != currentPoem.userEmail {
             self.editBtn.isHidden = true
             self.deleteBtn.isHidden = true

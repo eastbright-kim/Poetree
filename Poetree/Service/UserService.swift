@@ -14,8 +14,9 @@ import RxSwift
 class UserService {
     
     let userRegisterRepository: UserRegisterRepository!
+    var currentUser = Auth.auth().currentUser
     
-    private var defaultUser = CurrentAuth(userEmail: currentUser?.email ?? "unknowned", userPenname: currentUser?.displayName ?? "unknowned", userUID: currentUser?.uid ?? "unknowned")
+    private lazy var defaultUser = CurrentAuth(userEmail: currentUser?.email ?? "unknowned", userPenname: currentUser?.displayName ?? "unknowned", userUID: currentUser?.uid ?? "unknowned")
     
     private lazy var loginUser = BehaviorSubject<CurrentAuth>(value: defaultUser)
     
