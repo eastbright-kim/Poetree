@@ -10,6 +10,8 @@ import RxSwift
 import RxCocoa
 import Kingfisher
 import NSObject_Rx
+import Toast_Swift
+import Firebase
 
 class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased, ViewModelBindable {
     
@@ -17,22 +19,58 @@ class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased, Vie
     @IBOutlet weak var firstNoticeLabel: UILabel!
     @IBOutlet weak var secondNoticeLabel: UILabel!
     
-    var poemService: PoemService!
-    var photoService: PhotoService!
-    var userService: UserService!
     
     var viewModel: PhotoViewModel!
-    
     var selectedIndexPath: IndexPath!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureUI()
+        
+    }
+    
+    func configureUI(){
         collectionViewDelegate()
-        bindCollectionView()
         noticeLabelAni()
+        
+    }
+    
+    func setBarBtnItem() {
+        let image = UIImage(systemName: "person.fill")
+        image?.withTintColor(UIColor.systemBlue)
+        let loginBtn = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(login))
+        self.navigationItem.rightBarButtonItem = loginBtn
+        
     }
     
     func bindViewModel() {
+        
+        self.viewModel.output.thisWeekPhoto
+            .bind(to: photoCollectionView.rx.items(cellIdentifier: "PhotoViewCell", cellType: PhotoViewCollectionViewCell.self)){ index, photo, cell in
+                cell.imageView.kf.setImage(with: photo.url)
+            }
+            .disposed(by: rx.disposeBag)
+        
+        
+        photoCollectionView.rx.modelSelected(WeekPhoto.self)
+            .subscribe(onNext:{[weak self] weekPhoto in
+                
+                guard let self = self else {return}
+                
+                guard let _ = Auth.auth().currentUser else { self.handleWrite()
+                    return }
+                
+                
+                let viewModel = WriteViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, weekPhoto: weekPhoto, editingPoem: nil)
+                var vc = WritingViewController.instantiate(storyboardID: "WritingRelated")
+                vc.bind(viewModel: viewModel)
+                self.navigationController?.pushViewController(vc, animated: true)
+                
+                
+            })
+            .disposed(by: rx.disposeBag)
+        
         
     }
     
@@ -78,35 +116,20 @@ class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased, Vie
         photoCollectionView.collectionViewLayout = flowlayout
     }
     
-    func bindCollectionView() {
-        
-        let photos = photoService.photos().map(photoService.getThisWeekPhoto)
-        
-        
-        photos
-            .bind(to: photoCollectionView.rx.items(cellIdentifier: "PhotoViewCell", cellType: PhotoViewCollectionViewCell.self)){ index, photo, cell in
-                cell.imageView.kf.setImage(with: photo.url)
-            }
-            .disposed(by: rx.disposeBag)
-        
-        
-        photoCollectionView.scrollToItem(at: selectedIndexPath, at: .centeredHorizontally, animated: false)
-        
-        
-        photoCollectionView.rx.modelSelected(WeekPhoto.self)
-            .subscribe(onNext:{[unowned self] weekPhoto in
-                
-                let viewModel = WriteViewModel(poemService: self.poemService, userService: self.userService, weekPhoto: weekPhoto, editingPoem: nil)
-                
-                var vc = WritingViewController.instantiate(storyboardID: "WritingRelated")
-                vc.bind(viewModel: viewModel)
-                self.navigationController?.pushViewController(vc, animated: true)
-                
-                
-            })
-            .disposed(by: rx.disposeBag)
-        
+    func handleWrite(){
+        self.view.makeToast("글을 쓰기 위해서는 로그인이 필요합니다", duration: 1.5, position: .center) { bool in
+            self.setBarBtnItem()
+        }
     }
+    
+    @objc func login(){
+        
+        let viewModel = UserRegisterViewModel(userService: self.viewModel.userService)
+        var vc = UserRegisterViewController.instantiate(storyboardID: "UserRelated")
+        vc.bind(viewModel: viewModel)
+        present(vc, animated: true, completion: nil)
+    }
+    
 }
 
 extension PhotoViewController: UICollectionViewDelegateFlowLayout {

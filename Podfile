@@ -17,4 +17,5 @@ target 'Poetree' do
   pod 'GoogleSignIn'
   pod 'SideMenu'
   pod 'FBSDKLoginKit'
+  pod 'Toast-Swift', '~> 5.0.1'
 end

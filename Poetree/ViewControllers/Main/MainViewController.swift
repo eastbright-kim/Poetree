@@ -11,13 +11,14 @@ import RxCocoa
 import NSObject_Rx
 import RxDataSources
 import Kingfisher
+import Firebase
 
 class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, HasDisposeBag{
     
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var poemTableView: UITableView!
-    @IBOutlet weak var logInBtn: UIBarButtonItem!
+    @IBOutlet weak var writeBtn: UIBarButtonItem!
     @IBOutlet weak var writeChev: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var photoNumberLabel: UILabel!
@@ -73,8 +74,6 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
     
     private func configureUI() {
         configureNavTab()
-        
-        
     }
     
     private func configureNavTab() {
@@ -87,7 +86,7 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
         let backItem = UIBarButtonItem(title: "", style: .done, target: nil, action: nil)
         self.navigationItem.backBarButtonItem = backItem
     }
-    
+ 
     
     func bindViewModel() {
         
@@ -102,16 +101,24 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
             }
             .disposed(by: rx.disposeBag)
         
-        
+        writeBtn.rx.tap
+            .subscribe(onNext:{ _ in
+                let viewModel = PhotoViewModel(userService: self.viewModel.userService, poemService: self.viewModel.poemService, photoService: self.viewModel.photoService)
+                var photoVC = PhotoViewController.instantiate(storyboardID: "Main")
+                photoVC.bind(viewModel: viewModel)
+                photoVC.selectedIndexPath = IndexPath(item: 0, section: 0)
+                photoVC.modalTransitionStyle = .crossDissolve
+                photoVC.modalPresentationStyle = .overFullScreen
+                self.navigationController?.navigationBar.tintColor = UIColor.systemBlue
+                self.navigationController?.pushViewController(photoVC, animated: true)
+            })
+            .disposed(by: rx.disposeBag)
         
         collectionView.rx.itemSelected
             .subscribe(onNext:{ indexPath in
-                
-                let photoVC = PhotoViewController.instantiate(storyboardID: "Main")
-                
-                photoVC.photoService = self.viewModel.photoService
-                photoVC.poemService = self.viewModel.poemService
-                photoVC.userService = self.viewModel.userService
+                let viewModel = PhotoViewModel(userService: self.viewModel.userService, poemService: self.viewModel.poemService, photoService: self.viewModel.photoService)
+                var photoVC = PhotoViewController.instantiate(storyboardID: "Main")
+                photoVC.bind(viewModel: viewModel)
                 photoVC.selectedIndexPath = indexPath
                 photoVC.modalTransitionStyle = .crossDissolve
                 photoVC.modalPresentationStyle = .overFullScreen
