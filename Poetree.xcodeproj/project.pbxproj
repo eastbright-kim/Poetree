@@ -36,6 +36,7 @@
 		DB3CCEAF26D0F45E005C3074 /* SideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3CCEAE26D0F45E005C3074 /* SideMenuNavigationController.swift */; };
 		DB3CCEB126D0F4C8005C3074 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3CCEB026D0F4C8005C3074 /* SideMenuViewController.swift */; };
 		DB407B9D26E45F3300D7DF41 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB407B9C26E45F3300D7DF41 /* User.swift */; };
+		DB453BA026E902EF0034774A /* SemiDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB453B9F26E902EF0034774A /* SemiDetailViewModel.swift */; };
 		DB53ADAA26C3E53400FAA8B8 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53ADA926C3E53400FAA8B8 /* DummyData.swift */; };
 		DB54BD3926D4E63700711295 /* UserRegisterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB54BD3826D4E63700711295 /* UserRegisterRepository.swift */; };
 		DB59877D26DE175F00EDF72C /* LastWeekPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB59877C26DE175F00EDF72C /* LastWeekPhotoCollectionViewCell.swift */; };
@@ -102,6 +103,7 @@
 		DB3CCEAE26D0F45E005C3074 /* SideMenuNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuNavigationController.swift; sourceTree = "<group>"; };
 		DB3CCEB026D0F4C8005C3074 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		DB407B9C26E45F3300D7DF41 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DB453B9F26E902EF0034774A /* SemiDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiDetailViewModel.swift; sourceTree = "<group>"; };
 		DB53ADA926C3E53400FAA8B8 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		DB54BD3826D4E63700711295 /* UserRegisterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterRepository.swift; sourceTree = "<group>"; };
 		DB59877C26DE175F00EDF72C /* LastWeekPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastWeekPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -248,7 +250,7 @@
 				DBC2848126CA55D2000D2E8B /* UserRelatedViewModel */,
 				DBC2848026CA55BF000D2E8B /* MainViewModel */,
 				DBFCE5EB26C3AAFA00E3FC16 /* WriteViewModel.swift */,
-				DBFCE5EF26C3AB1A00E3FC16 /* PoemDetailViewModel.swift */,
+				DB453BA126E903110034774A /* DetailViewModel */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -290,6 +292,15 @@
 				DBF1E25826D18D60006474C8 /* UserService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		DB453BA126E903110034774A /* DetailViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DB453B9F26E902EF0034774A /* SemiDetailViewModel.swift */,
+				DBFCE5EF26C3AB1A00E3FC16 /* PoemDetailViewModel.swift */,
+			);
+			path = DetailViewModel;
 			sourceTree = "<group>";
 		};
 		DB53ADA826C3E52700FAA8B8 /* DummyData */ = {
@@ -592,6 +603,7 @@
 				DBFCE5F226C3AB2B00E3FC16 /* PhotoListViewModel.swift in Sources */,
 				DB3CCEB126D0F4C8005C3074 /* SideMenuViewController.swift in Sources */,
 				DB2B4DF526DFEE3100A3F597 /* UserWritingTableViewCell.swift in Sources */,
+				DB453BA026E902EF0034774A /* SemiDetailViewModel.swift in Sources */,
 				DBB0B48726E8C84D008FA163 /* SemiDetailViewController.swift in Sources */,
 				DB02496A26DE770800FC948A /* ThreePoemsTableViewCell.swift in Sources */,
 				DB34288F26C1CDF9007C5A6A /* UserPageViewController.swift in Sources */,
