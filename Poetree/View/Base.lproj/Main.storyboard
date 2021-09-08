@@ -186,7 +186,7 @@
                     </view>
                     <navigationItem key="navigationItem" title=" Poetree" largeTitleDisplayMode="always" id="Fxv-bk-upu">
                         <barButtonItem key="backBarButtonItem" title=" " id="HFe-VY-13a"/>
-                        <barButtonItem key="rightBarButtonItem" image="person.fill" catalog="system" id="bcY-M3-a6B">
+                        <barButtonItem key="rightBarButtonItem" image="pencil" catalog="system" id="bcY-M3-a6B">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                     </navigationItem>
@@ -194,11 +194,11 @@
                     <connections>
                         <outlet property="collectionView" destination="Wea-DR-SIG" id="UC5-FM-lmc"/>
                         <outlet property="dateLabel" destination="uCU-xM-0Zn" id="bzv-1X-dKp"/>
-                        <outlet property="logInBtn" destination="bcY-M3-a6B" id="B5s-7Y-jjb"/>
                         <outlet property="photoNumberLabel" destination="GoF-Ds-r5t" id="h79-97-ihZ"/>
                         <outlet property="poemForPhotoNumberLabel" destination="khz-UM-wCX" id="6ZJ-aW-Vlt"/>
                         <outlet property="poemTableView" destination="jrN-g0-cPp" id="Obz-yZ-Sr9"/>
                         <outlet property="thisWeekPoemBtn" destination="hn7-JN-bKV" id="hSq-7R-xe7"/>
+                        <outlet property="writeBtn" destination="bcY-M3-a6B" id="B5s-7Y-jjb"/>
                         <outlet property="writeChev" destination="rdc-Gb-wT6" id="Gy1-kO-0Ko"/>
                     </connections>
                 </viewController>
@@ -606,7 +606,6 @@
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="gold-medal" width="170.66667175292969" height="170.66667175292969"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

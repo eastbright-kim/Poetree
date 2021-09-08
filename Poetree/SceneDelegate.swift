@@ -32,6 +32,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         poemRepository.fetchPoems { poemEntities, result in
             
+            
+            
             let poemModels = poemEntities.map { poemEntity -> Poem in
                 let id = poemEntity.id
                 let userEmail = poemEntity.userEmail

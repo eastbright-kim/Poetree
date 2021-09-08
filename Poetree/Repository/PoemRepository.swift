@@ -47,7 +47,9 @@ class PoemRepository {
             
             var poemEntities = [PoemEntity]()
             
+            
             for user in allUsers {
+                
                 let poemDict = user.value as! [String:Any]
                 let poemEntity = PoemEntity(poemDic: poemDict)
                 poemEntities.append(poemEntity)

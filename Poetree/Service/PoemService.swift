@@ -12,6 +12,7 @@ import Firebase
 class PoemService {
     
     var poems = [Poem]()
+    var poemsByUsers = [String: [Poem]]()
     lazy var poemsStore = BehaviorSubject<[Poem]>(value: poems)
     
     let poemRepository: PoemRepository

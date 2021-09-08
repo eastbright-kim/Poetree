@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 class PhotoViewModel: ViewModelType {
     
@@ -17,10 +19,12 @@ class PhotoViewModel: ViewModelType {
     var output: Output
     
     struct Input {
-        
+     
     }
     
     struct Output {
+        
+        let thisWeekPhoto: Observable<[WeekPhoto]>
         
     }
     
@@ -30,11 +34,12 @@ class PhotoViewModel: ViewModelType {
         self.poemService = poemService
         self.photoService = photoService
         
+        let photos = photoService.photos()
+        
+        let thisWeekPhoto = photos.map(photoService.getThisWeekPhoto)
         
         
         self.input = Input()
-        self.output = Output()
+        self.output = Output(thisWeekPhoto: thisWeekPhoto)
     }
-    
-    
 }

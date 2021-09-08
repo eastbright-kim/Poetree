@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -29,13 +29,13 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User123님이 8월 10일 밤에 보낸 글" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxV-qK-J2a">
-                                                <rect key="frame" x="155.5" y="533.5" width="252.5" height="22"/>
+                                                <rect key="frame" x="155.66666666666663" y="533.66666666666663" width="252.33333333333337" height="22"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OrE-3b-2DE">
-                                                <rect key="frame" x="20" y="587.5" width="388" height="546.5"/>
+                                                <rect key="frame" x="20" y="587.66666666666652" width="388" height="546.33333333333348"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <string key="text">꽃게가 간장 속에
 반쯤 몸을 담그고 엎드려 있다
@@ -60,7 +60,7 @@
                                                 <rect key="frame" x="8" y="1143" width="412" height="40"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuA-XZ-3js">
-                                                        <rect key="frame" x="333" y="3.5" width="59" height="33"/>
+                                                        <rect key="frame" x="333" y="3.6666666666667425" width="59" height="33"/>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
                                                         <state key="normal" title="삭제하기">
                                                             <color key="titleColor" systemColor="systemOrangeColor"/>
@@ -74,7 +74,7 @@
                                                         </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSe-hZ-iNF">
-                                                        <rect key="frame" x="264" y="3.5" width="59" height="33"/>
+                                                        <rect key="frame" x="264" y="3.6666666666667425" width="59" height="33"/>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
                                                         <state key="normal" title="수정하기">
                                                             <color key="titleColor" systemColor="systemOrangeColor"/>
@@ -100,7 +100,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스며드는 것" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOo-EN-uKs">
-                                                <rect key="frame" x="20" y="470" width="388" height="31.5"/>
+                                                <rect key="frame" x="20" y="470" width="388" height="31.666666666666686"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="26"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -193,13 +193,13 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User123님이 8월 10일 밤에 보내는 글" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGQ-hi-UTQ">
-                                                <rect key="frame" x="140" y="532.5" width="268" height="22"/>
+                                                <rect key="frame" x="140" y="532.33333333333337" width="268" height="22"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kQR-Li-RPL">
-                                                <rect key="frame" x="20" y="586.5" width="388" height="547.5"/>
+                                                <rect key="frame" x="20" y="586.33333333333348" width="388" height="547.66666666666652"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <string key="text">꽃게가 간장 속에
 반쯤 몸을 담그고 엎드려 있다
@@ -218,14 +218,14 @@
                                                 <rect key="frame" x="8" y="1143" width="412" height="40"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGd-AP-hxN">
-                                                        <rect key="frame" x="8" y="3.5" width="112" height="33"/>
+                                                        <rect key="frame" x="8" y="3.6666666666667425" width="112" height="33"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <state key="normal" title="글 혼자 보관하기">
                                                             <color key="titleColor" systemColor="systemGrayColor"/>
                                                         </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q43-UZ-22H">
-                                                        <rect key="frame" x="128" y="8.5" width="23" height="23"/>
+                                                        <rect key="frame" x="128" y="8.6666666666667425" width="23" height="23"/>
                                                         <color key="tintColor" systemColor="systemOrangeColor"/>
                                                         <state key="normal" image="square" catalog="system">
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
@@ -233,7 +233,7 @@
                                                         <state key="selected" image="square.fill" catalog="system"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lla-AM-CN4">
-                                                        <rect key="frame" x="333" y="3.5" width="64" height="33"/>
+                                                        <rect key="frame" x="333" y="3.6666666666667425" width="64" height="33"/>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
                                                         <state key="normal" title="글 보내기">
                                                             <color key="titleColor" systemColor="systemOrangeColor"/>
@@ -243,7 +243,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEC-K2-45A">
-                                                        <rect key="frame" x="333" y="3.5" width="64" height="33"/>
+                                                        <rect key="frame" x="333" y="3.6666666666667425" width="64" height="33"/>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
                                                         <state key="normal" title="수정 완료">
                                                             <color key="titleColor" systemColor="systemOrangeColor"/>
@@ -327,6 +327,103 @@
             </objects>
             <point key="canvasLocation" x="-403" y="298"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="RwQ-Xn-ZRG">
+            <objects>
+                <viewController id="L0X-Oi-Jyo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e9b-1H-lNj">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="StO-GR-ZWl">
+                                <rect key="frame" x="40" y="223.66666666666666" width="348" height="478.66666666666674"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ncW-Lw-CZZ">
+                                        <rect key="frame" x="20" y="42" width="308" height="128"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VB4-CH-6OI">
+                                        <rect key="frame" x="20" y="234" width="294" height="148"/>
+                                        <viewLayoutGuide key="contentLayoutGuide" id="je1-6T-K1F"/>
+                                        <viewLayoutGuide key="frameLayoutGuide" id="b5c-Nl-WaA"/>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ncW-Lw-CZZ" secondAttribute="trailing" constant="20" id="73s-Ns-Vee"/>
+                                    <constraint firstItem="VB4-CH-6OI" firstAttribute="leading" secondItem="ncW-Lw-CZZ" secondAttribute="leading" id="EN6-Bh-CUg"/>
+                                    <constraint firstItem="ncW-Lw-CZZ" firstAttribute="top" secondItem="StO-GR-ZWl" secondAttribute="top" constant="30" id="EwQ-ZM-DTO"/>
+                                    <constraint firstItem="ncW-Lw-CZZ" firstAttribute="leading" secondItem="StO-GR-ZWl" secondAttribute="leading" constant="20" id="R6B-u3-bjK"/>
+                                    <constraint firstItem="VB4-CH-6OI" firstAttribute="trailing" secondItem="ncW-Lw-CZZ" secondAttribute="trailing" id="W9U-2z-qkU"/>
+                                    <constraint firstAttribute="width" secondItem="StO-GR-ZWl" secondAttribute="height" multiplier="8:11" id="WX0-m0-swZ"/>
+                                    <constraint firstItem="VB4-CH-6OI" firstAttribute="centerX" secondItem="StO-GR-ZWl" secondAttribute="centerX" id="Wor-Ah-fvU"/>
+                                    <constraint firstItem="VB4-CH-6OI" firstAttribute="top" secondItem="ncW-Lw-CZZ" secondAttribute="bottom" constant="10" id="lap-EM-FOH"/>
+                                    <constraint firstItem="ncW-Lw-CZZ" firstAttribute="centerX" secondItem="StO-GR-ZWl" secondAttribute="centerX" id="nyg-e4-zXt"/>
+                                    <constraint firstAttribute="bottom" secondItem="VB4-CH-6OI" secondAttribute="bottom" constant="20" id="rGD-Tq-nnY"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="VcR-1b-2Ee"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="StO-GR-ZWl" firstAttribute="leading" secondItem="VcR-1b-2Ee" secondAttribute="leading" constant="40" id="Ryo-G8-Wyu"/>
+                            <constraint firstItem="VcR-1b-2Ee" firstAttribute="trailing" secondItem="StO-GR-ZWl" secondAttribute="trailing" constant="40" id="goZ-Zn-E64"/>
+                            <constraint firstItem="StO-GR-ZWl" firstAttribute="centerY" secondItem="e9b-1H-lNj" secondAttribute="centerY" id="x75-2V-oLg"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uBU-L6-SsZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1769.5652173913045" y="247.76785714285714"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="J2c-5D-fLl">
+            <objects>
+                <viewController id="9X9-ay-EOL" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Imi-21-mQz">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kua-9g-iPa">
+                                <rect key="frame" x="40" y="223.66666666666666" width="348" height="478.66666666666674"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mfh-FE-d72">
+                                        <rect key="frame" x="17" y="171.33333333333334" width="314" height="287.33333333333326"/>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HAi-i8-ehU">
+                                        <rect key="frame" x="17" y="20" width="314" height="131.33333333333334"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="mfh-FE-d72" firstAttribute="leading" secondItem="kua-9g-iPa" secondAttribute="leading" constant="17" id="6h6-Sa-mat"/>
+                                    <constraint firstItem="mfh-FE-d72" firstAttribute="centerX" secondItem="kua-9g-iPa" secondAttribute="centerX" id="MdT-IN-gpz"/>
+                                    <constraint firstAttribute="trailing" secondItem="mfh-FE-d72" secondAttribute="trailing" constant="17" id="Pox-av-4vf"/>
+                                    <constraint firstItem="mfh-FE-d72" firstAttribute="height" secondItem="kua-9g-iPa" secondAttribute="height" multiplier="0.6" id="f78-jR-psd"/>
+                                    <constraint firstItem="mfh-FE-d72" firstAttribute="top" secondItem="HAi-i8-ehU" secondAttribute="bottom" constant="20" id="hEz-q2-PqX"/>
+                                    <constraint firstAttribute="width" secondItem="kua-9g-iPa" secondAttribute="height" multiplier="8:11" id="iv1-hi-45U"/>
+                                    <constraint firstItem="HAi-i8-ehU" firstAttribute="top" secondItem="kua-9g-iPa" secondAttribute="top" constant="20" id="m2O-vo-Z97"/>
+                                    <constraint firstItem="HAi-i8-ehU" firstAttribute="trailing" secondItem="mfh-FE-d72" secondAttribute="trailing" id="ozY-ZZ-wjl"/>
+                                    <constraint firstItem="HAi-i8-ehU" firstAttribute="leading" secondItem="mfh-FE-d72" secondAttribute="leading" id="qf0-jz-Jmd"/>
+                                    <constraint firstAttribute="bottom" secondItem="mfh-FE-d72" secondAttribute="bottom" constant="20" id="sHV-hV-R3x"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UFX-kU-5h0"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kua-9g-iPa" firstAttribute="centerY" secondItem="Imi-21-mQz" secondAttribute="centerY" id="L7G-uP-lZG"/>
+                            <constraint firstItem="kua-9g-iPa" firstAttribute="leading" secondItem="UFX-kU-5h0" secondAttribute="leading" constant="40" id="Lm0-GG-dDM"/>
+                            <constraint firstItem="UFX-kU-5h0" firstAttribute="trailing" secondItem="kua-9g-iPa" secondAttribute="trailing" constant="40" id="P2B-Ht-lx8"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zWY-MA-3Gd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2971.875" y="247.18309859154931"/>
+        </scene>
     </scenes>
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
@@ -343,11 +440,17 @@
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -96,6 +96,7 @@ PODS:
   - RxSwift (6.2.0)
   - SideMenu (6.5.0)
   - SwiftyJSON (4.3.0)
+  - Toast-Swift (5.0.1)
 
 DEPENDENCIES:
   - FBSDKLoginKit
@@ -109,6 +110,7 @@ DEPENDENCIES:
   - RxSwift
   - SideMenu
   - SwiftyJSON (~> 4.0)
+  - Toast-Swift (~> 5.0.1)
 
 SPEC REPOS:
   trunk:
@@ -139,6 +141,7 @@ SPEC REPOS:
     - RxSwift
     - SideMenu
     - SwiftyJSON
+    - Toast-Swift
 
 SPEC CHECKSUMS:
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
@@ -168,7 +171,8 @@ SPEC CHECKSUMS:
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: 60f9876288815d46c2b0521a6f4bcfa44b63245d
+PODFILE CHECKSUM: fb2915808d471bff55cdbe9852f863399feeb2c6
 
 COCOAPODS: 1.10.0
