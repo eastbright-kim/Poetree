@@ -63,4 +63,34 @@ class PoemRepository {
             completion((poemEntities, .success(uid_poem)))
         }
     }
+    
+    func likeAdd(poem: Poem, user: User) {
+        
+        poemRef.child(poem.userUID).child(poem.id).runTransactionBlock { currentData in
+            
+            if var updatedPoem = currentData.value as? [String:Any] {
+                var likers = updatedPoem["likers"] as? [String:Bool] ?? [:]
+                likers[user.uid] = true
+                updatedPoem["likers"] = likers
+                currentData.value = updatedPoem
+                return TransactionResult.success(withValue: currentData)
+            }
+            return TransactionResult.success(withValue: currentData)
+        }
+    }
+    
+    func likeCancel(poem: Poem, user: User){
+        
+        poemRef.child(poem.userUID).child(poem.id).runTransactionBlock { currentData in
+            
+            if var updatedPoem = currentData.value as? [String:Any] {
+                var likers = updatedPoem["likers"] as? [String:Bool] ?? [:]
+                likers.removeValue(forKey: user.uid)
+                updatedPoem["likers"] = likers
+                currentData.value = updatedPoem
+                return TransactionResult.success(withValue: currentData)
+            }
+            return TransactionResult.success(withValue: currentData)
+        }
+    }
 }
