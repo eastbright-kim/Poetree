@@ -14,23 +14,26 @@ class PoemDetailViewModel: ViewModelType {
     let poemService: PoemService
     let userService: UserService
     
+    
     struct Input {
         
         
     }
     
     struct Output {
-        
+        let displayingPoem: Poem
     }
     
     var input: Input
     var output: Output
     
-    init(poemService: PoemService, userService: UserService) {
+    init(displayingPoem: Poem, poemService: PoemService, userService: UserService) {
+        
         self.poemService = poemService
         self.userService = userService
+        
         self.input = Input()
-        self.output = Output()
+        self.output = Output(displayingPoem: displayingPoem)
     }
     
     func deletePoem(deletingPoem: Poem) {

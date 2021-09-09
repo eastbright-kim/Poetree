@@ -178,11 +178,13 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
        
         poemTableView.rx.modelSelected(Poem.self)
             .subscribe(onNext:{ poem in
-                let viewModel = PoemListViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, listType: .seletedPhoto, selectedPhotoId: poem.photoId)
+
+                let viewModel = HeadPhotoWithListViewModel(poemService: self.viewModel.poemService, displayingPoem: self.viewModel.output.displayingPoems, userService: self.viewModel.userService)
+                var headPhotoListVC = ListWithHeadPhotoViewController.instantiate(storyboardID: "ListRelated")
+                headPhotoListVC.bind(viewModel: viewModel)
                 
-                var vc = PoemListViewController.instantiate(storyboardID: "ListRelated")
-                vc.bind(viewModel: viewModel)
-                self.navigationController?.pushViewController(vc, animated: true)
+                self.present(headPhotoListVC, animated: true, completion: nil)
+                
             })
             .disposed(by: rx.disposeBag)
     }

@@ -25,6 +25,8 @@
 		DB21A27D26C174420048FB17 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21A27C26C174420048FB17 /* MainViewController.swift */; };
 		DB21A27F26C175250048FB17 /* PoetreeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = DB21A27E26C175250048FB17 /* PoetreeIcon.png */; };
 		DB21A28726C18F4D0048FB17 /* MainPoemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21A28626C18F4D0048FB17 /* MainPoemTableViewCell.swift */; };
+		DB23A1EF26E9CCE200A64CA9 /* ListWithHeadPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB23A1EE26E9CCE200A64CA9 /* ListWithHeadPhotoViewController.swift */; };
+		DB23A1F126E9CD1D00A64CA9 /* headPhotoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB23A1F026E9CD1D00A64CA9 /* headPhotoListTableViewCell.swift */; };
 		DB2B4DF526DFEE3100A3F597 /* UserWritingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B4DF426DFEE3100A3F597 /* UserWritingTableViewCell.swift */; };
 		DB2B4DF726DFEEAB00A3F597 /* UserLikedWritingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B4DF626DFEEAB00A3F597 /* UserLikedWritingTableViewCell.swift */; };
 		DB2CFD6926C2884D00130078 /* WritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2CFD6826C2884D00130078 /* WritingViewController.swift */; };
@@ -55,6 +57,7 @@
 		DBCE060D26C2C8F00008EBF8 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE060C26C2C8F00008EBF8 /* Protocol.swift */; };
 		DBCE061126C2D2430008EBF8 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE061026C2D2430008EBF8 /* Constant.swift */; };
 		DBD5CFC826DFA37500BDEBDA /* CurrentAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5CFC726DFA37500BDEBDA /* CurrentAuth.swift */; };
+		DBD6ABC026E9FB9600EE01E2 /* HeadPhotoWithListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6ABBF26E9FB9600EE01E2 /* HeadPhotoWithListViewModel.swift */; };
 		DBDC59FD26D790270066B45A /* WritingRelated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBDC59FC26D790270066B45A /* WritingRelated.storyboard */; };
 		DBDC59FF26D790DC0066B45A /* ListRelated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBDC59FE26D790DC0066B45A /* ListRelated.storyboard */; };
 		DBDC5A0426D793D40066B45A /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC5A0326D793D40066B45A /* PhotoViewController.swift */; };
@@ -92,6 +95,8 @@
 		DB21A27C26C174420048FB17 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DB21A27E26C175250048FB17 /* PoetreeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PoetreeIcon.png; sourceTree = "<group>"; };
 		DB21A28626C18F4D0048FB17 /* MainPoemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPoemTableViewCell.swift; sourceTree = "<group>"; };
+		DB23A1EE26E9CCE200A64CA9 /* ListWithHeadPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWithHeadPhotoViewController.swift; sourceTree = "<group>"; };
+		DB23A1F026E9CD1D00A64CA9 /* headPhotoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = headPhotoListTableViewCell.swift; sourceTree = "<group>"; };
 		DB2B4DF426DFEE3100A3F597 /* UserWritingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWritingTableViewCell.swift; sourceTree = "<group>"; };
 		DB2B4DF626DFEEAB00A3F597 /* UserLikedWritingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLikedWritingTableViewCell.swift; sourceTree = "<group>"; };
 		DB2CFD6826C2884D00130078 /* WritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +127,7 @@
 		DBCE060C26C2C8F00008EBF8 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		DBCE061026C2D2430008EBF8 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		DBD5CFC726DFA37500BDEBDA /* CurrentAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentAuth.swift; sourceTree = "<group>"; };
+		DBD6ABBF26E9FB9600EE01E2 /* HeadPhotoWithListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadPhotoWithListViewModel.swift; sourceTree = "<group>"; };
 		DBDC59FC26D790270066B45A /* WritingRelated.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WritingRelated.storyboard; sourceTree = "<group>"; };
 		DBDC59FE26D790DC0066B45A /* ListRelated.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListRelated.storyboard; sourceTree = "<group>"; };
 		DBDC5A0326D793D40066B45A /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
@@ -336,6 +342,7 @@
 				DB02496926DE770800FC948A /* ThreePoemsTableViewCell.swift */,
 				DB2B4DF426DFEE3100A3F597 /* UserWritingTableViewCell.swift */,
 				DB2B4DF626DFEEAB00A3F597 /* UserLikedWritingTableViewCell.swift */,
+				DB23A1F026E9CD1D00A64CA9 /* headPhotoListTableViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -390,6 +397,7 @@
 			children = (
 				DBFCE5F126C3AB2B00E3FC16 /* PhotoListViewModel.swift */,
 				DBFCE5ED26C3AB0B00E3FC16 /* PoemListViewModel.swift */,
+				DBD6ABBF26E9FB9600EE01E2 /* HeadPhotoWithListViewModel.swift */,
 			);
 			path = PoemListViewModel;
 			sourceTree = "<group>";
@@ -446,6 +454,7 @@
 			children = (
 				DBCE060426C2A8FB0008EBF8 /* PhotoCollectionViewController.swift */,
 				DB2CFD6A26C2887100130078 /* PoemListViewController.swift */,
+				DB23A1EE26E9CCE200A64CA9 /* ListWithHeadPhotoViewController.swift */,
 			);
 			path = ListRelated;
 			sourceTree = "<group>";
@@ -600,6 +609,7 @@
 				DBCE060D26C2C8F00008EBF8 /* Protocol.swift in Sources */,
 				DB666DC026CAAF1E00A588AC /* PhotoService.swift in Sources */,
 				DBDC5A0626D794BB0066B45A /* PhotoViewCollectionViewCell.swift in Sources */,
+				DB23A1F126E9CD1D00A64CA9 /* headPhotoListTableViewCell.swift in Sources */,
 				DBFCE5F226C3AB2B00E3FC16 /* PhotoListViewModel.swift in Sources */,
 				DB3CCEB126D0F4C8005C3074 /* SideMenuViewController.swift in Sources */,
 				DB2B4DF526DFEE3100A3F597 /* UserWritingTableViewCell.swift in Sources */,
@@ -614,6 +624,7 @@
 				DB21A27D26C174420048FB17 /* MainViewController.swift in Sources */,
 				DB666DC226CAAF8D00A588AC /* PhotoRepository.swift in Sources */,
 				DBCE060A26C2ACEE0008EBF8 /* MainViewModel.swift in Sources */,
+				DBD6ABC026E9FB9600EE01E2 /* HeadPhotoWithListViewModel.swift in Sources */,
 				DBFCE5F426C3AF7300E3FC16 /* PoemRepository.swift in Sources */,
 				DB21A25F26C16B3F0048FB17 /* AppDelegate.swift in Sources */,
 				DBCE060526C2A8FB0008EBF8 /* PhotoCollectionViewController.swift in Sources */,
@@ -623,6 +634,7 @@
 				DB15716C26C5301A003F58FC /* Function.swift in Sources */,
 				DBF1E25926D18D60006474C8 /* UserService.swift in Sources */,
 				DB21A26126C16B3F0048FB17 /* SceneDelegate.swift in Sources */,
+				DB23A1EF26E9CCE200A64CA9 /* ListWithHeadPhotoViewController.swift in Sources */,
 				DB2B4DF726DFEEAB00A3F597 /* UserLikedWritingTableViewCell.swift in Sources */,
 				DB34288D26C1CDE3007C5A6A /* HistoryViewController.swift in Sources */,
 				DBCE060326C2A8CA0008EBF8 /* PoemDetailViewController.swift in Sources */,
