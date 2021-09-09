@@ -20,6 +20,9 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
     @IBOutlet weak var editBtn: UIButton!
     @IBOutlet weak var deleteBtn: UIButton!
     @IBOutlet weak var likesCountLabel: UILabel!
+    @IBOutlet weak var backBtnItem: UIBarButtonItem!
+    
+    
     
     var viewModel: PoemDetailViewModel!
     
@@ -39,26 +42,38 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
     func setUpUI(){
         
         photoImageView.layer.cornerRadius = 8
-        photoImageView.kf.setImage(with: currentPoem.photoURL)
-        titleLabel.text = currentPoem.title
-        userLabel.text = "\(currentPoem.userPenname)님이 \(convertDateToString(format: "MMM d", date: currentPoem.uploadAt))에 보낸 글"
-        contentLabel.text = currentPoem.content
-        likeBtn.isSelected = currentPoem.isLike
-        likesCountLabel.text = "\(currentPoem.likers.count)"
+        photoImageView.kf.setImage(with: viewModel.output.displayingPoem.photoURL)
+        titleLabel.text = viewModel.output.displayingPoem.title
+        userLabel.text = "\(viewModel.output.displayingPoem.userPenname)님이 \(convertDateToString(format: "MMM d", date: viewModel.output.displayingPoem.uploadAt))에 보낸 글"
+        contentLabel.text = viewModel.output.displayingPoem.content
+        likeBtn.isSelected = viewModel.output.displayingPoem.isLike
+        likesCountLabel.text = "\(viewModel.output.displayingPoem.likers.count)"
         
-        let currentUser = Auth.auth().currentUser
-        if currentUser!.email != currentPoem.userEmail {
-            self.editBtn.isHidden = true
-            self.deleteBtn.isHidden = true
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        
+        if let currentUser = Auth.auth().currentUser {
+            if currentUser.uid != viewModel.output.displayingPoem.userUID {
+                self.editBtn.isHidden = true
+                self.deleteBtn.isHidden = true
+            }
         }
+        
     }
     
     
     func bindViewModel() {
         
+        self.backBtnItem.rx.tap
+            .subscribe(onNext:{ _ in
+                self.dismiss(animated: true, completion: nil)
+            })
+            .disposed(by: rx.disposeBag)
+        
+        
         self.editBtn.rx.tap
             .subscribe(onNext:{[unowned self] _ in
-                let viewModel = WriteViewModel(poemService: viewModel.poemService, userService: viewModel.userService, weekPhoto: nil, editingPoem: self.currentPoem)
+                let viewModel = WriteViewModel(poemService: viewModel.poemService, userService: viewModel.userService, weekPhoto: nil, editingPoem: self.viewModel.output.displayingPoem)
                 var vc = WritingViewController.instantiate(storyboardID: "WritingRelated")
                 vc.bind(viewModel: viewModel)
                 vc.editingPoem = self.currentPoem
@@ -68,7 +83,7 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
         
         self.deleteBtn.rx.tap
             .subscribe(onNext:{[unowned self] _ in
-                self.viewModel.deletePoem(deletingPoem: currentPoem)
+                self.viewModel.deletePoem(deletingPoem: self.viewModel.output.displayingPoem)
                 self.navigationController?.popViewController(animated: true)
             })
             .disposed(by: rx.disposeBag)

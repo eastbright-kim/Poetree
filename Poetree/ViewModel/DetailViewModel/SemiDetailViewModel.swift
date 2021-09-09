@@ -11,23 +11,25 @@ class SemiDetailViewModel: ViewModelType {
     
     var input: Input
     var output: Output
-    let poem: Poem
+    
     let poemService: PoemService
+    let userService: UserService
     
     struct Input{
         
     }
     
     struct Output{
-        
+        let poem: Poem
     }
     
     
-    init(poem: Poem, poemService: PoemService){
-        self.poem = poem
+    init(poem: Poem, poemService: PoemService, userService: UserService){
+        
         self.poemService = poemService
+        self.userService = userService
         self.input = Input()
-        self.output = Output()
+        self.output = Output(poem: poem)
     }
     
 }

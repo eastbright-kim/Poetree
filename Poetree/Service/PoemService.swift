@@ -139,6 +139,8 @@ class PoemService {
         return Array(lastWeekPoems)
     }
     
+    
+    
     func getThreeTopPoems(_ poems: [Poem]) -> [Poem]{
         
         let sorted = poems.sorted{$0.likers.count > $1.likers.count}.prefix(3)
