@@ -30,14 +30,14 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
         setUpUI()
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//
+//        setUpUI()
+//    }
     
     func setUpUI(){
         
@@ -52,11 +52,14 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
-        if let currentUser = Auth.auth().currentUser {
-            if currentUser.uid != viewModel.output.displayingPoem.userUID {
-                self.editBtn.isHidden = true
-                self.deleteBtn.isHidden = true
-            }
+        
+        
+        
+        if let currentUser = Auth.auth().currentUser, currentUser.uid == viewModel.output.displayingPoem.userUID {
+            
+            self.editBtn.isHidden = false
+            self.deleteBtn.isHidden = false
+            
         }
         
     }
@@ -73,7 +76,9 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
         
         self.editBtn.rx.tap
             .subscribe(onNext:{[unowned self] _ in
-                let viewModel = WriteViewModel(poemService: viewModel.poemService, userService: viewModel.userService, weekPhoto: nil, editingPoem: self.viewModel.output.displayingPoem)
+                
+                let viewModel = WriteViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, writingType: .edit(self.viewModel.output.displayingPoem), editingPoem: self.viewModel.output.displayingPoem)
+ 
                 var vc = WritingViewController.instantiate(storyboardID: "WritingRelated")
                 vc.bind(viewModel: viewModel)
                 vc.editingPoem = self.currentPoem
@@ -87,6 +92,9 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
                 self.navigationController?.popViewController(animated: true)
             })
             .disposed(by: rx.disposeBag)
+        
+        
+        
     }
     
 }

@@ -35,6 +35,9 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
         configureUI()
         collectionViewAni()
         collectionViewDelegate()
+        
+        
+        
     }
     
     
@@ -129,11 +132,12 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
         
         
         collectionView.rx.willDisplayCell
+
             .subscribe(onNext:{[unowned self] cell in
-                print("willdisplay called")
+
                 let index = cell.at.item
                 if index == 0 {
-                    
+                    print("will display cell called")
                     self.photoNumberLabel.text = "#1"
                     self.poemForPhotoNumberLabel.setTitle("#1 사진에 쓴 글", for: .normal)
                     self.viewModel.input.selectedIndex.onNext(index)
@@ -145,14 +149,12 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
         collectionView.rx.didEndDecelerating
             .subscribe(onNext:{[unowned self] _ in
                 
-                
                 let visibleRect = CGRect(origin: self.collectionView.contentOffset, size: self.collectionView.bounds.size)
                 let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
                 let visibleItemNumber = self.collectionView.indexPathForItem(at: visiblePoint)?.item
-                
                 self.photoNumberLabel.text = "#\(visibleItemNumber! + 1)"
                 self.poemForPhotoNumberLabel.setTitle("#\(visibleItemNumber! + 1) 사진에 쓴 글", for: .normal)
-                
+                print("decelerating called")
                 self.viewModel.input.selectedIndex.onNext(visibleItemNumber!)
             })
             .disposed(by: rx.disposeBag)
@@ -175,18 +177,12 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
             })
             .disposed(by: rx.disposeBag)
         
-       
-        poemTableView.rx.modelSelected(Poem.self)
-            .subscribe(onNext:{ poem in
+        
 
-                let viewModel = HeadPhotoWithListViewModel(poemService: self.viewModel.poemService, displayingPoem: self.viewModel.output.displayingPoems, userService: self.viewModel.userService)
-                var headPhotoListVC = ListWithHeadPhotoViewController.instantiate(storyboardID: "ListRelated")
-                headPhotoListVC.bind(viewModel: viewModel)
-                
-                self.present(headPhotoListVC, animated: true, completion: nil)
-                
-            })
-            .disposed(by: rx.disposeBag)
+        self.poemTableView.rx.itemSelected
+            
+        
+        
     }
 }
 

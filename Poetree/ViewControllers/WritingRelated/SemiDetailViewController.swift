@@ -98,7 +98,15 @@ class SemiDetailViewController: UIViewController, StoryboardBased, ViewModelBind
         
         detailBtn2.rx.tap
             .subscribe(onNext:{ _ in
+                let viewModel = PoemDetailViewModel(displayingPoem: self.viewModel.output.poem, poemService: self.viewModel.poemService, userService: self.viewModel.userService)
+                var detailVC = PoemDetailViewController.instantiate(storyboardID: "WritingRelated")
+                detailVC.bind(viewModel: viewModel)
+                detailVC.modalPresentationStyle = .overFullScreen
+                detailVC.modalTransitionStyle = .crossDissolve
                 
+                let navi = UINavigationController(rootViewController: detailVC)
+                
+                self.present(navi, animated: true, completion: nil)
                 
             })
             .disposed(by: rx.disposeBag)

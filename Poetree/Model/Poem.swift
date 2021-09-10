@@ -43,7 +43,7 @@ class Poem: Equatable, Identifiable {
 }
 
 
-struct WeekPhoto: Identifiable {
+struct WeekPhoto: Identifiable, Equatable {
     let date: Date
     let id: Int
     let url: URL
