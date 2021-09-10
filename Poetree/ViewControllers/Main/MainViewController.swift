@@ -180,8 +180,17 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
         
 
         self.poemTableView.rx.itemSelected
-            
-        
+            .subscribe(onNext:{ _ in
+                
+                let viewModel = HeadPhotoWithListViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, listType: .fromDisplayingPoem(self.viewModel.output.displayingPoems))
+                
+                var headPhotoListVC = ListWithHeadPhotoViewController.instantiate(storyboardID: "ListRelated")
+                headPhotoListVC.bind(viewModel: viewModel)
+                
+                self.present(headPhotoListVC, animated: true, completion: nil)
+                
+            })
+            .disposed(by: rx.disposeBag)
         
     }
 }
