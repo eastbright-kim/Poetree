@@ -26,7 +26,7 @@ class MainViewModel: ViewModelType {
         let currentDate: Driver<String>
         let thisWeekPhotoURL: Observable<[WeekPhoto]>
         let displayingPoems: Observable<[Poem]>
-        let selectedWeekPhoto: Observable<WeekPhoto>
+       
     }
     
     var input: Input
@@ -65,17 +65,10 @@ class MainViewModel: ViewModelType {
         }
         
         
-        let selectedWeekPhoto = Observable.combineLatest(thisWeekPhotoURL, selectedIndex) {
-            thisWeekPhoto, index -> WeekPhoto in
-            
-            let selectedPhoto = thisWeekPhoto[index]
-            print("viewModel selectedPhoto \(selectedPhoto.id)")
-            return selectedPhoto
-        }
         
         
         self.input = Input(selectedIndex: selectedIndex)
         
-        self.output = Output(currentDate: currentDate, thisWeekPhotoURL: thisWeekPhotoURL, displayingPoems: displayingPoems, selectedWeekPhoto: selectedWeekPhoto)
+        self.output = Output(currentDate: currentDate, thisWeekPhotoURL: thisWeekPhotoURL, displayingPoems: displayingPoems)
     }
 }
