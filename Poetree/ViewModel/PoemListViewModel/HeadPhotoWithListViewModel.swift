@@ -24,32 +24,23 @@ class HeadPhotoWithListViewModel: ViewModelType {
     struct Output {
         var displayingPoem: Observable<[Poem]>
         var weekPhoto: WeekPhoto?
+        
     }
     
-    init(poemService: PoemService, userService: UserService, weekPhoto: WeekPhoto? = nil, listType: ListType){
+    init(poemService: PoemService, userService: UserService, weekPhoto: WeekPhoto? = nil, displayingPoems: Observable<[Poem]>){
         
        
         self.poemService = poemService
         self.userService = userService
-        let poems = poemService.allPoems()
-        var displayingPoem = BehaviorSubject<[Poem]>(value: []).asObservable()
         
-        
-        switch listType {
-        
-        case .fromDisplayingPoem(let getPoems):
-            displayingPoem = getPoems
+        displayingPoems
+            .subscribe(onNext:{ poem in
+                print(poem.count)
+            })
             
-            
-        case .weekPhoto(let weekPhoto):
-            let getPoems = poems.map { poems in
-                poemService.fetchPoemsByPhotoId(poems: poems, weekPhoto: weekPhoto)
-            }
-            displayingPoem = getPoems
-        }
-        
+     
         self.input = Input()
-        self.output = Output(displayingPoem: displayingPoem, weekPhoto: weekPhoto)
+        self.output = Output(displayingPoem: displayingPoems, weekPhoto: weekPhoto)
     }
 }
 
