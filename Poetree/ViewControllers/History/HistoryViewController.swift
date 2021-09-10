@@ -15,7 +15,6 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
 
     
     @IBOutlet weak var allPoemsBtn: UIButton!
-    
     @IBOutlet weak var lastWeekPhotoCollectionView: UICollectionView!
     @IBOutlet weak var allPhotoCollectionView: UICollectionView!
     @IBOutlet weak var threePoemsTableView: UITableView!
@@ -123,7 +122,13 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
             .bind(to: viewModel.input.photoSelected)
             .disposed(by: rx.disposeBag)
         
-        
+//        allPhotoCollectionView.rx.modelSelected(WeekPhoto.self)
+//            .subscribe(onNext:{ weekPhoto in
+//                let viewModel = HeadPhotoWithListViewModel(poemService: self., displayingPoem: <#T##Observable<[Poem]>#>, userService: <#T##UserService#>)
+//                
+//                
+//            })
+//            .disposed(by: rx.disposeBag)
         
         self.viewModel.output.displayingPoems
             .bind(to: self.threePoemsTableView.rx.items(cellIdentifier: "ThreePoemsTableViewCell", cellType: ThreePoemsTableViewCell.self)){indexPath, poem, cell in

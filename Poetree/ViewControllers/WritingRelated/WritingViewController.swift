@@ -10,6 +10,7 @@ import RxSwift
 import RxCocoa
 import NSObject_Rx
 import Kingfisher
+import Toast_Swift
 
 class WritingViewController: UIViewController, ViewModelBindable, StoryboardBased, HasDisposeBag {
     
@@ -27,15 +28,14 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
     
     var isPrvate = false
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setUpUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setUpUI()
+        
     }
     
    
@@ -49,27 +49,30 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
         
         selectedPhoto.layer.cornerRadius = 8
         
+        let type = self.viewModel.output.writingType
         
-       if let editingPoem = editingPoem {
+        switch type {
+        
+        case .edit(let editingPoem):
             self.selectedPhoto.kf.setImage(with: editingPoem.photoURL)
             self.userDateLabel.text = viewModel.poemService.getWritingTimeString(date: editingPoem.uploadAt)
             self.titleTextField.text = editingPoem.title
             self.contentTextView.text = editingPoem.content
             self.privateChechBtn.isSelected = editingPoem.isPrivate
             self.writeComplete.isHidden = true
-        }
-        
-    }
-    
-    func bindViewModel() {
-      
-        if let weekPhoto = viewModel.output.weekPhoto {
+           
+            
+        case .write(let weekPhoto):
             self.selectedPhoto.kf.setImage(with: weekPhoto.url)
             self.userDateLabel.text = viewModel.poemService.getWritingTimeString(date: Date())
             self.editComplete.isHidden = true
         }
         
         
+    }
+    
+    func bindViewModel() {
+      
         titleTextField.rx.text.orEmpty
             .bind(to: viewModel.input.title)
             .disposed(by: rx.disposeBag)
@@ -97,6 +100,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
                 self.viewModel.createPoem(poem: aPoem)
                 DispatchQueue.main.async {
                     self.navigationController?.popToRootViewController(animated: true)
+                    
                 }
             })
             .disposed(by: rx.disposeBag)
@@ -106,8 +110,11 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
         
         viewModel.output.aPoem
             .take(1)
-            .subscribe(onNext:{ [unowned self] poem in
-                self.viewModel.editPoem(beforeEdited: editingPoem!, editedPoem: poem)
+            .subscribe(onNext:{ [weak self] poem in
+                
+                guard let self = self, let editingPoem = self.viewModel.output.editingPoem else {return}
+                
+                self.viewModel.editPoem(beforeEdited: editingPoem, editedPoem: poem)
                     
                     self.navigationController?.popViewController(animated: true)
                     guard let detailVC = self.navigationController?.topViewController as? PoemDetailViewController else {return}

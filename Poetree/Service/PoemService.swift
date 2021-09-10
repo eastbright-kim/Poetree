@@ -112,6 +112,15 @@ class PoemService {
         }
     }
     
+    func fetchPoemsByPhotoId(poems: [Poem], weekPhoto: WeekPhoto) -> [Poem] {
+        
+        let displayingPoems = poems.filter { poem in
+            poem.photoId == weekPhoto.id
+        }
+        
+        return displayingPoems
+    }
+    
     func fetchThisWeekPoems() -> [Poem] {
         
         let thisWeekPoems = self.poems.filter { poem in

@@ -18,13 +18,15 @@ class MainViewModel: ViewModelType {
     let userService: UserService
     
     struct Input {
-        let selectedIndex: BehaviorSubject<Int>
+
+        let selectedIndex: PublishSubject<Int>
     }
     
     struct Output {
         let currentDate: Driver<String>
         let thisWeekPhotoURL: Observable<[WeekPhoto]>
         let displayingPoems: Observable<[Poem]>
+        let selectedWeekPhoto: Observable<WeekPhoto>
     }
     
     var input: Input
@@ -45,8 +47,8 @@ class MainViewModel: ViewModelType {
         
         let thisWeekPhotoURL = photos.map(photoService.getThisWeekPhoto)
         
-        
-        let selectedIndex = BehaviorSubject<Int>(value: 0)
+        let selectedIndex = PublishSubject<Int>()
+            
         
         let selectedPhotoId = Observable.combineLatest(photos, selectedIndex){ photos, index -> Int in
             let photoId = photoService.fetchPhotoId(photos: photos, index)
@@ -62,7 +64,18 @@ class MainViewModel: ViewModelType {
             return disPlayingPoem
         }
         
+        
+        let selectedWeekPhoto = Observable.combineLatest(thisWeekPhotoURL, selectedIndex) {
+            thisWeekPhoto, index -> WeekPhoto in
+            
+            let selectedPhoto = thisWeekPhoto[index]
+            print("viewModel selectedPhoto \(selectedPhoto.id)")
+            return selectedPhoto
+        }
+        
+        
         self.input = Input(selectedIndex: selectedIndex)
-        self.output = Output(currentDate: currentDate, thisWeekPhotoURL: thisWeekPhotoURL, displayingPoems: displayingPoems)
+        
+        self.output = Output(currentDate: currentDate, thisWeekPhotoURL: thisWeekPhotoURL, displayingPoems: displayingPoems, selectedWeekPhoto: selectedWeekPhoto)
     }
 }

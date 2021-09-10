@@ -23,17 +23,22 @@ class HeadPhotoWithListViewModel: ViewModelType {
     
     struct Output {
         var displayingPoem: Observable<[Poem]>
-        
+        var weekPhoto: WeekPhoto
     }
     
-    init(poemService: PoemService, displayingPoem: Observable<[Poem]>, userService: UserService){
+    init(poemService: PoemService, userService: UserService, weekPhoto: WeekPhoto){
         
        
         self.poemService = poemService
         self.userService = userService
+        let poems = poemService.allPoems()
+        
+        let displayingPoem = poems.map { poems in
+            poemService.fetchPoemsByPhotoId(poems: poems, weekPhoto: weekPhoto)
+        }
         
         
         self.input = Input()
-        self.output = Output(displayingPoem: displayingPoem)
+        self.output = Output(displayingPoem: displayingPoem, weekPhoto: weekPhoto)
     }
 }

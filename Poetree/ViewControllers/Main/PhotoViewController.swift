@@ -61,8 +61,8 @@ class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased, Vie
                 guard let _ = Auth.auth().currentUser else { self.handleWrite()
                     return }
                 
-                
-                let viewModel = WriteViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, weekPhoto: weekPhoto, editingPoem: nil)
+                let viewModel = WriteViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, writingType: .write(weekPhoto))
+  
                 var vc = WritingViewController.instantiate(storyboardID: "WritingRelated")
                 vc.bind(viewModel: viewModel)
                 self.navigationController?.pushViewController(vc, animated: true)
