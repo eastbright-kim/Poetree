@@ -24,6 +24,7 @@ class HistoryViewModel: ViewModelType {
         let allPhotos: Observable<[WeekPhoto]>
         let lastWeekPhotos: Observable<[WeekPhoto]>
         let displayingPoems: Observable<[Poem]>
+        let displyingPoemsByPhoto: Observable<[Poem]>
     }
     
     var input: Input
@@ -55,9 +56,15 @@ class HistoryViewModel: ViewModelType {
         }
         .map(poemSevice.getThreeTopPoems)
         
+        let displyingPoemsByPhoto = Observable.combineLatest(allPoems, photoSelected) {
+            poems, weekphoto -> [Poem] in
+            let dpPoems = poemSevice.fetchPoemsByPhotoId(poems: poems, weekPhoto: weekphoto)
+            return dpPoems
+        }
+        
         
         self.input = Input(photoSelected: photoSelected)
-        self.output = Output(allPhotos: allPhotos, lastWeekPhotos: lastWeekPhotos, displayingPoems: displayingPoems)
+        self.output = Output(allPhotos: allPhotos, lastWeekPhotos: lastWeekPhotos, displayingPoems: displayingPoems, displyingPoemsByPhoto: displyingPoemsByPhoto)
         self.poemSevice = poemSevice
         self.photoService = photoService
         self.userService = userService

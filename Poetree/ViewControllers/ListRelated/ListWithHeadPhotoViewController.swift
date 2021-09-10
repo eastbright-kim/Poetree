@@ -42,6 +42,8 @@ class ListWithHeadPhotoViewController: UIViewController, ViewModelBindable, HasD
             }
             .disposed(by: rx.disposeBag)
         
+        
+        
         self.poemListTableView.rx.itemSelected
             .subscribe(onNext:{ indexPath in
                 self.poemListTableView.cellForRow(at: indexPath)?.isSelected = false
@@ -58,19 +60,13 @@ class ListWithHeadPhotoViewController: UIViewController, ViewModelBindable, HasD
                 
                 semiDetailVC.modalTransitionStyle = .crossDissolve
                 semiDetailVC.modalPresentationStyle = .overCurrentContext
-
+                
                 self.present(semiDetailVC, animated: true, completion: nil)
                 
             })
             .disposed(by: rx.disposeBag)
         
-        self.viewModel.output.displayingPoem
-            .subscribe(onNext:{ poem in
-                
-                let photoURL = poem.first?.photoURL
-                self.photoImageView.kf.setImage(with: photoURL)
-            })
-            .disposed(by: rx.disposeBag)
+        
         
         self.XMarkBtn.rx.tap
             .subscribe(onNext:{ _ in
@@ -83,11 +79,16 @@ class ListWithHeadPhotoViewController: UIViewController, ViewModelBindable, HasD
         
         photoImageView.layer.cornerRadius = 8
         
+        
         if Auth.auth().currentUser != nil {
             let image = UIImage(systemName: "pencil")
             image?.withTintColor(UIColor.darkGray)
             let writeItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(write))
             self.navigationItem.rightBarButtonItem = writeItem
+        }
+        
+        if let weekPhoto = self.viewModel.output.weekPhoto {
+            self.photoImageView.kf.setImage(with: weekPhoto.url)
         }
         
     }

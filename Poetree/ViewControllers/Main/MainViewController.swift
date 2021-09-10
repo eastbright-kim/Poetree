@@ -25,18 +25,13 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
     @IBOutlet weak var poemForPhotoNumberLabel: UIButton!
     @IBOutlet weak var thisWeekPoemBtn: UIButton!
     
-    
-    
     var viewModel: MainViewModel!
-    
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         collectionViewAni()
         collectionViewDelegate()
-        
-        
         
     }
     
@@ -101,6 +96,7 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
             .bind(to: collectionView.rx.items(cellIdentifier: "cell", cellType: MainPhotoCollectionViewCell.self)) { index, photo, cell in
                 let url = photo.url
                 cell.todayImage.kf.setImage(with: url)
+               
             }
             .disposed(by: rx.disposeBag)
         
@@ -141,6 +137,7 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
                     self.photoNumberLabel.text = "#1"
                     self.poemForPhotoNumberLabel.setTitle("#1 사진에 쓴 글", for: .normal)
                     self.viewModel.input.selectedIndex.onNext(index)
+                  
                 }
             })
             .disposed(by: rx.disposeBag)
@@ -154,7 +151,7 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
                 let visibleItemNumber = self.collectionView.indexPathForItem(at: visiblePoint)?.item
                 self.photoNumberLabel.text = "#\(visibleItemNumber! + 1)"
                 self.poemForPhotoNumberLabel.setTitle("#\(visibleItemNumber! + 1) 사진에 쓴 글", for: .normal)
-                print("decelerating called")
+                
                 self.viewModel.input.selectedIndex.onNext(visibleItemNumber!)
             })
             .disposed(by: rx.disposeBag)
@@ -182,7 +179,7 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
         self.poemTableView.rx.itemSelected
             .subscribe(onNext:{ _ in
                 
-                let viewModel = HeadPhotoWithListViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, listType: .fromDisplayingPoem(self.viewModel.output.displayingPoems))
+                let viewModel = HeadPhotoWithListViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, displayingPoems: self.viewModel.output.displayingPoems)
                 
                 var headPhotoListVC = ListWithHeadPhotoViewController.instantiate(storyboardID: "ListRelated")
                 headPhotoListVC.bind(viewModel: viewModel)
