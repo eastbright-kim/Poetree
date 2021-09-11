@@ -64,8 +64,6 @@ class MainViewModel: ViewModelType {
         }
         
         
-        
-        
         self.input = Input(selectedIndex: selectedIndex)
         
         self.output = Output(currentDate: currentDate, thisWeekPhotoURL: thisWeekPhotoURL, displayingPoems: displayingPoems)
