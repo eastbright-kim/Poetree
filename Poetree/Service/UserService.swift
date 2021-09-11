@@ -155,11 +155,13 @@ class UserService {
     }
     
     func logout(){
+        
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
             currentUser = nil
-            loginUser.onNext(CurrentAuth(userEmail: "unknowned", userPenname: "", userUID: ""))
+            loginUser.onNext(CurrentAuth(userEmail: "unknowned", userPenname: "비회원", userUID: ""))
+            
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
         }
@@ -178,6 +180,10 @@ class UserService {
         }
     }
     
+    func greetingLine() -> String {
+        
+    }
+    
 }
 
 
@@ -187,3 +193,5 @@ enum SignInFlatform {
     case facebook
     
 }
+
+var sharedUUID = UUID().uuidString

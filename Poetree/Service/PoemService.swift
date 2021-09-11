@@ -112,10 +112,10 @@ class PoemService {
         }
     }
     
-    func fetchPoemsByPhotoId(poems: [Poem], weekPhoto: WeekPhoto) -> [Poem] {
+    func fetchPoemsByPhotoId(poems: [Poem], photoId: Int) -> [Poem] {
         
         let displayingPoems = poems.filter { poem in
-            poem.photoId == weekPhoto.id
+            poem.photoId == photoId
         }
         
         return displayingPoems

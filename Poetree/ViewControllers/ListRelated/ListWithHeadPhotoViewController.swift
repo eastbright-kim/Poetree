@@ -66,7 +66,11 @@ class ListWithHeadPhotoViewController: UIViewController, ViewModelBindable, HasD
             })
             .disposed(by: rx.disposeBag)
         
-        
+        self.viewModel.output.selectedPhoto
+            .subscribe(onNext:{ weekPhoto in
+                self.photoImageView.kf.setImage(with: weekPhoto.url)
+            })
+            .disposed(by: rx.disposeBag)
         
         self.XMarkBtn.rx.tap
             .subscribe(onNext:{ _ in
@@ -87,9 +91,6 @@ class ListWithHeadPhotoViewController: UIViewController, ViewModelBindable, HasD
             self.navigationItem.rightBarButtonItem = writeItem
         }
         
-        if let weekPhoto = self.viewModel.output.weekPhoto {
-            self.photoImageView.kf.setImage(with: weekPhoto.url)
-        }
         
     }
     
