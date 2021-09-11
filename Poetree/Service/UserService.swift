@@ -180,10 +180,23 @@ class UserService {
         }
     }
     
-    func greetingLine() -> String {
+    func greetingLine(date: Date) -> String {
         
+       let now = Calendar.current.component(.hour, from: date)
+        
+        switch now {
+        case 21...24:
+            return "편안한 밤 보내시길 바랍니다 🌙"
+        case 1...5:
+            return "편안한 밤 보내시길 바랍니다 🌙"
+        case 6...11:
+            return "좋은 아침입니다"
+        case 12...17:
+            return "좋은 하루 보내세요 :)"
+        default:
+            return "즐거운 저녁 시간 보내세요!"
+        }
     }
-    
 }
 
 
