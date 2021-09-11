@@ -177,7 +177,13 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
         self.poemTableView.rx.itemSelected
             .withLatestFrom(self.viewModel.output.selectedPhotoId)
             .subscribe(onNext:{ id in
-                print(id)
+                
+                let viewModel = HeadPhotoWithListViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, photoService: self.viewModel.photoService, selectedPhotoId: id)
+                
+                var headPhotoListVC = ListWithHeadPhotoViewController.instantiate(storyboardID: "ListRelated")
+                headPhotoListVC.bind(viewModel: viewModel)
+                
+                self.present(headPhotoListVC, animated: true, completion: nil)
             })
             .disposed(by: rx.disposeBag)
     }

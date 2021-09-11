@@ -125,7 +125,7 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
         allPhotoCollectionView.rx.modelSelected(WeekPhoto.self)
             .subscribe(onNext:{ weekPhoto in
                 
-                let viewModel = HeadPhotoWithListViewModel(poemService: self.viewModel.poemSevice, userService: self.viewModel.userService, weekPhoto: weekPhoto, displayingPoems: self.viewModel.output.displyingPoemsByPhoto)
+                let viewModel = HeadPhotoWithListViewModel(poemService: self.viewModel.poemSevice, userService: self.viewModel.userService, photoService: self.viewModel.photoService, selectedPhotoId: weekPhoto.id)
                 
                 
                 var headPhotoListVC = ListWithHeadPhotoViewController.instantiate(storyboardID: "ListRelated")

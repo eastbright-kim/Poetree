@@ -58,7 +58,8 @@ class HistoryViewModel: ViewModelType {
         
         let displyingPoemsByPhoto = Observable.combineLatest(allPoems, photoSelected) {
             poems, weekphoto -> [Poem] in
-            let dpPoems = poemSevice.fetchPoemsByPhotoId(poems: poems, weekPhoto: weekphoto)
+            
+            let dpPoems = poemSevice.fetchPoemsByPhotoId(poems: poems, photoId: weekphoto.id)
             return dpPoems
         }
         

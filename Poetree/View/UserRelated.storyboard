@@ -291,17 +291,25 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Av5-4k-AUg">
                                                 <rect key="frame" x="25" y="25" width="364" height="60"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="좋은 아침입니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkR-wt-q9g">
-                                                        <rect key="frame" x="88.000000000000014" y="12" width="188.33333333333337" height="36"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wayne님" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.55000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="tkR-wt-q9g">
+                                                        <rect key="frame" x="126.66666666666666" y="12" width="110.66666666666666" height="36"/>
+                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="30"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="좋은 아침입니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWn-tx-vk1">
+                                                        <rect key="frame" x="87.333333333333329" y="12" width="189.66666666666669" height="36"/>
+                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="30"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="CAe-1e-iFT"/>
+                                                    <constraint firstItem="vWn-tx-vk1" firstAttribute="centerY" secondItem="Av5-4k-AUg" secondAttribute="centerY" id="UVt-JC-Hop"/>
                                                     <constraint firstItem="tkR-wt-q9g" firstAttribute="centerY" secondItem="Av5-4k-AUg" secondAttribute="centerY" id="wBv-Uh-toh"/>
                                                     <constraint firstItem="tkR-wt-q9g" firstAttribute="centerX" secondItem="Av5-4k-AUg" secondAttribute="centerX" id="xhp-f7-rtN"/>
+                                                    <constraint firstItem="vWn-tx-vk1" firstAttribute="centerX" secondItem="Av5-4k-AUg" secondAttribute="centerX" id="zLS-Iv-mYZ"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="05y-ll-2zl">
@@ -523,11 +531,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="greetingLabel" destination="Av5-4k-AUg" id="p9F-0I-fHi"/>
                         <outlet property="likedWrtingsTableView" destination="QBK-sG-NF0" id="Or9-Cv-A0P"/>
                         <outlet property="logout" destination="3hM-RC-N5b" id="gEq-A4-1wb"/>
                         <outlet property="myWritingTableView" destination="QTE-8w-H9O" id="fUm-Tv-1cz"/>
                         <outlet property="navBarBtn" destination="hJz-Ys-7qE" id="0Nf-05-QGr"/>
+                        <outlet property="pennameLabel" destination="tkR-wt-q9g" id="mJn-Xc-uDg"/>
                         <outlet property="userLikedLabel" destination="g09-lc-ivX" id="1Kd-uJ-8D1"/>
                         <outlet property="userWritingLabel" destination="pvw-Dj-x47" id="igj-M3-9Ys"/>
                     </connections>

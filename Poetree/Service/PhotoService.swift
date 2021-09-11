@@ -63,6 +63,14 @@ class PhotoService {
         return id
     }
     
+    func fetchPhotoById(_ photos: [WeekPhoto], id: Int) -> WeekPhoto{
+        
+        let photo = photos.filter { weekPhoto in
+            weekPhoto.id == id
+        }
+        return photo.first!
+    }
+    
     func getInitialPhoto(_ photos: [WeekPhoto]) -> WeekPhoto? {
         return photos.first
     }

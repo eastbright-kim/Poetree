@@ -15,12 +15,13 @@ import SideMenu
 class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBased {
     
     @IBOutlet weak var navBarBtn: UIBarButtonItem!
-    @IBOutlet weak var greetingLabel: UIView!
+    @IBOutlet weak var pennameLabel: UILabel!
     @IBOutlet weak var userWritingLabel: UILabel!
     @IBOutlet weak var myWritingTableView: UITableView!
     @IBOutlet weak var userLikedLabel: UILabel!
     @IBOutlet weak var likedWrtingsTableView: UITableView!
     @IBOutlet weak var logout: UIButton!
+    
     
     var viewModel: MyPoemViewModel!
     
@@ -29,8 +30,16 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
         configureUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.pennameLabel.alpha = 0
+        greetingAni()
+    }
+    
+    
     private func configureUI() {
         configureNavTab()
+        
     }
     
     private func configureNavTab() {
@@ -96,6 +105,32 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
                 self.viewModel.userService.logout()
             })
             .disposed(by: rx.disposeBag)
+    }
+    
+    func greetingAni(){
+        
+        if let _ = Auth.auth().currentUser {
+            
+            self.viewModel.output.loginUser
+                .drive(onNext:{ user in
+                    
+                    if user.userPenname == "비회원" {
+                        self.pennameLabel.text = "좋은 아침 입니다."
+                    }
+                    
+                    self.pennameLabel.rx.text.onNext("\(user.userPenname)님")
+                    
+                })
+                .disposed(by: rx.disposeBag)
+            
+            UIView.animate(withDuration: 1, delay: 1, options: .curveEaseOut) {
+                self.pennameLabel.alpha = 1
+            } completion: { firstGreetingFadeIn in
+                print(firstGreetingFadeIn)
+            }
+        } else {
+            self.pennameLabel.alpha = 1
+        }
     }
 }
 
