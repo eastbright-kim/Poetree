@@ -26,11 +26,8 @@ class MainViewModel: ViewModelType {
         let currentDate: Driver<String>
         let thisWeekPhotoURL: Observable<[WeekPhoto]>
         let displayingPoems: Observable<[Poem]>
-<<<<<<< HEAD
-        
-=======
         let selectedPhotoId: Observable<Int>
->>>>>>> tomain
+
     }
     
     var input: Input

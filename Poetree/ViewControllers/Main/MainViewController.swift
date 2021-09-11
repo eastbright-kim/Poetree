@@ -151,15 +151,7 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
                 let visibleItemNumber = self.collectionView.indexPathForItem(at: visiblePoint)?.item
                 self.photoNumberLabel.text = "#\(visibleItemNumber! + 1)"
                 self.poemForPhotoNumberLabel.setTitle("#\(visibleItemNumber! + 1) 사진에 쓴 글", for: .normal)
-<<<<<<< HEAD
-                
                 self.viewModel.input.selectedIndex.onNext(visibleItemNumber!)
-=======
-                print("decelerating called")
-                if visibleItemNumber != 0 {
-                    self.viewModel.input.selectedIndex.onNext(visibleItemNumber!)
-                }
->>>>>>> tomain
             })
             .disposed(by: rx.disposeBag)
         
@@ -183,7 +175,6 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
         
         
         self.poemTableView.rx.itemSelected
-           
             .withLatestFrom(self.viewModel.output.selectedPhotoId)
             .subscribe(onNext:{ id in
                 print(id)
