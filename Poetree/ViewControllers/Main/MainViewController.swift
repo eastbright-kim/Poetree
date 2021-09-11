@@ -151,8 +151,15 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
                 let visibleItemNumber = self.collectionView.indexPathForItem(at: visiblePoint)?.item
                 self.photoNumberLabel.text = "#\(visibleItemNumber! + 1)"
                 self.poemForPhotoNumberLabel.setTitle("#\(visibleItemNumber! + 1) 사진에 쓴 글", for: .normal)
+<<<<<<< HEAD
                 
                 self.viewModel.input.selectedIndex.onNext(visibleItemNumber!)
+=======
+                print("decelerating called")
+                if visibleItemNumber != 0 {
+                    self.viewModel.input.selectedIndex.onNext(visibleItemNumber!)
+                }
+>>>>>>> tomain
             })
             .disposed(by: rx.disposeBag)
         
@@ -175,20 +182,13 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
             .disposed(by: rx.disposeBag)
         
         
-
         self.poemTableView.rx.itemSelected
-            .subscribe(onNext:{ _ in
-                
-                let viewModel = HeadPhotoWithListViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, displayingPoems: self.viewModel.output.displayingPoems)
-                
-                var headPhotoListVC = ListWithHeadPhotoViewController.instantiate(storyboardID: "ListRelated")
-                headPhotoListVC.bind(viewModel: viewModel)
-                
-                self.present(headPhotoListVC, animated: true, completion: nil)
-                
+           
+            .withLatestFrom(self.viewModel.output.selectedPhotoId)
+            .subscribe(onNext:{ id in
+                print(id)
             })
             .disposed(by: rx.disposeBag)
-        
     }
 }
 
