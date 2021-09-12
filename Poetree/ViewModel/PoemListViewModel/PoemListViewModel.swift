@@ -27,6 +27,7 @@ class PoemListViewModel: ViewModelType {
     init(poemService: PoemService, userService: UserService, listType: PoemListType, selectedPhotoId: Int? = nil) {
         
         switch listType {
+        
         case .allPoems:
             let displayingPoems = poemService.allPoems()
             self.output = Output(displayingPoems: displayingPoems)
@@ -34,15 +35,15 @@ class PoemListViewModel: ViewModelType {
             let thisWeekPoems = poemService.fetchThisWeekPoems()
             let displayingPoems = Observable.just(thisWeekPoems)
             self.output = Output(displayingPoems: displayingPoems)
-        case .seletedPhoto:
+        case .userLiked(let currentAuth):
             let displayingPoems = poemService.allPoems()
-                .map { poems -> [Poem] in
-                    let selected = poems.filter { poem in
-                        poem.photoId == selectedPhotoId
-                    }
-                    return selected
-                }
+                .map { poems in poemService.fetchUserLikedWriting(poems: poems, currentUser: currentAuth)}
             self.output = Output(displayingPoems: displayingPoems)
+        case .userWrote(let currentAuth):
+            let displayingPoems = poemService.allPoems()
+                .map { poems in poemService.fetchUserWriting(poem: poems, currentUser: currentAuth)}
+            self.output = Output(displayingPoems: displayingPoems)
+            
         }
         self.poemService = poemService
         self.userService = userService
@@ -53,7 +54,6 @@ class PoemListViewModel: ViewModelType {
 enum PoemListType {
     case allPoems
     case thisWeek
-    case seletedPhoto
-    //    case UserLiked
-    //    case UserWrote
+    case userLiked(CurrentAuth)
+    case userWrote(CurrentAuth)
 }
