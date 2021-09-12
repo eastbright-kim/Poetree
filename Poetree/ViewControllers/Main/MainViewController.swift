@@ -158,6 +158,7 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
         viewModel.output.displayingPoems
             .bind(to: poemTableView.rx.items(cellIdentifier: "poemCell", cellType: MainPoemTableViewCell.self)){ index, poem, cell in
                 cell.titleLabel.text = poem.title
+                cell.authorLabel.text = "by. \(poem.userPenname)"
                 cell.selectionStyle = UITableViewCell.SelectionStyle.none
             }
             .disposed(by: rx.disposeBag)
