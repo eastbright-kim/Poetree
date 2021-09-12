@@ -21,7 +21,7 @@ class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased, Vie
     
     
     var viewModel: PhotoViewModel!
-    var selectedIndexPath: IndexPath!
+    var selectedIndexPath: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +30,17 @@ class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased, Vie
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let selectedIndexPath = selectedIndexPath else {return}
+        self.photoCollectionView.scrollToItem(at: selectedIndexPath, at: .centeredHorizontally, animated: true)
+        
+    }
+    
     func configureUI(){
         collectionViewDelegate()
         noticeLabelAni()
-        
     }
     
     func setBarBtnItem() {

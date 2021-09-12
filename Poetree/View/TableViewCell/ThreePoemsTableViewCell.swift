@@ -14,5 +14,4 @@ class ThreePoemsTableViewCell: UITableViewCell {
     @IBOutlet weak var authorLabel: UILabel!
     
     
-    
 }
