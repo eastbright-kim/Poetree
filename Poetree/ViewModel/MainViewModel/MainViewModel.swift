@@ -61,11 +61,11 @@ class MainViewModel: ViewModelType {
 
             let displayingPoem = poemService.fetchPoemsByPhotoId(poems: poems, photoId: photoId).sorted { p1, p2 in
                 p1.likers.count > p2.likers.count
-            }
+            }.prefix(3)
             
-            return displayingPoem
+            return Array(displayingPoem)
         }
-        .take(3)
+        
         
         self.input = Input(selectedIndex: selectedIndex)
         
