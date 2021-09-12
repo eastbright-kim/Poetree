@@ -64,6 +64,7 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
     }
     
     private func configureUI() {
+        threePoemsTableView.tableFooterView = UIView()
         self.threePoemsTableView.delegate = self
         configureNavTab()
         allPoemsBtn.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
@@ -115,11 +116,12 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
                 
                 semiDetailVC.bind(viewModel: viewModel)
                 semiDetailVC.modalTransitionStyle = .crossDissolve
-                semiDetailVC.modalPresentationStyle = .currentContext
+                semiDetailVC.modalPresentationStyle = .custom
                 
                 self.present(semiDetailVC, animated: true, completion: nil)
             })
             .disposed(by: rx.disposeBag)
+        
         
         
         viewModel.output.lastWeekPhotos
@@ -168,6 +170,7 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
                 
                 cell.titleLabel.text = poem.title
                 cell.authorLabel.text = "by. \(poem.userPenname)"
+                cell.selectionStyle = UITableViewCell.SelectionStyle.none
             }
             .disposed(by: rx.disposeBag)
     }

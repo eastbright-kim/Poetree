@@ -294,7 +294,7 @@
         <!--Photo View Controller-->
         <scene sceneID="dLV-S8-ouR">
             <objects>
-                <viewController storyboardIdentifier="PhotoViewController" id="zrZ-A6-Ygs" customClass="PhotoViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PhotoViewController" hidesBottomBarWhenPushed="YES" id="zrZ-A6-Ygs" customClass="PhotoViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w2G-wh-FJ1">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -340,8 +340,8 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사진을 감상하신 후, 사진을 탭하면 글을 작성하실 수 있습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcO-Mb-hzE">
-                                <rect key="frame" x="32.666666666666657" y="677" width="363" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사진을 감상하신 후, 사진을 탭하면 글을 작성하실 수 있습니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcO-Mb-hzE">
+                                <rect key="frame" x="34.333333333333343" y="677" width="359.33333333333326" height="18"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -444,7 +444,7 @@
                                                                     <color key="titleColor" systemColor="systemGrayColor"/>
                                                                 </state>
                                                             </button>
-                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yww-QB-wtX">
+                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yww-QB-wtX">
                                                                 <rect key="frame" x="0.0" y="239.33333333333337" width="408" height="131"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <prototypes>
@@ -456,20 +456,20 @@
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="우리에게도 보습대일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6SH-9Y-IgR">
-                                                                                    <rect key="frame" x="30" y="20.666666666666668" width="121" height="18.000000000000004"/>
+                                                                                    <rect key="frame" x="35" y="20.666666666666668" width="121" height="18.000000000000004"/>
                                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="15"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gold-medal" translatesAutoresizingMaskIntoConstraints="NO" id="Fi7-US-76b">
-                                                                                    <rect key="frame" x="359" y="15" width="29" height="29"/>
+                                                                                    <rect key="frame" x="349" y="10" width="39" height="39"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" secondItem="Fi7-US-76b" secondAttribute="height" multiplier="1:1" id="t03-PI-Qhs"/>
                                                                                     </constraints>
                                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="14"/>
                                                                                 </imageView>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="by. author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lk5-6y-YZP">
-                                                                                    <rect key="frame" x="284.66666666666669" y="20.666666666666668" width="64.333333333333314" height="18.000000000000004"/>
+                                                                                    <rect key="frame" x="274.66666666666669" y="20.666666666666668" width="64.333333333333314" height="18.000000000000004"/>
                                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
                                                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                                                     <nil key="highlightedColor"/>
@@ -481,8 +481,8 @@
                                                                                 <constraint firstItem="Lk5-6y-YZP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6SH-9Y-IgR" secondAttribute="trailing" constant="5" id="fPv-Cw-2zq"/>
                                                                                 <constraint firstItem="Fi7-US-76b" firstAttribute="leading" secondItem="Lk5-6y-YZP" secondAttribute="trailing" constant="10" id="gxC-Dh-QkD"/>
                                                                                 <constraint firstItem="Fi7-US-76b" firstAttribute="centerY" secondItem="6SH-9Y-IgR" secondAttribute="centerY" id="i39-Mo-hxR"/>
-                                                                                <constraint firstItem="6SH-9Y-IgR" firstAttribute="leading" secondItem="acz-zj-p00" secondAttribute="leading" constant="30" id="qgS-5p-gCg"/>
-                                                                                <constraint firstItem="Fi7-US-76b" firstAttribute="top" secondItem="acz-zj-p00" secondAttribute="top" constant="15" id="qzD-Qw-rSO"/>
+                                                                                <constraint firstItem="6SH-9Y-IgR" firstAttribute="leading" secondItem="acz-zj-p00" secondAttribute="leading" constant="35" id="qgS-5p-gCg"/>
+                                                                                <constraint firstItem="Fi7-US-76b" firstAttribute="top" secondItem="acz-zj-p00" secondAttribute="top" constant="10" id="qzD-Qw-rSO"/>
                                                                                 <constraint firstItem="Lk5-6y-YZP" firstAttribute="centerY" secondItem="acz-zj-p00" secondAttribute="centerY" id="sEZ-3Y-tap"/>
                                                                             </constraints>
                                                                         </tableViewCellContentView>
@@ -509,7 +509,7 @@
                                                 </constraints>
                                             </view>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FUG-xb-Kqu">
-                                                <rect key="frame" x="10" y="459.66666666666669" width="408" height="209.33333333333331"/>
+                                                <rect key="frame" x="10" y="451.66666666666669" width="408" height="209.33333333333331"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ign-Fx-oxT">
                                                     <size key="itemSize" width="123" height="144"/>
@@ -544,7 +544,7 @@
                                                 </cells>
                                             </collectionView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wdt-lw-Fp0">
-                                                <rect key="frame" x="159" y="694" width="110" height="31"/>
+                                                <rect key="frame" x="159" y="686" width="110" height="39"/>
                                                 <color key="backgroundColor" systemColor="systemPinkColor"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
                                                 <state key="normal" title="이전 글 모두 보기">
@@ -552,7 +552,7 @@
                                                 </state>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmO-X9-wMr">
-                                                <rect key="frame" x="29.999999999999993" y="438" width="104.33333333333331" height="21.666666666666686"/>
+                                                <rect key="frame" x="29.999999999999993" y="430" width="104.33333333333331" height="21.666666666666686"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -570,7 +570,7 @@
                                             <constraint firstAttribute="height" constant="800" id="W0g-RD-puh"/>
                                             <constraint firstItem="FUG-xb-Kqu" firstAttribute="leading" secondItem="bFe-jN-32d" secondAttribute="leading" id="XK1-xX-beF"/>
                                             <constraint firstAttribute="trailing" secondItem="bFe-jN-32d" secondAttribute="trailing" constant="10" id="a5l-cv-9s9"/>
-                                            <constraint firstItem="zmO-X9-wMr" firstAttribute="top" secondItem="bFe-jN-32d" secondAttribute="bottom" constant="28" id="tJ5-kO-Ul9"/>
+                                            <constraint firstItem="zmO-X9-wMr" firstAttribute="top" secondItem="bFe-jN-32d" secondAttribute="bottom" constant="20" id="tJ5-kO-Ul9"/>
                                             <constraint firstItem="bFe-jN-32d" firstAttribute="top" secondItem="N57-R8-yb8" secondAttribute="top" constant="10" id="umh-sF-7OW"/>
                                             <constraint firstItem="FUG-xb-Kqu" firstAttribute="trailing" secondItem="bFe-jN-32d" secondAttribute="trailing" id="x3v-Dg-cdi"/>
                                         </constraints>

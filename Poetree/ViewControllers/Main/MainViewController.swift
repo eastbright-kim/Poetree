@@ -76,7 +76,6 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
     
     private func configureUI() {
         configureNavTab()
-        
         thisWeekPoemBtn.contentEdgeInsets = UIEdgeInsets(top: 3, left: 5, bottom: 3, right: 5)
         thisWeekPoemBtn.layer.cornerRadius = 3
     }
@@ -218,17 +217,15 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
             .subscribe(onNext:{ _ in
                 
                 guard let currentIndexPathItem =  self.collectionView.indexPathsForVisibleItems.first?.item else {return}
-                
                 let next = IndexPath(item: currentIndexPathItem + 1, section: 0)
-                
                 self.collectionView.scrollToItem(at: next, at: .centeredHorizontally, animated: true)
-                
                 
                 switch currentIndexPathItem {
                 
                 case 0:
                     self.photoNumberLabel.text = "#\(currentIndexPathItem + 2)"
                     self.poemForPhotoNumberLabel.setTitle("#\(currentIndexPathItem + 2) 사진에 쓴 글", for: .normal)
+                    self.leftChev.isHidden = false
                 case 1:
                     self.photoNumberLabel.text = "#\(currentIndexPathItem + 2)"
                     self.poemForPhotoNumberLabel.setTitle("#\(currentIndexPathItem + 2) 사진에 쓴 글", for: .normal)
@@ -259,6 +256,8 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
                 
                 if currentIndexPathItem == 1 {
                     self.leftChev.isHidden = true
+                    self.rightChev.isHidden = false
+                } else if currentIndexPathItem == 2 {
                     self.rightChev.isHidden = false
                 }
 
