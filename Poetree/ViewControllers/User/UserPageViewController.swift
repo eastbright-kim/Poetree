@@ -147,6 +147,89 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
             .disposed(by: rx.disposeBag)
         
         
+        self.userWritingCollectionView.rx.modelSelected(Poem.self)
+            .subscribe(onNext:{ poem in
+                
+                let viewModel = SemiDetailViewModel(poem: poem, poemService: self.viewModel.poemService, userService: self.viewModel.userService)
+                
+                var semiDetailVC = SemiDetailViewController.instantiate(storyboardID: "WritingRelated")
+                semiDetailVC.bind(viewModel: viewModel)
+                self.present(semiDetailVC, animated: true, completion: nil)
+            })
+            .disposed(by: rx.disposeBag)
+        
+        self.userWritingMoreBtn.rx.tap
+            .subscribe(onNext:{ _ in
+                
+                guard let currentUser = Auth.auth().currentUser else {return}
+                
+                let currentAuth = CurrentAuth(userEmail: currentUser.email!, userPenname: currentUser.displayName!, userUID: currentUser.uid)
+                
+                let viewModel = PoemListViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, listType: .userWrote(currentAuth))
+                var listVC = PoemListViewController.instantiate(storyboardID: "WritingRelated")
+                listVC.bind(viewModel: viewModel)
+                self.navigationController?.pushViewController(listVC, animated: true)
+            })
+            .disposed(by: rx.disposeBag)
+        
+        self.userWritingMoreBtn2.rx.tap
+            .subscribe(onNext:{ _ in
+                
+                guard let currentUser = Auth.auth().currentUser else {return}
+                
+                let currentAuth = CurrentAuth(userEmail: currentUser.email!, userPenname: currentUser.displayName!, userUID: currentUser.uid)
+                
+                let viewModel = PoemListViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, listType: .userWrote(currentAuth))
+                var listVC = PoemListViewController.instantiate(storyboardID: "WritingRelated")
+                listVC.bind(viewModel: viewModel)
+                self.navigationController?.pushViewController(listVC, animated: true)
+                
+            })
+            .disposed(by: rx.disposeBag)
+        
+        self.likedWrtingsTableView.rx.itemSelected
+            .subscribe(onNext:{ index in
+                
+                guard let currentUser = Auth.auth().currentUser else {return}
+                
+                let currentAuth = CurrentAuth(userEmail: currentUser.email!, userPenname: currentUser.displayName!, userUID: currentUser.uid)
+                
+                let viewModel = PoemListViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, listType: .userLiked(currentAuth))
+                var listVC = PoemListViewController.instantiate(storyboardID: "WritingRelated")
+                listVC.bind(viewModel: viewModel)
+                self.navigationController?.pushViewController(listVC, animated: true)
+                
+                
+            })
+            .disposed(by: rx.disposeBag)
+        
+        self.likeWritingMoreBtn.rx.tap
+            .subscribe(onNext:{ _ in
+                guard let currentUser = Auth.auth().currentUser else {return}
+                
+                let currentAuth = CurrentAuth(userEmail: currentUser.email!, userPenname: currentUser.displayName!, userUID: currentUser.uid)
+                
+                let viewModel = PoemListViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, listType: .userLiked(currentAuth))
+                var listVC = PoemListViewController.instantiate(storyboardID: "WritingRelated")
+                listVC.bind(viewModel: viewModel)
+                self.navigationController?.pushViewController(listVC, animated: true)
+                
+            })
+            .disposed(by: rx.disposeBag)
+        
+        self.likeWritingMoreBtn2.rx.tap
+            .subscribe(onNext:{ _ in
+                guard let currentUser = Auth.auth().currentUser else {return}
+                
+                let currentAuth = CurrentAuth(userEmail: currentUser.email!, userPenname: currentUser.displayName!, userUID: currentUser.uid)
+                
+                let viewModel = PoemListViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, listType: .userLiked(currentAuth))
+                var listVC = PoemListViewController.instantiate(storyboardID: "WritingRelated")
+                listVC.bind(viewModel: viewModel)
+                self.navigationController?.pushViewController(listVC, animated: true)
+                
+            })
+            .disposed(by: rx.disposeBag)
     }
     
     func greetingAni(){
