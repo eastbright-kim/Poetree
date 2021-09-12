@@ -95,6 +95,16 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
         self.navBarBtn.rx.tap
             .subscribe(onNext:{
                 
+                guard let menuVC = UIStoryboard(name: "UserRelated", bundle: nil).instantiateViewController(identifier: "SideMenuViewController") as? SideMenuViewController else {return}
+                
+                let viewModel = SideMenuViewModel(userService: self.viewModel.userService)
+                menuVC.viewModel = viewModel
+                let menu = SideMenuNavigationController(rootViewController: menuVC)
+                menu.presentationStyle = .menuSlideIn
+                
+                
+                self.present(menu, animated: true, completion: nil)
+                
             })
             .disposed(by: rx.disposeBag)
         
