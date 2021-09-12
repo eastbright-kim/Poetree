@@ -24,6 +24,10 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
     @IBOutlet weak var photoNumberLabel: UILabel!
     @IBOutlet weak var poemForPhotoNumberLabel: UIButton!
     @IBOutlet weak var thisWeekPoemBtn: UIButton!
+    @IBOutlet weak var rightChev: UIButton!
+    @IBOutlet weak var leftChev: UIButton!
+    
+    
     
     var viewModel: MainViewModel!
   
@@ -72,6 +76,9 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
     
     private func configureUI() {
         configureNavTab()
+        
+        thisWeekPoemBtn.contentEdgeInsets = UIEdgeInsets(top: 3, left: 5, bottom: 3, right: 5)
+        thisWeekPoemBtn.layer.cornerRadius = 3
     }
     
     private func configureNavTab() {
@@ -137,7 +144,7 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
                     self.photoNumberLabel.text = "#1"
                     self.poemForPhotoNumberLabel.setTitle("#1 사진에 쓴 글", for: .normal)
                     self.viewModel.input.selectedIndex.onNext(index)
-                  
+                    self.rightChev.isHidden = false
                 }
             })
             .disposed(by: rx.disposeBag)
@@ -152,6 +159,18 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
                 self.photoNumberLabel.text = "#\(visibleItemNumber! + 1)"
                 self.poemForPhotoNumberLabel.setTitle("#\(visibleItemNumber! + 1) 사진에 쓴 글", for: .normal)
                 self.viewModel.input.selectedIndex.onNext(visibleItemNumber!)
+                if visibleItemNumber == 1 {
+                    leftChev.isHidden = false
+                    rightChev.isHidden = false
+                } else if visibleItemNumber == 0 {
+                    leftChev.isHidden = true
+                    rightChev.isHidden = false
+                } else {
+                    leftChev.isHidden = false
+                    rightChev.isHidden = true
+                }
+                
+                
             })
             .disposed(by: rx.disposeBag)
         
@@ -160,6 +179,16 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
                 cell.titleLabel.text = poem.title
                 cell.authorLabel.text = "by. \(poem.userPenname)"
                 cell.selectionStyle = UITableViewCell.SelectionStyle.none
+                
+                if index == 0 {
+                    cell.favoriteBtn.isHidden = false
+                    cell.favoriteBtn.layer.cornerRadius = 8
+                    cell.favoriteBtn.contentEdgeInsets = UIEdgeInsets(top: 2, left: 4, bottom: 4, right: 2)
+                } else {
+                    cell.likeCountStackView.isHidden = false
+                    cell.likesCountLabel.text = "\(poem.likers.count)"
+                }
+                
             }
             .disposed(by: rx.disposeBag)
         
@@ -185,6 +214,72 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
                 headPhotoListVC.bind(viewModel: viewModel)
                 
                 self.present(headPhotoListVC, animated: true, completion: nil)
+            })
+            .disposed(by: rx.disposeBag)
+        
+        self.rightChev.rx.tap
+            .subscribe(onNext:{ _ in
+                
+                guard let currentIndexPathItem =  self.collectionView.indexPathsForVisibleItems.first?.item else {return}
+                
+                let next = IndexPath(item: currentIndexPathItem + 1, section: 0)
+                
+                self.collectionView.scrollToItem(at: next, at: .centeredHorizontally, animated: true)
+                
+                
+                switch currentIndexPathItem {
+                
+                case 0:
+                    self.photoNumberLabel.text = "#\(currentIndexPathItem + 2)"
+                    self.poemForPhotoNumberLabel.setTitle("#\(currentIndexPathItem + 2) 사진에 쓴 글", for: .normal)
+                case 1:
+                    self.photoNumberLabel.text = "#\(currentIndexPathItem + 2)"
+                    self.poemForPhotoNumberLabel.setTitle("#\(currentIndexPathItem + 2) 사진에 쓴 글", for: .normal)
+                    self.rightChev.isHidden = true
+                    self.leftChev.isHidden = false
+                default:
+                    break
+                }
+                
+                self.viewModel.input.selectedIndex.onNext(currentIndexPathItem + 1)
+                
+            })
+            .disposed(by: rx.disposeBag)
+        
+        self.leftChev.rx.tap
+            .subscribe(onNext:{ _ in
+                
+                guard let currentIndexPathItem =  self.collectionView.indexPathsForVisibleItems.first?.item else {return}
+                
+                let next = IndexPath(item: currentIndexPathItem - 1, section: 0)
+
+                self.collectionView.scrollToItem(at: next, at: .centeredHorizontally, animated: true)
+                
+                
+                self.photoNumberLabel.text = "#\(currentIndexPathItem)"
+                self.poemForPhotoNumberLabel.setTitle("#\(currentIndexPathItem ) 사진에 쓴 글", for: .normal)
+                
+                
+                if currentIndexPathItem == 1 {
+                    self.leftChev.isHidden = true
+                    self.rightChev.isHidden = false
+                }
+//
+//                switch currentIndexPathItem {
+//
+//                case 2:
+//                    self.photoNumberLabel.text = "#\(currentIndexPathItem)"
+//                    self.poemForPhotoNumberLabel.setTitle("#\(currentIndexPathItem ) 사진에 쓴 글", for: .normal)
+//                case 1:
+//                    self.photoNumberLabel.text = "#\(currentIndexPathItem)"
+//                    self.poemForPhotoNumberLabel.setTitle("#\(currentIndexPathItem + 2) 사진에 쓴 글", for: .normal)
+//                default:
+//                    break
+//                }
+                
+                self.viewModel.input.selectedIndex.onNext(currentIndexPathItem - 1)
+                
+                
             })
             .disposed(by: rx.disposeBag)
     }

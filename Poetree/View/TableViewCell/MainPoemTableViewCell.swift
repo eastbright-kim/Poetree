@@ -12,6 +12,9 @@ class MainPoemTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var favoriteBtn: UIButton!
+    @IBOutlet weak var likesCountLabel: UILabel!
+    @IBOutlet weak var likeCountStackView: UIStackView!
     
     
     override func awakeFromNib() {
