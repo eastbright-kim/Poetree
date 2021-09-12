@@ -57,7 +57,20 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
         configureUI()
         playVideo()
         setupBtn()
+        
+        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.tintColor = UIColor.link
+        
+    }
+    
     
     func configureUI(){
         
@@ -73,6 +86,8 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
         
         registerBtn.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
         registerBtn.layer.cornerRadius = 8
+        
+        
     }
     
     func setupBtn(){
@@ -248,6 +263,8 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
+    
+ 
     
 }
 

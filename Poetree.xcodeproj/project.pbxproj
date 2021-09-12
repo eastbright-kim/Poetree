@@ -49,6 +49,8 @@
 		DB666DC226CAAF8D00A588AC /* PhotoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB666DC126CAAF8D00A588AC /* PhotoRepository.swift */; };
 		DB666DC626CAB6FA00A588AC /* PoemListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB666DC526CAB6FA00A588AC /* PoemListTableViewCell.swift */; };
 		DB6A238426ED168F00A4BDEE /* UserWritingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A238326ED168F00A4BDEE /* UserWritingCollectionViewCell.swift */; };
+		DB6A238626ED390700A4BDEE /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A238526ED390700A4BDEE /* SideMenuTableViewCell.swift */; };
+		DB6A238826ED432000A4BDEE /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A238726ED432000A4BDEE /* SideMenuViewModel.swift */; };
 		DB7AC1ED26C2E004001A62B6 /* PoemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7AC1EC26C2E004001A62B6 /* PoemService.swift */; };
 		DB9D575E26C43E6000A86148 /* MainPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9D575D26C43E6000A86148 /* MainPhotoCollectionViewCell.swift */; };
 		DBB0B48726E8C84D008FA163 /* SemiDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB0B48626E8C84D008FA163 /* SemiDetailViewController.swift */; };
@@ -120,6 +122,8 @@
 		DB666DC126CAAF8D00A588AC /* PhotoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRepository.swift; sourceTree = "<group>"; };
 		DB666DC526CAB6FA00A588AC /* PoemListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemListTableViewCell.swift; sourceTree = "<group>"; };
 		DB6A238326ED168F00A4BDEE /* UserWritingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWritingCollectionViewCell.swift; sourceTree = "<group>"; };
+		DB6A238526ED390700A4BDEE /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
+		DB6A238726ED432000A4BDEE /* SideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
 		DB7AC1EC26C2E004001A62B6 /* PoemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemService.swift; sourceTree = "<group>"; };
 		DB9D575D26C43E6000A86148 /* MainPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		DBB0B48626E8C84D008FA163 /* SemiDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiDetailViewController.swift; sourceTree = "<group>"; };
@@ -345,6 +349,7 @@
 				DB2B4DF426DFEE3100A3F597 /* UserWritingTableViewCell.swift */,
 				DB2B4DF626DFEEAB00A3F597 /* UserLikedWritingTableViewCell.swift */,
 				DB23A1F026E9CD1D00A64CA9 /* headPhotoListTableViewCell.swift */,
+				DB6A238526ED390700A4BDEE /* SideMenuTableViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -383,6 +388,7 @@
 			children = (
 				DBFCE5E926C3AA9D00E3FC16 /* MyPoemViewModel.swift */,
 				DB048DD226C7A5C10058302C /* UserRegisterViewModel.swift */,
+				DB6A238726ED432000A4BDEE /* SideMenuViewModel.swift */,
 			);
 			path = UserRelatedViewModel;
 			sourceTree = "<group>";
@@ -612,9 +618,11 @@
 				DBCE060D26C2C8F00008EBF8 /* Protocol.swift in Sources */,
 				DB666DC026CAAF1E00A588AC /* PhotoService.swift in Sources */,
 				DBDC5A0626D794BB0066B45A /* PhotoViewCollectionViewCell.swift in Sources */,
+				DB6A238626ED390700A4BDEE /* SideMenuTableViewCell.swift in Sources */,
 				DB6A238426ED168F00A4BDEE /* UserWritingCollectionViewCell.swift in Sources */,
 				DB23A1F126E9CD1D00A64CA9 /* headPhotoListTableViewCell.swift in Sources */,
 				DBFCE5F226C3AB2B00E3FC16 /* PhotoListViewModel.swift in Sources */,
+				DB6A238826ED432000A4BDEE /* SideMenuViewModel.swift in Sources */,
 				DB3CCEB126D0F4C8005C3074 /* SideMenuViewController.swift in Sources */,
 				DB2B4DF526DFEE3100A3F597 /* UserWritingTableViewCell.swift in Sources */,
 				DB453BA026E902EF0034774A /* SemiDetailViewModel.swift in Sources */,

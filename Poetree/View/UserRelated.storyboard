@@ -18,6 +18,12 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="SJm-pz-USu">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="NO"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="dismissOnPresent" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="dismissOnPush" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="dismissWhenBackgrounded" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="q94-Zi-h99" kind="relationship" relationship="rootViewController" id="n7K-sE-acd"/>
                     </connections>
@@ -34,26 +40,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VXs-Ma-3rh">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="70" estimatedRowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VXs-Ma-3rh">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SideMenuCell" textLabel="4NG-pF-ia0" style="IBUITableViewCellStyleDefault" id="ECm-Od-hvt">
-                                        <rect key="frame" x="0.0" y="24.333333969116211" width="414" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SideMenuCell" rowHeight="70" id="ECm-Od-hvt" customClass="SideMenuTableViewCell" customModule="Poetree" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.333333969116211" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ECm-Od-hvt" id="Aoz-LL-uZU">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="회원 가입" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4NG-pF-ia0">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.666667938232422"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1IZ-U4-WHX">
+                                                    <rect key="frame" x="30" y="24" width="130.66666666666666" height="22"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회원가입 / 로그인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G09-kw-RVy">
+                                                            <rect key="frame" x="0.0" y="0.0" width="117.66666666666667" height="22"/>
+                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iqr-Yv-fR0">
+                                                            <rect key="frame" x="122.66666666666666" y="0.0" width="8" height="22"/>
+                                                            <color key="tintColor" systemColor="labelColor"/>
+                                                            <state key="normal" image="chevron.right" catalog="system">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="11"/>
+                                                            </state>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQc-bV-0vO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                                    <connections>
+                                                        <action selector="segueBtnTapped:" destination="ECm-Od-hvt" eventType="touchUpInside" id="pmX-8a-5mh"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ZQc-bV-0vO" firstAttribute="leading" secondItem="Aoz-LL-uZU" secondAttribute="leading" id="58I-W0-iTi"/>
+                                                <constraint firstAttribute="trailing" secondItem="ZQc-bV-0vO" secondAttribute="trailing" id="PMc-QX-lAx"/>
+                                                <constraint firstItem="ZQc-bV-0vO" firstAttribute="top" secondItem="Aoz-LL-uZU" secondAttribute="top" id="ReA-AG-vHu"/>
+                                                <constraint firstItem="1IZ-U4-WHX" firstAttribute="centerY" secondItem="Aoz-LL-uZU" secondAttribute="centerY" id="faZ-sa-jKm"/>
+                                                <constraint firstAttribute="bottom" secondItem="ZQc-bV-0vO" secondAttribute="bottom" id="ln0-47-SFO"/>
+                                                <constraint firstItem="1IZ-U4-WHX" firstAttribute="leading" secondItem="Aoz-LL-uZU" secondAttribute="leadingMargin" constant="10" id="pFt-Dl-COv"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="G09-kw-RVy" id="ILg-Cz-oHw"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -72,15 +105,18 @@
                     </view>
                     <navigationItem key="navigationItem" id="WPc-jf-qmp"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="menuTableView" destination="VXs-Ma-3rh" id="ckr-j8-v1m"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2cY-K1-fI3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2429" y="29"/>
+            <point key="canvasLocation" x="2428.985507246377" y="28.794642857142854"/>
         </scene>
         <!--User Register View Controller-->
         <scene sceneID="Nmd-Jf-dQX">
             <objects>
-                <viewController storyboardIdentifier="UserRegisterViewController" id="G5i-Sh-I4R" customClass="UserRegisterViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserRegisterViewController" hidesBottomBarWhenPushed="YES" id="G5i-Sh-I4R" customClass="UserRegisterViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="und-Zm-fwa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -273,7 +309,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UDV-qJ-n8f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3520" y="29"/>
+            <point key="canvasLocation" x="3518.840579710145" y="28.794642857142854"/>
         </scene>
         <!--My Poem-->
         <scene sceneID="fh9-nZ-swL">
@@ -643,6 +679,9 @@
         <image name="image2" width="564" height="1000"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
