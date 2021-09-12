@@ -193,8 +193,8 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
             switch result {
             
             case .success:
-                self.dismiss(animated: true, completion: nil)
-                
+//                self.dismiss(animated: true, completion: nil)
+                self.navigationController?.popViewController(animated: true)
             case .failure(let error):
                 
                 switch error{

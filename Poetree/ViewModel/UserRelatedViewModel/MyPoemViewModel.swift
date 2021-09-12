@@ -40,7 +40,15 @@ class MyPoemViewModel: ViewModelType {
         let userWritings = Observable.combineLatest(user, poem){
             user, poem -> [Poem] in
             
-            let userWritings = poemService.fetchUserWriting(poem: poem, currentUser: user)
+            let userWritings = poemService.fetchUserWriting(poem: poem, currentUser: user).sorted { p1, p2 in
+                p1.likers.count > p2.likers.count
+            }
+            
+            if userWritings.count == 0 {
+
+                let defaultPoem = Poem(id: "", userEmail: "", userNickname: "", title: "no writings yet", content: "", photoId: 0, uploadAt: Date(), isPrivate: false, likers: [:], photoURL: URL(string: "https://i.ibb.co/6yQ5kzm/image6.jpg")!, userUID: "")
+                return [defaultPoem]
+            }
             
             return userWritings
         }
@@ -48,7 +56,9 @@ class MyPoemViewModel: ViewModelType {
         let userLikedWritings = Observable.combineLatest(user, poem){
             user, poem -> [Poem] in
             
-            let userLikedWritings = poemService.fetchUserLikedWriting(poems: poem, currentUser: user)
+            let userLikedWritings = poemService.fetchUserLikedWriting(poems: poem, currentUser: user).sorted { p1, p2 in
+                p1.likers.count > p2.likers.count
+            }
             
             return userLikedWritings
         }
