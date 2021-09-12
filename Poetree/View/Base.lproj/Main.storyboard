@@ -84,9 +84,9 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khz-UM-wCX">
-                                                                    <rect key="frame" x="20" y="5.6666666666666679" width="42" height="33"/>
+                                                                    <rect key="frame" x="20" y="5.6666666666666679" width="102" height="33"/>
                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
-                                                                    <state key="normal" title="#1 ✏️">
+                                                                    <state key="normal" title="#1 사진에 쓴 글">
                                                                         <color key="titleColor" systemColor="labelColor"/>
                                                                     </state>
                                                                 </button>
@@ -125,27 +125,27 @@
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스며드는 것" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j40-B3-czb">
-                                                                            <rect key="frame" x="32.666666666666657" y="11.999999999999998" width="78" height="20.333333333333329"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <rect key="frame" x="32" y="11.666666666666666" width="78" height="20.666666666666671"/>
+                                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWb-Ze-uLO">
-                                                                            <rect key="frame" x="20" y="11.999999999999998" width="7.6666666666666679" height="20.333333333333329"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                            <nil key="textColor"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by. wayne" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwg-vQ-r4K">
+                                                                            <rect key="frame" x="311.66666666666669" y="13" width="62.333333333333314" height="18"/>
+                                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="15"/>
+                                                                            <color key="textColor" systemColor="systemGray2Color"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
                                                                     <constraints>
-                                                                        <constraint firstItem="hWb-Ze-uLO" firstAttribute="leading" secondItem="LYI-bj-xCv" secondAttribute="leading" constant="20" id="GF4-1J-GYC"/>
+                                                                        <constraint firstItem="j40-B3-czb" firstAttribute="leading" secondItem="LYI-bj-xCv" secondAttribute="leadingMargin" constant="12" id="Fmr-8q-CfU"/>
                                                                         <constraint firstItem="j40-B3-czb" firstAttribute="centerY" secondItem="LYI-bj-xCv" secondAttribute="centerY" id="J7x-wC-Phx"/>
-                                                                        <constraint firstItem="j40-B3-czb" firstAttribute="leading" secondItem="hWb-Ze-uLO" secondAttribute="trailing" constant="5" id="gHJ-3K-UPZ"/>
-                                                                        <constraint firstItem="hWb-Ze-uLO" firstAttribute="centerY" secondItem="LYI-bj-xCv" secondAttribute="centerY" id="zf7-jY-G3F"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="fwg-vQ-r4K" secondAttribute="trailing" constant="20" id="Suh-5L-SnU"/>
+                                                                        <constraint firstItem="fwg-vQ-r4K" firstAttribute="centerY" secondItem="j40-B3-czb" secondAttribute="centerY" id="exA-q6-lQS"/>
                                                                     </constraints>
                                                                 </tableViewCellContentView>
                                                                 <connections>
-                                                                    <outlet property="lineLabel" destination="hWb-Ze-uLO" id="o0e-SI-pfD"/>
+                                                                    <outlet property="authorLabel" destination="fwg-vQ-r4K" id="mRy-II-EM8"/>
                                                                     <outlet property="titleLabel" destination="j40-B3-czb" id="vVn-Ir-0PU"/>
                                                                 </connections>
                                                             </tableViewCell>
@@ -204,7 +204,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="moq-Jw-Pcy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-857.97101449275374" y="1622.2826086956522"/>
+            <point key="canvasLocation" x="-866" y="1580"/>
         </scene>
         <!--Photo View Controller-->
         <scene sceneID="dLV-S8-ouR">
@@ -611,6 +611,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

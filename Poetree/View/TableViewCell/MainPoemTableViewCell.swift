@@ -10,12 +10,13 @@ import UIKit
 class MainPoemTableViewCell: UITableViewCell {
 
 
-    @IBOutlet weak var lineLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
 }

@@ -58,14 +58,14 @@ class MainViewModel: ViewModelType {
         }
         
         let displayingPoems = Observable.combineLatest(poems, selectedPhotoId){ poems, photoId -> [Poem] in
-            
-            let disPlayingPoem = poems.filter { poem in
-                poem.photoId == photoId
+
+            let displayingPoem = poemService.fetchPoemsByPhotoId(poems: poems, photoId: photoId).sorted { p1, p2 in
+                p1.likers.count > p2.likers.count
             }
             
-            return disPlayingPoem
+            return displayingPoem
         }
-        
+        .take(3)
         
         self.input = Input(selectedIndex: selectedIndex)
         
