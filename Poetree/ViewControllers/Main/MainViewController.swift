@@ -111,8 +111,8 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
             .subscribe(onNext:{ _ in
                 let viewModel = PhotoViewModel(userService: self.viewModel.userService, poemService: self.viewModel.poemService, photoService: self.viewModel.photoService)
                 var photoVC = PhotoViewController.instantiate(storyboardID: "Main")
+                photoVC.selectedIndexPath = self.collectionView.indexPathsForVisibleItems.first ?? IndexPath(item: 0, section: 0)
                 photoVC.bind(viewModel: viewModel)
-                photoVC.selectedIndexPath = IndexPath(item: 0, section: 0)
                 photoVC.modalTransitionStyle = .crossDissolve
                 photoVC.modalPresentationStyle = .overFullScreen
                 self.navigationController?.navigationBar.tintColor = UIColor.systemBlue
@@ -124,8 +124,8 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
             .subscribe(onNext:{ indexPath in
                 let viewModel = PhotoViewModel(userService: self.viewModel.userService, poemService: self.viewModel.poemService, photoService: self.viewModel.photoService)
                 var photoVC = PhotoViewController.instantiate(storyboardID: "Main")
-                photoVC.bind(viewModel: viewModel)
                 photoVC.selectedIndexPath = indexPath
+                photoVC.bind(viewModel: viewModel)
                 photoVC.modalTransitionStyle = .crossDissolve
                 photoVC.modalPresentationStyle = .overFullScreen
                 self.navigationController?.navigationBar.tintColor = UIColor.systemBlue
@@ -140,7 +140,6 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
 
                 let index = cell.at.item
                 if index == 0 {
-                    print("will display cell called")
                     self.photoNumberLabel.text = "#1"
                     self.poemForPhotoNumberLabel.setTitle("#1 사진에 쓴 글", for: .normal)
                     self.viewModel.input.selectedIndex.onNext(index)
@@ -169,8 +168,6 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
                     leftChev.isHidden = false
                     rightChev.isHidden = true
                 }
-                
-                
             })
             .disposed(by: rx.disposeBag)
         
@@ -264,18 +261,7 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
                     self.leftChev.isHidden = true
                     self.rightChev.isHidden = false
                 }
-//
-//                switch currentIndexPathItem {
-//
-//                case 2:
-//                    self.photoNumberLabel.text = "#\(currentIndexPathItem)"
-//                    self.poemForPhotoNumberLabel.setTitle("#\(currentIndexPathItem ) 사진에 쓴 글", for: .normal)
-//                case 1:
-//                    self.photoNumberLabel.text = "#\(currentIndexPathItem)"
-//                    self.poemForPhotoNumberLabel.setTitle("#\(currentIndexPathItem + 2) 사진에 쓴 글", for: .normal)
-//                default:
-//                    break
-//                }
+
                 
                 self.viewModel.input.selectedIndex.onNext(currentIndexPathItem - 1)
                 

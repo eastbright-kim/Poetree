@@ -283,7 +283,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nbl-6s-iC9"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.39644102387080921" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.60001449079703018" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="QWe-7F-o13" firstAttribute="leading" secondItem="nbl-6s-iC9" secondAttribute="leading" id="2Xs-Yn-bc7"/>
                             <constraint firstItem="wEv-G2-aHK" firstAttribute="centerY" secondItem="NuD-tg-aVt" secondAttribute="centerY" id="4T4-K4-Fjr"/>
@@ -309,7 +309,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pSB-qA-Yjq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1889.7196261682243" y="246.86825053995682"/>
+            <point key="canvasLocation" x="1890" y="255"/>
         </scene>
         <!--글 쓰기-->
         <scene sceneID="oLD-Pj-MNr">

@@ -154,6 +154,8 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
                 
                 var semiDetailVC = SemiDetailViewController.instantiate(storyboardID: "WritingRelated")
                 semiDetailVC.bind(viewModel: viewModel)
+                semiDetailVC.modalPresentationStyle = .custom
+                semiDetailVC.modalTransitionStyle = .crossDissolve
                 self.present(semiDetailVC, animated: true, completion: nil)
             })
             .disposed(by: rx.disposeBag)
@@ -166,7 +168,7 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
                 let currentAuth = CurrentAuth(userEmail: currentUser.email!, userPenname: currentUser.displayName!, userUID: currentUser.uid)
                 
                 let viewModel = PoemListViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, listType: .userWrote(currentAuth))
-                var listVC = PoemListViewController.instantiate(storyboardID: "WritingRelated")
+                var listVC = PoemListViewController.instantiate(storyboardID: "ListRelated")
                 listVC.bind(viewModel: viewModel)
                 self.navigationController?.pushViewController(listVC, animated: true)
             })
@@ -180,7 +182,7 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
                 let currentAuth = CurrentAuth(userEmail: currentUser.email!, userPenname: currentUser.displayName!, userUID: currentUser.uid)
                 
                 let viewModel = PoemListViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, listType: .userWrote(currentAuth))
-                var listVC = PoemListViewController.instantiate(storyboardID: "WritingRelated")
+                var listVC = PoemListViewController.instantiate(storyboardID: "ListRelated")
                 listVC.bind(viewModel: viewModel)
                 self.navigationController?.pushViewController(listVC, animated: true)
                 
@@ -195,7 +197,7 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
                 let currentAuth = CurrentAuth(userEmail: currentUser.email!, userPenname: currentUser.displayName!, userUID: currentUser.uid)
                 
                 let viewModel = PoemListViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, listType: .userLiked(currentAuth))
-                var listVC = PoemListViewController.instantiate(storyboardID: "WritingRelated")
+                var listVC = PoemListViewController.instantiate(storyboardID: "ListRelated")
                 listVC.bind(viewModel: viewModel)
                 self.navigationController?.pushViewController(listVC, animated: true)
                 
@@ -210,7 +212,7 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
                 let currentAuth = CurrentAuth(userEmail: currentUser.email!, userPenname: currentUser.displayName!, userUID: currentUser.uid)
                 
                 let viewModel = PoemListViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, listType: .userLiked(currentAuth))
-                var listVC = PoemListViewController.instantiate(storyboardID: "WritingRelated")
+                var listVC = PoemListViewController.instantiate(storyboardID: "ListRelated")
                 listVC.bind(viewModel: viewModel)
                 self.navigationController?.pushViewController(listVC, animated: true)
                 

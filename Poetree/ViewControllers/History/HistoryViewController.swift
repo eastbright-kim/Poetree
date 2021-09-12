@@ -22,6 +22,8 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
     
     
     
+    
+    
     var viewModel: HistoryViewModel!
     
     
@@ -102,6 +104,23 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
                 self.navigationController?.pushViewController(vc, animated: true)
             })
             .disposed(by: rx.disposeBag)
+        
+        
+        threePoemsTableView.rx.modelSelected(Poem.self)
+            .subscribe(onNext: { poem in
+                
+                let viewModel = SemiDetailViewModel(poem: poem, poemService: self.viewModel.poemSevice, userService: self.viewModel.userService)
+                
+                var semiDetailVC = SemiDetailViewController.instantiate(storyboardID: "WritingRelated")
+                
+                semiDetailVC.bind(viewModel: viewModel)
+                semiDetailVC.modalTransitionStyle = .crossDissolve
+                semiDetailVC.modalPresentationStyle = .currentContext
+                
+                self.present(semiDetailVC, animated: true, completion: nil)
+            })
+            .disposed(by: rx.disposeBag)
+        
         
         viewModel.output.lastWeekPhotos
             .bind(to: lastWeekPhotoCollectionView.rx.items(cellIdentifier: "LastWeekPhotoCell", cellType: LastWeekPhotoCollectionViewCell.self)){indexPath, photos, cell in

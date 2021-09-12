@@ -116,30 +116,32 @@
                                                                         <color key="titleColor" systemColor="labelColor"/>
                                                                     </state>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hn7-JN-bKV">
-                                                                    <rect key="frame" x="286.33333333333331" y="7.6666666666666679" width="81" height="29.000000000000004"/>
-                                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="14"/>
-                                                                    <state key="normal" title="이번주 글 보기">
-                                                                        <color key="titleColor" systemColor="systemPinkColor"/>
-                                                                    </state>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdc-Gb-wT6">
-                                                                    <rect key="frame" x="367.33333333333331" y="11" width="6.6666666666666856" height="22"/>
-                                                                    <color key="tintColor" systemColor="systemPinkColor"/>
-                                                                    <state key="normal" image="chevron.right" catalog="system">
-                                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="9"/>
-                                                                    </state>
-                                                                </button>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="LGq-ke-geZ">
+                                                                    <rect key="frame" x="280.33333333333331" y="7.6666666666666679" width="93.666666666666686" height="29.000000000000004"/>
+                                                                    <subviews>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hn7-JN-bKV">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="84" height="29"/>
+                                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="14"/>
+                                                                            <state key="normal" title="이번 주 글 보기">
+                                                                                <color key="titleColor" systemColor="systemPinkColor"/>
+                                                                            </state>
+                                                                        </button>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdc-Gb-wT6">
+                                                                            <rect key="frame" x="87" y="0.0" width="6.6666666666666714" height="29"/>
+                                                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                                                            <state key="normal" image="chevron.right" catalog="system">
+                                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="9"/>
+                                                                            </state>
+                                                                        </button>
+                                                                    </subviews>
+                                                                </stackView>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
                                                                 <constraint firstItem="khz-UM-wCX" firstAttribute="leading" secondItem="RYy-pd-rKR" secondAttribute="leading" constant="20" id="3IY-C5-hX1"/>
-                                                                <constraint firstItem="hn7-JN-bKV" firstAttribute="centerY" secondItem="RYy-pd-rKR" secondAttribute="centerY" id="CKO-Qq-ekj"/>
-                                                                <constraint firstAttribute="trailing" secondItem="rdc-Gb-wT6" secondAttribute="trailing" constant="20" id="DPV-x8-6Bf"/>
+                                                                <constraint firstAttribute="trailing" secondItem="LGq-ke-geZ" secondAttribute="trailing" constant="20.000000000000057" id="3cA-S7-iqE"/>
                                                                 <constraint firstItem="khz-UM-wCX" firstAttribute="centerY" secondItem="RYy-pd-rKR" secondAttribute="centerY" id="GaZ-c3-ZtU"/>
-                                                                <constraint firstItem="rdc-Gb-wT6" firstAttribute="leading" secondItem="hn7-JN-bKV" secondAttribute="trailing" id="UYe-uy-B6J"/>
-                                                                <constraint firstItem="hn7-JN-bKV" firstAttribute="centerY" secondItem="RYy-pd-rKR" secondAttribute="centerY" id="cyS-1b-Dxo"/>
-                                                                <constraint firstItem="rdc-Gb-wT6" firstAttribute="centerY" secondItem="RYy-pd-rKR" secondAttribute="centerY" id="dfe-Ym-3iA"/>
+                                                                <constraint firstItem="LGq-ke-geZ" firstAttribute="centerY" secondItem="RYy-pd-rKR" secondAttribute="centerY" id="cLM-9S-vcp"/>
                                                             </constraints>
                                                         </view>
                                                         <prototypes>
@@ -344,8 +346,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="즐겁게 사진 감상하세요 😄" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heu-kG-8pI">
-                                <rect key="frame" x="128" y="677" width="172" height="19.666666666666629"/>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="즐겁게 사진 감상하세요 :)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heu-kG-8pI">
+                                <rect key="frame" x="133.66666666666669" y="677" width="160.66666666666669" height="19.666666666666629"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -392,13 +394,13 @@
                                                 <rect key="frame" x="10" y="10" width="408" height="400"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YvL-sR-eeB">
-                                                        <rect key="frame" x="20" y="8.0000000000000018" width="74" height="20.666666666666671"/>
-                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                        <rect key="frame" x="20" y="8.0000000000000018" width="78.333333333333329" height="21.666666666666671"/>
+                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZP9-eZ-F97">
-                                                        <rect key="frame" x="0.0" y="28.666666666666657" width="408" height="371.33333333333337"/>
+                                                        <rect key="frame" x="0.0" y="29.666666666666657" width="408" height="370.33333333333337"/>
                                                         <subviews>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="r8N-ng-bC4">
                                                                 <rect key="frame" x="0.0" y="0.0" width="408" height="209.33333333333334"/>
@@ -443,7 +445,7 @@
                                                                 </state>
                                                             </button>
                                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yww-QB-wtX">
-                                                                <rect key="frame" x="0.0" y="239.33333333333337" width="408" height="132"/>
+                                                                <rect key="frame" x="0.0" y="239.33333333333337" width="408" height="131"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <prototypes>
                                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ThreePoemsTableViewCell" rowHeight="59" id="Akp-Ht-Swo" customClass="ThreePoemsTableViewCell" customModule="Poetree" customModuleProvider="target">
@@ -507,7 +509,7 @@
                                                 </constraints>
                                             </view>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FUG-xb-Kqu">
-                                                <rect key="frame" x="10" y="458.66666666666669" width="408" height="209.33333333333331"/>
+                                                <rect key="frame" x="10" y="459.66666666666669" width="408" height="209.33333333333331"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ign-Fx-oxT">
                                                     <size key="itemSize" width="123" height="144"/>
@@ -542,7 +544,7 @@
                                                 </cells>
                                             </collectionView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wdt-lw-Fp0">
-                                                <rect key="frame" x="159" y="708" width="110" height="32"/>
+                                                <rect key="frame" x="159" y="694" width="110" height="31"/>
                                                 <color key="backgroundColor" systemColor="systemPinkColor"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
                                                 <state key="normal" title="이전 글 모두 보기">
@@ -550,8 +552,8 @@
                                                 </state>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmO-X9-wMr">
-                                                <rect key="frame" x="30.000000000000007" y="438" width="98.666666666666686" height="20.666666666666686"/>
-                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                <rect key="frame" x="29.999999999999993" y="438" width="104.33333333333331" height="21.666666666666686"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -560,11 +562,11 @@
                                         <constraints>
                                             <constraint firstItem="FUG-xb-Kqu" firstAttribute="height" secondItem="r8N-ng-bC4" secondAttribute="height" id="1fU-GP-yNv"/>
                                             <constraint firstItem="Wdt-lw-Fp0" firstAttribute="centerX" secondItem="N57-R8-yb8" secondAttribute="centerX" id="4yu-QX-8R4"/>
-                                            <constraint firstAttribute="bottom" secondItem="Wdt-lw-Fp0" secondAttribute="bottom" constant="60" id="AKV-Qn-016"/>
+                                            <constraint firstAttribute="bottom" secondItem="Wdt-lw-Fp0" secondAttribute="bottom" constant="75" id="AKV-Qn-016"/>
                                             <constraint firstItem="FUG-xb-Kqu" firstAttribute="top" secondItem="zmO-X9-wMr" secondAttribute="bottom" id="AoJ-0m-gOM"/>
                                             <constraint firstItem="zmO-X9-wMr" firstAttribute="leading" secondItem="YvL-sR-eeB" secondAttribute="leading" id="Mwy-am-uhQ"/>
                                             <constraint firstItem="bFe-jN-32d" firstAttribute="leading" secondItem="N57-R8-yb8" secondAttribute="leading" constant="10" id="OAa-kR-lUX"/>
-                                            <constraint firstItem="Wdt-lw-Fp0" firstAttribute="top" secondItem="FUG-xb-Kqu" secondAttribute="bottom" constant="40" id="Qe3-d8-Dqu"/>
+                                            <constraint firstItem="Wdt-lw-Fp0" firstAttribute="top" secondItem="FUG-xb-Kqu" secondAttribute="bottom" constant="25" id="Qe3-d8-Dqu"/>
                                             <constraint firstAttribute="height" constant="800" id="W0g-RD-puh"/>
                                             <constraint firstItem="FUG-xb-Kqu" firstAttribute="leading" secondItem="bFe-jN-32d" secondAttribute="leading" id="XK1-xX-beF"/>
                                             <constraint firstAttribute="trailing" secondItem="bFe-jN-32d" secondAttribute="trailing" constant="10" id="a5l-cv-9s9"/>
@@ -599,7 +601,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="allPhotoCollectionView" destination="FUG-xb-Kqu" id="CjM-sf-kMy"/>
-                        <outlet property="allPoemsBtn" destination="Wdt-lw-Fp0" id="DKe-pe-n7l"/>
+                        <outlet property="allPoemsBtn" destination="Wdt-lw-Fp0" id="hou-oD-ac6"/>
                         <outlet property="indexCountLabel" destination="z2l-y2-7d1" id="Pxo-7p-ghZ"/>
                         <outlet property="lastWeekPhotoCollectionView" destination="r8N-ng-bC4" id="sOF-gC-lPr"/>
                         <outlet property="threePoemsTableView" destination="yww-QB-wtX" id="FVS-cw-d44"/>
