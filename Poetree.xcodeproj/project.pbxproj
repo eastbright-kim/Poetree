@@ -1,0 +1,864 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		837DEFCB984EC8B76674524A /* Pods_Poetree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A7CB735EE61484A0C8E1AA /* Pods_Poetree.framework */; };
+		DB02496A26DE770800FC948A /* ThreePoemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB02496926DE770800FC948A /* ThreePoemsTableViewCell.swift */; };
+		DB048DCF26C7A4B80058302C /* UserRelated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB048DCE26C7A4B80058302C /* UserRelated.storyboard */; };
+		DB048DD326C7A5C10058302C /* UserRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB048DD226C7A5C10058302C /* UserRegisterViewModel.swift */; };
+		DB048DD726C7A8AF0058302C /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB048DD626C7A8AF0058302C /* UserRepository.swift */; };
+		DB048DD926C7ABC90058302C /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB048DD826C7ABC90058302C /* Result.swift */; };
+		DB0EB76E26D4C27E0039D8F6 /* shadow.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DB0EB76D26D4C27E0039D8F6 /* shadow.mp4 */; };
+		DB15716826C52720003F58FC /* PoemEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15716726C52720003F58FC /* PoemEntity.swift */; };
+		DB15716C26C5301A003F58FC /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15716B26C5301A003F58FC /* Function.swift */; };
+		DB21A25F26C16B3F0048FB17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21A25E26C16B3F0048FB17 /* AppDelegate.swift */; };
+		DB21A26126C16B3F0048FB17 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21A26026C16B3F0048FB17 /* SceneDelegate.swift */; };
+		DB21A26626C16B3F0048FB17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB21A26426C16B3F0048FB17 /* Main.storyboard */; };
+		DB21A26826C16B410048FB17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB21A26726C16B410048FB17 /* Assets.xcassets */; };
+		DB21A26B26C16B410048FB17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB21A26926C16B410048FB17 /* LaunchScreen.storyboard */; };
+		DB21A27326C1700F0048FB17 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB21A27226C1700F0048FB17 /* GoogleService-Info.plist */; };
+		DB21A27D26C174420048FB17 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21A27C26C174420048FB17 /* MainViewController.swift */; };
+		DB21A27F26C175250048FB17 /* PoetreeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = DB21A27E26C175250048FB17 /* PoetreeIcon.png */; };
+		DB21A28726C18F4D0048FB17 /* MainPoemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21A28626C18F4D0048FB17 /* MainPoemTableViewCell.swift */; };
+		DB23A1EF26E9CCE200A64CA9 /* ListWithHeadPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB23A1EE26E9CCE200A64CA9 /* ListWithHeadPhotoViewController.swift */; };
+		DB23A1F126E9CD1D00A64CA9 /* headPhotoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB23A1F026E9CD1D00A64CA9 /* headPhotoListTableViewCell.swift */; };
+		DB2B4DF526DFEE3100A3F597 /* UserWritingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B4DF426DFEE3100A3F597 /* UserWritingTableViewCell.swift */; };
+		DB2B4DF726DFEEAB00A3F597 /* UserLikedWritingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B4DF626DFEEAB00A3F597 /* UserLikedWritingTableViewCell.swift */; };
+		DB2CFD6926C2884D00130078 /* WritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2CFD6826C2884D00130078 /* WritingViewController.swift */; };
+		DB2CFD6B26C2887100130078 /* PoemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2CFD6A26C2887100130078 /* PoemListViewController.swift */; };
+		DB2DC3A826E7B0B0009D5F47 /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2DC3A726E7B0B0009D5F47 /* PhotoViewModel.swift */; };
+		DB34288D26C1CDE3007C5A6A /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34288C26C1CDE3007C5A6A /* HistoryViewController.swift */; };
+		DB34288F26C1CDF9007C5A6A /* UserPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34288E26C1CDF9007C5A6A /* UserPageViewController.swift */; };
+		DB34289126C1CEC1007C5A6A /* Poem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34289026C1CEC1007C5A6A /* Poem.swift */; };
+		DB3CCEAF26D0F45E005C3074 /* SideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3CCEAE26D0F45E005C3074 /* SideMenuNavigationController.swift */; };
+		DB3CCEB126D0F4C8005C3074 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3CCEB026D0F4C8005C3074 /* SideMenuViewController.swift */; };
+		DB407B9D26E45F3300D7DF41 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB407B9C26E45F3300D7DF41 /* User.swift */; };
+		DB453BA026E902EF0034774A /* SemiDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB453B9F26E902EF0034774A /* SemiDetailViewModel.swift */; };
+		DB53ADAA26C3E53400FAA8B8 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53ADA926C3E53400FAA8B8 /* DummyData.swift */; };
+		DB54BD3926D4E63700711295 /* UserRegisterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB54BD3826D4E63700711295 /* UserRegisterRepository.swift */; };
+		DB59877D26DE175F00EDF72C /* LastWeekPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB59877C26DE175F00EDF72C /* LastWeekPhotoCollectionViewCell.swift */; };
+		DB5C351626D10E0600275863 /* UserRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C351526D10E0600275863 /* UserRegisterViewController.swift */; };
+		DB657B7926D94A7F005C33A8 /* HistoryPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB657B7826D94A7F005C33A8 /* HistoryPhotoCollectionViewCell.swift */; };
+		DB666DBE26CA907600A588AC /* FirebaseReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB666DBD26CA907600A588AC /* FirebaseReference.swift */; };
+		DB666DC026CAAF1E00A588AC /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB666DBF26CAAF1E00A588AC /* PhotoService.swift */; };
+		DB666DC226CAAF8D00A588AC /* PhotoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB666DC126CAAF8D00A588AC /* PhotoRepository.swift */; };
+		DB666DC626CAB6FA00A588AC /* PoemListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB666DC526CAB6FA00A588AC /* PoemListTableViewCell.swift */; };
+		DB6A238426ED168F00A4BDEE /* UserWritingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A238326ED168F00A4BDEE /* UserWritingCollectionViewCell.swift */; };
+		DB6A238626ED390700A4BDEE /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A238526ED390700A4BDEE /* SideMenuTableViewCell.swift */; };
+		DB6A238826ED432000A4BDEE /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A238726ED432000A4BDEE /* SideMenuViewModel.swift */; };
+		DB7AC1ED26C2E004001A62B6 /* PoemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7AC1EC26C2E004001A62B6 /* PoemService.swift */; };
+		DB9D575E26C43E6000A86148 /* MainPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9D575D26C43E6000A86148 /* MainPhotoCollectionViewCell.swift */; };
+		DBB0B48726E8C84D008FA163 /* SemiDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB0B48626E8C84D008FA163 /* SemiDetailViewController.swift */; };
+		DBCE060326C2A8CA0008EBF8 /* PoemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE060226C2A8CA0008EBF8 /* PoemDetailViewController.swift */; };
+		DBCE060526C2A8FB0008EBF8 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE060426C2A8FB0008EBF8 /* PhotoCollectionViewController.swift */; };
+		DBCE060A26C2ACEE0008EBF8 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE060926C2ACEE0008EBF8 /* MainViewModel.swift */; };
+		DBCE060D26C2C8F00008EBF8 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE060C26C2C8F00008EBF8 /* Protocol.swift */; };
+		DBCE061126C2D2430008EBF8 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE061026C2D2430008EBF8 /* Constant.swift */; };
+		DBD5CFC826DFA37500BDEBDA /* CurrentAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5CFC726DFA37500BDEBDA /* CurrentAuth.swift */; };
+		DBD6ABC026E9FB9600EE01E2 /* HeadPhotoWithListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6ABBF26E9FB9600EE01E2 /* HeadPhotoWithListViewModel.swift */; };
+		DBDC59FD26D790270066B45A /* WritingRelated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBDC59FC26D790270066B45A /* WritingRelated.storyboard */; };
+		DBDC59FF26D790DC0066B45A /* ListRelated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBDC59FE26D790DC0066B45A /* ListRelated.storyboard */; };
+		DBDC5A0426D793D40066B45A /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC5A0326D793D40066B45A /* PhotoViewController.swift */; };
+		DBDC5A0626D794BB0066B45A /* PhotoViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC5A0526D794BB0066B45A /* PhotoViewCollectionViewCell.swift */; };
+		DBF1E25926D18D60006474C8 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF1E25826D18D60006474C8 /* UserService.swift */; };
+		DBFCE5E826C3AA8400E3FC16 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5E726C3AA8400E3FC16 /* HistoryViewModel.swift */; };
+		DBFCE5EA26C3AA9D00E3FC16 /* MyPoemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5E926C3AA9D00E3FC16 /* MyPoemViewModel.swift */; };
+		DBFCE5EC26C3AAFA00E3FC16 /* WriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5EB26C3AAFA00E3FC16 /* WriteViewModel.swift */; };
+		DBFCE5EE26C3AB0B00E3FC16 /* PoemListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5ED26C3AB0B00E3FC16 /* PoemListViewModel.swift */; };
+		DBFCE5F026C3AB1A00E3FC16 /* PoemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5EF26C3AB1A00E3FC16 /* PoemDetailViewModel.swift */; };
+		DBFCE5F226C3AB2B00E3FC16 /* PhotoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5F126C3AB2B00E3FC16 /* PhotoListViewModel.swift */; };
+		DBFCE5F426C3AF7300E3FC16 /* PoemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5F326C3AF7300E3FC16 /* PoemRepository.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1ACB32708FFD3EB56C965507 /* Pods-Poetree.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poetree.release.xcconfig"; path = "Target Support Files/Pods-Poetree/Pods-Poetree.release.xcconfig"; sourceTree = "<group>"; };
+		1F25C0A03A4253B5E0F2D913 /* Pods-Poetree.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poetree.debug.xcconfig"; path = "Target Support Files/Pods-Poetree/Pods-Poetree.debug.xcconfig"; sourceTree = "<group>"; };
+		71A7CB735EE61484A0C8E1AA /* Pods_Poetree.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Poetree.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB02496926DE770800FC948A /* ThreePoemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreePoemsTableViewCell.swift; sourceTree = "<group>"; };
+		DB048DCE26C7A4B80058302C /* UserRelated.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserRelated.storyboard; sourceTree = "<group>"; };
+		DB048DD226C7A5C10058302C /* UserRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterViewModel.swift; sourceTree = "<group>"; };
+		DB048DD626C7A8AF0058302C /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		DB048DD826C7ABC90058302C /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		DB0EB76D26D4C27E0039D8F6 /* shadow.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = shadow.mp4; sourceTree = "<group>"; };
+		DB15716726C52720003F58FC /* PoemEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemEntity.swift; sourceTree = "<group>"; };
+		DB15716B26C5301A003F58FC /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
+		DB21A25B26C16B3F0048FB17 /* Poetree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poetree.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB21A25E26C16B3F0048FB17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DB21A26026C16B3F0048FB17 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		DB21A26526C16B3F0048FB17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DB21A26726C16B410048FB17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DB21A26A26C16B410048FB17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DB21A26C26C16B410048FB17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB21A27226C1700F0048FB17 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DB21A27C26C174420048FB17 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		DB21A27E26C175250048FB17 /* PoetreeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PoetreeIcon.png; sourceTree = "<group>"; };
+		DB21A28626C18F4D0048FB17 /* MainPoemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPoemTableViewCell.swift; sourceTree = "<group>"; };
+		DB23A1EE26E9CCE200A64CA9 /* ListWithHeadPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWithHeadPhotoViewController.swift; sourceTree = "<group>"; };
+		DB23A1F026E9CD1D00A64CA9 /* headPhotoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = headPhotoListTableViewCell.swift; sourceTree = "<group>"; };
+		DB2B4DF426DFEE3100A3F597 /* UserWritingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWritingTableViewCell.swift; sourceTree = "<group>"; };
+		DB2B4DF626DFEEAB00A3F597 /* UserLikedWritingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLikedWritingTableViewCell.swift; sourceTree = "<group>"; };
+		DB2CFD6826C2884D00130078 /* WritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewController.swift; sourceTree = "<group>"; };
+		DB2CFD6A26C2887100130078 /* PoemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemListViewController.swift; sourceTree = "<group>"; };
+		DB2DC3A726E7B0B0009D5F47 /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
+		DB34288C26C1CDE3007C5A6A /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		DB34288E26C1CDF9007C5A6A /* UserPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageViewController.swift; sourceTree = "<group>"; };
+		DB34289026C1CEC1007C5A6A /* Poem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poem.swift; sourceTree = "<group>"; };
+		DB3CCEAE26D0F45E005C3074 /* SideMenuNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuNavigationController.swift; sourceTree = "<group>"; };
+		DB3CCEB026D0F4C8005C3074 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		DB407B9C26E45F3300D7DF41 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DB453B9F26E902EF0034774A /* SemiDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiDetailViewModel.swift; sourceTree = "<group>"; };
+		DB53ADA926C3E53400FAA8B8 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
+		DB54BD3826D4E63700711295 /* UserRegisterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterRepository.swift; sourceTree = "<group>"; };
+		DB59877C26DE175F00EDF72C /* LastWeekPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastWeekPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		DB5C351526D10E0600275863 /* UserRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterViewController.swift; sourceTree = "<group>"; };
+		DB657B7826D94A7F005C33A8 /* HistoryPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		DB666DBD26CA907600A588AC /* FirebaseReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseReference.swift; sourceTree = "<group>"; };
+		DB666DBF26CAAF1E00A588AC /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
+		DB666DC126CAAF8D00A588AC /* PhotoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRepository.swift; sourceTree = "<group>"; };
+		DB666DC526CAB6FA00A588AC /* PoemListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemListTableViewCell.swift; sourceTree = "<group>"; };
+		DB6A238326ED168F00A4BDEE /* UserWritingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWritingCollectionViewCell.swift; sourceTree = "<group>"; };
+		DB6A238526ED390700A4BDEE /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
+		DB6A238726ED432000A4BDEE /* SideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
+		DB7AC1EC26C2E004001A62B6 /* PoemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemService.swift; sourceTree = "<group>"; };
+		DB9D575D26C43E6000A86148 /* MainPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		DBB0B48626E8C84D008FA163 /* SemiDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiDetailViewController.swift; sourceTree = "<group>"; };
+		DBCE060226C2A8CA0008EBF8 /* PoemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemDetailViewController.swift; sourceTree = "<group>"; };
+		DBCE060426C2A8FB0008EBF8 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
+		DBCE060926C2ACEE0008EBF8 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		DBCE060C26C2C8F00008EBF8 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
+		DBCE061026C2D2430008EBF8 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		DBD5CFC726DFA37500BDEBDA /* CurrentAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentAuth.swift; sourceTree = "<group>"; };
+		DBD6ABBF26E9FB9600EE01E2 /* HeadPhotoWithListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadPhotoWithListViewModel.swift; sourceTree = "<group>"; };
+		DBDC59FC26D790270066B45A /* WritingRelated.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WritingRelated.storyboard; sourceTree = "<group>"; };
+		DBDC59FE26D790DC0066B45A /* ListRelated.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListRelated.storyboard; sourceTree = "<group>"; };
+		DBDC5A0326D793D40066B45A /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		DBDC5A0526D794BB0066B45A /* PhotoViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewCollectionViewCell.swift; sourceTree = "<group>"; };
+		DBE1DBDC26D1EFEC00D263C8 /* Poetree.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Poetree.entitlements; sourceTree = "<group>"; };
+		DBF1E25826D18D60006474C8 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		DBFCE5E726C3AA8400E3FC16 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		DBFCE5E926C3AA9D00E3FC16 /* MyPoemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoemViewModel.swift; sourceTree = "<group>"; };
+		DBFCE5EB26C3AAFA00E3FC16 /* WriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewModel.swift; sourceTree = "<group>"; };
+		DBFCE5ED26C3AB0B00E3FC16 /* PoemListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemListViewModel.swift; sourceTree = "<group>"; };
+		DBFCE5EF26C3AB1A00E3FC16 /* PoemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemDetailViewModel.swift; sourceTree = "<group>"; };
+		DBFCE5F126C3AB2B00E3FC16 /* PhotoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewModel.swift; sourceTree = "<group>"; };
+		DBFCE5F326C3AF7300E3FC16 /* PoemRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemRepository.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DB21A25826C16B3F0048FB17 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				837DEFCB984EC8B76674524A /* Pods_Poetree.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9CF1D9FB11581F5EF328A32F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				71A7CB735EE61484A0C8E1AA /* Pods_Poetree.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C71350AC3118F16B6F26FFE5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1F25C0A03A4253B5E0F2D913 /* Pods-Poetree.debug.xcconfig */,
+				1ACB32708FFD3EB56C965507 /* Pods-Poetree.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DB21A25226C16B3F0048FB17 = {
+			isa = PBXGroup;
+			children = (
+				DB21A25D26C16B3F0048FB17 /* Poetree */,
+				DB21A25C26C16B3F0048FB17 /* Products */,
+				C71350AC3118F16B6F26FFE5 /* Pods */,
+				9CF1D9FB11581F5EF328A32F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DB21A25C26C16B3F0048FB17 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DB21A25B26C16B3F0048FB17 /* Poetree.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DB21A25D26C16B3F0048FB17 /* Poetree */ = {
+			isa = PBXGroup;
+			children = (
+				DBE1DBDC26D1EFEC00D263C8 /* Poetree.entitlements */,
+				DB21A27526C173920048FB17 /* Resources */,
+				DB21A27826C173C80048FB17 /* Entity */,
+				DB21A27A26C173D40048FB17 /* Repository */,
+				DB21A27926C173D00048FB17 /* Model */,
+				DB21A27B26C173E20048FB17 /* Service */,
+				DB21A27726C173C00048FB17 /* ViewModel */,
+				DB21A27626C173AF0048FB17 /* ViewControllers */,
+				DB21A27426C1736C0048FB17 /* View */,
+				DB21A25E26C16B3F0048FB17 /* AppDelegate.swift */,
+				DB21A26026C16B3F0048FB17 /* SceneDelegate.swift */,
+				DB21A26C26C16B410048FB17 /* Info.plist */,
+				DB21A27226C1700F0048FB17 /* GoogleService-Info.plist */,
+			);
+			path = Poetree;
+			sourceTree = "<group>";
+		};
+		DB21A27426C1736C0048FB17 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DBDC5A0026D791F90066B45A /* LaunchScreen */,
+				DB666DC426CAB68700A588AC /* CollectionViewCell */,
+				DB666DC326CAB65800A588AC /* TableViewCell */,
+				DB21A26426C16B3F0048FB17 /* Main.storyboard */,
+				DB048DCE26C7A4B80058302C /* UserRelated.storyboard */,
+				DBDC59FC26D790270066B45A /* WritingRelated.storyboard */,
+				DBDC59FE26D790DC0066B45A /* ListRelated.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DB21A27526C173920048FB17 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DBAFED0026C8376A00D96C46 /* Depreacated */,
+				DBCE060B26C2C8E40008EBF8 /* API */,
+				DB21A27E26C175250048FB17 /* PoetreeIcon.png */,
+				DB21A26726C16B410048FB17 /* Assets.xcassets */,
+				DB0EB76D26D4C27E0039D8F6 /* shadow.mp4 */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DB21A27626C173AF0048FB17 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DBDC5A0226D793A90066B45A /* WritingRelated */,
+				DBDC5A0126D793930066B45A /* ListRelated */,
+				DBCE060726C2A99A0008EBF8 /* History */,
+				DBCE060626C2A9890008EBF8 /* Main */,
+				DBCE060826C2A9A30008EBF8 /* User */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DB21A27726C173C00048FB17 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DBC2848326CA560E000D2E8B /* PoemListViewModel */,
+				DBC2848226CA55F4000D2E8B /* HistoryViewModel */,
+				DBC2848126CA55D2000D2E8B /* UserRelatedViewModel */,
+				DBC2848026CA55BF000D2E8B /* MainViewModel */,
+				DBFCE5EB26C3AAFA00E3FC16 /* WriteViewModel.swift */,
+				DB453BA126E903110034774A /* DetailViewModel */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DB21A27826C173C80048FB17 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				DB15716726C52720003F58FC /* PoemEntity.swift */,
+				DB407B9C26E45F3300D7DF41 /* User.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		DB21A27926C173D00048FB17 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DB34289026C1CEC1007C5A6A /* Poem.swift */,
+				DBD5CFC726DFA37500BDEBDA /* CurrentAuth.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DB21A27A26C173D40048FB17 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				DBFCE5F326C3AF7300E3FC16 /* PoemRepository.swift */,
+				DB666DC126CAAF8D00A588AC /* PhotoRepository.swift */,
+				DB54BD3826D4E63700711295 /* UserRegisterRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		DB21A27B26C173E20048FB17 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				DB53ADA826C3E52700FAA8B8 /* DummyData */,
+				DB7AC1EC26C2E004001A62B6 /* PoemService.swift */,
+				DB666DBF26CAAF1E00A588AC /* PhotoService.swift */,
+				DBF1E25826D18D60006474C8 /* UserService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		DB453BA126E903110034774A /* DetailViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DB453B9F26E902EF0034774A /* SemiDetailViewModel.swift */,
+				DBFCE5EF26C3AB1A00E3FC16 /* PoemDetailViewModel.swift */,
+			);
+			path = DetailViewModel;
+			sourceTree = "<group>";
+		};
+		DB53ADA826C3E52700FAA8B8 /* DummyData */ = {
+			isa = PBXGroup;
+			children = (
+				DB53ADA926C3E53400FAA8B8 /* DummyData.swift */,
+			);
+			path = DummyData;
+			sourceTree = "<group>";
+		};
+		DB5C351126D10C3200275863 /* SideMenuLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				DB3CCEAE26D0F45E005C3074 /* SideMenuNavigationController.swift */,
+				DB3CCEB026D0F4C8005C3074 /* SideMenuViewController.swift */,
+			);
+			path = SideMenuLibrary;
+			sourceTree = "<group>";
+		};
+		DB5C351426D10DD600275863 /* RegisterPages */ = {
+			isa = PBXGroup;
+			children = (
+				DB5C351526D10E0600275863 /* UserRegisterViewController.swift */,
+			);
+			path = RegisterPages;
+			sourceTree = "<group>";
+		};
+		DB666DC326CAB65800A588AC /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				DB21A28626C18F4D0048FB17 /* MainPoemTableViewCell.swift */,
+				DB666DC526CAB6FA00A588AC /* PoemListTableViewCell.swift */,
+				DB02496926DE770800FC948A /* ThreePoemsTableViewCell.swift */,
+				DB2B4DF426DFEE3100A3F597 /* UserWritingTableViewCell.swift */,
+				DB2B4DF626DFEEAB00A3F597 /* UserLikedWritingTableViewCell.swift */,
+				DB23A1F026E9CD1D00A64CA9 /* headPhotoListTableViewCell.swift */,
+				DB6A238526ED390700A4BDEE /* SideMenuTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		DB666DC426CAB68700A588AC /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				DB9D575D26C43E6000A86148 /* MainPhotoCollectionViewCell.swift */,
+				DBDC5A0526D794BB0066B45A /* PhotoViewCollectionViewCell.swift */,
+				DB657B7826D94A7F005C33A8 /* HistoryPhotoCollectionViewCell.swift */,
+				DB59877C26DE175F00EDF72C /* LastWeekPhotoCollectionViewCell.swift */,
+				DB6A238326ED168F00A4BDEE /* UserWritingCollectionViewCell.swift */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		DBAFED0026C8376A00D96C46 /* Depreacated */ = {
+			isa = PBXGroup;
+			children = (
+				DB048DD626C7A8AF0058302C /* UserRepository.swift */,
+			);
+			path = Depreacated;
+			sourceTree = "<group>";
+		};
+		DBC2848026CA55BF000D2E8B /* MainViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DBCE060926C2ACEE0008EBF8 /* MainViewModel.swift */,
+				DB2DC3A726E7B0B0009D5F47 /* PhotoViewModel.swift */,
+			);
+			path = MainViewModel;
+			sourceTree = "<group>";
+		};
+		DBC2848126CA55D2000D2E8B /* UserRelatedViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DBFCE5E926C3AA9D00E3FC16 /* MyPoemViewModel.swift */,
+				DB048DD226C7A5C10058302C /* UserRegisterViewModel.swift */,
+				DB6A238726ED432000A4BDEE /* SideMenuViewModel.swift */,
+			);
+			path = UserRelatedViewModel;
+			sourceTree = "<group>";
+		};
+		DBC2848226CA55F4000D2E8B /* HistoryViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DBFCE5E726C3AA8400E3FC16 /* HistoryViewModel.swift */,
+			);
+			path = HistoryViewModel;
+			sourceTree = "<group>";
+		};
+		DBC2848326CA560E000D2E8B /* PoemListViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DBFCE5F126C3AB2B00E3FC16 /* PhotoListViewModel.swift */,
+				DBFCE5ED26C3AB0B00E3FC16 /* PoemListViewModel.swift */,
+				DBD6ABBF26E9FB9600EE01E2 /* HeadPhotoWithListViewModel.swift */,
+			);
+			path = PoemListViewModel;
+			sourceTree = "<group>";
+		};
+		DBCE060626C2A9890008EBF8 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DB21A27C26C174420048FB17 /* MainViewController.swift */,
+				DBDC5A0326D793D40066B45A /* PhotoViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		DBCE060726C2A99A0008EBF8 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				DB34288C26C1CDE3007C5A6A /* HistoryViewController.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		DBCE060826C2A9A30008EBF8 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				DB5C351426D10DD600275863 /* RegisterPages */,
+				DB5C351126D10C3200275863 /* SideMenuLibrary */,
+				DB34288E26C1CDF9007C5A6A /* UserPageViewController.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		DBCE060B26C2C8E40008EBF8 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				DBCE060C26C2C8F00008EBF8 /* Protocol.swift */,
+				DBCE061026C2D2430008EBF8 /* Constant.swift */,
+				DB15716B26C5301A003F58FC /* Function.swift */,
+				DB048DD826C7ABC90058302C /* Result.swift */,
+				DB666DBD26CA907600A588AC /* FirebaseReference.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		DBDC5A0026D791F90066B45A /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DB21A26926C16B410048FB17 /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		DBDC5A0126D793930066B45A /* ListRelated */ = {
+			isa = PBXGroup;
+			children = (
+				DBCE060426C2A8FB0008EBF8 /* PhotoCollectionViewController.swift */,
+				DB2CFD6A26C2887100130078 /* PoemListViewController.swift */,
+				DB23A1EE26E9CCE200A64CA9 /* ListWithHeadPhotoViewController.swift */,
+			);
+			path = ListRelated;
+			sourceTree = "<group>";
+		};
+		DBDC5A0226D793A90066B45A /* WritingRelated */ = {
+			isa = PBXGroup;
+			children = (
+				DB2CFD6826C2884D00130078 /* WritingViewController.swift */,
+				DBCE060226C2A8CA0008EBF8 /* PoemDetailViewController.swift */,
+				DBB0B48626E8C84D008FA163 /* SemiDetailViewController.swift */,
+			);
+			path = WritingRelated;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DB21A25A26C16B3F0048FB17 /* Poetree */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB21A26F26C16B410048FB17 /* Build configuration list for PBXNativeTarget "Poetree" */;
+			buildPhases = (
+				64A7D46F33153F2E7B4EE0E7 /* [CP] Check Pods Manifest.lock */,
+				DB21A25726C16B3F0048FB17 /* Sources */,
+				DB21A25826C16B3F0048FB17 /* Frameworks */,
+				DB21A25926C16B3F0048FB17 /* Resources */,
+				C940C75E0558FB75EF9F9FF6 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Poetree;
+			productName = Poetree;
+			productReference = DB21A25B26C16B3F0048FB17 /* Poetree.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DB21A25326C16B3F0048FB17 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					DB21A25A26C16B3F0048FB17 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+				};
+			};
+			buildConfigurationList = DB21A25626C16B3F0048FB17 /* Build configuration list for PBXProject "Poetree" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DB21A25226C16B3F0048FB17;
+			productRefGroup = DB21A25C26C16B3F0048FB17 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DB21A25A26C16B3F0048FB17 /* Poetree */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DB21A25926C16B3F0048FB17 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB048DCF26C7A4B80058302C /* UserRelated.storyboard in Resources */,
+				DB21A26B26C16B410048FB17 /* LaunchScreen.storyboard in Resources */,
+				DB21A27326C1700F0048FB17 /* GoogleService-Info.plist in Resources */,
+				DBDC59FF26D790DC0066B45A /* ListRelated.storyboard in Resources */,
+				DB21A26826C16B410048FB17 /* Assets.xcassets in Resources */,
+				DB0EB76E26D4C27E0039D8F6 /* shadow.mp4 in Resources */,
+				DBDC59FD26D790270066B45A /* WritingRelated.storyboard in Resources */,
+				DB21A27F26C175250048FB17 /* PoetreeIcon.png in Resources */,
+				DB21A26626C16B3F0048FB17 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		64A7D46F33153F2E7B4EE0E7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Poetree-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C940C75E0558FB75EF9F9FF6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Poetree/Pods-Poetree-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Poetree/Pods-Poetree-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Poetree/Pods-Poetree-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DB21A25726C16B3F0048FB17 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBFCE5E826C3AA8400E3FC16 /* HistoryViewModel.swift in Sources */,
+				DB7AC1ED26C2E004001A62B6 /* PoemService.swift in Sources */,
+				DB407B9D26E45F3300D7DF41 /* User.swift in Sources */,
+				DBD5CFC826DFA37500BDEBDA /* CurrentAuth.swift in Sources */,
+				DBFCE5EC26C3AAFA00E3FC16 /* WriteViewModel.swift in Sources */,
+				DB9D575E26C43E6000A86148 /* MainPhotoCollectionViewCell.swift in Sources */,
+				DB34289126C1CEC1007C5A6A /* Poem.swift in Sources */,
+				DBFCE5EE26C3AB0B00E3FC16 /* PoemListViewModel.swift in Sources */,
+				DB2CFD6B26C2887100130078 /* PoemListViewController.swift in Sources */,
+				DBCE061126C2D2430008EBF8 /* Constant.swift in Sources */,
+				DB048DD326C7A5C10058302C /* UserRegisterViewModel.swift in Sources */,
+				DB53ADAA26C3E53400FAA8B8 /* DummyData.swift in Sources */,
+				DB5C351626D10E0600275863 /* UserRegisterViewController.swift in Sources */,
+				DB2CFD6926C2884D00130078 /* WritingViewController.swift in Sources */,
+				DBFCE5F026C3AB1A00E3FC16 /* PoemDetailViewModel.swift in Sources */,
+				DB59877D26DE175F00EDF72C /* LastWeekPhotoCollectionViewCell.swift in Sources */,
+				DBFCE5EA26C3AA9D00E3FC16 /* MyPoemViewModel.swift in Sources */,
+				DBCE060D26C2C8F00008EBF8 /* Protocol.swift in Sources */,
+				DB666DC026CAAF1E00A588AC /* PhotoService.swift in Sources */,
+				DBDC5A0626D794BB0066B45A /* PhotoViewCollectionViewCell.swift in Sources */,
+				DB6A238626ED390700A4BDEE /* SideMenuTableViewCell.swift in Sources */,
+				DB6A238426ED168F00A4BDEE /* UserWritingCollectionViewCell.swift in Sources */,
+				DB23A1F126E9CD1D00A64CA9 /* headPhotoListTableViewCell.swift in Sources */,
+				DBFCE5F226C3AB2B00E3FC16 /* PhotoListViewModel.swift in Sources */,
+				DB6A238826ED432000A4BDEE /* SideMenuViewModel.swift in Sources */,
+				DB3CCEB126D0F4C8005C3074 /* SideMenuViewController.swift in Sources */,
+				DB2B4DF526DFEE3100A3F597 /* UserWritingTableViewCell.swift in Sources */,
+				DB453BA026E902EF0034774A /* SemiDetailViewModel.swift in Sources */,
+				DBB0B48726E8C84D008FA163 /* SemiDetailViewController.swift in Sources */,
+				DB02496A26DE770800FC948A /* ThreePoemsTableViewCell.swift in Sources */,
+				DB34288F26C1CDF9007C5A6A /* UserPageViewController.swift in Sources */,
+				DB666DBE26CA907600A588AC /* FirebaseReference.swift in Sources */,
+				DB048DD926C7ABC90058302C /* Result.swift in Sources */,
+				DB54BD3926D4E63700711295 /* UserRegisterRepository.swift in Sources */,
+				DB048DD726C7A8AF0058302C /* UserRepository.swift in Sources */,
+				DB21A27D26C174420048FB17 /* MainViewController.swift in Sources */,
+				DB666DC226CAAF8D00A588AC /* PhotoRepository.swift in Sources */,
+				DBCE060A26C2ACEE0008EBF8 /* MainViewModel.swift in Sources */,
+				DBD6ABC026E9FB9600EE01E2 /* HeadPhotoWithListViewModel.swift in Sources */,
+				DBFCE5F426C3AF7300E3FC16 /* PoemRepository.swift in Sources */,
+				DB21A25F26C16B3F0048FB17 /* AppDelegate.swift in Sources */,
+				DBCE060526C2A8FB0008EBF8 /* PhotoCollectionViewController.swift in Sources */,
+				DB666DC626CAB6FA00A588AC /* PoemListTableViewCell.swift in Sources */,
+				DB15716826C52720003F58FC /* PoemEntity.swift in Sources */,
+				DB2DC3A826E7B0B0009D5F47 /* PhotoViewModel.swift in Sources */,
+				DB15716C26C5301A003F58FC /* Function.swift in Sources */,
+				DBF1E25926D18D60006474C8 /* UserService.swift in Sources */,
+				DB21A26126C16B3F0048FB17 /* SceneDelegate.swift in Sources */,
+				DB23A1EF26E9CCE200A64CA9 /* ListWithHeadPhotoViewController.swift in Sources */,
+				DB2B4DF726DFEEAB00A3F597 /* UserLikedWritingTableViewCell.swift in Sources */,
+				DB34288D26C1CDE3007C5A6A /* HistoryViewController.swift in Sources */,
+				DBCE060326C2A8CA0008EBF8 /* PoemDetailViewController.swift in Sources */,
+				DB3CCEAF26D0F45E005C3074 /* SideMenuNavigationController.swift in Sources */,
+				DB21A28726C18F4D0048FB17 /* MainPoemTableViewCell.swift in Sources */,
+				DBDC5A0426D793D40066B45A /* PhotoViewController.swift in Sources */,
+				DB657B7926D94A7F005C33A8 /* HistoryPhotoCollectionViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DB21A26426C16B3F0048FB17 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DB21A26526C16B3F0048FB17 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DB21A26926C16B410048FB17 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DB21A26A26C16B410048FB17 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DB21A26D26C16B410048FB17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DB21A26E26C16B410048FB17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DB21A27026C16B410048FB17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F25C0A03A4253B5E0F2D913 /* Pods-Poetree.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Poetree/Poetree.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5YP67MDYBC;
+				INFOPLIST_FILE = Poetree/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kimhwan.Poetree;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DB21A27126C16B410048FB17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1ACB32708FFD3EB56C965507 /* Pods-Poetree.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Poetree/Poetree.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5YP67MDYBC;
+				INFOPLIST_FILE = Poetree/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kimhwan.Poetree;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DB21A25626C16B3F0048FB17 /* Build configuration list for PBXProject "Poetree" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB21A26D26C16B410048FB17 /* Debug */,
+				DB21A26E26C16B410048FB17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB21A26F26C16B410048FB17 /* Build configuration list for PBXNativeTarget "Poetree" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB21A27026C16B410048FB17 /* Debug */,
+				DB21A27126C16B410048FB17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DB21A25326C16B3F0048FB17 /* Project object */;
+}
