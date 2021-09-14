@@ -334,7 +334,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="제목을 입력하세요" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rvQ-yJ-m5S">
                                                 <rect key="frame" x="20" y="470" width="388" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User123님이 8월 10일 밤에 보내는 글" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGQ-hi-UTQ">
                                                 <rect key="frame" x="140" y="532.33333333333337" width="268" height="22"/>
@@ -345,15 +345,6 @@
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kQR-Li-RPL">
                                                 <rect key="frame" x="20" y="586.33333333333348" width="388" height="547.66666666666652"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <string key="text">꽃게가 간장 속에
-반쯤 몸을 담그고 엎드려 있다
-등판에는 간장이 울컥울컥 쏟아질 때
-꽃게는 뱃속의 알을 껴안으려고
-꿈틀거리다가 더 낮게
-더 바닥쪽으로 웅크렸으리라
-버둥거렸으리라 버둥거리다가
-어찌할 수 없어서
-</string>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -412,6 +403,7 @@
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="tGQ-hi-UTQ" firstAttribute="top" secondItem="rvQ-yJ-m5S" secondAttribute="bottom" constant="29.333333333333314" id="3tH-lZ-SWy"/>
                                             <constraint firstItem="kQR-Li-RPL" firstAttribute="top" secondItem="tGQ-hi-UTQ" secondAttribute="bottom" constant="32" id="4OT-uh-xNu"/>
@@ -458,6 +450,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <size key="freeformSize" width="428" height="1400"/>
                     <connections>
+                        <outlet property="backScrollView" destination="0JF-8G-ir6" id="Rve-o2-tTM"/>
                         <outlet property="contentTextView" destination="kQR-Li-RPL" id="RC9-mN-pnm"/>
                         <outlet property="editComplete" destination="bEC-K2-45A" id="YKz-Ku-lQR"/>
                         <outlet property="privateChechBtn" destination="Q43-UZ-22H" id="Uum-Zw-ckb"/>

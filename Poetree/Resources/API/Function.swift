@@ -60,6 +60,45 @@ func getMonday(myDate: Date) -> Date {
     return mondayInWeek
 }
 
+
+struct BadWords: Codable {
+    var badwords: [String]
+}
+
+func loadBadWordsFromJson() -> [String] {
+    if let path = Bundle.main.path(forResource: "badwords", ofType: "json") {
+        do {
+            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+            do {
+                let badwordsModel = try JSONDecoder().decode(BadWords.self, from: data)
+                return badwordsModel.badwords
+            }
+            catch {
+                print("decode error")
+                return []
+            }
+        }
+        catch {
+            print("path error")
+            return []
+        }
+    } else {
+        print("path nil")
+        return []
+    }
+}
+
+func checkBadWords(content: String) -> Bool {
+    let badwords = loadBadWordsFromJson()
+    for badword in badwords {
+        if content.contains(badword) {
+            return true
+        }
+    }
+    return false
+}
+
+
 import CryptoKit
 
 // Unhashed nonce.

@@ -42,16 +42,15 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
         
         self.pennameLabel.alpha = 0
         self.greetingLabel.alpha = 0
-        
         greetingAni()
-        
+        self.navigationController?.navigationBar.tintColor = UIColor.black
     }
     
     private func configureUI() {
         configureNavTab()
         makeShadow()
         likedWrtingsTableView.tableFooterView = UIView()
-        self.navigationController?.navigationBar.tintColor = UIColor.black
+        
     }
     
     func setGreetingView(){
@@ -121,18 +120,22 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
             .bind(to: self.userWritingCollectionView.rx.items(cellIdentifier: "UserWritingCollectionViewCell", cellType: UserWritingCollectionViewCell.self)){
                 indexPath, poem, cell in
                 
-                //좋아요 순으로 되어야함
                 cell.imageView.kf.setImage(with: poem.photoURL)
                 cell.titleLabel.text = poem.title
                 cell.dateLabel.text = convertDateToString(format: "yyyy MMM d", date: poem.uploadAt)
                 
                 switch indexPath {
                 case 0:
+                    if poem.userUID == "noUID" {
+                        cell.isUserInteractionEnabled = false
+                    }
+                    
                     cell.likeStatusBtn.isHidden = false
                     cell.likeStackView.isHidden = true
                     cell.likeStatusBtn.contentEdgeInsets = UIEdgeInsets(top: 2, left: 4, bottom: 2, right: 4)
                     cell.likeStatusBtn.setTitle("Most favorite", for: .normal)
                     cell.likeStatusBtn.layer.cornerRadius = 8
+                    
                 case 1:
                     cell.likeStackView.isHidden = false
                     cell.likeStatusBtn.isHidden = true

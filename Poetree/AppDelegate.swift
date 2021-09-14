@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import GoogleSignIn
 import FBSDKCoreKit
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,6 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = UIColor.white
         UINavigationBar.appearance().tintColor = UIColor.black
         
+        do{
+        let realm = try Realm()
+        } catch {
+            print("Realm error \(error)")
+        }
         
         
         return true

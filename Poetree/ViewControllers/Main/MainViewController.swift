@@ -143,6 +143,9 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
                     self.poemForPhotoNumberLabel.setTitle("#1 사진에 쓴 글", for: .normal)
                     self.viewModel.input.selectedIndex.onNext(index)
                     self.rightChev.isHidden = false
+                    self.leftChev.isHidden = true
+                } else if index == 2 {
+                    self.rightChev.isHidden = true
                 }
             })
             .disposed(by: rx.disposeBag)
