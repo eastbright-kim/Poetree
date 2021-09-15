@@ -4,6 +4,7 @@ PODS:
     - AppAuth/ExternalUserAgent (= 1.4.0)
   - AppAuth/Core (1.4.0)
   - AppAuth/ExternalUserAgent (1.4.0)
+  - BulletinBoard (5.0.0)
   - Differentiator (5.0.0)
   - FBAEMKit (11.1.0):
     - FBAEMKit/AEM (= 11.1.0)
@@ -102,6 +103,7 @@ PODS:
   - Toast-Swift (5.0.1)
 
 DEPENDENCIES:
+  - BulletinBoard
   - FBSDKLoginKit
   - Firebase/Auth
   - Firebase/Database
@@ -119,6 +121,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - AppAuth
+    - BulletinBoard
     - Differentiator
     - FBAEMKit
     - FBSDKCoreKit
@@ -150,6 +153,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
+  BulletinBoard: dba77053c2a7b64953f63073f7534165af2edd21
   Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
   FBAEMKit: 5c8a8d08e5b2c79628490784883e0fcc75b12615
   FBSDKCoreKit: 7ccb8b4bb2b5ee2ad94327b774dc23f03509675d
@@ -179,6 +183,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: b157b8eca4ce2922c32789db3522024b314c836d
+PODFILE CHECKSUM: 80d61dd69cf335007fd55a779c3117cf71782a64
 
 COCOAPODS: 1.10.0

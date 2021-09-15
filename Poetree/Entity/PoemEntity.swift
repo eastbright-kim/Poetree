@@ -20,6 +20,7 @@ struct PoemEntity {
     var likers: [String:Bool]
     let photoURL: String
     let userUID: String
+    var isTemp: Bool
   
     init(poemDic: [String:Any]) {
         self.title = poemDic["title"] as? String ?? ""
@@ -30,9 +31,10 @@ struct PoemEntity {
         self.uploadAt = poemDic["uploadAt"] as? String ?? ""
         self.id = poemDic["id"] as? String ?? ""
         self.photoId = poemDic["photoId"] as? Int ?? 0
-        self.isPrivate = poemDic["isPublic"] as? Bool ?? true
+        self.isPrivate = poemDic["isPrivate"] as? Bool ?? false
         self.likers = poemDic["likers"] as? [String:Bool] ?? [:]
         self.userUID = poemDic["userUID"] as? String ?? ""
+        self.isTemp = poemDic["isTemp"] as? Bool ?? false
     }
 }
 

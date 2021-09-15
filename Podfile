@@ -19,5 +19,6 @@ target 'Poetree' do
   pod 'FBSDKLoginKit'
   pod 'Toast-Swift', '~> 5.0.1'
   pod 'RxKeyboard'
+  pod 'BulletinBoard'
 
 end

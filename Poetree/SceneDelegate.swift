@@ -53,8 +53,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 let likers = poemEntity.likers
                 let photoURL = URL(string: poemEntity.photoURL)!
                 let userUID = currentUser?.uid ?? "no login"
+                let isTemp = poemEntity.isTemp
                 
-                let poem = Poem(id: id, userEmail: userEmail, userNickname: userNickname, title: title, content: content, photoId: photoId, uploadAt: uploadAt, isPrivate: isPrivate, likers: likers, photoURL: photoURL, userUID: userUID)
+                let poem = Poem(id: id, userEmail: userEmail, userNickname: userNickname, title: title, content: content, photoId: photoId, uploadAt: uploadAt, isPrivate: isPrivate, likers: likers, photoURL: photoURL, userUID: userUID, isTemp: isTemp)
                 
                 uidDicts[userUID]?.append(poem)
                 
