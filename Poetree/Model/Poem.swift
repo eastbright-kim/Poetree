@@ -22,8 +22,9 @@ class Poem: Equatable, Identifiable {
     let photoURL: URL
     var isLike: Bool = false
     let userUID: String
+    var isTemporarySaved: Bool
     
-    init(id: String, userEmail: String, userNickname: String, title: String, content: String, photoId: Int, uploadAt: Date, isPrivate: Bool, likers: [String:Bool], photoURL: URL, userUID: String) {
+    init(id: String, userEmail: String, userNickname: String, title: String, content: String, photoId: Int, uploadAt: Date, isPrivate: Bool, likers: [String:Bool], photoURL: URL, userUID: String, isTemporarySaved: Bool) {
         self.id = id
         self.userEmail = userEmail
         self.userPenname = userNickname
@@ -36,6 +37,7 @@ class Poem: Equatable, Identifiable {
         self.photoURL = photoURL
         self.userUID = userUID
         self.isLike = likers[userUID] ?? false
+        self.isTemporarySaved = isTemporarySaved
     }
     static func == (lhs: Poem, rhs: Poem) -> Bool {
         return true

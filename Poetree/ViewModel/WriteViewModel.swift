@@ -20,7 +20,7 @@ class WriteViewModel: ViewModelType {
         let title: BehaviorSubject<String>
         let content: BehaviorSubject<String>
         var isPrivate: BehaviorSubject<Bool>
-    
+        var isTemporarySaved: BehaviorSubject<Bool>
     }
     
     struct Output {
@@ -41,24 +41,24 @@ class WriteViewModel: ViewModelType {
         let content = BehaviorSubject<String>(value: "")
         let isPrivate = BehaviorSubject<Bool>(value: false)
         let currentUser = userService.loggedInUser()
+        let isTemporarySaved = BehaviorSubject<Bool>(value: false)
         
-        
-        let aPoem = Observable<Poem>.combineLatest(title, content, isPrivate, currentUser) { title, content, isPrivate, currentAuth in
+        let aPoem = Observable<Poem>.combineLatest(title, content, isPrivate, currentUser, isTemporarySaved) { title, content, isPrivate, currentAuth, isTemporarySaved in
       
             switch writingType {
             
             case .write(let weekPhoto):
                 
-                return Poem(id: UUID().uuidString, userEmail: currentAuth.userEmail, userNickname: currentAuth.userPenname, title: title, content: content, photoId: weekPhoto.id, uploadAt: Date(), isPrivate: isPrivate, likers: [:], photoURL: weekPhoto.url, userUID: currentAuth.userUID)
+                return Poem(id: UUID().uuidString, userEmail: currentAuth.userEmail, userNickname: currentAuth.userPenname, title: title, content: content, photoId: weekPhoto.id, uploadAt: Date(), isPrivate: isPrivate, likers: [:], photoURL: weekPhoto.url, userUID: currentAuth.userUID, isTemporarySaved: isTemporarySaved)
                 
             case .edit(let editingPoem):
                 
-                return Poem(id: editingPoem.id, userEmail: currentAuth.userEmail, userNickname: currentAuth.userPenname, title: title, content: content, photoId: editingPoem.photoId, uploadAt: editingPoem.uploadAt, isPrivate: isPrivate, likers: [:], photoURL: editingPoem.photoURL, userUID: currentAuth.userUID)
+                return Poem(id: editingPoem.id, userEmail: currentAuth.userEmail, userNickname: currentAuth.userPenname, title: title, content: content, photoId: editingPoem.photoId, uploadAt: editingPoem.uploadAt, isPrivate: isPrivate, likers: [:], photoURL: editingPoem.photoURL, userUID: currentAuth.userUID, isTemporarySaved: isTemporarySaved)
             
             }
         }
         
-        self.input = Input(title: title, content: content, isPrivate: isPrivate)
+        self.input = Input(title: title, content: content, isPrivate: isPrivate, isTemporarySaved: isTemporarySaved)
         self.output = Output(aPoem: aPoem, writingType: writingType, editingPoem: editingPoem)
         
     }

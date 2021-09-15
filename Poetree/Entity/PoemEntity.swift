@@ -20,6 +20,7 @@ struct PoemEntity {
     var likers: [String:Bool]
     let photoURL: String
     let userUID: String
+    var isTemporarySaved: Bool
   
     init(poemDic: [String:Any]) {
         self.title = poemDic["title"] as? String ?? ""
@@ -33,6 +34,7 @@ struct PoemEntity {
         self.isPrivate = poemDic["isPublic"] as? Bool ?? true
         self.likers = poemDic["likers"] as? [String:Bool] ?? [:]
         self.userUID = poemDic["userUID"] as? String ?? ""
+        self.isTemporarySaved = poemDic["isTemporarySaved"] as? Bool ?? false
     }
 }
 

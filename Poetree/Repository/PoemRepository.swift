@@ -29,7 +29,8 @@ class PoemRepository {
             "isPrivate": poemModel.isPrivate,
             "likers": [:],
             "photoURL": poemModel.photoURL.absoluteString,
-            "userUID": poemModel.userUID
+            "userUID": poemModel.userUID,
+            "isTemporarySaved": poemModel.isTemporarySaved
         ]
         poemRef.child(poemModel.userUID).child(poemModel.id).setValue(poemDic)
         completion(.success(.writedPoem))
