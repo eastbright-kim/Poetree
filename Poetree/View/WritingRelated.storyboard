@@ -458,6 +458,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <size key="freeformSize" width="428" height="1400"/>
                     <connections>
+                        <outlet property="backScrollView" destination="0JF-8G-ir6" id="cNv-x8-gVP"/>
                         <outlet property="contentTextView" destination="kQR-Li-RPL" id="RC9-mN-pnm"/>
                         <outlet property="editComplete" destination="bEC-K2-45A" id="YKz-Ku-lQR"/>
                         <outlet property="privateChechBtn" destination="Q43-UZ-22H" id="Uum-Zw-ckb"/>

@@ -18,4 +18,6 @@ target 'Poetree' do
   pod 'SideMenu'
   pod 'FBSDKLoginKit'
   pod 'Toast-Swift', '~> 5.0.1'
+  pod 'RxKeyboard'
+
 end

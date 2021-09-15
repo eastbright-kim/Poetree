@@ -91,6 +91,9 @@ PODS:
     - Differentiator (~> 5.0)
     - RxCocoa (~> 6.0)
     - RxSwift (~> 6.0)
+  - RxKeyboard (2.0.0):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
   - RxRelay (6.2.0):
     - RxSwift (= 6.2.0)
   - RxSwift (6.2.0)
@@ -107,6 +110,7 @@ DEPENDENCIES:
   - "NSObject+Rx"
   - RxCocoa
   - RxDataSources
+  - RxKeyboard
   - RxSwift
   - SideMenu
   - SwiftyJSON (~> 4.0)
@@ -137,6 +141,7 @@ SPEC REPOS:
     - PromisesObjC
     - RxCocoa
     - RxDataSources
+    - RxKeyboard
     - RxRelay
     - RxSwift
     - SideMenu
@@ -167,12 +172,13 @@ SPEC CHECKSUMS:
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
+  RxKeyboard: 4f5863f43b4ff0cbb2a20b94688d6b80c8a43c14
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: fb2915808d471bff55cdbe9852f863399feeb2c6
+PODFILE CHECKSUM: b157b8eca4ce2922c32789db3522024b314c836d
 
 COCOAPODS: 1.10.0

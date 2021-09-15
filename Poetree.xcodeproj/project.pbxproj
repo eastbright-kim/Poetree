@@ -32,6 +32,7 @@
 		DB2CFD6926C2884D00130078 /* WritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2CFD6826C2884D00130078 /* WritingViewController.swift */; };
 		DB2CFD6B26C2887100130078 /* PoemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2CFD6A26C2887100130078 /* PoemListViewController.swift */; };
 		DB2DC3A826E7B0B0009D5F47 /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2DC3A726E7B0B0009D5F47 /* PhotoViewModel.swift */; };
+		DB2F53CA26F1FC90007FD1EC /* badwords.json in Resources */ = {isa = PBXBuildFile; fileRef = DB2F53C926F1FC90007FD1EC /* badwords.json */; };
 		DB34288D26C1CDE3007C5A6A /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34288C26C1CDE3007C5A6A /* HistoryViewController.swift */; };
 		DB34288F26C1CDF9007C5A6A /* UserPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34288E26C1CDF9007C5A6A /* UserPageViewController.swift */; };
 		DB34289126C1CEC1007C5A6A /* Poem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34289026C1CEC1007C5A6A /* Poem.swift */; };
@@ -105,6 +106,7 @@
 		DB2CFD6826C2884D00130078 /* WritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewController.swift; sourceTree = "<group>"; };
 		DB2CFD6A26C2887100130078 /* PoemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemListViewController.swift; sourceTree = "<group>"; };
 		DB2DC3A726E7B0B0009D5F47 /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
+		DB2F53C926F1FC90007FD1EC /* badwords.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = badwords.json; sourceTree = "<group>"; };
 		DB34288C26C1CDE3007C5A6A /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		DB34288E26C1CDF9007C5A6A /* UserPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageViewController.swift; sourceTree = "<group>"; };
 		DB34289026C1CEC1007C5A6A /* Poem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poem.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				DBCE060B26C2C8E40008EBF8 /* API */,
 				DB21A27E26C175250048FB17 /* PoetreeIcon.png */,
 				DB21A26726C16B410048FB17 /* Assets.xcassets */,
+				DB2F53C926F1FC90007FD1EC /* badwords.json */,
 				DB0EB76D26D4C27E0039D8F6 /* shadow.mp4 */,
 			);
 			path = Resources;
@@ -542,6 +545,7 @@
 				DB21A27326C1700F0048FB17 /* GoogleService-Info.plist in Resources */,
 				DBDC59FF26D790DC0066B45A /* ListRelated.storyboard in Resources */,
 				DB21A26826C16B410048FB17 /* Assets.xcassets in Resources */,
+				DB2F53CA26F1FC90007FD1EC /* badwords.json in Resources */,
 				DB0EB76E26D4C27E0039D8F6 /* shadow.mp4 in Resources */,
 				DBDC59FD26D790270066B45A /* WritingRelated.storyboard in Resources */,
 				DB21A27F26C175250048FB17 /* PoetreeIcon.png in Resources */,
