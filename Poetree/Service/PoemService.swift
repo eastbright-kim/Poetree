@@ -200,4 +200,19 @@ class PoemService {
             self.poemRepository.likeCancel(poem: poem, user: user)
         }
     }
+    
+    func tempCreate(poem: Poem, completion: @escaping ((String) -> Void)) {
+       
+        poem.isTemp = true
+        self.poemRepository.createPoem(poemModel: poem) { result in
+            switch result {
+            case .success(let s):
+                self.poems.append(poem)
+                self.poemsStore.onNext(self.poems)
+                completion(s.rawValue)
+            case .failure(let e):
+                completion(e.localizedDescription)
+            }
+        }
+    }
 }
