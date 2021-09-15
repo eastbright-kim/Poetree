@@ -136,7 +136,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
         
         if checkBadWords(content: self.contentTextView.text){
                    
-                   let alert = UIAlertController(title: "이상 내용 감지", message: "창작의 자유를 존중하지만, 정책상 비속어 게시가 불가합니다", preferredStyle: .alert)
+                   let alert = UIAlertController(title: "이상 내용 감지", message: "창작의 자유를 존중하지만\n정책상 비속어 게시가 불가합니다", preferredStyle: .alert)
                    let action = UIAlertAction(title: "확인", style: .default)
                    
                    alert.addAction(action)
