@@ -27,6 +27,8 @@ class PoemService {
     }
     
     func createPoem(poem: Poem, completion: @escaping ((String) -> Void)) {
+        
+        poem.isTemp = false
         poemRepository.createPoem(poemModel: poem) { result in
             switch result {
             case .success(let s):
@@ -215,4 +217,20 @@ class PoemService {
             }
         }
     }
+    
+    func editTemp(poem: Poem, completion: @escaping ((String) -> Void)) {
+
+        self.poemRepository.editPoemFromTemp(poemModel: poem) { result in
+            switch result {
+            case .success(let s):
+                guard let index = self.poems.firstIndex(of: poem) else { return }
+                self.poems[index] = poem
+                self.poemsStore.onNext(self.poems)
+                completion(s.rawValue)
+            case .failure(let e):
+                completion(e.localizedDescription)
+            }
+        }
+    }
+    
 }

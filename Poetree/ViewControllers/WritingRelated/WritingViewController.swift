@@ -47,8 +47,13 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
         item.descriptionText = "이 글을 임시 저장 하시겠습니까?"
         item.actionButtonTitle = "저장"
         item.alternativeButtonTitle = "삭제"
-        
-        
+        item.actionHandler = { _ in
+            self.saveTempFromTemp()
+        }
+        item.alternativeHandler = { _ in
+            self.deletePoem()
+            
+        }
         
         return BLTNItemManager(rootItem: item)
     }()
@@ -155,7 +160,6 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
             .map{[unowned self] in self.isPrvate}
             .bind(to: viewModel.input.isPrivate)
             .disposed(by: rx.disposeBag)
-        
     }
     
     @IBAction func sendPoemTapped(_ sender: UIButton) {
@@ -170,21 +174,76 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
             return
         }
         
-        viewModel.output.aPoem
-            .take(1)
-            .observe(on: ConcurrentDispatchQueueScheduler.init(queue: DispatchQueue.global()))
-            .subscribe(onNext: {[unowned self] aPoem in
+        if self.titleTextField.text!.isEmpty && self.contentTextView.text.isEmpty {
+            
+            let alert = UIAlertController(title: "이상 내용 감지", message: "공백의 글은 게시할 수 없습니다", preferredStyle: .alert)
+            let action = UIAlertAction(title: "확인", style: .default)
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        if self.isPrvate == false {
+            
+            let alert = UIAlertController(title: "공개하는 글", message: "Poetree가 모두에게 소중한 공간이 될 수 있도록 협조해주세요 :)", preferredStyle: .alert)
+            
+            let writeAction = UIAlertAction(title: "확인", style: .default) { action in
                 
-                self.viewModel.poemService.createPoem(poem: aPoem) { result in
-                    print(result)
-                }
-                DispatchQueue.main.async {
-                    self.navigationController?.popToRootViewController(animated: true)
-                    
-                }
-            })
-            .disposed(by: rx.disposeBag)
+                self.viewModel.output.aPoem
+                    .take(1)
+                    .observe(on: ConcurrentDispatchQueueScheduler.init(queue: DispatchQueue.global()))
+                    .subscribe(onNext: {[weak self] aPoem in
+                        
+                        guard let self = self else {return}
+                        
+                        self.viewModel.poemService.createPoem(poem: aPoem) { result in
+                            print(result)
+                        }
+                        DispatchQueue.main.async {
+                            self.navigationController?.popToRootViewController(animated: true)
+                        }
+                    })
+                    .disposed(by: self.rx.disposeBag)
+            }
+            
+            let cancelAction = UIAlertAction(title: "취소", style: .cancel) { action in
+                return
+            }
+            
+            alert.addAction(writeAction)
+            alert.addAction(cancelAction)
+            self.present(alert, animated: true, completion: nil)
+            
+        } else {
+            
+            let alert = UIAlertController(title: "글 쓰기", message: "글을 공개하지 않고 보관합니다", preferredStyle: .alert)
+            let writeAction = UIAlertAction(title: "확인", style: .default) { action in
+                self.viewModel.output.aPoem
+                    .take(1)
+                    .observe(on: ConcurrentDispatchQueueScheduler.init(queue: DispatchQueue.global()))
+                    .subscribe(onNext: {[weak self] aPoem in
+                        
+                        guard let self = self else {return}
+                        
+                        self.viewModel.poemService.createPoem(poem: aPoem) { result in
+                            print(result)
+                        }
+                        DispatchQueue.main.async {
+                            self.navigationController?.popToRootViewController(animated: true)
+                            
+                        }
+                    })
+                    .disposed(by: self.rx.disposeBag)
+            }
+            let cancelAction = UIAlertAction(title: "취소", style: .cancel) { action in
+                return
+            }
+            alert.addAction(writeAction)
+            alert.addAction(cancelAction)
+            self.present(alert, animated: true, completion: nil)
+        }
     }
+    
     
     @IBAction func editCompleteTapped(_ sender: UIButton) {
         
@@ -198,21 +257,82 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
             return
         }
         
-        viewModel.output.aPoem
-            .take(1)
-            .subscribe(onNext:{ [weak self] poem in
+        if self.titleTextField.text!.isEmpty && self.contentTextView.text.isEmpty {
+            
+            let alert = UIAlertController(title: "이상 내용 감지", message: "공백의 글은 게시할 수 없습니다", preferredStyle: .alert)
+            let action = UIAlertAction(title: "확인", style: .default)
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+            
+        }
+        
+        if self.isPrvate == false {
+            
+            let alert = UIAlertController(title: "공개하는 글", message: "Poetree가 모두에게 소중한 공간이 될 수 있도록 협조해주세요 :)", preferredStyle: .alert)
+            
+            let writeAction = UIAlertAction(title: "확인", style: .default) { action in
                 
-                guard let self = self, let editingPoem = self.viewModel.output.editingPoem else {return}
-                self.viewModel.poemService.editPoem(beforeEdited: editingPoem, editedPoem: poem) { result in
-                    print(result)
-                }
-                
-                self.navigationController?.popViewController(animated: true)
-                guard let detailVC = self.navigationController?.topViewController as? PoemDetailViewController else {return}
-                detailVC.currentPoem = poem
-                
-            })
-            .disposed(by: rx.disposeBag)
+                self.viewModel.output.aPoem
+                    .take(1)
+                    .observe(on: ConcurrentDispatchQueueScheduler.init(queue: DispatchQueue.global()))
+                    .subscribe(onNext: {[weak self] editedPoem in
+                        
+                        guard let self = self, let editingPoem = self.viewModel.output.editingPoem else {return}
+                        
+                        self.viewModel.poemService.editPoem(beforeEdited: editingPoem, editedPoem: editedPoem) { result in
+                            print(result)
+                            
+                            DispatchQueue.main.async {
+                                self.navigationController?.popViewController(animated: true)
+                                guard let detailVC = self.navigationController?.topViewController as? PoemDetailViewController else {return}
+                                detailVC.currentPoem = editedPoem
+                            }
+                        }
+                    })
+                    .disposed(by: self.rx.disposeBag)
+            }
+            
+            let cancelAction = UIAlertAction(title: "취소", style: .cancel) { action in
+                return
+            }
+            
+            alert.addAction(writeAction)
+            alert.addAction(cancelAction)
+            self.present(alert, animated: true, completion: nil)
+            
+        } else {
+            
+            let alert = UIAlertController(title: "글 쓰기", message: "글을 공개하지 않고 보관합니다", preferredStyle: .alert)
+            let writeAction = UIAlertAction(title: "확인", style: .default) { action in
+                self.viewModel.output.aPoem
+                    .take(1)
+                    .observe(on: ConcurrentDispatchQueueScheduler.init(queue: DispatchQueue.global()))
+                    .subscribe(onNext: {[weak self] editedPoem in
+                        
+                        guard let self = self, let editingPoem = self.viewModel.output.editingPoem else {return}
+                        
+                        self.viewModel.poemService.editPoem(beforeEdited: editingPoem, editedPoem: editedPoem) { result in
+                            print(result)
+                            DispatchQueue.main.async {
+                                self.navigationController?.popViewController(animated: true)
+                                guard let detailVC = self.navigationController?.topViewController as? PoemDetailViewController else {return}
+                                detailVC.currentPoem = editedPoem
+                            }
+                        }
+                        
+                    })
+                    .disposed(by: self.rx.disposeBag)
+            }
+            let cancelAction = UIAlertAction(title: "취소", style: .cancel) { action in
+                return
+            }
+            alert.addAction(writeAction)
+            alert.addAction(cancelAction)
+            self.present(alert, animated: true, completion: nil)
+        }
+        
     }
     
     @IBAction func tempSaveBtnTapped(_ sender: UIBarButtonItem) {
@@ -265,11 +385,45 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
     
     func saveTempFromTemp(){
         
+        self.tempManager.dismissBulletin(animated: true)
         
+        viewModel.output.aPoem
+            .take(1)
+            .observe(on: ConcurrentDispatchQueueScheduler(queue: DispatchQueue.global()))
+            .subscribe(onNext:{ savingPoem in
+                self.viewModel.poemService.editTemp(poem: savingPoem) { result in
+                    print(result)
+                    DispatchQueue.main.async {
+                        self.view.makeToast("임시 저장 완료", duration: 1, position: .center)
+                    }
+                }
+            })
+            .disposed(by: rx.disposeBag)
         
     }
     
     func deletePoem(){
+        self.tempManager.dismissBulletin(animated: true)
+        
+        let alert = UIAlertController(title: "삭제", message: "이 글을 삭제하시겠습니까?", preferredStyle: .alert)
+        let deleteAction = UIAlertAction(title: "삭제", style: .destructive) { [weak self] action in
+            
+            guard let self = self else {return}
+            
+            self.viewModel.output.aPoem
+                .take(1)
+                .observe(on: ConcurrentDispatchQueueScheduler(queue: DispatchQueue.global()))
+                .subscribe(onNext:{ deletingPoem in
+                    self.viewModel.poemService.deletePoem(deletingPoem: deletingPoem)
+                })
+                .disposed(by: self.rx.disposeBag)
+            
+        }
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
         
     }
     

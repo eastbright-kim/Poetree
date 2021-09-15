@@ -95,6 +95,26 @@ class PoemRepository {
         }
     }
     
-    
+    func editPoemFromTemp(poemModel: Poem, completion: @escaping ((Result<Complete, Error>) -> Void)) {
+        
+        let currentUser = Auth.auth().currentUser
+        
+        let poemDic: [String:Any] = [
+            "id" : poemModel.id as Any,
+            "userEmail": currentUser!.email as Any,
+            "userPenname": currentUser!.displayName as Any,
+            "title": poemModel.title,
+            "content": poemModel.content,
+            "photoId": poemModel.photoId,
+            "uploadAt": convertDateToString(format: "yyyy MMM d", date: poemModel.uploadAt),
+            "isPrivate": poemModel.isPrivate,
+            "likers": [:],
+            "photoURL": poemModel.photoURL.absoluteString,
+            "userUID": poemModel.userUID,
+            "isTemp": poemModel.isTemp
+        ]
+        poemRef.child(poemModel.userUID).child(poemModel.id).setValue(poemDic)
+        completion(.success(.writedPoem))
+    }
     
 }

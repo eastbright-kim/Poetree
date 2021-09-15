@@ -65,19 +65,6 @@ class WriteViewModel: ViewModelType {
     }
     
     
-    func createPoem(poem: Poem) {
-        poemService.createPoem(poem: poem) { result in
-            print(result)
-        }
-    }
-    
-    func editPoem(beforeEdited: Poem, editedPoem: Poem) {
-        
-        poemService.editPoem(beforeEdited: beforeEdited, editedPoem: editedPoem) { result in
-            
-            print(result)
-        }
-    }
     
 }
 

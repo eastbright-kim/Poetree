@@ -40,7 +40,7 @@ class Poem: Equatable, Identifiable {
         self.isTemp = isTemp
     }
     static func == (lhs: Poem, rhs: Poem) -> Bool {
-        return true
+        return lhs.id == rhs.id
     }
 }
 
