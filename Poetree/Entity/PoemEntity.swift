@@ -38,15 +38,3 @@ struct PoemEntity {
     }
 }
 
-struct PhotoEntity {
-    let date: String
-    let photoId: Int
-    let imageURL: String
-    
-    init(photoDic: [String: Any]) {
-        self.date = photoDic["date"] as? String ?? ""
-        self.photoId = photoDic["id"] as? Int ?? 0
-        self.imageURL = photoDic["url"] as? String ?? ""
-    }
-    
-}

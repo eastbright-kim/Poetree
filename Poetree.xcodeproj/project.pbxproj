@@ -13,6 +13,7 @@
 		DB048DD326C7A5C10058302C /* UserRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB048DD226C7A5C10058302C /* UserRegisterViewModel.swift */; };
 		DB048DD726C7A8AF0058302C /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB048DD626C7A8AF0058302C /* UserRepository.swift */; };
 		DB048DD926C7ABC90058302C /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB048DD826C7ABC90058302C /* Result.swift */; };
+		DB0B4D6926F3913000E2F05F /* PhotoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0B4D6826F3913000E2F05F /* PhotoEntity.swift */; };
 		DB0EB76E26D4C27E0039D8F6 /* shadow.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DB0EB76D26D4C27E0039D8F6 /* shadow.mp4 */; };
 		DB15716826C52720003F58FC /* PoemEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15716726C52720003F58FC /* PoemEntity.swift */; };
 		DB15716C26C5301A003F58FC /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15716B26C5301A003F58FC /* Function.swift */; };
@@ -85,6 +86,7 @@
 		DB048DD226C7A5C10058302C /* UserRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterViewModel.swift; sourceTree = "<group>"; };
 		DB048DD626C7A8AF0058302C /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		DB048DD826C7ABC90058302C /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		DB0B4D6826F3913000E2F05F /* PhotoEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEntity.swift; sourceTree = "<group>"; };
 		DB0EB76D26D4C27E0039D8F6 /* shadow.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = shadow.mp4; sourceTree = "<group>"; };
 		DB15716726C52720003F58FC /* PoemEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemEntity.swift; sourceTree = "<group>"; };
 		DB15716B26C5301A003F58FC /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 			children = (
 				DB15716726C52720003F58FC /* PoemEntity.swift */,
 				DB407B9C26E45F3300D7DF41 /* User.swift */,
+				DB0B4D6826F3913000E2F05F /* PhotoEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -634,6 +637,7 @@
 				DB02496A26DE770800FC948A /* ThreePoemsTableViewCell.swift in Sources */,
 				DB34288F26C1CDF9007C5A6A /* UserPageViewController.swift in Sources */,
 				DB666DBE26CA907600A588AC /* FirebaseReference.swift in Sources */,
+				DB0B4D6926F3913000E2F05F /* PhotoEntity.swift in Sources */,
 				DB048DD926C7ABC90058302C /* Result.swift in Sources */,
 				DB54BD3926D4E63700711295 /* UserRegisterRepository.swift in Sources */,
 				DB048DD726C7A8AF0058302C /* UserRepository.swift in Sources */,

@@ -117,4 +117,13 @@ class PoemRepository {
         completion(.success(.writedPoem))
     }
     
+    func reportPoem(poem: Poem, currentUser: User?, completion: @escaping (() -> Void)) {
+        
+        let reportedPoemDict: [String:String] = [
+            "poemId" : poem.id,
+            "reporter" : currentUser?.uid ?? "unknown"
+        ]
+        
+        reportedPoemRef.child(poem.userUID).childByAutoId().setValue(reportedPoemDict)
+    }
 }

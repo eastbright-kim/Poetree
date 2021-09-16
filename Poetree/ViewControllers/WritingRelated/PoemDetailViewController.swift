@@ -49,13 +49,9 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
         if let currentUser = Auth.auth().currentUser, currentUser.uid == viewModel.output.displayingPoem.userUID {
-            
             self.editBtn.isHidden = false
             self.deleteBtn.isHidden = false
-            
         }
-        
-        
     }
     
     
@@ -95,9 +91,8 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
         self.reportBtn.rx.tap
             .subscribe(onNext:{ _ in
                 
-                let alert = UIAlertController(title: "글 신고하기", message: "비속어 등 악의적인 표현이 있는 글을 신고해주세요", preferredStyle: .actionSheet)
+                let alert = UIAlertController(title: "글 신고하기", message: "비속어 등 악의적인 표현이 있는 글을 신고해주시기 바랍니다", preferredStyle: .actionSheet)
                 let action = UIAlertAction(title: "신고하기", style: .destructive) { _ in
-                    
                     
                     
                 }
