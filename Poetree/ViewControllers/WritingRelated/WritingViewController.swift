@@ -29,8 +29,6 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
     @IBOutlet weak var publicNoticeLabel: UILabel!
     @IBOutlet weak var privateNoticeLabel: UILabel!
     
-    
-    
     private lazy var writingTempManager: BLTNItemManager = {
         let item = BLTNPageItem(title: "이 글을 임시 저장하시겠습니까?")
         item.descriptionText = "임시 저장한 후에는 My Poem탭의\n보관한 글에서 확인하실 수 있습니다"

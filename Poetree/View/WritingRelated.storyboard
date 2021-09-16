@@ -67,7 +67,7 @@
                                                         </state>
                                                     </button>
                                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSe-hZ-iNF">
-                                                        <rect key="frame" x="264" y="8.6666666666667425" width="59" height="33"/>
+                                                        <rect key="frame" x="259" y="8.6666666666667425" width="59" height="33"/>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
                                                         <state key="normal" title="수정하기">
                                                             <color key="titleColor" systemColor="systemOrangeColor"/>
@@ -99,7 +99,7 @@
                                                 <constraints>
                                                     <constraint firstItem="MuA-XZ-3js" firstAttribute="centerY" secondItem="cbc-pW-TfC" secondAttribute="centerY" id="3cF-50-jEg"/>
                                                     <constraint firstItem="sCz-xr-KOl" firstAttribute="leading" secondItem="cbc-pW-TfC" secondAttribute="leading" constant="20" id="HV7-Rk-mqt"/>
-                                                    <constraint firstItem="MuA-XZ-3js" firstAttribute="leading" secondItem="VSe-hZ-iNF" secondAttribute="trailing" constant="10" id="Lfj-AC-nyT"/>
+                                                    <constraint firstItem="MuA-XZ-3js" firstAttribute="leading" secondItem="VSe-hZ-iNF" secondAttribute="trailing" constant="15" id="Lfj-AC-nyT"/>
                                                     <constraint firstItem="VSe-hZ-iNF" firstAttribute="centerY" secondItem="MuA-XZ-3js" secondAttribute="centerY" id="Mck-sd-dOG"/>
                                                     <constraint firstItem="sCz-xr-KOl" firstAttribute="centerY" secondItem="VSe-hZ-iNF" secondAttribute="centerY" id="ev7-BV-r4i"/>
                                                     <constraint firstAttribute="trailing" secondItem="MuA-XZ-3js" secondAttribute="trailing" constant="20" id="fk7-Fh-Qpe"/>
@@ -233,7 +233,7 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdy-QF-Zbw">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdy-QF-Zbw">
                                                 <rect key="frame" x="253.66666666666671" y="68.333333333333371" width="24.333333333333343" height="22"/>
                                                 <color key="tintColor" systemColor="systemPinkColor"/>
                                                 <state key="normal" image="heart" catalog="system">

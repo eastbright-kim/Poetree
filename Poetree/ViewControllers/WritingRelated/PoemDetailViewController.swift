@@ -125,9 +125,10 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
             .withLatestFrom(self.viewModel.output.displayingPoem)
             .subscribe(onNext:{ poem in
                 if let currentUser = Auth.auth().currentUser {
-                    self.viewModel.poemService.likeHandle(poem: poem, user: currentUser)
-                    DispatchQueue.main.async {
-                        self.likeBtn.isSelected = !self.likeBtn.isSelected
+                    self.viewModel.poemService.likeHandle(poem: poem, user: currentUser){ poem in
+                        DispatchQueue.main.async {
+                            self.likeBtn.isSelected = poem.isLike
+                        }
                     }
                 } else {
                     DispatchQueue.main.async {

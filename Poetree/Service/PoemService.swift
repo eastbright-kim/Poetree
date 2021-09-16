@@ -184,7 +184,7 @@ class PoemService {
         return "\(user)님이 \(monthDay) \(cycle)에 보내는 글"
     }
     
-    func likeHandle(poem: Poem, user: User){
+    func likeHandle(poem: Poem, user: User, completion: @escaping((Poem) -> Void)){
         
         let poemIndex = self.poems.firstIndex(of: poem)
         
@@ -193,11 +193,13 @@ class PoemService {
         if self.poems[index].isLike {
             self.poems[index].likers.removeValue(forKey: user.uid)
             self.poems[index].isLike = false
+            completion(self.poems[index])
             self.poemsStore.onNext(self.poems)
             self.poemRepository.likeCancel(poem: poem, user: user)
         } else {
             self.poems[index].likers.updateValue(true, forKey: user.uid)
             self.poems[index].isLike = true
+            completion(self.poems[index])
             self.poemsStore.onNext(self.poems)
             self.poemRepository.likeAdd(poem: poem, user: user)
         }
