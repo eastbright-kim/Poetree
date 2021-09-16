@@ -51,9 +51,9 @@ class SemiDetailViewController: UIViewController, StoryboardBased, ViewModelBind
             .subscribe(onNext:{ _ in
                 if let currentUser = Auth.auth().currentUser {
                     self.viewModel.poemService.likeHandle(poem: self.viewModel.output.poem, user: currentUser)
-                    DispatchQueue.main.async {
-                        self.heartBtn.isSelected = !self.heartBtn.isSelected
-                    }
+                        DispatchQueue.main.async {
+                            self.heartBtn.isSelected = !self.heartBtn.isSelected
+                        }
                 } else {
                     self.view.makeToast("좋아요를 위해서는 로그인이 필요합니다", duration: 0.7, position: .center)
                 }
@@ -67,6 +67,7 @@ class SemiDetailViewController: UIViewController, StoryboardBased, ViewModelBind
         self.titleLabel.text = self.viewModel.output.poem.title
         
         self.contenTextView.text = self.viewModel.output.poem.content
+        
         
         exitBtn.rx.tap
             .subscribe(onNext:{ _ in

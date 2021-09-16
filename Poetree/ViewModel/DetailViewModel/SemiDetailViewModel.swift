@@ -28,6 +28,8 @@ class SemiDetailViewModel: ViewModelType {
         
         self.poemService = poemService
         self.userService = userService
+        
+        
         self.input = Input()
         self.output = Output(poem: poem)
     }

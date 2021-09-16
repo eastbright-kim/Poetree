@@ -194,12 +194,12 @@ class PoemService {
             self.poems[index].likers.removeValue(forKey: user.uid)
             self.poems[index].isLike = false
             self.poemsStore.onNext(self.poems)
-            self.poemRepository.likeAdd(poem: poem, user: user)
+            self.poemRepository.likeCancel(poem: poem, user: user)
         } else {
             self.poems[index].likers.updateValue(true, forKey: user.uid)
             self.poems[index].isLike = true
             self.poemsStore.onNext(self.poems)
-            self.poemRepository.likeCancel(poem: poem, user: user)
+            self.poemRepository.likeAdd(poem: poem, user: user)
         }
     }
     

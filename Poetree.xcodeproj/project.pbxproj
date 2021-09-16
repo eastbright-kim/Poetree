@@ -14,6 +14,7 @@
 		DB048DD726C7A8AF0058302C /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB048DD626C7A8AF0058302C /* UserRepository.swift */; };
 		DB048DD926C7ABC90058302C /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB048DD826C7ABC90058302C /* Result.swift */; };
 		DB0B4D6926F3913000E2F05F /* PhotoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0B4D6826F3913000E2F05F /* PhotoEntity.swift */; };
+		DB0B4D6D26F3A15E00E2F05F /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0B4D6C26F3A15E00E2F05F /* Extension.swift */; };
 		DB0EB76E26D4C27E0039D8F6 /* shadow.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DB0EB76D26D4C27E0039D8F6 /* shadow.mp4 */; };
 		DB15716826C52720003F58FC /* PoemEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15716726C52720003F58FC /* PoemEntity.swift */; };
 		DB15716C26C5301A003F58FC /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15716B26C5301A003F58FC /* Function.swift */; };
@@ -87,6 +88,7 @@
 		DB048DD626C7A8AF0058302C /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		DB048DD826C7ABC90058302C /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		DB0B4D6826F3913000E2F05F /* PhotoEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEntity.swift; sourceTree = "<group>"; };
+		DB0B4D6C26F3A15E00E2F05F /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		DB0EB76D26D4C27E0039D8F6 /* shadow.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = shadow.mp4; sourceTree = "<group>"; };
 		DB15716726C52720003F58FC /* PoemEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemEntity.swift; sourceTree = "<group>"; };
 		DB15716B26C5301A003F58FC /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
@@ -452,6 +454,7 @@
 				DB15716B26C5301A003F58FC /* Function.swift */,
 				DB048DD826C7ABC90058302C /* Result.swift */,
 				DB666DBD26CA907600A588AC /* FirebaseReference.swift */,
+				DB0B4D6C26F3A15E00E2F05F /* Extension.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -632,6 +635,7 @@
 				DB6A238826ED432000A4BDEE /* SideMenuViewModel.swift in Sources */,
 				DB3CCEB126D0F4C8005C3074 /* SideMenuViewController.swift in Sources */,
 				DB2B4DF526DFEE3100A3F597 /* UserWritingTableViewCell.swift in Sources */,
+				DB0B4D6D26F3A15E00E2F05F /* Extension.swift in Sources */,
 				DB453BA026E902EF0034774A /* SemiDetailViewModel.swift in Sources */,
 				DBB0B48726E8C84D008FA163 /* SemiDetailViewController.swift in Sources */,
 				DB02496A26DE770800FC948A /* ThreePoemsTableViewCell.swift in Sources */,

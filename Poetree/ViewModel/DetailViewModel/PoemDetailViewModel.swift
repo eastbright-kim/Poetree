@@ -21,7 +21,7 @@ class PoemDetailViewModel: ViewModelType {
     }
     
     struct Output {
-        let displayingPoem: Poem
+        var displayingPoem: Poem
     }
     
     var input: Input

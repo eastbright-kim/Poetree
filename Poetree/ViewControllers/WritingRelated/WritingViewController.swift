@@ -72,7 +72,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
     
     var keyboardDismissTabGesture : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
     
-    var editingPoem: Poem?
+    
     var isPrvate = false
     
     override func viewDidLoad() {
@@ -281,7 +281,8 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
                         DispatchQueue.main.async {
                             self.navigationController?.popViewController(animated: true)
                             guard let detailVC = self.navigationController?.topViewController as? PoemDetailViewController else {return}
-                            detailVC.currentPoem = editedPoem
+                            detailVC.viewModel.output.displayingPoem = editedPoem
+                        
                         }
                     }
                 })

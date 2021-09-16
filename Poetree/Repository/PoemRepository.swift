@@ -124,6 +124,6 @@ class PoemRepository {
             "reporter" : currentUser?.uid ?? "unknown"
         ]
         
-        reportedPoemRef.child(poem.userUID).childByAutoId().setValue(reportedPoemDict)
+        reportedPoemRef.child(poem.userUID).child(currentUser?.uid ?? "unknown").setValue(reportedPoemDict)
     }
 }
