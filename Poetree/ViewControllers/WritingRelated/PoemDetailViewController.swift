@@ -34,10 +34,7 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
     }
     
     func setUpUI(){
-        likeBtn.startAnimatingPressActions()
-//        likeBtn.setBackgroundColor(UIColor.label, for: .normal)
-//        likeBtn.setBackgroundColor(UIColor.systemPink, for: .selected)
-      
+   
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
     }
@@ -57,6 +54,7 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
                 self.contentLabel.text = poem.content
                 self.likeBtn.isSelected = poem.isLike
                 self.isLike = poem.isLike
+//                self.likeBtn.tintColor = poem.isLike ? UIColor.systemPink : UIColor.label
                 self.likesCountLabel.text = "좋아요 \(poem.likers.count)개"
                 if let currentUser = Auth.auth().currentUser, currentUser.uid == poem.userUID {
                     self.editBtn.isHidden = false
@@ -122,6 +120,8 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
             .disposed(by: rx.disposeBag)
         
         likeBtn.rx.tap
+            .do(onNext:{ [weak self] _ in guard let self = self else {return}
+                    self.likeBtn.animateView()})
             .withLatestFrom(self.viewModel.output.displayingPoem)
             .subscribe(onNext:{ poem in
                 if let currentUser = Auth.auth().currentUser {

@@ -44,6 +44,9 @@ class SemiDetailViewController: UIViewController, StoryboardBased, ViewModelBind
     func bindViewModel() {
         
         heartBtn.rx.tap
+            .do(onNext: { [weak self] _ in guard let self = self else {return}
+                self.heartBtn.animateView()
+            })
             .withLatestFrom(self.viewModel.output.displayingPoem)
             .subscribe(onNext:{ poem in
                 if let currentUser = Auth.auth().currentUser {
