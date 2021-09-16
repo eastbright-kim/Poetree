@@ -41,6 +41,11 @@ class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased, Vie
     func configureUI(){
         collectionViewDelegate()
         noticeLabelAni()
+        
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        backBarButtonItem.tintColor = .systemOrange
+        self.navigationItem.backBarButtonItem = backBarButtonItem
+        
     }
     
     func setBarBtnItem() {

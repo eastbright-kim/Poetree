@@ -21,7 +21,7 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
     @IBOutlet weak var deleteBtn: UIButton!
     @IBOutlet weak var likesCountLabel: UILabel!
     @IBOutlet weak var backBtnItem: UIBarButtonItem!
-    
+    @IBOutlet weak var reportBtn: UIBarButtonItem!
     
     
     var viewModel: PoemDetailViewModel!
@@ -33,11 +33,7 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
         setUpUI()
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//
-//        setUpUI()
-//    }
+
     
     func setUpUI(){
         
@@ -52,9 +48,6 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
-        
-        
-        
         if let currentUser = Auth.auth().currentUser, currentUser.uid == viewModel.output.displayingPoem.userUID {
             
             self.editBtn.isHidden = false
@@ -62,11 +55,13 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
             
         }
         
+        
     }
     
     
     func bindViewModel() {
         
+          
         self.backBtnItem.rx.tap
             .subscribe(onNext:{ _ in
                 self.dismiss(animated: true, completion: nil)
@@ -79,6 +74,10 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
                 
                 let viewModel = WriteViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, writingType: .edit(self.viewModel.output.displayingPoem), editingPoem: self.viewModel.output.displayingPoem)
  
+                let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+                backBarButtonItem.tintColor = .systemOrange
+                self.navigationItem.backBarButtonItem = backBarButtonItem
+                
                 var vc = WritingViewController.instantiate(storyboardID: "WritingRelated")
                 vc.bind(viewModel: viewModel)
                 vc.editingPoem = self.currentPoem
@@ -93,8 +92,21 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
             })
             .disposed(by: rx.disposeBag)
         
-        
-        
+        self.reportBtn.rx.tap
+            .subscribe(onNext:{ _ in
+                
+                let alert = UIAlertController(title: "글 신고하기", message: "비속어 등 악의적인 표현이 있는 글을 신고해주세요", preferredStyle: .actionSheet)
+                let action = UIAlertAction(title: "신고하기", style: .destructive) { _ in
+                    
+                    
+                    
+                }
+                alert.addAction(action)
+                
+                self.present(alert, animated: true, completion: nil)
+                
+            })
+            .disposed(by: rx.disposeBag)
     }
     
 }

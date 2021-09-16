@@ -37,13 +37,20 @@ class PoemListViewController: UIViewController, StoryboardBased, ViewModelBindab
             .disposed(by: rx.disposeBag)
         
         tableView.rx.modelSelected(Poem.self)
-            .subscribe(onNext:{[unowned self] poem in
+            .subscribe(onNext:{[weak self] poem in
 
-                let viewModel = PoemDetailViewModel(displayingPoem: poem, poemService: self.viewModel.poemService, userService: self.viewModel.userService)
-                var vc = PoemDetailViewController.instantiate(storyboardID: "WritingRelated")
-                vc.currentPoem = poem
-                vc.bind(viewModel: viewModel)
-                self.navigationController?.pushViewController(vc, animated: true)
+                guard let self = self else {return}
+                
+                let viewModel = SemiDetailViewModel(poem: poem, poemService: self.viewModel.poemService, userService: self.viewModel.userService)
+                
+                var semiDetailVC = SemiDetailViewController.instantiate(storyboardID: "WritingRelated")
+                semiDetailVC.bind(viewModel: viewModel)
+                
+                semiDetailVC.modalTransitionStyle = .crossDissolve
+                semiDetailVC.modalPresentationStyle = .overCurrentContext
+                
+                self.present(semiDetailVC, animated: true, completion: nil)
+
             })
             .disposed(by: rx.disposeBag)
     }

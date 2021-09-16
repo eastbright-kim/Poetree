@@ -24,9 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     didFinishLaunchingWithOptions: launchOptions
                 )
         
-        UINavigationBar.appearance().barTintColor = UIColor.white
+        UINavigationBar.appearance().barTintColor = UIColor.systemBackground
         UINavigationBar.appearance().tintColor = UIColor.black
-        
         
         
         return true

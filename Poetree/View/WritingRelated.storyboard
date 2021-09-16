@@ -149,7 +149,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="yTT-sG-FFi">
                         <barButtonItem key="backBarButtonItem" title=" " id="JdL-AD-znf"/>
-                        <barButtonItem key="rightBarButtonItem" image="xmark" catalog="system" id="z1I-79-GYS"/>
+                        <barButtonItem key="leftBarButtonItem" image="chevron.left" catalog="system" id="z1I-79-GYS">
+                            <color key="tintColor" systemColor="systemOrangeColor"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="ellipsis.circle" catalog="system" id="yJQ-dg-Xaw">
+                            <color key="tintColor" systemColor="systemOrangeColor"/>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <size key="freeformSize" width="428" height="1400"/>
@@ -161,18 +166,19 @@
                         <outlet property="likeBtn" destination="Vlq-oq-Pir" id="Bwx-Ry-gQC"/>
                         <outlet property="likesCountLabel" destination="f19-RD-j9j" id="Fma-qk-o42"/>
                         <outlet property="photoImageView" destination="gfy-se-LsK" id="XKO-S4-1J7"/>
+                        <outlet property="reportBtn" destination="yJQ-dg-Xaw" id="NtA-dG-6Pn"/>
                         <outlet property="titleLabel" destination="gOo-EN-uKs" id="gMe-CI-MbE"/>
                         <outlet property="userLabel" destination="gxV-qK-J2a" id="fCL-oy-ieR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p23-5b-UhE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="691" y="298"/>
+            <point key="canvasLocation" x="-352" y="305"/>
         </scene>
         <!--Semi Detail View Controller-->
         <scene sceneID="qtv-NJ-bFh">
             <objects>
-                <viewController storyboardIdentifier="SemiDetailViewController" id="Q0Y-N8-i5B" customClass="SemiDetailViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SemiDetailViewController" hidesBottomBarWhenPushed="YES" id="Q0Y-N8-i5B" customClass="SemiDetailViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NuD-tg-aVt">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -309,7 +315,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pSB-qA-Yjq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1890" y="255"/>
+            <point key="canvasLocation" x="1888" y="257"/>
         </scene>
         <!--글 쓰기-->
         <scene sceneID="oLD-Pj-MNr">
@@ -323,7 +329,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="1400"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JM1-jN-xmo">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="1200"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="1220"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image3.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="9Qg-Ne-5WM">
                                                 <rect key="frame" x="20" y="30" width="388" height="400"/>
@@ -343,54 +349,47 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kQR-Li-RPL">
-                                                <rect key="frame" x="20" y="586.33333333333348" width="388" height="547.66666666666652"/>
+                                                <rect key="frame" x="20" y="584.33333333333326" width="388" height="532.33333333333326"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <string key="text">꽃게가 간장 속에
-반쯤 몸을 담그고 엎드려 있다
-등판에는 간장이 울컥울컥 쏟아질 때
-꽃게는 뱃속의 알을 껴안으려고
-꿈틀거리다가 더 낮게
-더 바닥쪽으로 웅크렸으리라
-버둥거렸으리라 버둥거리다가
-어찌할 수 없어서
-</string>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9a-Dh-0t3">
-                                                <rect key="frame" x="8" y="1143" width="412" height="40"/>
+                                                <rect key="frame" x="8" y="1116.6666666666667" width="412" height="40"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGd-AP-hxN">
-                                                        <rect key="frame" x="8" y="3.6666666666667425" width="112" height="33"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <rect key="frame" x="8" y="3.6666666666665151" width="112" height="33"/>
+                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                         <state key="normal" title="글 혼자 보관하기">
                                                             <color key="titleColor" systemColor="systemGrayColor"/>
                                                         </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q43-UZ-22H">
-                                                        <rect key="frame" x="128" y="8.6666666666667425" width="23" height="23"/>
+                                                        <rect key="frame" x="128" y="8.6666666666665151" width="23" height="23"/>
                                                         <color key="tintColor" systemColor="systemOrangeColor"/>
                                                         <state key="normal" image="square" catalog="system">
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                                         </state>
-                                                        <state key="selected" image="square.fill" catalog="system"/>
+                                                        <state key="selected" image="checkmark.square" catalog="system"/>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lla-AM-CN4">
-                                                        <rect key="frame" x="333" y="3.6666666666667425" width="64" height="33"/>
-                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                    <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lla-AM-CN4">
+                                                        <rect key="frame" x="333" y="3.6666666666665151" width="64" height="33"/>
+                                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                         <state key="normal" title="글 보내기">
-                                                            <color key="titleColor" systemColor="systemOrangeColor"/>
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="sendPoemTapped:" destination="U0B-vy-2lf" eventType="touchUpInside" id="aCC-Sj-L6r"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEC-K2-45A">
-                                                        <rect key="frame" x="333" y="3.6666666666667425" width="64" height="33"/>
-                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                    <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEC-K2-45A">
+                                                        <rect key="frame" x="333" y="3.6666666666665151" width="64" height="33"/>
+                                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                         <state key="normal" title="수정 완료">
-                                                            <color key="titleColor" systemColor="systemOrangeColor"/>
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="editCompleteTapped:" destination="U0B-vy-2lf" eventType="touchUpInside" id="QRZ-N2-qMr"/>
@@ -410,25 +409,42 @@
                                                     <constraint firstItem="Q43-UZ-22H" firstAttribute="leading" secondItem="lGd-AP-hxN" secondAttribute="trailing" constant="8" symbolic="YES" id="vqA-b0-SmR"/>
                                                 </constraints>
                                             </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="글을 모두가 볼 수 있도록 게시합니다. Poetree가 모두에게 소중한 공간이 될 수 있도록 협조해주세요." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ImL-d5-2PW">
+                                                <rect key="frame" x="55.333333333333343" y="1168.6666666666667" width="317.33333333333326" height="31.333333333333258"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="글을 혼자 보관합니다. 해당 글은 My Poem탭에서 확인하실 수 있습니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eh2-wD-4Kw">
+                                                <rect key="frame" x="88.333333333333329" y="1168.6666666666667" width="251.33333333333337" height="31.333333333333258"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="tGQ-hi-UTQ" firstAttribute="top" secondItem="rvQ-yJ-m5S" secondAttribute="bottom" constant="29.333333333333314" id="3tH-lZ-SWy"/>
-                                            <constraint firstItem="kQR-Li-RPL" firstAttribute="top" secondItem="tGQ-hi-UTQ" secondAttribute="bottom" constant="32" id="4OT-uh-xNu"/>
+                                            <constraint firstItem="kQR-Li-RPL" firstAttribute="top" secondItem="tGQ-hi-UTQ" secondAttribute="bottom" constant="30" id="4OT-uh-xNu"/>
+                                            <constraint firstItem="ImL-d5-2PW" firstAttribute="top" secondItem="a9a-Dh-0t3" secondAttribute="bottom" constant="12" id="5nE-jY-XKC"/>
                                             <constraint firstAttribute="trailing" secondItem="kQR-Li-RPL" secondAttribute="trailing" constant="20" id="74z-vb-2qE"/>
+                                            <constraint firstAttribute="bottom" secondItem="ImL-d5-2PW" secondAttribute="bottom" constant="20" id="GM5-3n-11z"/>
                                             <constraint firstItem="tGQ-hi-UTQ" firstAttribute="trailing" secondItem="rvQ-yJ-m5S" secondAttribute="trailing" id="H6q-1r-dqL"/>
                                             <constraint firstItem="kQR-Li-RPL" firstAttribute="leading" secondItem="JM1-jN-xmo" secondAttribute="leading" constant="20" id="JaR-gW-dY1"/>
-                                            <constraint firstAttribute="bottom" secondItem="a9a-Dh-0t3" secondAttribute="bottom" constant="17" id="JfR-3s-NQk"/>
-                                            <constraint firstItem="a9a-Dh-0t3" firstAttribute="top" secondItem="kQR-Li-RPL" secondAttribute="bottom" constant="9" id="L62-G9-Ct2"/>
+                                            <constraint firstItem="a9a-Dh-0t3" firstAttribute="top" secondItem="kQR-Li-RPL" secondAttribute="bottom" id="L62-G9-Ct2"/>
                                             <constraint firstItem="a9a-Dh-0t3" firstAttribute="leading" secondItem="JM1-jN-xmo" secondAttribute="leading" constant="8" id="NWe-gR-2lH"/>
                                             <constraint firstItem="rvQ-yJ-m5S" firstAttribute="leading" secondItem="JM1-jN-xmo" secondAttribute="leading" constant="20" id="OzQ-jj-DEA"/>
-                                            <constraint firstAttribute="height" constant="1200" id="aqQ-FH-IjJ"/>
+                                            <constraint firstItem="eh2-wD-4Kw" firstAttribute="top" secondItem="a9a-Dh-0t3" secondAttribute="bottom" constant="12" id="ZNM-ae-6MZ"/>
+                                            <constraint firstAttribute="height" constant="1220" id="aqQ-FH-IjJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="eh2-wD-4Kw" secondAttribute="bottom" constant="20" id="coq-iT-ICp"/>
                                             <constraint firstItem="rvQ-yJ-m5S" firstAttribute="top" secondItem="9Qg-Ne-5WM" secondAttribute="bottom" constant="40" id="ikH-4Z-PRm"/>
                                             <constraint firstAttribute="trailing" secondItem="rvQ-yJ-m5S" secondAttribute="trailing" constant="20" id="khZ-uE-D5B"/>
                                             <constraint firstAttribute="trailing" secondItem="9Qg-Ne-5WM" secondAttribute="trailing" constant="20" id="lV0-Fv-VYX"/>
                                             <constraint firstAttribute="trailing" secondItem="a9a-Dh-0t3" secondAttribute="trailing" constant="8" id="mFP-YH-reG"/>
                                             <constraint firstItem="9Qg-Ne-5WM" firstAttribute="leading" secondItem="JM1-jN-xmo" secondAttribute="leading" constant="20" id="o7p-1J-0xd"/>
+                                            <constraint firstItem="eh2-wD-4Kw" firstAttribute="centerX" secondItem="JM1-jN-xmo" secondAttribute="centerX" id="pAf-og-fiM"/>
                                             <constraint firstItem="9Qg-Ne-5WM" firstAttribute="top" secondItem="JM1-jN-xmo" secondAttribute="top" constant="30" id="tTI-ew-yaR"/>
+                                            <constraint firstItem="ImL-d5-2PW" firstAttribute="centerX" secondItem="JM1-jN-xmo" secondAttribute="centerX" id="tfN-xk-a52"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -468,6 +484,8 @@
                         <outlet property="contentTextView" destination="kQR-Li-RPL" id="RC9-mN-pnm"/>
                         <outlet property="editComplete" destination="bEC-K2-45A" id="YKz-Ku-lQR"/>
                         <outlet property="privateChechBtn" destination="Q43-UZ-22H" id="Uum-Zw-ckb"/>
+                        <outlet property="privateNoticeLabel" destination="eh2-wD-4Kw" id="gVG-K7-WxH"/>
+                        <outlet property="publicNoticeLabel" destination="ImL-d5-2PW" id="vFf-Ec-8z6"/>
                         <outlet property="selectedPhoto" destination="9Qg-Ne-5WM" id="NlB-H1-cnq"/>
                         <outlet property="titleTextField" destination="rvQ-yJ-m5S" id="7v5-vr-2dq"/>
                         <outlet property="userDateLabel" destination="tGQ-hi-UTQ" id="IjR-bf-yxI"/>
@@ -476,10 +494,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="woS-gW-YHZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-403" y="298"/>
+            <point key="canvasLocation" x="726" y="297"/>
         </scene>
     </scenes>
     <resources>
+        <image name="checkmark.square" catalog="system" width="128" height="114"/>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="ellipsis.circle" catalog="system" width="128" height="121"/>
         <image name="heart" catalog="system" width="128" height="109"/>
@@ -488,7 +508,6 @@
         <image name="image3" width="750" height="937"/>
         <image name="image3.jpg" width="750" height="937"/>
         <image name="square" catalog="system" width="128" height="114"/>
-        <image name="square.fill" catalog="system" width="128" height="114"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

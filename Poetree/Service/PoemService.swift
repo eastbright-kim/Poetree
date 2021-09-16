@@ -220,6 +220,7 @@ class PoemService {
     
     func editTemp(poem: Poem, completion: @escaping ((String) -> Void)) {
 
+        poem.isTemp = true
         self.poemRepository.editPoemFromTemp(poemModel: poem) { result in
             switch result {
             case .success(let s):
@@ -231,6 +232,10 @@ class PoemService {
                 completion(e.localizedDescription)
             }
         }
+    }
+   
+    func reportPoem(poem: Poem, reportingUser: CurrentAuth?) {
+        
     }
     
 }
