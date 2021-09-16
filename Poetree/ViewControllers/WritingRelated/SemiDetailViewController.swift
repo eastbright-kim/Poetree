@@ -27,8 +27,6 @@ class SemiDetailViewController: UIViewController, StoryboardBased, ViewModelBind
     @IBOutlet weak var detailBtn1: UIButton!
     @IBOutlet weak var detailBtn2: UIButton!
     
-    
-    
     var viewModel: SemiDetailViewModel!
     
     
@@ -40,17 +38,16 @@ class SemiDetailViewController: UIViewController, StoryboardBased, ViewModelBind
     func configureUI(){
         photoImageView.layer.cornerRadius = 8
         windowView.layer.cornerRadius = 8
-        heartBtn.isSelected = self.viewModel.output.poem.isLike
-        
     }
     
     
     func bindViewModel() {
         
         heartBtn.rx.tap
-            .subscribe(onNext:{ _ in
+            .withLatestFrom(self.viewModel.output.displayingPoem)
+            .subscribe(onNext:{ poem in
                 if let currentUser = Auth.auth().currentUser {
-                    self.viewModel.poemService.likeHandle(poem: self.viewModel.output.poem, user: currentUser)
+                    self.viewModel.poemService.likeHandle(poem: poem, user: currentUser)
                         DispatchQueue.main.async {
                             self.heartBtn.isSelected = !self.heartBtn.isSelected
                         }
@@ -59,14 +56,18 @@ class SemiDetailViewController: UIViewController, StoryboardBased, ViewModelBind
                 }
             })
             .disposed(by: rx.disposeBag)
-        
-        self.photoImageView.kf.setImage(with: self.viewModel.output.poem.photoURL)
-        
-        self.authorLabel.text = self.viewModel.output.poem.userPenname
-        
-        self.titleLabel.text = self.viewModel.output.poem.title
-        
-        self.contenTextView.text = self.viewModel.output.poem.content
+       
+        self.viewModel.output.displayingPoem
+            .drive(onNext:{ poem in
+                
+                self.photoImageView.kf.setImage(with: poem.photoURL)
+                self.authorLabel.text = poem.userPenname
+                self.titleLabel.text = poem.title
+                self.contenTextView.text = poem.content
+                self.heartBtn.isSelected = poem.isLike
+                
+            })
+            .disposed(by: rx.disposeBag)
         
         
         exitBtn.rx.tap
@@ -84,8 +85,9 @@ class SemiDetailViewController: UIViewController, StoryboardBased, ViewModelBind
             .disposed(by: rx.disposeBag)
         
         detailBtn1.rx.tap
-            .subscribe(onNext:{ _ in
-                let viewModel = PoemDetailViewModel(displayingPoem: self.viewModel.output.poem, poemService: self.viewModel.poemService, userService: self.viewModel.userService)
+            .withLatestFrom(self.viewModel.output.displayingPoem)
+            .subscribe(onNext:{ poem in
+                let viewModel = PoemDetailViewModel(poem: poem, poemService: self.viewModel.poemService, userService: self.viewModel.userService)
                 var detailVC = PoemDetailViewController.instantiate(storyboardID: "WritingRelated")
                 detailVC.bind(viewModel: viewModel)
                 detailVC.modalPresentationStyle = .overFullScreen
@@ -98,15 +100,14 @@ class SemiDetailViewController: UIViewController, StoryboardBased, ViewModelBind
             .disposed(by: rx.disposeBag)
         
         detailBtn2.rx.tap
-            .subscribe(onNext:{ _ in
-                let viewModel = PoemDetailViewModel(displayingPoem: self.viewModel.output.poem, poemService: self.viewModel.poemService, userService: self.viewModel.userService)
+            .withLatestFrom(self.viewModel.output.displayingPoem)
+            .subscribe(onNext:{ poem in
+                let viewModel = PoemDetailViewModel(poem: poem, poemService: self.viewModel.poemService, userService: self.viewModel.userService)
                 var detailVC = PoemDetailViewController.instantiate(storyboardID: "WritingRelated")
                 detailVC.bind(viewModel: viewModel)
                 detailVC.modalPresentationStyle = .overFullScreen
                 detailVC.modalTransitionStyle = .crossDissolve
-                
                 let navi = UINavigationController(rootViewController: detailVC)
-                
                 self.present(navi, animated: true, completion: nil)
                 
             })

@@ -280,9 +280,6 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
                         
                         DispatchQueue.main.async {
                             self.navigationController?.popViewController(animated: true)
-                            guard let detailVC = self.navigationController?.topViewController as? PoemDetailViewController else {return}
-                            detailVC.viewModel.output.displayingPoem = editedPoem
-                        
                         }
                     }
                 })

@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 class SemiDetailViewModel: ViewModelType {
     
@@ -20,7 +22,7 @@ class SemiDetailViewModel: ViewModelType {
     }
     
     struct Output{
-        let poem: Poem
+        let displayingPoem: Driver<Poem>
     }
     
     
@@ -29,9 +31,12 @@ class SemiDetailViewModel: ViewModelType {
         self.poemService = poemService
         self.userService = userService
         
+        let poems = poemService.allPoems()
+        
+        let displayingPoem = poems.map{poems in poemService.fetchPoem(poems: poems, poem: poem)}
+            .asDriver(onErrorJustReturn: poem)
         
         self.input = Input()
-        self.output = Output(poem: poem)
+        self.output = Output(displayingPoem: displayingPoem)
     }
-    
 }

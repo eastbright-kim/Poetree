@@ -234,8 +234,8 @@ class PoemService {
         }
     }
    
-    func reportPoem(poem: Poem, reportingUser: CurrentAuth?) {
-        
+    func fetchPoem(poems: [Poem], poem: Poem) -> Poem {
+        guard let index = poems.firstIndex(of: poem) else {return poem}
+        return poems[index]
     }
-    
 }
