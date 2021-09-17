@@ -25,27 +25,32 @@ class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased, Vie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureUI()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        naviBarConfig()
         guard let selectedIndexPath = selectedIndexPath else {return}
         self.photoCollectionView.scrollToItem(at: selectedIndexPath, at: .centeredHorizontally, animated: true)
-        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+    }
+    
+    func naviBarConfig(){
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.tintColor = UIColor.link
     }
     
     func configureUI(){
         collectionViewDelegate()
         noticeLabelAni()
-        
         let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-        backBarButtonItem.tintColor = .systemOrange
         self.navigationItem.backBarButtonItem = backBarButtonItem
-        
     }
     
     func setBarBtnItem() {
@@ -53,7 +58,6 @@ class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased, Vie
         image?.withTintColor(UIColor.systemBlue)
         let loginBtn = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(login))
         self.navigationItem.rightBarButtonItem = loginBtn
-        
     }
     
     func bindViewModel() {
@@ -135,7 +139,6 @@ class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased, Vie
     }
     
     @objc func login(){
-        
         let viewModel = UserRegisterViewModel(userService: self.viewModel.userService)
         var vc = UserRegisterViewController.instantiate(storyboardID: "UserRelated")
         vc.bind(viewModel: viewModel)

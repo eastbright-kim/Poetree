@@ -64,7 +64,6 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
             self.deletePoem()
             
         }
-        
         return BLTNItemManager(rootItem: item)
     }()
     
@@ -84,22 +83,20 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
         setUpNavUI()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.label]
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         titleTextField.becomeFirstResponder()
     }
     
-    func addObserver(){
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         
+    }
+    
+    func addObserver(){
         self.keyboardDismissTabGesture.delegate = self
         self.view.addGestureRecognizer(keyboardDismissTabGesture)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(dismissKeyboard), name: UIResponder.keyboardDidHideNotification, object: nil)
     }
     
@@ -110,9 +107,10 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
     
     func setUpNavUI() {
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.systemOrange]
-        
+        self.navigationController?.navigationBar.barTintColor = UIColor.systemBackground
+        self.navigationController?.navigationBar.tintColor = UIColor.systemOrange
+        self.navigationController?.navigationBar.shadowImage = UIImage()
         let type = self.viewModel.output.writingType
-        
         switch type {
         case .write:
             self.title = "글 쓰기"

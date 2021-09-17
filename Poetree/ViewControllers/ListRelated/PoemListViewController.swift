@@ -20,15 +20,22 @@ class PoemListViewController: UIViewController, StoryboardBased, ViewModelBindab
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+    }
+   
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureUI()
     }
     
+    func configureUI(){
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+    }
     
     func bindViewModel() {
         
         viewModel.output.displayingPoems
             .bind(to: tableView.rx.items(cellIdentifier: "PoemListCell", cellType: PoemListTableViewCell.self)) { row, poem, cell in
-                
                 cell.poemImageView.kf.setImage(with: poem.photoURL)
                 cell.titleLabel.text = poem.title
                 cell.likesLabel.text = "\(poem.likers.count)"

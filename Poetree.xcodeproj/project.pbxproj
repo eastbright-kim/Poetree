@@ -58,7 +58,6 @@
 		DB9D575E26C43E6000A86148 /* MainPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9D575D26C43E6000A86148 /* MainPhotoCollectionViewCell.swift */; };
 		DBB0B48726E8C84D008FA163 /* SemiDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB0B48626E8C84D008FA163 /* SemiDetailViewController.swift */; };
 		DBCE060326C2A8CA0008EBF8 /* PoemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE060226C2A8CA0008EBF8 /* PoemDetailViewController.swift */; };
-		DBCE060526C2A8FB0008EBF8 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE060426C2A8FB0008EBF8 /* PhotoCollectionViewController.swift */; };
 		DBCE060A26C2ACEE0008EBF8 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE060926C2ACEE0008EBF8 /* MainViewModel.swift */; };
 		DBCE060D26C2C8F00008EBF8 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE060C26C2C8F00008EBF8 /* Protocol.swift */; };
 		DBCE061126C2D2430008EBF8 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE061026C2D2430008EBF8 /* Constant.swift */; };
@@ -134,7 +133,6 @@
 		DB9D575D26C43E6000A86148 /* MainPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		DBB0B48626E8C84D008FA163 /* SemiDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiDetailViewController.swift; sourceTree = "<group>"; };
 		DBCE060226C2A8CA0008EBF8 /* PoemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemDetailViewController.swift; sourceTree = "<group>"; };
-		DBCE060426C2A8FB0008EBF8 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
 		DBCE060926C2ACEE0008EBF8 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		DBCE060C26C2C8F00008EBF8 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		DBCE061026C2D2430008EBF8 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -470,7 +468,6 @@
 		DBDC5A0126D793930066B45A /* ListRelated */ = {
 			isa = PBXGroup;
 			children = (
-				DBCE060426C2A8FB0008EBF8 /* PhotoCollectionViewController.swift */,
 				DB2CFD6A26C2887100130078 /* PoemListViewController.swift */,
 				DB23A1EE26E9CCE200A64CA9 /* ListWithHeadPhotoViewController.swift */,
 			);
@@ -651,7 +648,6 @@
 				DBD6ABC026E9FB9600EE01E2 /* HeadPhotoWithListViewModel.swift in Sources */,
 				DBFCE5F426C3AF7300E3FC16 /* PoemRepository.swift in Sources */,
 				DB21A25F26C16B3F0048FB17 /* AppDelegate.swift in Sources */,
-				DBCE060526C2A8FB0008EBF8 /* PhotoCollectionViewController.swift in Sources */,
 				DB666DC626CAB6FA00A588AC /* PoemListTableViewCell.swift in Sources */,
 				DB15716826C52720003F58FC /* PoemEntity.swift in Sources */,
 				DB2DC3A826E7B0B0009D5F47 /* PhotoViewModel.swift in Sources */,

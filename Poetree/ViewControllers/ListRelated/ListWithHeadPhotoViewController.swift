@@ -15,7 +15,6 @@ class ListWithHeadPhotoViewController: UIViewController, ViewModelBindable, HasD
     
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var poemListTableView: UITableView!
-    @IBOutlet weak var XMarkBtn: UIButton!
     
     
     var viewModel: HeadPhotoWithListViewModel!
@@ -27,15 +26,24 @@ class ListWithHeadPhotoViewController: UIViewController, ViewModelBindable, HasD
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        naviBarConfig()
+    }
+    
+    func naviBarConfig(){
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+    }
+    
     func bindViewModel() {
         
         viewModel.output.displayingPoem
             .bind(to: self.poemListTableView.rx.items(cellIdentifier: "headPhotoListTableViewCell", cellType: headPhotoListTableViewCell.self)){ indexPath, poem, cell in
                 
-                cell.authorLabel.text = poem.userPenname
+                cell.authorLabel.text = "by. \(poem.userPenname)"
                 cell.titleLabel.text = poem.title
                 cell.contentLabel.text = poem.content
-                
+                cell.selectionStyle = .none
                 if indexPath <= 3{
                     cell.likesLabel.text = "\(poem.likers.count)"
                 }
@@ -71,18 +79,13 @@ class ListWithHeadPhotoViewController: UIViewController, ViewModelBindable, HasD
                 self.photoImageView.kf.setImage(with: weekPhoto.url)
             })
             .disposed(by: rx.disposeBag)
-        
-        self.XMarkBtn.rx.tap
-            .subscribe(onNext:{ _ in
-                self.dismiss(animated: true, completion: nil)
-            })
-            .disposed(by: rx.disposeBag)
     }
     
     func configureUI(){
         
         photoImageView.layer.cornerRadius = 8
-        
+        navigationItem.largeTitleDisplayMode = .never
+        poemListTableView.tableFooterView = UIView()
         
         if Auth.auth().currentUser != nil {
             let image = UIImage(systemName: "pencil")
@@ -91,10 +94,26 @@ class ListWithHeadPhotoViewController: UIViewController, ViewModelBindable, HasD
             self.navigationItem.rightBarButtonItem = writeItem
         }
         
-        
     }
     
     @objc func write(){
+        
+        self.viewModel.output.selectedPhoto
+            .take(1)
+            .subscribe(onNext:{ weekPhoto in
+                let viewModel = WriteViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, writingType: .write(weekPhoto))
+                
+                var writeVC = WritingViewController.instantiate(storyboardID: "WritingRelated")
+                writeVC.bind(viewModel: viewModel)
+                
+                let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+                backBarButtonItem.tintColor = .systemOrange
+                self.navigationItem.backBarButtonItem = backBarButtonItem
+                
+                self.navigationController?.pushViewController(writeVC, animated: true)
+                
+            })
+            .disposed(by: rx.disposeBag)
         
     }
 }

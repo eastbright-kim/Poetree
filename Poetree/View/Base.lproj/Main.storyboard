@@ -296,11 +296,11 @@
             <objects>
                 <viewController storyboardIdentifier="PhotoViewController" hidesBottomBarWhenPushed="YES" id="zrZ-A6-Ygs" customClass="PhotoViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w2G-wh-FJ1">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qDb-TH-vHa">
-                                <rect key="frame" x="10" y="209" width="408" height="408"/>
+                                <rect key="frame" x="10" y="165" width="408" height="408"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="qDb-TH-vHa" secondAttribute="height" multiplier="1:1" id="rfO-ZN-3Fx"/>
@@ -341,13 +341,13 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사진을 감상하신 후, 사진을 탭하면 글을 작성하실 수 있습니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcO-Mb-hzE">
-                                <rect key="frame" x="34.333333333333343" y="677" width="359.33333333333326" height="18"/>
+                                <rect key="frame" x="34.333333333333343" y="633" width="359.33333333333326" height="18"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="즐겁게 사진 감상하세요 :)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heu-kG-8pI">
-                                <rect key="frame" x="133.66666666666669" y="677" width="160.66666666666669" height="19.666666666666629"/>
+                                <rect key="frame" x="133.66666666666669" y="633" width="160.66666666666669" height="19.666666666666629"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -366,6 +366,7 @@
                             <constraint firstItem="sQE-Si-4Iu" firstAttribute="trailing" secondItem="qDb-TH-vHa" secondAttribute="trailing" constant="10" id="uPo-gi-dnh"/>
                         </constraints>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="firstNoticeLabel" destination="lcO-Mb-hzE" id="obQ-Xj-mt7"/>
                         <outlet property="photoCollectionView" destination="qDb-TH-vHa" id="IzS-b9-88b"/>

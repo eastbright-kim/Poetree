@@ -235,9 +235,25 @@ class PoemService {
             }
         }
     }
-   
+    
     func fetchPoem(poems: [Poem], poem: Poem) -> Poem {
         guard let index = poems.firstIndex(of: poem) else {return poem}
         return poems[index]
+    }
+    
+    func sortPoemsByLikeCount_random(_ poems: [Poem]) -> [Poem] {
+        
+        if poems.count > 3 {
+            let sorted = poems.sorted { p1, p2 in
+                p1.likers.count > p2.likers.count
+            }
+            let prefix = sorted.prefix(3)
+            let rest = sorted.dropFirst(3).shuffled()
+            return prefix + rest
+        } else {
+            return poems.sorted { p1, p2 in
+                p1.likers.count > p2.likers.count
+            }
+        }
     }
 }

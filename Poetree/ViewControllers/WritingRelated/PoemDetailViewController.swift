@@ -30,19 +30,31 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpUI()
+        
     }
     
-    func setUpUI(){
-   
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configNavBar()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.systemOrange]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navigationController?.navigationBar.tintColor = UIColor.systemOrange
+    }
+    
+    func configNavBar() {
         self.navigationController?.navigationBar.shadowImage = UIImage()
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.label]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navigationController?.navigationBar.tintColor = UIColor.label
     }
     
     
     func bindViewModel() {
   
-        
         self.viewModel.output.displayingPoem
             .drive(onNext:{ [weak self] poem in
                 

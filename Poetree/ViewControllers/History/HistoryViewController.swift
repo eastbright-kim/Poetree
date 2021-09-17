@@ -20,10 +20,6 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
     @IBOutlet weak var threePoemsTableView: UITableView!
     @IBOutlet weak var indexCountLabel: UIButton!
     
-    
-    
-    
-    
     var viewModel: HistoryViewModel!
     
     
@@ -42,7 +38,6 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
         lastWeekPhotoCollectionView.delegate = self
         lastWeekPhotoCollectionView.decelerationRate = .fast
         lastWeekPhotoCollectionView.isPagingEnabled = false
-        
         
         
         let flowlayout = UICollectionViewFlowLayout()

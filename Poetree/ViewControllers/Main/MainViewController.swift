@@ -27,8 +27,6 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
     @IBOutlet weak var rightChev: UIButton!
     @IBOutlet weak var leftChev: UIButton!
     
-    
-    
     var viewModel: MainViewModel!
   
     override func viewDidLoad() {
@@ -38,7 +36,6 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
         collectionViewDelegate()
         
     }
-    
     
     func collectionViewAni() {
         collectionView.alpha = 0
@@ -63,10 +60,8 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        naviBarConfig()
         resetDate()
-        self.navigationController?.navigationBar.tintColor = UIColor.black
-        
     }
     func resetDate() {
         viewModel.output.currentDate
@@ -81,7 +76,6 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
     }
     
     private func configureNavTab() {
-        
         self.navigationItem.title = "Poetree"
         self.navigationItem.largeTitleDisplayMode = .always
         self.tabBarItem.image = UIImage(systemName: "pencil")
@@ -91,6 +85,14 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
         self.navigationItem.backBarButtonItem = backItem
     }
  
+    func naviBarConfig() {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.tintColor = UIColor.label
+        self.navigationController?.navigationBar.barTintColor = UIColor.systemBackground
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.label]
+        self.navigationController?.navigationBar.barTintColor = UIColor.systemBackground
+        self.navigationController?.navigationBar.shadowImage = nil
+    }
     
     func bindViewModel() {
         
@@ -102,7 +104,6 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
             .bind(to: collectionView.rx.items(cellIdentifier: "cell", cellType: MainPhotoCollectionViewCell.self)) { index, photo, cell in
                 let url = photo.url
                 cell.todayImage.kf.setImage(with: url)
-               
             }
             .disposed(by: rx.disposeBag)
         
@@ -216,7 +217,7 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
                 var headPhotoListVC = ListWithHeadPhotoViewController.instantiate(storyboardID: "ListRelated")
                 headPhotoListVC.bind(viewModel: viewModel)
                 
-                self.present(headPhotoListVC, animated: true, completion: nil)
+                self.navigationController?.pushViewController(headPhotoListVC, animated: true)
             })
             .disposed(by: rx.disposeBag)
         

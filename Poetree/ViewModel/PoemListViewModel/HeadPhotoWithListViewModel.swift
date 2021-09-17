@@ -41,6 +41,7 @@ class HeadPhotoWithListViewModel: ViewModelType {
         let displyingPoems = poems.map { poems in
             poemService.fetchPoemsByPhotoId(poems: poems, photoId: selectedPhotoId)
         }
+        .map(poemService.sortPoemsByLikeCount_random)
         
         let selectedPhoto = photos.map { weekPhoto in
             photoService.fetchPhotoById(weekPhoto, id: selectedPhotoId)

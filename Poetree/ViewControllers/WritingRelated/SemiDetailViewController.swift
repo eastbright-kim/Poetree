@@ -91,17 +91,15 @@ class SemiDetailViewController: UIViewController, StoryboardBased, ViewModelBind
         detailBtn1.rx.tap
             .withLatestFrom(self.viewModel.output.displayingPoem)
             .subscribe(onNext:{ poem in
-                
-                print(poem.isLike)
-                
                 let viewModel = PoemDetailViewModel(poem: poem, poemService: self.viewModel.poemService, userService: self.viewModel.userService)
                 var detailVC = PoemDetailViewController.instantiate(storyboardID: "WritingRelated")
                 detailVC.bind(viewModel: viewModel)
-                detailVC.modalPresentationStyle = .overFullScreen
-                detailVC.modalTransitionStyle = .crossDissolve
+                
+                self.navigationController?.pushViewController(detailVC, animated: true)
                 
                 let navi = UINavigationController(rootViewController: detailVC)
-                
+                navi.modalTransitionStyle = .crossDissolve
+                navi.modalPresentationStyle = .overFullScreen
                 self.present(navi, animated: true, completion: nil)
             })
             .disposed(by: rx.disposeBag)
@@ -112,11 +110,11 @@ class SemiDetailViewController: UIViewController, StoryboardBased, ViewModelBind
                 let viewModel = PoemDetailViewModel(poem: poem, poemService: self.viewModel.poemService, userService: self.viewModel.userService)
                 var detailVC = PoemDetailViewController.instantiate(storyboardID: "WritingRelated")
                 detailVC.bind(viewModel: viewModel)
-                detailVC.modalPresentationStyle = .overFullScreen
-                detailVC.modalTransitionStyle = .crossDissolve
+                self.navigationController?.pushViewController(detailVC, animated: true)
                 let navi = UINavigationController(rootViewController: detailVC)
+                navi.modalTransitionStyle = .crossDissolve
+                navi.modalPresentationStyle = .overFullScreen
                 self.present(navi, animated: true, completion: nil)
-                
             })
             .disposed(by: rx.disposeBag)
     }
