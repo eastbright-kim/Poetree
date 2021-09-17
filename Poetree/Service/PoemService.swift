@@ -54,7 +54,7 @@ class PoemService {
   
         let userLikedPoems = poems.filter { poem in
            poem.likers[currentUser.userUID] ?? false
-        }
+        }.shuffled()
         
         return userLikedPoems
     }

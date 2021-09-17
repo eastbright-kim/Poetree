@@ -17,7 +17,6 @@ class PoemListViewController: UIViewController, StoryboardBased, ViewModelBindab
     
     var viewModel: PoemListViewModel!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,17 +28,50 @@ class PoemListViewController: UIViewController, StoryboardBased, ViewModelBindab
     }
     
     func configureUI(){
+        
         self.navigationController?.navigationBar.shadowImage = UIImage()
+        let type = self.viewModel.output.listType
+        var title: String?
+        switch type {
+        case .allPoems:
+            title = "모든 글"
+        case .thisWeek:
+            title = "이번 주 글"
+        case .userLiked:
+            title = "좋아한 글"
+        case .userWrote:
+            title = "쓴 글"
+        }
+        self.title = title ?? "글 목록"
+        tableView.tableFooterView = UIView()
+        tableView.cellLayoutMarginsFollowReadableWidth = false
+        tableView.separatorInset.left = 20
+        tableView.separatorInset.right = 20
     }
     
     func bindViewModel() {
         
         viewModel.output.displayingPoems
             .bind(to: tableView.rx.items(cellIdentifier: "PoemListCell", cellType: PoemListTableViewCell.self)) { row, poem, cell in
-                cell.poemImageView.kf.setImage(with: poem.photoURL)
-                cell.titleLabel.text = poem.title
-                cell.likesLabel.text = "\(poem.likers.count)"
-                cell.userLabel.text = poem.userPenname
+                
+                let type = self.viewModel.output.listType
+                
+                switch type {
+                case .allPoems, .thisWeek, .userWrote:
+                    cell.poemImageView.kf.setImage(with: poem.photoURL)
+                    cell.titleLabel.text = poem.title
+                    cell.likesLabel.text = "\(poem.likers.count)"
+                    cell.userLabel.text = "by .\(poem.userPenname)"
+                    if row > 2 {
+                        cell.likesStackView.isHidden = true
+                    }
+                case .userLiked:
+                    cell.poemImageView.kf.setImage(with: poem.photoURL)
+                    cell.titleLabel.text = poem.title
+                    cell.likesLabel.text = "\(poem.likers.count)"
+                    cell.userLabel.text = "by. \(poem.userPenname)"
+                }
+                cell.selectionStyle = .none
             }
             .disposed(by: rx.disposeBag)
         
@@ -54,7 +86,7 @@ class PoemListViewController: UIViewController, StoryboardBased, ViewModelBindab
                 semiDetailVC.bind(viewModel: viewModel)
                 
                 semiDetailVC.modalTransitionStyle = .crossDissolve
-                semiDetailVC.modalPresentationStyle = .overCurrentContext
+                semiDetailVC.modalPresentationStyle = .custom
                 
                 self.present(semiDetailVC, animated: true, completion: nil)
 

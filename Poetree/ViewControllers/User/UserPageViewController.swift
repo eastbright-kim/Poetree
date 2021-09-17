@@ -141,7 +141,8 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
                     cell.likeStackView.isHidden = false
                     cell.likesCountLabel.text = "\(poem.likers.count)"
                 default:
-                    break
+                    cell.likeStackView.isHidden = true
+                    cell.likeStatusBtn.isHidden = true
                 }
                 
             }

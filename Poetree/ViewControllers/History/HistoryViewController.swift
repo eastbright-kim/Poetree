@@ -29,6 +29,11 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
         collectionViewDelegate()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+    }
+    
     
     func collectionViewDelegate() {
         

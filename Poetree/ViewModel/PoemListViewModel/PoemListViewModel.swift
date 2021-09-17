@@ -19,6 +19,7 @@ class PoemListViewModel: ViewModelType {
     
     struct Output {
         let displayingPoems: Observable<[Poem]>
+        let listType: PoemListType
     }
     
     var input: Input
@@ -27,23 +28,24 @@ class PoemListViewModel: ViewModelType {
     init(poemService: PoemService, userService: UserService, listType: PoemListType, selectedPhotoId: Int? = nil) {
         
         switch listType {
-        
         case .allPoems:
             let displayingPoems = poemService.allPoems()
-            self.output = Output(displayingPoems: displayingPoems)
+                .map(poemService.sortPoemsByLikeCount_random)
+            self.output = Output(displayingPoems: displayingPoems, listType: listType)
         case .thisWeek:
             let thisWeekPoems = poemService.fetchThisWeekPoems()
             let displayingPoems = Observable.just(thisWeekPoems)
-            self.output = Output(displayingPoems: displayingPoems)
+                .map(poemService.sortPoemsByLikeCount_random)
+            self.output = Output(displayingPoems: displayingPoems, listType: listType)
         case .userLiked(let currentAuth):
             let displayingPoems = poemService.allPoems()
                 .map { poems in poemService.fetchUserLikedWriting(poems: poems, currentUser: currentAuth)}
-            self.output = Output(displayingPoems: displayingPoems)
+            self.output = Output(displayingPoems: displayingPoems, listType: listType)
         case .userWrote(let currentAuth):
             let displayingPoems = poemService.allPoems()
                 .map { poems in poemService.fetchUserWriting(poem: poems, currentUser: currentAuth)}
-            self.output = Output(displayingPoems: displayingPoems)
-            
+                .map(poemService.sortPoemsByLikeCount_random)
+            self.output = Output(displayingPoems: displayingPoems, listType: listType)
         }
         self.poemService = poemService
         self.userService = userService

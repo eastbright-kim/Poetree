@@ -39,13 +39,13 @@ class ListWithHeadPhotoViewController: UIViewController, ViewModelBindable, HasD
         
         viewModel.output.displayingPoem
             .bind(to: self.poemListTableView.rx.items(cellIdentifier: "headPhotoListTableViewCell", cellType: headPhotoListTableViewCell.self)){ indexPath, poem, cell in
-                
                 cell.authorLabel.text = "by. \(poem.userPenname)"
                 cell.titleLabel.text = poem.title
                 cell.contentLabel.text = poem.content
+                cell.likesLabel.text = "\(poem.likers.count)"
                 cell.selectionStyle = .none
-                if indexPath <= 3{
-                    cell.likesLabel.text = "\(poem.likers.count)"
+                if indexPath > 2{
+                    cell.heartStackView.isHidden = true
                 }
             }
             .disposed(by: rx.disposeBag)

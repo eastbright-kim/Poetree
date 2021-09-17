@@ -13,11 +13,6 @@ class headPhotoListTableViewCell: UITableViewCell {
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var likesLabel: UILabel!
+    @IBOutlet weak var heartStackView: UIStackView!
     
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 }

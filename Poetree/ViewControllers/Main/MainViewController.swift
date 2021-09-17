@@ -28,13 +28,18 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
     @IBOutlet weak var leftChev: UIButton!
     
     var viewModel: MainViewModel!
-  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         collectionViewAni()
         collectionViewDelegate()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        naviBarConfig()
+        resetDate()
     }
     
     func collectionViewAni() {
@@ -58,11 +63,7 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
         collectionView.collectionViewLayout = flowlayout
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        naviBarConfig()
-        resetDate()
-    }
+   
     func resetDate() {
         viewModel.output.currentDate
             .drive(dateLabel.rx.text)
@@ -91,7 +92,7 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
         self.navigationController?.navigationBar.barTintColor = UIColor.systemBackground
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.label]
         self.navigationController?.navigationBar.barTintColor = UIColor.systemBackground
-        self.navigationController?.navigationBar.shadowImage = nil
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     func bindViewModel() {
