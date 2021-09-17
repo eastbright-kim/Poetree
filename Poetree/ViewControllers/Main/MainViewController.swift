@@ -15,7 +15,6 @@ import Firebase
 
 class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, HasDisposeBag{
     
-    
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var poemTableView: UITableView!
     @IBOutlet weak var writeBtn: UIBarButtonItem!
@@ -26,6 +25,8 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
     @IBOutlet weak var thisWeekPoemBtn: UIButton!
     @IBOutlet weak var rightChev: UIButton!
     @IBOutlet weak var leftChev: UIButton!
+    @IBOutlet weak var backScrollView: UIScrollView!
+    
     
     var viewModel: MainViewModel!
     
@@ -34,6 +35,7 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
         configureUI()
         collectionViewAni()
         collectionViewDelegate()
+        initRefresh()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,7 +65,21 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
         collectionView.collectionViewLayout = flowlayout
     }
     
-   
+    private func initRefresh() {
+        backScrollView.refreshControl = UIRefreshControl()
+        backScrollView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
+    }
+    
+    @objc func handleRefreshControl() {
+        self.viewModel.photoService.fetchPhotos { complete in
+            
+            DispatchQueue.main.async {
+                self.backScrollView.refreshControl?.endRefreshing()
+                self.backScrollView.contentOffset = CGPoint.zero
+            }
+        }
+    }
+    
     func resetDate() {
         viewModel.output.currentDate
             .drive(dateLabel.rx.text)

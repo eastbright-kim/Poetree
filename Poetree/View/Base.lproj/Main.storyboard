@@ -254,6 +254,7 @@
                     </navigationItem>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
+                        <outlet property="backScrollView" destination="EoP-ZT-RVa" id="aJ9-81-3h4"/>
                         <outlet property="collectionView" destination="Wea-DR-SIG" id="UC5-FM-lmc"/>
                         <outlet property="dateLabel" destination="uCU-xM-0Zn" id="bzv-1X-dKp"/>
                         <outlet property="leftChev" destination="13u-eE-nYk" id="VdG-8r-lI7"/>

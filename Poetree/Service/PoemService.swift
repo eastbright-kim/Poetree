@@ -89,7 +89,7 @@ class PoemService {
         self.poemsStore.onNext(self.poems)
     }
     
-    func fetchPoems(completion: @escaping ([Poem], String) -> Void) {
+    func fetchPoems(completion: @escaping (Complete) -> Void) {
         
         poemRepository.fetchPoems { poemEntities, result in
             
@@ -109,7 +109,7 @@ class PoemService {
                 
                 return Poem(id: id, userEmail: userEmail, userNickname: userNickname, title: title, content: content, photoId: photoId, uploadAt: uploadAt, isPrivate: isPrivate, likers: likers, photoURL: photoURL, userUID: userUID, isTemp: isTemp)
             }
-            completion(poemModels, "모든 시 불러오기 성공")
+            completion(.fetchedPoem)
             self.poems = poemModels
             self.poemsStore.onNext(poemModels)
         }

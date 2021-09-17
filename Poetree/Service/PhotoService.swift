@@ -30,32 +30,50 @@ class PhotoService {
     func getThisWeekPhoto(_ photos: [WeekPhoto]) -> [WeekPhoto] {
         
         let sortedArr = photos.prefix(3)
-       
+        
         return Array(sortedArr)
     }
     
-//    func getWeekPhotos(completion: @escaping ([WeekPhoto]) -> Void) {
-//        photoRepository.fetchPhotos {[unowned self] photoEntities in
-//            let weekPhotos = photoEntities.map { entity -> WeekPhoto in
-//                let url = URL(string: entity.imageURL)!
-//                let photoId = entity.photoId
-//                let date = convertStringToDate(dateFormat: "YYYY MMM d", dateString: entity.date)
-//                return WeekPhoto(date: date, id: photoId, url: url)
-//            }
-//            completion(weekPhotos)
-//            self.weekPhotos = weekPhotos
-//            self.photoStore.onNext(weekPhotos)
-//        }
-//    }
+    //    func getWeekPhotos(completion: @escaping ([WeekPhoto]) -> Void) {
+    //        photoRepository.fetchPhotos {[unowned self] photoEntities in
+    //            let weekPhotos = photoEntities.map { entity -> WeekPhoto in
+    //                let url = URL(string: entity.imageURL)!
+    //                let photoId = entity.photoId
+    //                let date = convertStringToDate(dateFormat: "YYYY MMM d", dateString: entity.date)
+    //                return WeekPhoto(date: date, id: photoId, url: url)
+    //            }
+    //            completion(weekPhotos)
+    //            self.weekPhotos = weekPhotos
+    //            self.photoStore.onNext(weekPhotos)
+    //        }
+    //    }
+    
+    func fetchPhotos(completion: @escaping ((Complete) -> Void)){
+        
+        self.photoRepository.fetchPhotos { photoEntities in
+            let weekPhotos = photoEntities.map { entity -> WeekPhoto in
+                let url = URL(string: entity.imageURL)!
+                let photoId = entity.photoId
+                let date = convertStringToDate(dateFormat: "yyyy MMM d", dateString: entity.date)
+                return WeekPhoto(date: date, id: photoId, url: url)
+            }.sorted { p1, p2 in
+                p1.date.timeIntervalSinceReferenceDate > p2.date.timeIntervalSinceReferenceDate
+            }.filter { weekPhoto in
+                
+                let thisMonday = getMonday(myDate: Date())
+                return weekPhoto.date.timeIntervalSinceReferenceDate <= thisMonday.timeIntervalSinceReferenceDate
+            }
+            self.weekPhotos = weekPhotos
+            self.photoStore.onNext(self.weekPhotos)
+        }
+    }
     
     func fetchLastWeekPhotos(weekPhotos: [WeekPhoto]) -> [WeekPhoto] {
-        
         let lastWeekdPhotos = weekPhotos.dropFirst(3)
-        
         return Array(lastWeekdPhotos)
     }
-
-
+    
+    
     func fetchPhotoId(photos: [WeekPhoto], _ index: Int) -> Int {
         
         let thisWeekPhotos = getThisWeekPhoto(photos)
@@ -75,3 +93,4 @@ class PhotoService {
         return photos.first
     }
 }
+

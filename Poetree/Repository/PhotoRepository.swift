@@ -29,6 +29,4 @@ class PhotoRepository {
             completion(photoEntity)
         }
     }
-    
-    
 }
