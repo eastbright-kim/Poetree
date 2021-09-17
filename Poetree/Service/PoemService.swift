@@ -109,9 +109,9 @@ class PoemService {
                 
                 return Poem(id: id, userEmail: userEmail, userNickname: userNickname, title: title, content: content, photoId: photoId, uploadAt: uploadAt, isPrivate: isPrivate, likers: likers, photoURL: photoURL, userUID: userUID, isTemp: isTemp)
             }
-            completion(.fetchedPoem)
             self.poems = poemModels
             self.poemsStore.onNext(poemModels)
+            completion(.fetchedPoem)
         }
     }
     
@@ -236,7 +236,7 @@ class PoemService {
         }
     }
     
-    func fetchPoem(poems: [Poem], poem: Poem) -> Poem {
+    func fetchMatchedPoem(poems: [Poem], poem: Poem) -> Poem {
         guard let index = poems.firstIndex(of: poem) else {return poem}
         return poems[index]
     }

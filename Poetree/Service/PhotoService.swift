@@ -65,6 +65,7 @@ class PhotoService {
             }
             self.weekPhotos = weekPhotos
             self.photoStore.onNext(self.weekPhotos)
+            completion(.fetchedPhoto)
         }
     }
     

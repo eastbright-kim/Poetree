@@ -72,10 +72,8 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
     
     @objc func handleRefreshControl() {
         self.viewModel.photoService.fetchPhotos { complete in
-            
             DispatchQueue.main.async {
                 self.backScrollView.refreshControl?.endRefreshing()
-                self.backScrollView.contentOffset = CGPoint.zero
             }
         }
     }

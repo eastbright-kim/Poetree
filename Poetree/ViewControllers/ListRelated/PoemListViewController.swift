@@ -19,12 +19,25 @@ class PoemListViewController: UIViewController, StoryboardBased, ViewModelBindab
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        initRefresh()
     }
    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureUI()
+    }
+    
+    private func initRefresh() {
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
+    }
+    
+    @objc func handleRefreshControl() {
+        self.viewModel.poemService.fetchPoems { complete in
+            DispatchQueue.main.async {
+                self.tableView.refreshControl?.endRefreshing()
+            }
+        }
     }
     
     func configureUI(){

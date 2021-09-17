@@ -35,7 +35,7 @@ class SemiDetailViewModel: ViewModelType {
         
         let poems = poemService.allPoems()
         
-        let displayingPoem = poems.map{poems in poemService.fetchPoem(poems: poems, poem: poem)}
+        let displayingPoem = poems.map{poems in poemService.fetchMatchedPoem(poems: poems, poem: poem)}
             .asDriver(onErrorJustReturn: poem)
         
 //        let displayingPoem = Observable.combineLatest(initialPoem.asObservable(), isLikeThisPoem) { poem, isLikeThisPoem -> Poem in

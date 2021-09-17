@@ -107,7 +107,7 @@
                             <constraint firstItem="spX-dz-aCU" firstAttribute="bottom" secondItem="Kqe-8m-eho" secondAttribute="bottom" id="xh0-QG-RXC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="글 리스트" id="pF3-sU-gOP">
+                    <navigationItem key="navigationItem" title="글 리스트" largeTitleDisplayMode="never" id="pF3-sU-gOP">
                         <barButtonItem key="backBarButtonItem" title=" " id="QXi-f0-z8j"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>

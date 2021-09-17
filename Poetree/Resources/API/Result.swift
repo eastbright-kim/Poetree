@@ -12,6 +12,7 @@ enum Complete: String {
    
     case writedPoem = "시 쓰기 성공"
     case fetchedPoem = "전체 시 불러오기 성공"
+    case fetchedPhoto = "사진 불러오기 성공"
 }
 
 enum SignInErorr: Error {
