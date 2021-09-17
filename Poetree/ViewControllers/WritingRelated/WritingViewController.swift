@@ -232,7 +232,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
                     print(result)
                 }
                 DispatchQueue.main.async {
-                    self.navigationController?.popToRootViewController(animated: true)
+                    self.navigationController?.popViewController(animated: true)
                 }
             })
             .disposed(by: self.rx.disposeBag)

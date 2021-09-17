@@ -31,6 +31,7 @@ class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased, Vie
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         naviBarConfig()
+        noticeLabelAni()
         guard let selectedIndexPath = selectedIndexPath else {return}
         self.photoCollectionView.scrollToItem(at: selectedIndexPath, at: .centeredHorizontally, animated: true)
     }
@@ -48,7 +49,6 @@ class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased, Vie
     
     func configureUI(){
         collectionViewDelegate()
-        noticeLabelAni()
         let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         self.navigationItem.backBarButtonItem = backBarButtonItem
     }

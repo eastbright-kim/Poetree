@@ -32,6 +32,8 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.label]
+        self.navigationController?.navigationBar.barTintColor = UIColor.systemBackground
     }
     
     

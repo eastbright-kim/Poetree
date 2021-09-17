@@ -33,6 +33,7 @@ class ListWithHeadPhotoViewController: UIViewController, ViewModelBindable, HasD
     
     func naviBarConfig(){
         self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.tintColor = UIColor.label
     }
     
     func bindViewModel() {
