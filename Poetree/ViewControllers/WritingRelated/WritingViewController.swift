@@ -146,12 +146,11 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
             
         case .temp(let writingPoem):
             self.selectedPhoto.kf.setImage(with: writingPoem.photoURL)
-            self.userDateLabel.text = viewModel.poemService.getWritingTimeString(date: writingPoem.uploadAt)
+            self.userDateLabel.text = viewModel.poemService.getWritingTimeString(date: Date())
             self.titleTextField.text = writingPoem.title
             self.contentTextView.text = writingPoem.content
             self.privateChechBtn.isSelected = writingPoem.isPrivate
             self.writeComplete.isHidden = false
-            
         }
         titleTextField.addDoneButtonOnKeyboard()
         contentTextView.addDoneButtonOnKeyboard()

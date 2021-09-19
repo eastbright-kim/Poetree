@@ -73,12 +73,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 let photoId = entity.photoId
                 let date = convertStringToDate(dateFormat: "yyyy MMM d", dateString: entity.date)
                 return WeekPhoto(date: date, id: photoId, url: url)
-            }.sorted { p1, p2 in
-                p1.date.timeIntervalSinceReferenceDate > p2.date.timeIntervalSinceReferenceDate
             }.filter { weekPhoto in
                 let thisMonday = getThisMonday(myDate: Date())
                 return weekPhoto.date.timeIntervalSinceReferenceDate <= thisMonday.timeIntervalSinceReferenceDate
             }
+            .sorted { p1, p2 in
+                p1.date.timeIntervalSinceReferenceDate > p2.date.timeIntervalSinceReferenceDate
+            }
+            
             photoServie.weekPhotos = weekPhotos
             photoServie.photoStore.onNext(weekPhotos)
         }
@@ -100,9 +102,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let tabBarController = UITabBarController()
         tabBarController.setViewControllers([mainNVC, historyNVC, userNAV], animated: false)
-        
-        
-
         
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()

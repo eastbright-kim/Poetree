@@ -100,8 +100,7 @@ class PoemListViewController: UIViewController, StoryboardBased, ViewModelBindab
         tableView.rx.modelSelected(Poem.self)
             .subscribe(onNext:{[weak self] poem in
                 guard let self = self else {return}
-                
-                let viewModel = SemiDetailViewModel(poem: poem, poemService: self.viewModel.poemService, userService: self.viewModel.userService)
+                let viewModel = SemiDetailViewModel(poem: poem, poemService: self.viewModel.poemService, userService: self.viewModel.userService, isTempSemiDetail: true)
                 var semiDetailVC = SemiDetailViewController.instantiate(storyboardID: "WritingRelated")
                 semiDetailVC.bind(viewModel: viewModel)
                 semiDetailVC.modalTransitionStyle = .crossDissolve
@@ -110,4 +109,9 @@ class PoemListViewController: UIViewController, StoryboardBased, ViewModelBindab
             })
             .disposed(by: rx.disposeBag)
     }
+    
+    
+    @IBAction func unwind( _ seg: UIStoryboardSegue) {
+    }
+    
 }

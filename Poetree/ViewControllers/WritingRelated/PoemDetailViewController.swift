@@ -57,11 +57,7 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
     
     func configureUI(){
         self.photoImageView.layer.cornerRadius = 8
-        
-        if self.viewModel.output.isTempDetail {
-            keepWriteBtn.isHidden = false
-            deleteBtn.isHidden = false
-        }
+
     }
     
     
@@ -79,9 +75,17 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
                 self.likeBtn.isSelected = poem.isLike
                 self.isLike = poem.isLike
                 self.likesCountLabel.text = "좋아요 \(poem.likers.count)개"
-                if let currentUser = Auth.auth().currentUser, currentUser.uid == poem.userUID {
+                
+                if self.viewModel.output.isTempDetail {
+                    self.editBtn.isHidden = true
+                    self.deleteBtn.isHidden = false
+                    self.keepWriteBtn.isHidden = false
+                    self.likeBtn.isHidden = true
+                    self.likesCountLabel.isHidden = true
+                } else if let currentUser = Auth.auth().currentUser, currentUser.uid == poem.userUID {
                     self.editBtn.isHidden = false
                     self.deleteBtn.isHidden = false
+                    self.keepWriteBtn.isHidden = true
                 }
             })
             .disposed(by: rx.disposeBag)
@@ -136,9 +140,10 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
             .subscribe(onNext:{[weak self] poem in
                 
                 guard let self = self else {return}
-                
-                self.viewModel.deletePoem(deletingPoem: poem)
-                self.navigationController?.popViewController(animated: true)
+                self.viewModel.poemService.deletePoem(deletingPoem: poem)
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion: nil)
+                }
             })
             .disposed(by: rx.disposeBag)
         
@@ -146,7 +151,7 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
             .withLatestFrom(self.viewModel.output.displayingPoem)
             .subscribe(onNext:{ poem in
                 
-                guard self.viewModel.output.isTempDetail == false else { self.view.makeToast("임시 저장 글은 신고 할 수 없습니다", duration: 1.0, position: .center)
+                guard self.viewModel.output.isTempDetail == false else { self.view.makeToast("임시 저장 글은 신고할 수 없습니다", duration: 1.0, position: .center)
                     return}
                 
                 let alert = UIAlertController(title: "글 신고하기", message: "비속어 등 악의적인 표현이 있는 글을 신고해주시기 바랍니다", preferredStyle: .actionSheet)
@@ -185,4 +190,7 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
             })
             .disposed(by: rx.disposeBag)
     }
+    
+    
+    
 }
