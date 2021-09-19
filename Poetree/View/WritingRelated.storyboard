@@ -121,6 +121,12 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxq-0v-TIX">
+                                                <rect key="frame" x="372" y="558" width="36" height="27"/>
+                                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
+                                                <state key="normal" title="private"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -129,6 +135,7 @@
                                             <constraint firstAttribute="trailing" secondItem="gfy-se-LsK" secondAttribute="trailing" constant="20" id="4Vu-Ph-8Hu"/>
                                             <constraint firstAttribute="height" constant="1220" id="5ap-ka-KnD"/>
                                             <constraint firstItem="gOo-EN-uKs" firstAttribute="leading" secondItem="I1a-q7-YTK" secondAttribute="leading" constant="20" id="APP-Kt-5az"/>
+                                            <constraint firstItem="fxq-0v-TIX" firstAttribute="top" secondItem="gxV-qK-J2a" secondAttribute="bottom" constant="3" id="ONt-rd-snB"/>
                                             <constraint firstItem="gfy-se-LsK" firstAttribute="leading" secondItem="I1a-q7-YTK" secondAttribute="leading" constant="20" id="P4x-VA-hWa"/>
                                             <constraint firstItem="OrE-3b-2DE" firstAttribute="leading" secondItem="I1a-q7-YTK" secondAttribute="leading" constant="20" id="S10-B0-ZQA"/>
                                             <constraint firstItem="gOo-EN-uKs" firstAttribute="top" secondItem="gfy-se-LsK" secondAttribute="bottom" constant="40" id="SOf-Z2-UOj"/>
@@ -136,6 +143,7 @@
                                             <constraint firstItem="gfy-se-LsK" firstAttribute="top" secondItem="I1a-q7-YTK" secondAttribute="top" constant="30" id="Ugy-Cv-zkD"/>
                                             <constraint firstItem="gxV-qK-J2a" firstAttribute="top" secondItem="gOo-EN-uKs" secondAttribute="bottom" constant="32" id="Whi-vd-L0P"/>
                                             <constraint firstAttribute="bottom" secondItem="cbc-pW-TfC" secondAttribute="bottom" id="Yph-Jm-zDF"/>
+                                            <constraint firstItem="fxq-0v-TIX" firstAttribute="trailing" secondItem="gxV-qK-J2a" secondAttribute="trailing" id="bZ8-RI-0fF"/>
                                             <constraint firstItem="gxV-qK-J2a" firstAttribute="trailing" secondItem="gOo-EN-uKs" secondAttribute="trailing" id="doS-gr-O9e"/>
                                             <constraint firstItem="cbc-pW-TfC" firstAttribute="top" secondItem="OrE-3b-2DE" secondAttribute="bottom" id="jFb-Kr-Knc"/>
                                             <constraint firstAttribute="trailing" secondItem="OrE-3b-2DE" secondAttribute="trailing" constant="20" id="s1Q-Vl-IHm"/>
@@ -186,6 +194,7 @@
                         <outlet property="likeBtn" destination="Vlq-oq-Pir" id="Bwx-Ry-gQC"/>
                         <outlet property="likesCountLabel" destination="axH-iO-0uu" id="xnS-lp-IO9"/>
                         <outlet property="photoImageView" destination="gfy-se-LsK" id="XKO-S4-1J7"/>
+                        <outlet property="privateBtn" destination="fxq-0v-TIX" id="IBo-6L-9V6"/>
                         <outlet property="reportBtn" destination="yJQ-dg-Xaw" id="NtA-dG-6Pn"/>
                         <outlet property="titleLabel" destination="gOo-EN-uKs" id="gMe-CI-MbE"/>
                         <outlet property="userLabel" destination="gxV-qK-J2a" id="fCL-oy-ieR"/>
@@ -229,10 +238,10 @@
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="YgA-Ht-a31">
-                                                <rect key="frame" x="107.33333333333334" y="27.666666666666689" width="78" height="42.333333333333343"/>
+                                                <rect key="frame" x="107.33333333333334" y="27.666666666666689" width="171.00000000000003" height="42.333333333333343"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="스며드는 것" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.55000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="fsB-Tg-hhR">
-                                                        <rect key="frame" x="0.0" y="0.0" width="78" height="18.333333333333332"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="스며드는 것 스며드는 것스며드는 것스며드는 것스며드는 것스며드는 것" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.55000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="fsB-Tg-hhR">
+                                                        <rect key="frame" x="0.0" y="0.0" width="171" height="18.333333333333332"/>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -291,6 +300,12 @@
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fge-x9-jUB">
+                                        <rect key="frame" x="35" y="422.33333333333337" width="30" height="24"/>
+                                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="10"/>
+                                        <state key="normal" title="private"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -298,10 +313,12 @@
                                     <constraint firstItem="b8P-ig-l91" firstAttribute="top" secondItem="TIU-iK-fSS" secondAttribute="bottom" constant="10" id="3x9-1u-49d"/>
                                     <constraint firstItem="TIU-iK-fSS" firstAttribute="trailing" secondItem="b8P-ig-l91" secondAttribute="trailing" id="4N0-B0-vhw"/>
                                     <constraint firstAttribute="width" secondItem="wEv-G2-aHK" secondAttribute="height" multiplier="9:11" id="4hO-LG-MvR"/>
+                                    <constraint firstItem="fge-x9-jUB" firstAttribute="leading" secondItem="b8P-ig-l91" secondAttribute="leading" constant="5" id="7qE-ni-j3o"/>
                                     <constraint firstItem="TIU-iK-fSS" firstAttribute="top" secondItem="wEv-G2-aHK" secondAttribute="top" constant="20" id="9R8-0l-Xme"/>
                                     <constraint firstItem="m3D-rS-7FH" firstAttribute="top" secondItem="wEv-G2-aHK" secondAttribute="top" constant="20" id="9v1-xK-1Q5"/>
                                     <constraint firstAttribute="trailing" secondItem="b8P-ig-l91" secondAttribute="trailing" constant="30" id="K0b-qC-OZb"/>
                                     <constraint firstItem="b8P-ig-l91" firstAttribute="leading" secondItem="wEv-G2-aHK" secondAttribute="leading" constant="30" id="R1F-rq-mFP"/>
+                                    <constraint firstItem="fge-x9-jUB" firstAttribute="centerY" secondItem="oXI-j3-yPo" secondAttribute="centerY" id="TF3-Ag-DhW"/>
                                     <constraint firstAttribute="trailing" secondItem="m3D-rS-7FH" secondAttribute="trailing" constant="20" id="WUI-qP-flr"/>
                                     <constraint firstAttribute="bottom" secondItem="b8P-ig-l91" secondAttribute="bottom" constant="30" id="dt9-b2-0DA"/>
                                     <constraint firstItem="b8P-ig-l91" firstAttribute="height" secondItem="wEv-G2-aHK" secondAttribute="height" multiplier="0.65" id="iak-lC-hoc"/>
@@ -331,6 +348,7 @@
                         <outlet property="exitBtn" destination="m3D-rS-7FH" id="UfF-e8-RAm"/>
                         <outlet property="heartBtn" destination="xdy-QF-Zbw" id="8y0-Br-z5p"/>
                         <outlet property="photoImageView" destination="ZZs-BB-NYn" id="wqV-LQ-TIC"/>
+                        <outlet property="privateBtn" destination="fge-x9-jUB" id="plj-aW-5zO"/>
                         <outlet property="titleLabel" destination="fsB-Tg-hhR" id="2He-KD-mgR"/>
                         <outlet property="windowView" destination="wEv-G2-aHK" id="Bvc-IH-Apf"/>
                     </connections>
@@ -431,7 +449,7 @@
                                                     <constraint firstItem="Q43-UZ-22H" firstAttribute="leading" secondItem="lGd-AP-hxN" secondAttribute="trailing" constant="8" symbolic="YES" id="vqA-b0-SmR"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="글을 모두가 볼 수 있도록 게시합니다. Poetree가 모두에게 소중한 공간이 될 수 있도록 협조해주세요." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ImL-d5-2PW">
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="글을 모두가 볼 수 있도록 게시합니다. Poetree가 모두에게 소중한 공간이 될 수 있도록 협조해주세요." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ImL-d5-2PW">
                                                 <rect key="frame" x="55.333333333333343" y="1168.6666666666667" width="317.33333333333326" height="31.333333333333258"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -504,7 +522,7 @@
                         <outlet property="backScrollView" destination="0JF-8G-ir6" id="cNv-x8-gVP"/>
                         <outlet property="contentTextView" destination="kQR-Li-RPL" id="RC9-mN-pnm"/>
                         <outlet property="editComplete" destination="bEC-K2-45A" id="YKz-Ku-lQR"/>
-                        <outlet property="privateChechBtn" destination="Q43-UZ-22H" id="Uum-Zw-ckb"/>
+                        <outlet property="privateCheckBtn" destination="Q43-UZ-22H" id="Uum-Zw-ckb"/>
                         <outlet property="privateNoticeLabel" destination="eh2-wD-4Kw" id="gVG-K7-WxH"/>
                         <outlet property="publicNoticeLabel" destination="ImL-d5-2PW" id="vFf-Ec-8z6"/>
                         <outlet property="selectedPhoto" destination="9Qg-Ne-5WM" id="NlB-H1-cnq"/>

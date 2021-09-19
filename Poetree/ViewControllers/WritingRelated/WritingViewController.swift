@@ -22,7 +22,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
     @IBOutlet weak var userDateLabel: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentTextView: UITextView!
-    @IBOutlet weak var privateChechBtn: UIButton!
+    @IBOutlet weak var privateCheckBtn: UIButton!
     @IBOutlet weak var editComplete: UIButton!
     @IBOutlet weak var writeComplete: UIButton!
     @IBOutlet weak var backScrollView: UIScrollView!
@@ -138,9 +138,16 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
             self.userDateLabel.text = viewModel.poemService.getWritingTimeString(date: editingPoem.uploadAt)
             self.titleTextField.text = editingPoem.title
             self.contentTextView.text = editingPoem.content
-            self.privateChechBtn.isSelected = editingPoem.isPrivate
+            self.privateCheckBtn.isSelected = editingPoem.isPrivate
+            self.isPrvate = editingPoem.isPrivate
+            if editingPoem.isPrivate {
+                self.privateNoticeLabel.isHidden = false
+                self.publicNoticeLabel.isHidden = true
+            } else {
+                self.privateNoticeLabel.isHidden = true
+                self.publicNoticeLabel.isHidden = false
+            }
             self.writeComplete.isHidden = true
-            
         case .write(let weekPhoto):
             self.selectedPhoto.kf.setImage(with: weekPhoto.url)
             self.userDateLabel.text = viewModel.poemService.getWritingTimeString(date: Date())
@@ -151,10 +158,17 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
             self.userDateLabel.text = viewModel.poemService.getWritingTimeString(date: Date())
             self.titleTextField.text = writingPoem.title
             self.contentTextView.text = writingPoem.content
-            self.privateChechBtn.isSelected = writingPoem.isPrivate
+            self.privateCheckBtn.isSelected = writingPoem.isPrivate
+            self.isPrvate = writingPoem.isPrivate
+            if writingPoem.isPrivate {
+                self.privateNoticeLabel.isHidden = false
+                self.publicNoticeLabel.isHidden = true
+            } else {
+                self.privateNoticeLabel.isHidden = true
+                self.publicNoticeLabel.isHidden = false
+            }
             self.editComplete.isHidden = true
         }
-        
         titleTextField.addDoneButtonOnKeyboard()
         contentTextView.addDoneButtonOnKeyboard()
     }
@@ -186,9 +200,9 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
             }
             .disposed(by: rx.disposeBag)
         
-        privateChechBtn.rx.tap
+        privateCheckBtn.rx.tap
             .do(onNext:{self.isPrvate = !self.isPrvate
-                self.privateChechBtn.isSelected.toggle()
+                self.privateCheckBtn.isSelected.toggle()
                 if self.isPrvate == false {
                     self.publicNoticeLabel.isHidden = false
                     self.privateNoticeLabel.isHidden = true
@@ -196,7 +210,6 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
                     self.publicNoticeLabel.isHidden = true
                     self.privateNoticeLabel.isHidden = false
                 }
-                
             })
             .map{[unowned self] in self.isPrvate}
             .bind(to: viewModel.input.isPrivate)

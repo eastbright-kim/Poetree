@@ -26,6 +26,9 @@ class SemiDetailViewController: UIViewController, StoryboardBased, ViewModelBind
     @IBOutlet weak var BGExitBtn: UIButton!
     @IBOutlet weak var detailBtn1: UIButton!
     @IBOutlet weak var detailBtn2: UIButton!
+    @IBOutlet weak var privateBtn: UIButton!
+    
+    
     
     var viewModel: SemiDetailViewModel!
     
@@ -38,7 +41,8 @@ class SemiDetailViewController: UIViewController, StoryboardBased, ViewModelBind
     func configureUI(){
         photoImageView.layer.cornerRadius = 8
         windowView.layer.cornerRadius = 8
-        
+        self.privateBtn.contentEdgeInsets = UIEdgeInsets(top: 3, left: 5, bottom: 3, right: 5)
+        self.privateBtn.layer.cornerRadius = 5
     }
     
     
@@ -73,7 +77,7 @@ class SemiDetailViewController: UIViewController, StoryboardBased, ViewModelBind
                 if self.viewModel.output.isTempSemiDetail {
                     self.heartBtn.isHidden = true
                 }
-                
+                self.privateBtn.isHidden = !poem.isPrivate
             })
             .disposed(by: rx.disposeBag)
         
