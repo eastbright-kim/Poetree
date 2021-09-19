@@ -52,12 +52,21 @@ func getCycleString(time: Int) -> String {
     }
 }
 
-func getMonday(myDate: Date) -> Date {
-    let cal = Calendar.current
-    var comps = cal.dateComponents([.weekOfYear, .yearForWeekOfYear], from: myDate)
-    comps.weekday = 2 // Monday
-    let mondayInWeek = cal.date(from: comps)!
-    return mondayInWeek
+func getThisMonday(myDate: Date) -> Date {
+    if myDate.dayNumberOfWeek() == 1 {
+        let cal = Calendar.current
+        var comps = cal.dateComponents([.weekOfYear, .yearForWeekOfYear], from: myDate)
+        comps.weekday = 2
+        let mondayInWeek = cal.date(from: comps)!
+        let lastMonday = Calendar.current.date(byAdding: .day, value: -7, to: mondayInWeek)
+        return lastMonday ?? mondayInWeek
+    } else {
+        let cal = Calendar.current
+        var comps = cal.dateComponents([.weekOfYear, .yearForWeekOfYear], from: myDate)
+        comps.weekday = 2
+        let mondayInWeek = cal.date(from: comps)!
+        return mondayInWeek
+    }
 }
 
 

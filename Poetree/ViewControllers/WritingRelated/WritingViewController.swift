@@ -145,7 +145,6 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
             self.editComplete.isHidden = true
             
         case .temp(let writingPoem):
-            
             self.selectedPhoto.kf.setImage(with: writingPoem.photoURL)
             self.userDateLabel.text = viewModel.poemService.getWritingTimeString(date: writingPoem.uploadAt)
             self.titleTextField.text = writingPoem.title

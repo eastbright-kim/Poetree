@@ -34,13 +34,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by. User123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIa-vL-fn7">
-                                                    <rect key="frame" x="135" y="74" width="62" height="15.666666666666671"/>
+                                                    <rect key="frame" x="135" y="79" width="62" height="15.666666666666671"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="7c3-LA-MNY">
-                                                    <rect key="frame" x="365.66666666666669" y="71" width="32.333333333333314" height="22"/>
+                                                    <rect key="frame" x="365.66666666666669" y="76" width="32.333333333333314" height="22"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSX-K1-jH0">
                                                             <rect key="frame" x="0.0" y="0.0" width="14.333333333333334" height="22"/>
@@ -58,13 +58,13 @@
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="꽃게가 간장 속에서 울컥울컥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWX-5I-Sf8">
-                                                    <rect key="frame" x="135" y="46" width="233" height="18"/>
+                                                    <rect key="frame" x="135" y="51" width="233" height="18"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스며드는 것" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="IQy-o4-032">
-                                                    <rect key="frame" x="135" y="14.333333333333334" width="233" height="21.666666666666664"/>
+                                                    <rect key="frame" x="135" y="19.333333333333329" width="233" height="21.666666666666671"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -80,7 +80,7 @@
                                                 <constraint firstItem="IQy-o4-032" firstAttribute="leading" secondItem="tE5-BN-880" secondAttribute="trailing" constant="25" id="O0z-XD-xz4"/>
                                                 <constraint firstItem="IQy-o4-032" firstAttribute="trailing" secondItem="CWX-5I-Sf8" secondAttribute="trailing" id="PXi-V3-dFL"/>
                                                 <constraint firstItem="tE5-BN-880" firstAttribute="top" secondItem="R04-UY-Gl3" secondAttribute="top" constant="10" id="Pj0-Ta-nZ4"/>
-                                                <constraint firstItem="CWX-5I-Sf8" firstAttribute="centerY" secondItem="tE5-BN-880" secondAttribute="centerY" id="Uvw-6d-0CH"/>
+                                                <constraint firstItem="CWX-5I-Sf8" firstAttribute="centerY" secondItem="tE5-BN-880" secondAttribute="centerY" constant="5" id="Uvw-6d-0CH"/>
                                                 <constraint firstItem="7c3-LA-MNY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iIa-vL-fn7" secondAttribute="trailing" constant="5" id="eBX-fB-oBU"/>
                                                 <constraint firstItem="iIa-vL-fn7" firstAttribute="leading" secondItem="IQy-o4-032" secondAttribute="leading" id="f86-kM-f6T"/>
                                                 <constraint firstItem="tE5-BN-880" firstAttribute="leading" secondItem="R04-UY-Gl3" secondAttribute="leading" constant="20" id="gTp-ez-VJD"/>
@@ -88,6 +88,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="contentLabel" destination="CWX-5I-Sf8" id="hHa-eD-pcn"/>
                                             <outlet property="likesLabel" destination="C2f-YH-OaE" id="gAA-HV-5vu"/>
                                             <outlet property="likesStackView" destination="7c3-LA-MNY" id="SNB-J4-riR"/>
                                             <outlet property="poemImageView" destination="tE5-BN-880" id="Laj-CC-esD"/>
@@ -119,10 +120,10 @@
             </objects>
             <point key="canvasLocation" x="499" y="2481"/>
         </scene>
-        <!--List With Head Photo View Controller-->
+        <!--View Controller-->
         <scene sceneID="gWU-Ix-83G">
             <objects>
-                <viewController storyboardIdentifier="ListWithHeadPhotoViewController" hidesBottomBarWhenPushed="YES" id="rBY-jp-Loj" customClass="ListWithHeadPhotoViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="rBY-jp-Loj" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JaB-mb-8ZX">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -219,19 +220,15 @@
                             <constraint firstItem="a6e-Vk-iu9" firstAttribute="bottom" secondItem="z6s-mw-atV" secondAttribute="bottom" constant="20" id="usB-3M-ACT"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="photoImageView" destination="Zri-Yp-6co" id="YWa-rg-fCl"/>
-                        <outlet property="poemListTableView" destination="z6s-mw-atV" id="UYY-nv-NJr"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xrg-dc-O6d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1653" y="2481"/>
         </scene>
-        <!--View Controller-->
+        <!--List With Head Photo View Controller-->
         <scene sceneID="EBq-kK-Qya">
             <objects>
-                <viewController id="aDe-Ia-ieg" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ListWithHeadPhotoViewController" id="aDe-Ia-ieg" customClass="ListWithHeadPhotoViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kLH-Xd-nT9">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -355,6 +352,11 @@
                             <constraint firstItem="zpy-dj-v4Y" firstAttribute="top" secondItem="kLH-Xd-nT9" secondAttribute="top" id="hoa-UB-syq"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backScrollView" destination="zpy-dj-v4Y" id="r43-Hl-fW0"/>
+                        <outlet property="photoImageView" destination="RVt-eT-30s" id="lwH-hz-zUv"/>
+                        <outlet property="poemListTableView" destination="Uyt-Ax-zbZ" id="p8x-cW-OaX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2u3-gw-1jj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

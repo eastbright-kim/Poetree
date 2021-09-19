@@ -28,7 +28,6 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
     @IBOutlet weak var likeWritingMoreBtn2: UIButton!
     
     
-    
     var viewModel: MyPoemViewModel!
     
     override func viewDidLoad() {
@@ -42,9 +41,11 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
         
         self.pennameLabel.alpha = 0
         self.greetingLabel.alpha = 0
-        
         greetingAni()
         
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.label]
+        self.navigationController?.navigationBar.barTintColor = UIColor.systemBackground
     }
     
     private func configureUI() {
@@ -104,14 +105,12 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
                 
                 guard let menuVC = UIStoryboard(name: "UserRelated", bundle: nil).instantiateViewController(identifier: "SideMenuViewController") as? SideMenuViewController else {return}
                 
-                let viewModel = SideMenuViewModel(userService: self.viewModel.userService)
+                let viewModel = SideMenuViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService)
                 menuVC.viewModel = viewModel
                 let menu = SideMenuNavigationController(rootViewController: menuVC)
                 menu.presentationStyle = .menuSlideIn
-                
-                menu.modalTransitionStyle = .crossDissolve
-                menu.modalPresentationStyle = .custom
-                
+                menu.presentationStyle.backgroundColor = .white
+                menu.presentationStyle.presentingEndAlpha = 0.5
                 self.present(menu, animated: true, completion: nil)
                 
             })
@@ -121,7 +120,6 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
             .bind(to: self.userWritingCollectionView.rx.items(cellIdentifier: "UserWritingCollectionViewCell", cellType: UserWritingCollectionViewCell.self)){
                 indexPath, poem, cell in
                 
-                //좋아요 순으로 되어야함
                 cell.imageView.kf.setImage(with: poem.photoURL)
                 cell.titleLabel.text = poem.title
                 cell.dateLabel.text = convertDateToString(format: "yyyy MMM d", date: poem.uploadAt)
@@ -239,7 +237,6 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
                 var listVC = PoemListViewController.instantiate(storyboardID: "WritingRelated")
                 listVC.bind(viewModel: viewModel)
                 self.navigationController?.pushViewController(listVC, animated: true)
-                
             })
             .disposed(by: rx.disposeBag)
     }

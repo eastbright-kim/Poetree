@@ -60,7 +60,7 @@ class PhotoService {
                 p1.date.timeIntervalSinceReferenceDate > p2.date.timeIntervalSinceReferenceDate
             }.filter { weekPhoto in
                 
-                let thisMonday = getMonday(myDate: Date())
+                let thisMonday = getThisMonday(myDate: Date())
                 return weekPhoto.date.timeIntervalSinceReferenceDate <= thisMonday.timeIntervalSinceReferenceDate
             }
             self.weekPhotos = weekPhotos

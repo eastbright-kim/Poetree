@@ -11,17 +11,17 @@ import RxSwift
 import RxCocoa
 import Firebase
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
     var window: UIWindow?
-
-
+    
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: windowScene)
-
+        
         let poemRepository = PoemRepository()
         let photoRepository = PhotoRepository()
         let userRegisterRepository = UserRegisterRepository()
@@ -76,30 +76,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }.sorted { p1, p2 in
                 p1.date.timeIntervalSinceReferenceDate > p2.date.timeIntervalSinceReferenceDate
             }.filter { weekPhoto in
-                
-                let thisMonday = getMonday(myDate: Date())
+                let thisMonday = getThisMonday(myDate: Date())
                 return weekPhoto.date.timeIntervalSinceReferenceDate <= thisMonday.timeIntervalSinceReferenceDate
             }
-            
             photoServie.weekPhotos = weekPhotos
             photoServie.photoStore.onNext(weekPhotos)
         }
-
+        
         var mainVC = MainViewController.instantiate(storyboardID: "Main")
         mainVC.bind(viewModel: MainViewModel(poemService: poemService, photoService: photoServie, userService: userService))
         let mainNVC = UINavigationController(rootViewController: mainVC)
         mainNVC.navigationController?.navigationBar.prefersLargeTitles = true
-
+        
         var historyVC = HistoryViewController.instantiate(storyboardID: "Main")
         historyVC.bind(viewModel: HistoryViewModel(poemSevice: poemService, photoService: photoServie, userService: userService))
         let historyNVC = UINavigationController(rootViewController: historyVC)
-
-
+        
+        
         var userPoemVC = UserPageViewController.instantiate(storyboardID: "UserRelated")
         userPoemVC.bind(viewModel: MyPoemViewModel(poemService: poemService, userService: userService))
         let userNAV = UINavigationController(rootViewController: userPoemVC)
-
-
+        
+        
         let tabBarController = UITabBarController()
         tabBarController.setViewControllers([mainNVC, historyNVC, userNAV], animated: false)
         

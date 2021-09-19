@@ -20,3 +20,9 @@ extension UIButton {
         }
     }
 }
+
+extension Date {
+    func dayNumberOfWeek() -> Int? {
+        return Calendar.current.dateComponents([.weekday, .weekOfYear, .yearForWeekOfYear], from: self).weekday
+    }
+}

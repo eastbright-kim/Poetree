@@ -9,13 +9,12 @@ import Foundation
 
 class SideMenuViewModel {
     
-    let userServie: UserService
+    let userService: UserService
+    let poemServcie: PoemService
     
-    
-    init(userService: UserService) {
-        
-        self.userServie = userService
-        
+    init(poemService: PoemService, userService: UserService) {
+        self.userService = userService
+        self.poemServcie = poemService
     }
     
 }

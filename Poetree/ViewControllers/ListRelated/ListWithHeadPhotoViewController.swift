@@ -15,6 +15,7 @@ class ListWithHeadPhotoViewController: UIViewController, ViewModelBindable, HasD
     
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var poemListTableView: UITableView!
+    @IBOutlet weak var backScrollView: UIScrollView!
     
     
     var viewModel: HeadPhotoWithListViewModel!
@@ -23,7 +24,7 @@ class ListWithHeadPhotoViewController: UIViewController, ViewModelBindable, HasD
         super.viewDidLoad()
         
         configureUI()
-        
+        initRefresh()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +37,19 @@ class ListWithHeadPhotoViewController: UIViewController, ViewModelBindable, HasD
         self.navigationController?.navigationBar.tintColor = UIColor.label
     }
     
+    private func initRefresh() {
+        backScrollView.refreshControl = UIRefreshControl()
+        backScrollView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
+    }
+    
+    @objc func handleRefreshControl() {
+        self.viewModel.poemService.fetchPoems { complete in
+            DispatchQueue.main.async {
+                self.backScrollView.refreshControl?.endRefreshing()
+            }
+        }
+    }
+    
     func bindViewModel() {
         
         viewModel.output.displayingPoem
@@ -45,9 +59,7 @@ class ListWithHeadPhotoViewController: UIViewController, ViewModelBindable, HasD
                 cell.contentLabel.text = poem.content
                 cell.likesLabel.text = "\(poem.likers.count)"
                 cell.selectionStyle = .none
-                if indexPath > 2{
-                    cell.heartStackView.isHidden = true
-                }
+                cell.heartStackView.isHidden = (indexPath > 2)
             }
             .disposed(by: rx.disposeBag)
         
@@ -115,6 +127,5 @@ class ListWithHeadPhotoViewController: UIViewController, ViewModelBindable, HasD
                 
             })
             .disposed(by: rx.disposeBag)
-        
     }
 }

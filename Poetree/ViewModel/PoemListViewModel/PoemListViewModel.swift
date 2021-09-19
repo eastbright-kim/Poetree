@@ -7,7 +7,7 @@
 
 import Foundation
 import RxSwift
-
+import Firebase
 
 class PoemListViewModel: ViewModelType {
     
@@ -27,24 +27,30 @@ class PoemListViewModel: ViewModelType {
     
     init(poemService: PoemService, userService: UserService, listType: PoemListType, selectedPhotoId: Int? = nil) {
         
+        let poems = poemService.allPoems()
+        
         switch listType {
         case .allPoems:
-            let displayingPoems = poemService.allPoems()
-                .map(poemService.sortPoemsByLikeCount_random)
+            let displayingPoems = poems.map(poemService.sortPoemsByLikeCount_Random_Public)
             self.output = Output(displayingPoems: displayingPoems, listType: listType)
         case .thisWeek:
-            let thisWeekPoems = poemService.fetchThisWeekPoems()
-            let displayingPoems = Observable.just(thisWeekPoems)
-                .map(poemService.sortPoemsByLikeCount_random)
-            self.output = Output(displayingPoems: displayingPoems, listType: listType)
+            let thisWeekPoems = poems.map(poemService.fetchThisWeekPoems)
+                .map(poemService.sortPoemsByLikeCount_Random_Public)
+            self.output = Output(displayingPoems: thisWeekPoems, listType: listType)
         case .userLiked(let currentAuth):
-            let displayingPoems = poemService.allPoems()
-                .map { poems in poemService.fetchUserLikedWriting(poems: poems, currentUser: currentAuth)}
+            let displayingPoems = poems
+                .map { poems in poemService.fetchUserLikedWriting_Sorted(poems: poems, currentUser: currentAuth)}
             self.output = Output(displayingPoems: displayingPoems, listType: listType)
         case .userWrote(let currentAuth):
-            let displayingPoems = poemService.allPoems()
+            let displayingPoems = poems
                 .map { poems in poemService.fetchUserWriting(poem: poems, currentUser: currentAuth)}
-                .map(poemService.sortPoemsByLikeCount_random)
+                .map(poemService.sortPoemsByLikeCount_Random_Public)
+            self.output = Output(displayingPoems: displayingPoems, listType: listType)
+        case .tempSaved(let currentUser):
+            let displayingPoems = poems
+                .map { poems in
+                    poemService.fetchTempSaved(poems: poems, currentUser: currentUser)
+                }
             self.output = Output(displayingPoems: displayingPoems, listType: listType)
         }
         self.poemService = poemService
@@ -58,4 +64,5 @@ enum PoemListType {
     case thisWeek
     case userLiked(CurrentAuth)
     case userWrote(CurrentAuth)
+    case tempSaved(User)
 }

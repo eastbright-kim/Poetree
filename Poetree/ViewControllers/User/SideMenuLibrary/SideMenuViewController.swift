@@ -18,32 +18,38 @@ class SideMenuViewController: UIViewController{
     
     
     lazy var register_login = SideMenuCell(title: "회원가입 / 로그인", btnAction: {
-        let viewModel = UserRegisterViewModel(userService: self.viewModel.userServie)
+        let viewModel = UserRegisterViewModel(userService: self.viewModel.userService)
         
         var registerVC = UserRegisterViewController.instantiate(storyboardID: "UserRelated")
         registerVC.bind(viewModel: viewModel)
-
-        registerVC.modalPresentationStyle = .overFullScreen
         self.navigationController?.pushViewController(registerVC, animated: true)
 
     })
     
     lazy var logout = SideMenuCell(title: "Log out", btnAction: {
-        
-        self.viewModel.userServie.logout()
+        self.viewModel.userService.logout()
         self.dismiss(animated: true, completion: nil)
-        
     })
     lazy var aboutPoetree = SideMenuCell(title: "About Poetree", btnAction: {
-                                            let viewModel = UserRegisterViewModel(userService: self.viewModel.userServie)
+                                            let viewModel = UserRegisterViewModel(userService: self.viewModel.userService)
                                             
                                             var registerVC = UserRegisterViewController.instantiate(storyboardID: "UserRelated")
                                             registerVC.bind(viewModel: viewModel)
                                  
-                                            registerVC.modalPresentationStyle = .overFullScreen
                                             self.navigationController?.pushViewController(registerVC, animated: true) })
-    lazy var sendPhoto = SideMenuCell(title: "사진 보내기", btnAction: {})
-    lazy var savedWritings = SideMenuCell(title: "보관한 글", btnAction: {})
+    lazy var sendPhoto = SideMenuCell(title: "사진 보내기", btnAction: {
+        
+        
+    })
+    lazy var savedWritings = SideMenuCell(title: "보관한 글", btnAction: {
+        
+        if let currentUser = Auth.auth().currentUser {
+            let viewModel = PoemListViewModel(poemService: self.viewModel.poemServcie, userService: self.viewModel.userService, listType: .tempSaved(currentUser))
+            var listVC = PoemListViewController.instantiate(storyboardID: "ListRelated")
+            listVC.bind(viewModel: viewModel)
+            self.navigationController?.pushViewController(listVC, animated: true)
+        }
+    })
     
     
     lazy var loginUser = [savedWritings, sendPhoto, aboutPoetree, logout]
@@ -53,10 +59,14 @@ class SideMenuViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         menuTableView.tableFooterView = UIView()
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        menuTableView.cellLayoutMarginsFollowReadableWidth = false
+        menuTableView.separatorInset.left = 15
+        menuTableView.separatorInset.right = 15
     }
-
+    
 }
 
 

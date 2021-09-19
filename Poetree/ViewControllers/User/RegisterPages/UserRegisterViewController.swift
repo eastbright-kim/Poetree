@@ -57,8 +57,6 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
         configureUI()
         playVideo()
         setupBtn()
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,7 +65,7 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.navigationBar.tintColor = UIColor.link
+        self.navigationController?.navigationBar.tintColor = UIColor.systemOrange
         
     }
     

@@ -73,7 +73,6 @@
 		DBFCE5EC26C3AAFA00E3FC16 /* WriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5EB26C3AAFA00E3FC16 /* WriteViewModel.swift */; };
 		DBFCE5EE26C3AB0B00E3FC16 /* PoemListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5ED26C3AB0B00E3FC16 /* PoemListViewModel.swift */; };
 		DBFCE5F026C3AB1A00E3FC16 /* PoemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5EF26C3AB1A00E3FC16 /* PoemDetailViewModel.swift */; };
-		DBFCE5F226C3AB2B00E3FC16 /* PhotoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5F126C3AB2B00E3FC16 /* PhotoListViewModel.swift */; };
 		DBFCE5F426C3AF7300E3FC16 /* PoemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5F326C3AF7300E3FC16 /* PoemRepository.swift */; };
 /* End PBXBuildFile section */
 
@@ -149,7 +148,6 @@
 		DBFCE5EB26C3AAFA00E3FC16 /* WriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewModel.swift; sourceTree = "<group>"; };
 		DBFCE5ED26C3AB0B00E3FC16 /* PoemListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemListViewModel.swift; sourceTree = "<group>"; };
 		DBFCE5EF26C3AB1A00E3FC16 /* PoemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemDetailViewModel.swift; sourceTree = "<group>"; };
-		DBFCE5F126C3AB2B00E3FC16 /* PhotoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewModel.swift; sourceTree = "<group>"; };
 		DBFCE5F326C3AF7300E3FC16 /* PoemRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -410,7 +408,6 @@
 		DBC2848326CA560E000D2E8B /* PoemListViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				DBFCE5F126C3AB2B00E3FC16 /* PhotoListViewModel.swift */,
 				DBFCE5ED26C3AB0B00E3FC16 /* PoemListViewModel.swift */,
 				DBD6ABBF26E9FB9600EE01E2 /* HeadPhotoWithListViewModel.swift */,
 			);
@@ -628,7 +625,6 @@
 				DB6A238626ED390700A4BDEE /* SideMenuTableViewCell.swift in Sources */,
 				DB6A238426ED168F00A4BDEE /* UserWritingCollectionViewCell.swift in Sources */,
 				DB23A1F126E9CD1D00A64CA9 /* headPhotoListTableViewCell.swift in Sources */,
-				DBFCE5F226C3AB2B00E3FC16 /* PhotoListViewModel.swift in Sources */,
 				DB6A238826ED432000A4BDEE /* SideMenuViewModel.swift in Sources */,
 				DB3CCEB126D0F4C8005C3074 /* SideMenuViewController.swift in Sources */,
 				DB2B4DF526DFEE3100A3F597 /* UserWritingTableViewCell.swift in Sources */,

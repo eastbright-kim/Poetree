@@ -142,7 +142,7 @@ class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased, Vie
         let viewModel = UserRegisterViewModel(userService: self.viewModel.userService)
         var vc = UserRegisterViewController.instantiate(storyboardID: "UserRelated")
         vc.bind(viewModel: viewModel)
-        present(vc, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

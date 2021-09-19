@@ -42,27 +42,37 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
         allPhotoCollectionView.decelerationRate = .fast
         allPhotoCollectionView.isPagingEnabled = false
         allPhotoCollectionView.delegate = self
+        
         lastWeekPhotoCollectionView.delegate = self
         lastWeekPhotoCollectionView.decelerationRate = .fast
         lastWeekPhotoCollectionView.isPagingEnabled = false
         
         
-        let flowlayout = UICollectionViewFlowLayout()
-        flowlayout.itemSize = CGSize(width: 100, height: 100 * 10 / 7)
-        flowlayout.minimumInteritemSpacing = 28
-        flowlayout.minimumLineSpacing = 28
-        flowlayout.scrollDirection = .horizontal
+        let flowlayoutForLastWeekPhotos = UICollectionViewFlowLayout()
+        flowlayoutForLastWeekPhotos.itemSize = CGSize(width: 100, height: 100 * 10 / 7)
+        flowlayoutForLastWeekPhotos.minimumInteritemSpacing = 28
+        flowlayoutForLastWeekPhotos.minimumLineSpacing = 28
+        flowlayoutForLastWeekPhotos.scrollDirection = .horizontal
         
         let totalCellWidth = 100 * 3
-        let totalSpacingWidth = 30 * 2
+                let totalSpacingWidth = 30 * 2
+                
+                let leftInset = (lastWeekPhotoCollectionView.bounds.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
+                let rightInset = leftInset
+                
+                let inset = UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
+                flowlayoutForLastWeekPhotos.sectionInset = inset
         
-        let leftInset = (lastWeekPhotoCollectionView.bounds.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
-        let rightInset = leftInset
         
-        let inset = UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
-        flowlayout.sectionInset = inset
+        let flowlayoutForAllPhotos = UICollectionViewFlowLayout()
+        flowlayoutForAllPhotos.itemSize = CGSize(width: 100, height: 100 * 10 / 7)
+        flowlayoutForAllPhotos.minimumInteritemSpacing = 10
+        flowlayoutForAllPhotos.minimumLineSpacing = 10
+        flowlayoutForAllPhotos.scrollDirection = .horizontal
         
-        lastWeekPhotoCollectionView.collectionViewLayout = flowlayout
+        
+        lastWeekPhotoCollectionView.collectionViewLayout = flowlayoutForLastWeekPhotos
+        allPhotoCollectionView.collectionViewLayout = flowlayoutForAllPhotos
     }
     
     private func configureUI() {
@@ -90,9 +100,6 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
         viewModel.output.allPhotos
             .bind(to:
                     allPhotoCollectionView.rx.items(cellIdentifier: "AllPhotoCell", cellType: HistoryPhotoCollectionViewCell.self)){indexPath, photo, cell in
-                print("all photo \(self.viewModel.photoService.photos())")
-                print("all photo id \(photo.id)")
-
                 cell.photoImageView.kf.setImage(with: photo.url)
             }
             .disposed(by: rx.disposeBag)
@@ -134,9 +141,6 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
         
         lastWeekPhotoCollectionView.rx.itemSelected
             .subscribe(onNext:{ index in
-                print(index.section)
-                print(index.item)
-                print("\(index) indexPath")
                 self.indexCountLabel.setTitle("Wrtings for #\(index.item + 1)", for: .normal)
             })
             .disposed(by: rx.disposeBag)
@@ -150,7 +154,6 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
                 
                 let viewModel = HeadPhotoWithListViewModel(poemService: self.viewModel.poemSevice, userService: self.viewModel.userService, photoService: self.viewModel.photoService, selectedPhotoId: weekPhoto.id)
                 
-                
                 var headPhotoListVC = ListWithHeadPhotoViewController.instantiate(storyboardID: "ListRelated")
                 headPhotoListVC.bind(viewModel: viewModel)
                 
@@ -158,7 +161,7 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
             })
             .disposed(by: rx.disposeBag)
         
-        self.viewModel.output.displayingPoems
+        self.viewModel.output.displyingPoemsByPhoto
             .bind(to: self.threePoemsTableView.rx.items(cellIdentifier: "ThreePoemsTableViewCell", cellType: ThreePoemsTableViewCell.self)){indexPath, poem, cell in
                 
                 switch indexPath {
@@ -178,14 +181,14 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
     }
 }
 
-
-extension HistoryViewController: UICollectionViewDelegateFlowLayout {
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: 100, height: 100 * 10 / 7)
-    }
-}
+//
+//extension HistoryViewController: UICollectionViewDelegateFlowLayout {
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//
+//        return CGSize(width: 100, height: 100 * 10 / 7)
+//    }
+//}
 
 extension HistoryViewController: UITableViewDelegate {
     

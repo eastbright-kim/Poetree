@@ -50,12 +50,12 @@ class MyPoemViewModel: ViewModelType {
             
             return userWritings
         }
-        .map(poemService.sortPoemsByLikeCount_random)
+        .map(poemService.sortPoemsByLikeCount_Random_Public)
         
         let userLikedWritings = Observable.combineLatest(user, poem){
             user, poem -> [Poem] in
             
-            let userLikedWritings = poemService.fetchUserLikedWriting(poems: poem, currentUser: user).sorted { p1, p2 in
+            let userLikedWritings = poemService.fetchUserLikedWriting_Sorted(poems: poem, currentUser: user).sorted { p1, p2 in
                 p1.likers.count > p2.likers.count
             }
             

@@ -54,6 +54,8 @@ class PoemListViewController: UIViewController, StoryboardBased, ViewModelBindab
             title = "좋아한 글"
         case .userWrote:
             title = "쓴 글"
+        case .tempSaved:
+            title = "보관한 글"
         }
         self.title = title ?? "글 목록"
         tableView.tableFooterView = UIView()
@@ -72,17 +74,24 @@ class PoemListViewController: UIViewController, StoryboardBased, ViewModelBindab
                 switch type {
                 case .allPoems, .thisWeek, .userWrote:
                     cell.poemImageView.kf.setImage(with: poem.photoURL)
+                    cell.contentLabel.text = poem.content
                     cell.titleLabel.text = poem.title
                     cell.likesLabel.text = "\(poem.likers.count)"
                     cell.userLabel.text = "by .\(poem.userPenname)"
-                    if row > 2 {
-                        cell.likesStackView.isHidden = true
-                    }
+                    cell.likesStackView.isHidden = (row > 2)
                 case .userLiked:
+                    cell.contentLabel.text = poem.content
                     cell.poemImageView.kf.setImage(with: poem.photoURL)
                     cell.titleLabel.text = poem.title
                     cell.likesLabel.text = "\(poem.likers.count)"
                     cell.userLabel.text = "by. \(poem.userPenname)"
+                case .tempSaved:
+                    cell.contentLabel.text = poem.content
+                    cell.poemImageView.kf.setImage(with: poem.photoURL)
+                    cell.titleLabel.text = poem.title
+                    cell.likesLabel.text = "\(poem.likers.count)"
+                    cell.userLabel.text = "by. \(poem.userPenname)"
+                    cell.likesStackView.isHidden = true
                 }
                 cell.selectionStyle = .none
             }
@@ -90,19 +99,22 @@ class PoemListViewController: UIViewController, StoryboardBased, ViewModelBindab
         
         tableView.rx.modelSelected(Poem.self)
             .subscribe(onNext:{[weak self] poem in
-
                 guard let self = self else {return}
-                
-                let viewModel = SemiDetailViewModel(poem: poem, poemService: self.viewModel.poemService, userService: self.viewModel.userService)
-                
-                var semiDetailVC = SemiDetailViewController.instantiate(storyboardID: "WritingRelated")
-                semiDetailVC.bind(viewModel: viewModel)
-                
-                semiDetailVC.modalTransitionStyle = .crossDissolve
-                semiDetailVC.modalPresentationStyle = .custom
-                
-                self.present(semiDetailVC, animated: true, completion: nil)
-
+                let type = self.viewModel.output.listType
+                switch type {
+                case .tempSaved:
+                    let viewModel = WriteViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, writingType: .temp(poem))
+                    var writeVC = WritingViewController.instantiate(storyboardID: "WritingRelated")
+                    writeVC.bind(viewModel: viewModel)
+                    self.navigationController?.pushViewController(writeVC, animated: true)
+                default:
+                    let viewModel = SemiDetailViewModel(poem: poem, poemService: self.viewModel.poemService, userService: self.viewModel.userService)
+                    var semiDetailVC = SemiDetailViewController.instantiate(storyboardID: "WritingRelated")
+                    semiDetailVC.bind(viewModel: viewModel)
+                    semiDetailVC.modalTransitionStyle = .crossDissolve
+                    semiDetailVC.modalPresentationStyle = .custom
+                    self.present(semiDetailVC, animated: true, completion: nil)
+                }
             })
             .disposed(by: rx.disposeBag)
     }

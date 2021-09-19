@@ -45,8 +45,6 @@ class MainViewModel: ViewModelType {
         let currentDate = Observable<String>.just(poemService.getCurrentDate())
             .asDriver(onErrorJustReturn: "Jan 1st")
         
-       
-        
         let thisWeekPhotoURL = photos.map(photoService.getThisWeekPhoto)
         
         let selectedIndex = PublishSubject<Int>()
@@ -58,17 +56,13 @@ class MainViewModel: ViewModelType {
         }
         
         let displayingPoems = Observable.combineLatest(poems, selectedPhotoId){ poems, photoId -> [Poem] in
-
-            let displayingPoem = poemService.fetchPoemsByPhotoId(poems: poems, photoId: photoId).sorted { p1, p2 in
-                p1.likers.count > p2.likers.count
-            }.prefix(3)
+            let displayingPoem = poemService.fetchPoemsByPhotoId_Sorted_Public(poems: poems, photoId: photoId)
+                .prefix(3)
             
             return Array(displayingPoem)
         }
         
-        
         self.input = Input(selectedIndex: selectedIndex)
-        
         self.output = Output(currentDate: currentDate, thisWeekPhotoURL: thisWeekPhotoURL, displayingPoems: displayingPoems, selectedPhotoId: selectedPhotoId)
     }
 }

@@ -23,7 +23,6 @@ class HistoryViewModel: ViewModelType {
        
         let allPhotos: Observable<[WeekPhoto]>
         let lastWeekPhotos: Observable<[WeekPhoto]>
-        let displayingPoems: Observable<[Poem]>
         let displyingPoemsByPhoto: Observable<[Poem]>
     }
     
@@ -46,26 +45,16 @@ class HistoryViewModel: ViewModelType {
             })
             .disposed(by: disposeBag)
         
-        
-        let displayingPoems = Observable.combineLatest(allPoems, photoSelected){ poems, selectedPhoto -> [Poem] in
-            
-            let displaying = poems.filter { poem in
-                poem.photoId == selectedPhoto.id
-            }
-            return displaying
-        }
-        .map(poemSevice.getThreeTopPoems)
-        
         let displyingPoemsByPhoto = Observable.combineLatest(allPoems, photoSelected) {
             poems, weekphoto -> [Poem] in
-            
-            let dpPoems = poemSevice.fetchPoemsByPhotoId(poems: poems, photoId: weekphoto.id)
-            return dpPoems
+            let dpPoems = poemSevice.fetchPoemsByPhotoId_Sorted_Public(poems: poems, photoId: weekphoto.id)
+                .prefix(3)
+            return Array(dpPoems)
         }
         
         
         self.input = Input(photoSelected: photoSelected)
-        self.output = Output(allPhotos: allPhotos, lastWeekPhotos: lastWeekPhotos, displayingPoems: displayingPoems, displyingPoemsByPhoto: displyingPoemsByPhoto)
+        self.output = Output(allPhotos: allPhotos, lastWeekPhotos: lastWeekPhotos,displyingPoemsByPhoto: displyingPoemsByPhoto)
         self.poemSevice = poemSevice
         self.photoService = photoService
         self.userService = userService

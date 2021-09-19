@@ -42,19 +42,19 @@ class PoemService {
     }
     
     func fetchUserWriting(poem: [Poem], currentUser: CurrentAuth) -> [Poem] {
-        
         let userWrting = poem.filter { poem in
             poem.userUID == currentUser.userUID
         }
-        
         return userWrting
     }
     
-    func fetchUserLikedWriting(poems: [Poem], currentUser: CurrentAuth) -> [Poem] {
+    func fetchUserLikedWriting_Sorted(poems: [Poem], currentUser: CurrentAuth) -> [Poem] {
   
         let userLikedPoems = poems.filter { poem in
            poem.likers[currentUser.userUID] ?? false
-        }.shuffled()
+        }.sorted { p1, p2 in
+            p1.likers.count > p2.likers.count
+        }
         
         return userLikedPoems
     }
@@ -115,31 +115,35 @@ class PoemService {
         }
     }
     
-    func fetchPoemsByPhotoId(poems: [Poem], photoId: Int) -> [Poem] {
+    func fetchPoemsByPhotoId_Sorted_Public(poems: [Poem], photoId: Int) -> [Poem] {
         
         let displayingPoems = poems.filter { poem in
             poem.photoId == photoId
+        }.sorted { p1, p2 in
+            p1.likers.count > p2.likers.count
         }
         
         return displayingPoems
     }
     
-    func fetchThisWeekPoems() -> [Poem] {
-        
-        let thisWeekPoems = self.poems.filter { poem in
-            print(poem.uploadAt.timeIntervalSinceReferenceDate)
-            print(getMonday(myDate: Date()).timeIntervalSinceReferenceDate)
-            
-            return poem.uploadAt >= getMonday(myDate: Date())
+    func fetchPoemsByPhotoId(poems: [Poem], photoId: Int) -> [Poem] {
+        let displayingPoems = poems.filter { poem in
+            poem.photoId == photoId
         }
-        print(thisWeekPoems)
+        return displayingPoems
+    }
+    
+    func fetchThisWeekPoems(poems: [Poem]) -> [Poem] {
+        let thisWeekPoems = self.poems.filter { poem in
+            return poem.uploadAt >= getThisMonday(myDate: Date())
+        }
         return thisWeekPoems
     }
     
     func fetchLastWeekPoems() -> [Poem] {
         
         let lowerBoundComp = DateComponents(day: -7)
-        let lastMonday = Calendar.current.date(byAdding: lowerBoundComp, to: getMonday(myDate: Date()))!
+        let lastMonday = Calendar.current.date(byAdding: lowerBoundComp, to: getThisMonday(myDate: Date()))!
         
         let upperBoundComp = DateComponents(day: 7, second: -1)
         let dealLine = Calendar.current.date(byAdding: upperBoundComp, to: lastMonday)!
@@ -241,7 +245,24 @@ class PoemService {
         return poems[index]
     }
     
-    func sortPoemsByLikeCount_random(_ poems: [Poem]) -> [Poem] {
+    func sortPoemsByLikeCount_Random_Public(_ poems: [Poem]) -> [Poem] {
+        
+        if poems.count > 3 {
+            let sorted = poems.sorted { p1, p2 in
+                p1.likers.count > p2.likers.count
+            }
+            let prefix = sorted.prefix(3)
+            let rest = sorted.dropFirst(3).shuffled()
+            let arr = prefix + rest
+            return arr.filter { $0.isPrivate == false}
+        } else {
+            return poems.sorted { p1, p2 in
+                p1.likers.count > p2.likers.count
+            }
+        }
+    }
+    
+    func sortPoemsByLikeCount_Random_All(_ poems: [Poem]) -> [Poem] {
         
         if poems.count > 3 {
             let sorted = poems.sorted { p1, p2 in
@@ -256,4 +277,13 @@ class PoemService {
             }
         }
     }
+    
+    func fetchTempSaved(poems: [Poem], currentUser: User) -> [Poem] {
+        
+        let filteredPoems = poems.filter { poem in
+            return poem.userUID == currentUser.uid && poem.isTemp == true
+        }
+        return filteredPoems
+    }
+    
 }
