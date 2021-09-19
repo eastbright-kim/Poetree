@@ -17,17 +17,17 @@ class PoemDetailViewModel: ViewModelType {
     
     struct Input {
         
-        
     }
     
     struct Output {
         let displayingPoem: Driver<Poem>
+        let isTempDetail: Bool
     }
     
     var input: Input
     var output: Output
     
-    init(poem: Poem, poemService: PoemService, userService: UserService) {
+    init(poem: Poem, poemService: PoemService, userService: UserService, isTempDetail: Bool = false) {
         
         self.poemService = poemService
         self.userService = userService
@@ -38,9 +38,8 @@ class PoemDetailViewModel: ViewModelType {
             .asDriver(onErrorJustReturn: poem)
         
         self.input = Input()
-        self.output = Output(displayingPoem: displayingPoem)
+        self.output = Output(displayingPoem: displayingPoem, isTempDetail: isTempDetail)
     }
-    
     
     func deletePoem(deletingPoem: Poem) {
         poemService.deletePoem(deletingPoem: deletingPoem)

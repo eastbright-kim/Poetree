@@ -24,13 +24,16 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
     @IBOutlet weak var likesCountLabel: UILabel!
     @IBOutlet weak var backBtnItem: UIBarButtonItem!
     @IBOutlet weak var reportBtn: UIBarButtonItem!
+    @IBOutlet weak var keepWriteBtn: UIButton!
+    
+    
     
     var viewModel: PoemDetailViewModel!
     var isLike: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configureUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +55,15 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
         navigationController?.navigationBar.tintColor = UIColor.label
     }
     
+    func configureUI(){
+        self.photoImageView.layer.cornerRadius = 8
+        
+        if self.viewModel.output.isTempDetail {
+            keepWriteBtn.isHidden = false
+            deleteBtn.isHidden = false
+        }
+    }
+    
     
     func bindViewModel() {
   
@@ -66,7 +78,6 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
                 self.contentLabel.text = poem.content
                 self.likeBtn.isSelected = poem.isLike
                 self.isLike = poem.isLike
-//                self.likeBtn.tintColor = poem.isLike ? UIColor.systemPink : UIColor.label
                 self.likesCountLabel.text = "좋아요 \(poem.likers.count)개"
                 if let currentUser = Auth.auth().currentUser, currentUser.uid == poem.userUID {
                     self.editBtn.isHidden = false
@@ -101,6 +112,25 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
             })
             .disposed(by: rx.disposeBag)
         
+        self.keepWriteBtn.rx.tap
+            .withLatestFrom(self.viewModel.output.displayingPoem)
+            .subscribe(onNext:{[weak self] poem in
+                
+                guard let self = self else {return}
+                
+                let viewModel = WriteViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, writingType: .temp(poem))
+                
+                let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+                backBarButtonItem.tintColor = .systemOrange
+                self.navigationItem.backBarButtonItem = backBarButtonItem
+                
+                var vc = WritingViewController.instantiate(storyboardID: "WritingRelated")
+                vc.bind(viewModel: viewModel)
+                
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
+            .disposed(by: rx.disposeBag)
+        
         self.deleteBtn.rx.tap
             .withLatestFrom(self.viewModel.output.displayingPoem)
             .subscribe(onNext:{[weak self] poem in
@@ -115,6 +145,10 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
         self.reportBtn.rx.tap
             .withLatestFrom(self.viewModel.output.displayingPoem)
             .subscribe(onNext:{ poem in
+                
+                guard self.viewModel.output.isTempDetail == false else { self.view.makeToast("임시 저장 글은 신고 할 수 없습니다", duration: 1.0, position: .center)
+                    return}
+                
                 let alert = UIAlertController(title: "글 신고하기", message: "비속어 등 악의적인 표현이 있는 글을 신고해주시기 바랍니다", preferredStyle: .actionSheet)
                 let reportAction = UIAlertAction(title: "신고하기", style: .destructive) { _ in
                     let currentUser = Auth.auth().currentUser
@@ -130,6 +164,7 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
                 self.present(alert, animated: true, completion: nil)
             })
             .disposed(by: rx.disposeBag)
+        
         
         likeBtn.rx.tap
             .do(onNext:{ [weak self] _ in guard let self = self else {return}

@@ -94,6 +94,13 @@
                                                             </label>
                                                         </subviews>
                                                     </stackView>
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i8b-4a-sPP">
+                                                        <rect key="frame" x="254" y="8.6666666666667425" width="64" height="33"/>
+                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                        <state key="normal" title="계속 쓰기">
+                                                            <color key="titleColor" systemColor="systemOrangeColor"/>
+                                                        </state>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -101,6 +108,8 @@
                                                     <constraint firstItem="sCz-xr-KOl" firstAttribute="leading" secondItem="cbc-pW-TfC" secondAttribute="leading" constant="20" id="HV7-Rk-mqt"/>
                                                     <constraint firstItem="MuA-XZ-3js" firstAttribute="leading" secondItem="VSe-hZ-iNF" secondAttribute="trailing" constant="15" id="Lfj-AC-nyT"/>
                                                     <constraint firstItem="VSe-hZ-iNF" firstAttribute="centerY" secondItem="MuA-XZ-3js" secondAttribute="centerY" id="Mck-sd-dOG"/>
+                                                    <constraint firstItem="MuA-XZ-3js" firstAttribute="leading" secondItem="i8b-4a-sPP" secondAttribute="trailing" constant="15" id="Q7G-3O-oF6"/>
+                                                    <constraint firstItem="i8b-4a-sPP" firstAttribute="centerY" secondItem="MuA-XZ-3js" secondAttribute="centerY" id="a93-uZ-PGl"/>
                                                     <constraint firstItem="sCz-xr-KOl" firstAttribute="centerY" secondItem="VSe-hZ-iNF" secondAttribute="centerY" id="ev7-BV-r4i"/>
                                                     <constraint firstAttribute="trailing" secondItem="MuA-XZ-3js" secondAttribute="trailing" constant="20" id="fk7-Fh-Qpe"/>
                                                     <constraint firstAttribute="height" constant="50" id="n12-pn-5hI"/>
@@ -173,6 +182,7 @@
                         <outlet property="contentLabel" destination="OrE-3b-2DE" id="zmZ-Rp-adI"/>
                         <outlet property="deleteBtn" destination="MuA-XZ-3js" id="2jR-2g-0wv"/>
                         <outlet property="editBtn" destination="VSe-hZ-iNF" id="lZc-em-Y4b"/>
+                        <outlet property="keepWriteBtn" destination="i8b-4a-sPP" id="VI2-6h-NWf"/>
                         <outlet property="likeBtn" destination="Vlq-oq-Pir" id="Bwx-Ry-gQC"/>
                         <outlet property="likesCountLabel" destination="axH-iO-0uu" id="xnS-lp-IO9"/>
                         <outlet property="photoImageView" destination="gfy-se-LsK" id="XKO-S4-1J7"/>

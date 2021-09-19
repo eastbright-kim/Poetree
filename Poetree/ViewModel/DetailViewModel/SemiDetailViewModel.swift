@@ -23,10 +23,11 @@ class SemiDetailViewModel: ViewModelType {
     
     struct Output{
         let displayingPoem: Driver<Poem>
+        let isTempSemiDetail: Bool
     }
     
     
-    init(poem: Poem, poemService: PoemService, userService: UserService){
+    init(poem: Poem, poemService: PoemService, userService: UserService, isTempSemiDetail: Bool = false){
         
         self.poemService = poemService
         self.userService = userService
@@ -38,13 +39,7 @@ class SemiDetailViewModel: ViewModelType {
         let displayingPoem = poems.map{poems in poemService.fetchMatchedPoem(poems: poems, poem: poem)}
             .asDriver(onErrorJustReturn: poem)
         
-//        let displayingPoem = Observable.combineLatest(initialPoem.asObservable(), isLikeThisPoem) { poem, isLikeThisPoem -> Poem in
-//            poem.isLike = isLikeThisPoem
-//            return poem
-//        }
-        
-        
         self.input = Input(isLikeThisPoem: isLikeThisPoem)
-        self.output = Output(displayingPoem: displayingPoem)
+        self.output = Output(displayingPoem: displayingPoem, isTempSemiDetail: isTempSemiDetail)
     }
 }

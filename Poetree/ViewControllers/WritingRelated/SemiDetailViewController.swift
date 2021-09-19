@@ -38,6 +38,10 @@ class SemiDetailViewController: UIViewController, StoryboardBased, ViewModelBind
     func configureUI(){
         photoImageView.layer.cornerRadius = 8
         windowView.layer.cornerRadius = 8
+        
+        if viewModel.output.isTempSemiDetail {
+            heartBtn.isHidden = true
+        }
     }
     
     
@@ -91,12 +95,12 @@ class SemiDetailViewController: UIViewController, StoryboardBased, ViewModelBind
         detailBtn1.rx.tap
             .withLatestFrom(self.viewModel.output.displayingPoem)
             .subscribe(onNext:{ poem in
-                let viewModel = PoemDetailViewModel(poem: poem, poemService: self.viewModel.poemService, userService: self.viewModel.userService)
+                
+                let viewModel =  self.viewModel.output.isTempSemiDetail ? PoemDetailViewModel(poem: poem, poemService: self.viewModel.poemService, userService: self.viewModel.userService, isTempDetail: true) : PoemDetailViewModel(poem: poem, poemService: self.viewModel.poemService, userService: self.viewModel.userService)
+                
                 var detailVC = PoemDetailViewController.instantiate(storyboardID: "WritingRelated")
                 detailVC.bind(viewModel: viewModel)
-                
                 self.navigationController?.pushViewController(detailVC, animated: true)
-                
                 let navi = UINavigationController(rootViewController: detailVC)
                 navi.modalTransitionStyle = .crossDissolve
                 navi.modalPresentationStyle = .overFullScreen

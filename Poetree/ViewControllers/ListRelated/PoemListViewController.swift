@@ -21,7 +21,7 @@ class PoemListViewController: UIViewController, StoryboardBased, ViewModelBindab
         super.viewDidLoad()
         initRefresh()
     }
-   
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureUI()
@@ -100,21 +100,13 @@ class PoemListViewController: UIViewController, StoryboardBased, ViewModelBindab
         tableView.rx.modelSelected(Poem.self)
             .subscribe(onNext:{[weak self] poem in
                 guard let self = self else {return}
-                let type = self.viewModel.output.listType
-                switch type {
-                case .tempSaved:
-                    let viewModel = WriteViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, writingType: .temp(poem))
-                    var writeVC = WritingViewController.instantiate(storyboardID: "WritingRelated")
-                    writeVC.bind(viewModel: viewModel)
-                    self.navigationController?.pushViewController(writeVC, animated: true)
-                default:
-                    let viewModel = SemiDetailViewModel(poem: poem, poemService: self.viewModel.poemService, userService: self.viewModel.userService)
-                    var semiDetailVC = SemiDetailViewController.instantiate(storyboardID: "WritingRelated")
-                    semiDetailVC.bind(viewModel: viewModel)
-                    semiDetailVC.modalTransitionStyle = .crossDissolve
-                    semiDetailVC.modalPresentationStyle = .custom
-                    self.present(semiDetailVC, animated: true, completion: nil)
-                }
+                
+                let viewModel = SemiDetailViewModel(poem: poem, poemService: self.viewModel.poemService, userService: self.viewModel.userService)
+                var semiDetailVC = SemiDetailViewController.instantiate(storyboardID: "WritingRelated")
+                semiDetailVC.bind(viewModel: viewModel)
+                semiDetailVC.modalTransitionStyle = .crossDissolve
+                semiDetailVC.modalPresentationStyle = .custom
+                self.present(semiDetailVC, animated: true, completion: nil)
             })
             .disposed(by: rx.disposeBag)
     }
