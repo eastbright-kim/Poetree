@@ -22,23 +22,21 @@ class PoemDetailViewModel: ViewModelType {
     struct Output {
         let displayingPoem: Driver<Poem>
         let isTempDetail: Bool
+        let isUserWriting: Bool
     }
     
     var input: Input
     var output: Output
     
-    init(poem: Poem, poemService: PoemService, userService: UserService, isTempDetail: Bool = false) {
+    init(poem: Poem, poemService: PoemService, userService: UserService, isTempDetail: Bool = false, isUserWriting: Bool = false) {
         
         self.poemService = poemService
         self.userService = userService
-        
         let poems = poemService.allPoems()
-        
         let displayingPoem = poems.map{poems in poemService.fetchMatchedPoem(poems: poems, poem: poem)}
             .asDriver(onErrorJustReturn: poem)
-        
         self.input = Input()
-        self.output = Output(displayingPoem: displayingPoem, isTempDetail: isTempDetail)
+        self.output = Output(displayingPoem: displayingPoem, isTempDetail: isTempDetail, isUserWriting: isUserWriting)
     }
     
     func deletePoem(deletingPoem: Poem) {

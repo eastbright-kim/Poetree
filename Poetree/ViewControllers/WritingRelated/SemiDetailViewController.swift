@@ -39,9 +39,6 @@ class SemiDetailViewController: UIViewController, StoryboardBased, ViewModelBind
         photoImageView.layer.cornerRadius = 8
         windowView.layer.cornerRadius = 8
         
-        if viewModel.output.isTempSemiDetail {
-            heartBtn.isHidden = true
-        }
     }
     
     
@@ -73,6 +70,9 @@ class SemiDetailViewController: UIViewController, StoryboardBased, ViewModelBind
                 self.titleLabel.text = poem.title
                 self.contenTextView.text = poem.content
                 self.heartBtn.isSelected = poem.isLike
+                if self.viewModel.output.isTempSemiDetail {
+                    self.heartBtn.isHidden = true
+                }
                 
             })
             .disposed(by: rx.disposeBag)
@@ -96,15 +96,32 @@ class SemiDetailViewController: UIViewController, StoryboardBased, ViewModelBind
             .withLatestFrom(self.viewModel.output.displayingPoem)
             .subscribe(onNext:{ poem in
                 
-                let viewModel =  self.viewModel.output.isTempSemiDetail ? PoemDetailViewModel(poem: poem, poemService: self.viewModel.poemService, userService: self.viewModel.userService, isTempDetail: true) : PoemDetailViewModel(poem: poem, poemService: self.viewModel.poemService, userService: self.viewModel.userService)
+                if let currentUser = Auth.auth().currentUser {
+                    
+                    let viewModel =  self.viewModel.output.isTempSemiDetail ? PoemDetailViewModel(poem: poem, poemService: self.viewModel.poemService, userService: self.viewModel.userService, isTempDetail: true) : PoemDetailViewModel(poem: poem, poemService: self.viewModel.poemService, userService: self.viewModel.userService, isUserWriting: (currentUser.uid == poem.userUID))
+                    
+                    var detailVC = PoemDetailViewController.instantiate(storyboardID: "WritingRelated")
+                    detailVC.bind(viewModel: viewModel)
+                    self.navigationController?.pushViewController(detailVC, animated: true)
+                    let navi = UINavigationController(rootViewController: detailVC)
+                    navi.modalTransitionStyle = .crossDissolve
+                    navi.modalPresentationStyle = .overFullScreen
+                    self.present(navi, animated: true, completion: nil)
+                    
+                    
+                } else {
+
+                    let viewModel = PoemDetailViewModel(poem: poem, poemService: self.viewModel.poemService, userService: self.viewModel.userService)
+                    
+                    var detailVC = PoemDetailViewController.instantiate(storyboardID: "WritingRelated")
+                    detailVC.bind(viewModel: viewModel)
+                    self.navigationController?.pushViewController(detailVC, animated: true)
+                    let navi = UINavigationController(rootViewController: detailVC)
+                    navi.modalTransitionStyle = .crossDissolve
+                    navi.modalPresentationStyle = .overFullScreen
+                    self.present(navi, animated: true, completion: nil)
+                }
                 
-                var detailVC = PoemDetailViewController.instantiate(storyboardID: "WritingRelated")
-                detailVC.bind(viewModel: viewModel)
-                self.navigationController?.pushViewController(detailVC, animated: true)
-                let navi = UINavigationController(rootViewController: detailVC)
-                navi.modalTransitionStyle = .crossDissolve
-                navi.modalPresentationStyle = .overFullScreen
-                self.present(navi, animated: true, completion: nil)
             })
             .disposed(by: rx.disposeBag)
         

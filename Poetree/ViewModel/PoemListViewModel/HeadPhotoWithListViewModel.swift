@@ -30,7 +30,6 @@ class HeadPhotoWithListViewModel: ViewModelType {
     
     init(poemService: PoemService, userService: UserService, photoService: PhotoService, selectedPhotoId: Int){
         
-       
         self.poemService = poemService
         self.userService = userService
         self.photoService = photoService

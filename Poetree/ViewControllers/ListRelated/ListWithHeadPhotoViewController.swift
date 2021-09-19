@@ -128,4 +128,8 @@ class ListWithHeadPhotoViewController: UIViewController, ViewModelBindable, HasD
             })
             .disposed(by: rx.disposeBag)
     }
+    
+    @IBAction func unwind( _ seg: UIStoryboardSegue) {
+    }
+    
 }

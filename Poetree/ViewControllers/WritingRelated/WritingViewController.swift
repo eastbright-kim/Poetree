@@ -114,8 +114,10 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
         switch type {
         case .write:
             self.title = "글 쓰기"
-        default:
+        case .edit:
             self.title = "글 수정하기"
+        case .temp:
+            self.title = "글 가다듬기"
         }
     }
     
@@ -150,8 +152,9 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
             self.titleTextField.text = writingPoem.title
             self.contentTextView.text = writingPoem.content
             self.privateChechBtn.isSelected = writingPoem.isPrivate
-            self.writeComplete.isHidden = false
+            self.editComplete.isHidden = true
         }
+        
         titleTextField.addDoneButtonOnKeyboard()
         contentTextView.addDoneButtonOnKeyboard()
     }
@@ -338,14 +341,12 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
             .observe(on: ConcurrentDispatchQueueScheduler(queue: DispatchQueue.global()))
             .subscribe(onNext:{ savingPoem in
                 self.viewModel.poemService.editTemp(poem: savingPoem) { result in
-                    print(result)
                     DispatchQueue.main.async {
                         self.view.makeToast("임시 저장 완료", duration: 1, position: .center)
                     }
                 }
             })
             .disposed(by: rx.disposeBag)
-        
     }
     
     func deletePoem(){

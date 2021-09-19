@@ -189,9 +189,11 @@
                         <outlet property="reportBtn" destination="yJQ-dg-Xaw" id="NtA-dG-6Pn"/>
                         <outlet property="titleLabel" destination="gOo-EN-uKs" id="gMe-CI-MbE"/>
                         <outlet property="userLabel" destination="gxV-qK-J2a" id="fCL-oy-ieR"/>
+                        <segue destination="M38-sr-PCy" kind="unwind" identifier="unwindfromDetailView" unwindAction="unwind:" id="tOW-if-arV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p23-5b-UhE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="M38-sr-PCy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-353.27102803738313" y="304.5356371490281"/>
         </scene>

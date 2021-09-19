@@ -100,18 +100,29 @@ class PoemListViewController: UIViewController, StoryboardBased, ViewModelBindab
         tableView.rx.modelSelected(Poem.self)
             .subscribe(onNext:{[weak self] poem in
                 guard let self = self else {return}
-                let viewModel = SemiDetailViewModel(poem: poem, poemService: self.viewModel.poemService, userService: self.viewModel.userService, isTempSemiDetail: true)
-                var semiDetailVC = SemiDetailViewController.instantiate(storyboardID: "WritingRelated")
-                semiDetailVC.bind(viewModel: viewModel)
-                semiDetailVC.modalTransitionStyle = .crossDissolve
-                semiDetailVC.modalPresentationStyle = .custom
-                self.present(semiDetailVC, animated: true, completion: nil)
+                let type = self.viewModel.output.listType
+                
+                switch type {
+                case .tempSaved:
+                    let viewModel = SemiDetailViewModel(poem: poem, poemService: self.viewModel.poemService, userService: self.viewModel.userService, isTempSemiDetail: true)
+                    var semiDetailVC = SemiDetailViewController.instantiate(storyboardID: "WritingRelated")
+                    semiDetailVC.bind(viewModel: viewModel)
+                    semiDetailVC.modalTransitionStyle = .crossDissolve
+                    semiDetailVC.modalPresentationStyle = .custom
+                    self.present(semiDetailVC, animated: true, completion: nil)
+                
+                default:
+                    let viewModel = SemiDetailViewModel(poem: poem, poemService: self.viewModel.poemService, userService: self.viewModel.userService)
+                    var semiDetailVC = SemiDetailViewController.instantiate(storyboardID: "WritingRelated")
+                    semiDetailVC.bind(viewModel: viewModel)
+                    semiDetailVC.modalTransitionStyle = .crossDissolve
+                    semiDetailVC.modalPresentationStyle = .custom
+                    self.present(semiDetailVC, animated: true, completion: nil)
+                }
             })
             .disposed(by: rx.disposeBag)
     }
     
-    
     @IBAction func unwind( _ seg: UIStoryboardSegue) {
     }
-    
 }
