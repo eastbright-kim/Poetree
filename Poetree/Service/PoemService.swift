@@ -54,6 +54,8 @@ class PoemService {
            poem.likers[currentUser.userUID] ?? false
         }.sorted { p1, p2 in
             p1.likers.count > p2.likers.count
+        }.filter { poem in
+            poem.isPrivate == false
         }
         
         return userLikedPoems
@@ -117,8 +119,10 @@ class PoemService {
     
     func fetchPoemsByPhotoId_Sorted_Public(poems: [Poem], photoId: Int) -> [Poem] {
         
-        let displayingPoems = poems.filter { poem in
-            poem.photoId == photoId
+        let publicPoems = poems.filter{$0.isPrivate == false}
+        
+        let displayingPoems = publicPoems.filter { poem in
+            return (poem.photoId == photoId)
         }.sorted { p1, p2 in
             p1.likers.count > p2.likers.count
         }
@@ -247,8 +251,10 @@ class PoemService {
     
     func sortPoemsByLikeCount_Random_Public(_ poems: [Poem]) -> [Poem] {
         
-        if poems.count > 3 {
-            let sorted = poems.sorted { p1, p2 in
+        let publicPoem = poems.filter{$0.isPrivate == false}
+        
+        if publicPoem.count > 3 {
+            let sorted = publicPoem.sorted { p1, p2 in
                 p1.likers.count > p2.likers.count
             }
             let prefix = sorted.prefix(3)
@@ -256,7 +262,7 @@ class PoemService {
             let arr = prefix + rest
             return arr.filter { $0.isPrivate == false}
         } else {
-            return poems.sorted { p1, p2 in
+            return publicPoem.sorted { p1, p2 in
                 p1.likers.count > p2.likers.count
             }
         }

@@ -77,7 +77,7 @@ class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased, Vie
                 guard let _ = Auth.auth().currentUser else { self.handleWrite()
                     return }
                 
-                let viewModel = WriteViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, writingType: .write(weekPhoto))
+                let viewModel = WriteViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, writingType: .write(weekPhoto), isFromMain: true)
   
                 var vc = WritingViewController.instantiate(storyboardID: "WritingRelated")
                 vc.bind(viewModel: viewModel)

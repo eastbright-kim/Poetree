@@ -44,7 +44,7 @@ class PoemListViewModel: ViewModelType {
         case .userWrote(let currentAuth):
             let displayingPoems = poems
                 .map { poems in poemService.fetchUserWriting(poem: poems, currentUser: currentAuth)}
-                .map(poemService.sortPoemsByLikeCount_Random_Public)
+                .map(poemService.sortPoemsByLikeCount_Random_All)
             self.output = Output(displayingPoems: displayingPoems, listType: listType)
         case .tempSaved(let currentUser):
             let displayingPoems = poems

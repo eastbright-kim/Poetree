@@ -21,7 +21,7 @@ class HistoryViewModel: ViewModelType {
     
     struct Output {
        
-        let allPhotos: Observable<[WeekPhoto]>
+        let displayingPhoto: Observable<[WeekPhoto]>
         let lastWeekPhotos: Observable<[WeekPhoto]>
         let displyingPoemsByPhoto: Observable<[Poem]>
     }
@@ -35,7 +35,9 @@ class HistoryViewModel: ViewModelType {
         let allPhotos = photoService.photos()
         let allPoems = poemSevice.allPoems()
         
-        let lastWeekPhotos = allPhotos.map(photoService.fetchLastWeekPhotos)
+        let displayingPhoto = allPhotos.map(photoService.photoReveredOrder)
+        
+        let lastWeekPhotos = allPhotos.map{ photos in Array(photoService.fetchLastWeekPhotos(weekPhotos: photos).prefix(3)) }
         let photoSelected = ReplaySubject<WeekPhoto>.create(bufferSize: 1)
         
         lastWeekPhotos.map(photoService.getInitialPhoto)
@@ -54,7 +56,7 @@ class HistoryViewModel: ViewModelType {
         
         
         self.input = Input(photoSelected: photoSelected)
-        self.output = Output(allPhotos: allPhotos, lastWeekPhotos: lastWeekPhotos,displyingPoemsByPhoto: displyingPoemsByPhoto)
+        self.output = Output(displayingPhoto: displayingPhoto, lastWeekPhotos: lastWeekPhotos,displyingPoemsByPhoto: displyingPoemsByPhoto)
         self.poemSevice = poemSevice
         self.photoService = photoService
         self.userService = userService

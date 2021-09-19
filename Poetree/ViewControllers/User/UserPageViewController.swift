@@ -42,10 +42,15 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
         self.pennameLabel.alpha = 0
         self.greetingLabel.alpha = 0
         greetingAni()
-        
-        self.navigationController?.navigationBar.shadowImage = UIImage()
+        naviBarConfig()
+    }
+    
+    func naviBarConfig(){
+        self.navigationController?.navigationBar.tintColor = UIColor.label
+        self.navigationController?.navigationBar.barTintColor = UIColor.systemBackground
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.label]
         self.navigationController?.navigationBar.barTintColor = UIColor.systemBackground
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     private func configureUI() {
@@ -123,26 +128,21 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
                 cell.imageView.kf.setImage(with: poem.photoURL)
                 cell.titleLabel.text = poem.title
                 cell.dateLabel.text = convertDateToString(format: "yyyy MMM d", date: poem.uploadAt)
+                cell.likeStatusBtn.isHidden = (indexPath != 0)
+                cell.likeStackView.isHidden = (indexPath != 1 && indexPath != 2)
                 
                 switch indexPath {
                 case 0:
-                    cell.likeStatusBtn.isHidden = false
-                    cell.likeStackView.isHidden = true
                     cell.likeStatusBtn.contentEdgeInsets = UIEdgeInsets(top: 2, left: 4, bottom: 2, right: 4)
                     cell.likeStatusBtn.setTitle("Most favorite", for: .normal)
                     cell.likeStatusBtn.layer.cornerRadius = 8
                 case 1:
-                    cell.likeStackView.isHidden = false
-                    cell.likeStatusBtn.isHidden = true
                     cell.likesCountLabel.text = "\(poem.likers.count)"
                 case 2:
-                    cell.likeStackView.isHidden = false
                     cell.likesCountLabel.text = "\(poem.likers.count)"
                 default:
-                    cell.likeStackView.isHidden = true
-                    cell.likeStatusBtn.isHidden = true
+                    break
                 }
-                
             }
             .disposed(by: rx.disposeBag)
         
@@ -234,7 +234,7 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
                 let currentAuth = CurrentAuth(userEmail: currentUser.email!, userPenname: currentUser.displayName!, userUID: currentUser.uid)
                 
                 let viewModel = PoemListViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, listType: .userLiked(currentAuth))
-                var listVC = PoemListViewController.instantiate(storyboardID: "WritingRelated")
+                var listVC = PoemListViewController.instantiate(storyboardID: "ListRelated")
                 listVC.bind(viewModel: viewModel)
                 self.navigationController?.pushViewController(listVC, animated: true)
             })

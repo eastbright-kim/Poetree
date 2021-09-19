@@ -93,5 +93,10 @@ class PhotoService {
     func getInitialPhoto(_ photos: [WeekPhoto]) -> WeekPhoto? {
         return photos.first
     }
+    
+    func photoReveredOrder(_ photos: [WeekPhoto]) -> [WeekPhoto] {
+        return photos.reversed()
+    }
+    
 }
 

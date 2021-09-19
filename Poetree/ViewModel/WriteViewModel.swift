@@ -28,12 +28,13 @@ class WriteViewModel: ViewModelType {
         let aPoem: Observable<Poem>
         let writingType: WritingType
         let editingPoem: Poem?
+        let isFromMain: Bool
     }
     
     var input: Input
     var output: Output
     
-    init(poemService: PoemService, userService: UserService, writingType: WritingType, editingPoem: Poem? = nil) {
+    init(poemService: PoemService, userService: UserService, writingType: WritingType, editingPoem: Poem? = nil, isFromMain: Bool = false) {
         
         self.poemService = poemService
         self.userService = userService
@@ -56,7 +57,7 @@ class WriteViewModel: ViewModelType {
         }
         
         self.input = Input(title: title, content: content, isPrivate: isPrivate)
-        self.output = Output(aPoem: aPoem, writingType: writingType, editingPoem: editingPoem)
+        self.output = Output(aPoem: aPoem, writingType: writingType, editingPoem: editingPoem, isFromMain: isFromMain)
         
     }
 }

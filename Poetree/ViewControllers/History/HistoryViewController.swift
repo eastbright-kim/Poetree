@@ -31,11 +31,16 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.label]
-        self.navigationController?.navigationBar.barTintColor = UIColor.systemBackground
+        naviBarConfig()
     }
     
+    func naviBarConfig(){
+        self.navigationController?.navigationBar.tintColor = UIColor.label
+        self.navigationController?.navigationBar.barTintColor = UIColor.systemBackground
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.label]
+        self.navigationController?.navigationBar.barTintColor = UIColor.systemBackground
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+    }
     
     func collectionViewDelegate() {
         
@@ -55,19 +60,19 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
         flowlayoutForLastWeekPhotos.scrollDirection = .horizontal
         
         let totalCellWidth = 100 * 3
-                let totalSpacingWidth = 30 * 2
-                
-                let leftInset = (lastWeekPhotoCollectionView.bounds.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
-                let rightInset = leftInset
-                
-                let inset = UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
-                flowlayoutForLastWeekPhotos.sectionInset = inset
+        let totalSpacingWidth = 30 * 2
+        
+        let leftInset = (lastWeekPhotoCollectionView.bounds.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
+        let rightInset = leftInset
+        
+        let inset = UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
+        flowlayoutForLastWeekPhotos.sectionInset = inset
         
         
         let flowlayoutForAllPhotos = UICollectionViewFlowLayout()
         flowlayoutForAllPhotos.itemSize = CGSize(width: 100, height: 100 * 10 / 7)
-        flowlayoutForAllPhotos.minimumInteritemSpacing = 10
-        flowlayoutForAllPhotos.minimumLineSpacing = 10
+        flowlayoutForAllPhotos.minimumInteritemSpacing = 15
+        flowlayoutForAllPhotos.minimumLineSpacing = 15
         flowlayoutForAllPhotos.scrollDirection = .horizontal
         
         
@@ -97,7 +102,7 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
     func bindViewModel() {
         
       
-        viewModel.output.allPhotos
+        viewModel.output.displayingPhoto
             .bind(to:
                     allPhotoCollectionView.rx.items(cellIdentifier: "AllPhotoCell", cellType: HistoryPhotoCollectionViewCell.self)){indexPath, photo, cell in
                 cell.photoImageView.kf.setImage(with: photo.url)
@@ -181,14 +186,6 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
     }
 }
 
-//
-//extension HistoryViewController: UICollectionViewDelegateFlowLayout {
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//
-//        return CGSize(width: 100, height: 100 * 10 / 7)
-//    }
-//}
 
 extension HistoryViewController: UITableViewDelegate {
     

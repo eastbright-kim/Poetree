@@ -139,10 +139,19 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
             .subscribe(onNext:{[weak self] poem in
                 
                 guard let self = self else {return}
-                self.viewModel.poemService.deletePoem(deletingPoem: poem)
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "unwindfromDetailView", sender: self)
+                
+                let alert = UIAlertController(title: "글 삭제", message: "글을 삭제하시겠습니까?", preferredStyle: .alert)
+                let deleteAction = UIAlertAction(title: "확인", style: .default) { action in
+                    self.viewModel.poemService.deletePoem(deletingPoem: poem)
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "unwindfromDetailView", sender: self)
+                    }
                 }
+                let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+                alert.addAction(deleteAction)
+                alert.addAction(cancelAction)
+                self.present(alert, animated: true, completion: nil)
+                
             })
             .disposed(by: rx.disposeBag)
         
