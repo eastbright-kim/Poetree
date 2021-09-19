@@ -57,6 +57,7 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
         configureUI()
         playVideo()
         setupBtn()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,6 +70,12 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+            navigationController?.navigationBar.shadowImage = nil
+    }
+    
     
     func configureUI(){
         
@@ -79,10 +86,10 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
         border.backgroundColor = UIColor.lightGray.cgColor
         penNameTextField.layer.addSublayer(border)
         
-        loginBtn.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+        loginBtn.contentEdgeInsets = UIEdgeInsets(top: 8, left: 15, bottom: 8, right: 15)
         loginBtn.layer.cornerRadius = 8
         
-        registerBtn.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+        registerBtn.contentEdgeInsets = UIEdgeInsets(top: 8, left: 15, bottom: 8, right: 15)
         registerBtn.layer.cornerRadius = 8
         
         
@@ -189,9 +196,8 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
     func handleLogInResult(_ result: Result<CurrentAuth, SignInErorr>) {
         DispatchQueue.main.async {
             switch result {
-            
             case .success:
-//                self.dismiss(animated: true, completion: nil)
+                
                 self.navigationController?.popViewController(animated: true)
             case .failure(let error):
                 
