@@ -175,29 +175,6 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
     
     func bindViewModel() {
         
-        Observable.combineLatest(self.titleTextField.rx.text.orEmpty, RxKeyboard.instance.willShowVisibleHeight.asObservable())
-            .bind { [weak self] title, height in
-                
-                guard let self = self else {return}
-                self.viewModel.input.title.onNext(title)
-                self.backScrollView.contentInset.bottom = height
-                self.backScrollView.contentOffset.y = height / 2
-            }
-            .disposed(by: rx.disposeBag)
-        
-        contentTextView.rx.text.orEmpty
-            .bind(to: viewModel.input.content)
-            .disposed(by: rx.disposeBag)
-        
-        Observable.combineLatest(self.contentTextView.rx.text.orEmpty, RxKeyboard.instance.visibleHeight.asObservable())
-            .bind { [weak self] content, height in
-                
-                guard let self = self else {return}
-                self.viewModel.input.content.onNext(content)
-                self.backScrollView.contentOffset.y = height
-                self.contentTextView.contentInset.bottom = height
-            }
-            .disposed(by: rx.disposeBag)
         
         privateCheckBtn.rx.tap
             .do(onNext:{self.isPrvate = !self.isPrvate

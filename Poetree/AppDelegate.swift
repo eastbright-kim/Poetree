@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import GoogleSignIn
 import FBSDKCoreKit
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,7 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = UIColor.systemBackground
         UINavigationBar.appearance().tintColor = UIColor.label
 
-        
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.enableAutoToolbar = false
         return true
     }
 
