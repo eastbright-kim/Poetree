@@ -11,7 +11,6 @@ target 'Poetree' do
   pod 'NSObject+Rx'
   pod 'RxDataSources'
   pod 'Kingfisher', '~> 6.0'
-  pod 'SwiftyJSON', '~> 4.0'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
