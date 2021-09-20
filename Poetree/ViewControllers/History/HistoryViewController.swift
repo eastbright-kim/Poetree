@@ -15,7 +15,10 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
 
     
     @IBOutlet weak var allPoemsBtn: UIButton!
-    @IBOutlet weak var lastWeekPhotoCollectionView: UICollectionView!
+    @IBOutlet var imageArr: [UIImageView]!
+    @IBOutlet weak var image1Btn: UIButton!
+    @IBOutlet weak var image2Btn: UIButton!
+    @IBOutlet weak var image3Btn: UIButton!
     @IBOutlet weak var allPhotoCollectionView: UICollectionView!
     @IBOutlet weak var threePoemsTableView: UITableView!
     @IBOutlet weak var indexCountLabel: UIButton!
@@ -48,10 +51,6 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
         allPhotoCollectionView.isPagingEnabled = false
         allPhotoCollectionView.delegate = self
         
-        lastWeekPhotoCollectionView.delegate = self
-        lastWeekPhotoCollectionView.decelerationRate = .fast
-        lastWeekPhotoCollectionView.isPagingEnabled = false
-        
         
         let flowlayoutForLastWeekPhotos = UICollectionViewFlowLayout()
         flowlayoutForLastWeekPhotos.itemSize = CGSize(width: 100, height: 100 * 10 / 7)
@@ -59,24 +58,14 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
         flowlayoutForLastWeekPhotos.minimumLineSpacing = 28
         flowlayoutForLastWeekPhotos.scrollDirection = .horizontal
         
-        let totalCellWidth = 100 * 3
-        let totalSpacingWidth = 28 * 2
-        
-        let leftInset = (lastWeekPhotoCollectionView.bounds.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
-        let rightInset = leftInset
-        
-        let inset = UIEdgeInsets(top: 0, left: leftInset + 5, bottom: 0, right: rightInset)
-        flowlayoutForLastWeekPhotos.sectionInset = inset
-        
+
         
         let flowlayoutForAllPhotos = UICollectionViewFlowLayout()
         flowlayoutForAllPhotos.itemSize = CGSize(width: 100, height: 100 * 10 / 7)
         flowlayoutForAllPhotos.minimumInteritemSpacing = 15
         flowlayoutForAllPhotos.minimumLineSpacing = 15
         flowlayoutForAllPhotos.scrollDirection = .horizontal
-        
-        
-        lastWeekPhotoCollectionView.collectionViewLayout = flowlayoutForLastWeekPhotos
+
         allPhotoCollectionView.collectionViewLayout = flowlayoutForAllPhotos
     }
     
@@ -86,6 +75,11 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
         configureNavTab()
         allPoemsBtn.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
         allPoemsBtn.layer.cornerRadius = 8
+        
+        for photo in self.imageArr {
+            photo.layer.cornerRadius = 8
+        }
+        
     }
     
     private func configureNavTab() {
@@ -109,7 +103,23 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
             }
             .disposed(by: rx.disposeBag)
         
-       
+        image1Btn.rx.tap
+            .subscribe(onNext:{ _ in
+                self.viewModel.input.indexSelected.onNext(0)
+            })
+            .disposed(by: rx.disposeBag)
+        
+        image2Btn.rx.tap
+            .subscribe(onNext:{ _ in
+                self.viewModel.input.indexSelected.onNext(1)
+            })
+            .disposed(by: rx.disposeBag)
+        
+        image3Btn.rx.tap
+            .subscribe(onNext:{ _ in
+                self.viewModel.input.indexSelected.onNext(2)
+            })
+            .disposed(by: rx.disposeBag)
         
         allPoemsBtn.rx.tap
             .subscribe(onNext: { [unowned self] _ in
@@ -136,23 +146,28 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
             })
             .disposed(by: rx.disposeBag)
         
-        
-        
-        viewModel.output.lastWeekPhotos
-            .bind(to: lastWeekPhotoCollectionView.rx.items(cellIdentifier: "LastWeekPhotoCell", cellType: LastWeekPhotoCollectionViewCell.self)){indexPath, photos, cell in
-                cell.lastWeekPhotoImageView.kf.setImage(with: photos.url)
-            }
-            .disposed(by: rx.disposeBag)
-        
-        lastWeekPhotoCollectionView.rx.itemSelected
-            .subscribe(onNext:{ index in
-                self.indexCountLabel.setTitle("Wrtings for #\(index.item + 1)", for: .normal)
+        viewModel.output.printedIndex
+            .drive(onNext: { index in
+                self.indexCountLabel.setTitle("Writings for #\(index)", for: .normal)
             })
             .disposed(by: rx.disposeBag)
         
-        lastWeekPhotoCollectionView.rx.modelSelected(WeekPhoto.self)
-            .bind(to: viewModel.input.photoSelected)
+        viewModel.output.lastWeekPhotos
+            .bind(onNext:{ weekPhotos in
+                
+                if weekPhotos.count < 3 {
+                    
+                    for i in 0...2 {
+                        self.imageArr[i].kf.setImage(with: whites[i].url)
+                    }
+                } else if weekPhotos.count == 3 {
+                    for i in 0...2 {
+                        self.imageArr[i].kf.setImage(with: weekPhotos[i].url)
+                    }
+                }
+            })
             .disposed(by: rx.disposeBag)
+        
         
         allPhotoCollectionView.rx.modelSelected(WeekPhoto.self)
             .subscribe(onNext:{ weekPhoto in
@@ -169,6 +184,8 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
         self.viewModel.output.displyingPoemsByPhoto
             .bind(to: self.threePoemsTableView.rx.items(cellIdentifier: "ThreePoemsTableViewCell", cellType: ThreePoemsTableViewCell.self)){indexPath, poem, cell in
                 
+                print("photo \(poem.title)")
+                
                 switch indexPath {
                 case 0:
                     cell.prizeImage.image = UIImage(named: "gold-medal")
@@ -183,6 +200,9 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
                 cell.selectionStyle = UITableViewCell.SelectionStyle.none
             }
             .disposed(by: rx.disposeBag)
+    }
+    
+    @IBAction func unwind( _ seg: UIStoryboardSegue) {
     }
 }
 

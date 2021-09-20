@@ -174,6 +174,17 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
     
     func bindViewModel() {
         
+        self.titleTextField.rx.text.orEmpty
+            .bind(onNext: { title in
+                self.viewModel.input.title.onNext(title)
+            })
+            .disposed(by: rx.disposeBag)
+        
+        self.contentTextView.rx.text.orEmpty
+            .bind(onNext: { content in
+                self.viewModel.input.content.onNext(content)
+            })
+            .disposed(by: rx.disposeBag)
         
         privateCheckBtn.rx.tap
             .do(onNext:{self.isPrvate = !self.isPrvate
@@ -367,6 +378,9 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
     }
+    
+    
+    
 }
 
 extension WritingViewController: UIGestureRecognizerDelegate {
