@@ -40,6 +40,7 @@ class HistoryViewModel: ViewModelType {
         let displayingPhoto = allPhotos.map(photoService.photoReveredOrder)
         
         let lastWeekPhotos = allPhotos.map{ photos in Array(photoService.fetchLastWeekPhotos(weekPhotos: photos).prefix(3)) }
+        
         let photoSelected = ReplaySubject<WeekPhoto>.create(bufferSize: 1)
         
         lastWeekPhotos.map(photoService.getInitialPhoto)

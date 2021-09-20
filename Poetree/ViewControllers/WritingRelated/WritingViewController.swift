@@ -11,7 +11,6 @@ import RxCocoa
 import NSObject_Rx
 import Kingfisher
 import Toast_Swift
-import RxKeyboard
 import BLTNBoard
 
 class WritingViewController: UIViewController, ViewModelBindable, StoryboardBased, HasDisposeBag {

@@ -70,8 +70,8 @@ class PhotoService {
     }
     
     func fetchLastWeekPhotos(weekPhotos: [WeekPhoto]) -> [WeekPhoto] {
-        let lastWeekdPhotos = weekPhotos.dropFirst(3)
-        return Array(lastWeekdPhotos)
+        let lastWeekPhotos = weekPhotos.dropFirst(3)
+        return Array(lastWeekPhotos)
     }
     
     

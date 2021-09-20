@@ -60,12 +60,12 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
         flowlayoutForLastWeekPhotos.scrollDirection = .horizontal
         
         let totalCellWidth = 100 * 3
-        let totalSpacingWidth = 30 * 2
+        let totalSpacingWidth = 28 * 2
         
         let leftInset = (lastWeekPhotoCollectionView.bounds.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
         let rightInset = leftInset
         
-        let inset = UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
+        let inset = UIEdgeInsets(top: 0, left: leftInset + 5, bottom: 0, right: rightInset)
         flowlayoutForLastWeekPhotos.sectionInset = inset
         
         
