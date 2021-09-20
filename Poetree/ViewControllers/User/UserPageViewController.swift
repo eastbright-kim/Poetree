@@ -131,13 +131,10 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
                 cell.likeStatusBtn.isHidden = (indexPath != 0)
                 cell.likeStackView.isHidden = (indexPath != 1 && indexPath != 2)
                 
+                cell.isUserInteractionEnabled = !((indexPath == 0) && (poem.id == "no writings yet"))
+                
                 switch indexPath {
                 case 0:
-                    
-                    if poem.id == "no writings yet" {
-                        cell.isUserInteractionEnabled = false
-                    }
-                    
                     cell.likeStatusBtn.contentEdgeInsets = UIEdgeInsets(top: 2, left: 4, bottom: 2, right: 4)
                     cell.likeStatusBtn.setTitle("Most favorite", for: .normal)
                     cell.likeStatusBtn.layer.cornerRadius = 8

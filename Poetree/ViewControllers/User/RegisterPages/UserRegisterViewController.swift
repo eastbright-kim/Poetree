@@ -44,6 +44,7 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
     @IBOutlet weak var appleLogInBtn: UIButton!
     @IBOutlet weak var facebookLogInBtn: UIButton!
     @IBOutlet weak var selectLoginLabel: UILabel!
+    @IBOutlet weak var editPennameStackView: UIStackView!
     
     // ------------------------------ chooseOptionView
     @IBOutlet weak var optionStackView: UIStackView!
@@ -164,9 +165,17 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
     }
     
     @IBAction func logInBtnTapped(_ sender: UIButton) {
-        self.videoLayer.bringSubviewToFront(self.registerStackView)
-        self.registerStackView.isHidden = false
-        self.videoLayer.sendSubviewToBack(self.optionStackView)
+        
+        if let _ = self.penname {
+            self.videoLayer.bringSubviewToFront(self.registerStackView)
+            self.registerStackView.isHidden = false
+            self.videoLayer.sendSubviewToBack(self.optionStackView)
+        } else {
+            self.videoLayer.bringSubviewToFront(self.registerStackView)
+            self.registerStackView.isHidden = false
+            self.editPennameStackView.isHidden = true
+            self.videoLayer.sendSubviewToBack(self.optionStackView)
+        }
     }
     
     

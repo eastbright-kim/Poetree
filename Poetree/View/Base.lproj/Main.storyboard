@@ -128,6 +128,7 @@
                                                                         </button>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdc-Gb-wT6">
                                                                             <rect key="frame" x="86" y="0.0" width="6.6666666666666714" height="29"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                             <color key="tintColor" systemColor="systemPinkColor"/>
                                                                             <state key="normal" image="chevron.right" catalog="system">
                                                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="9"/>

@@ -39,7 +39,7 @@ class UserRegisterRepository{
         }
     }
     
-    // 처음 사용자가 login하는 경우 or 기존 사용자가 login하는 경우
+    
     func firebaseLogIn(credential: AuthCredential,  completion: @escaping ((Result<CurrentAuth, LoginError>) -> Void)){
         
         Auth.auth().signIn(with: credential) { authDataResult, error in

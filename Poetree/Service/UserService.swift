@@ -48,8 +48,6 @@ class UserService {
             
             guard let penname = penname else { self.userRegisterRepository.firebaseLogIn(credential: credential) { result in
                 
-                NotificationCenter.default.post(name: NSNotification.Name("emailClicked"), object: nil, userInfo: nil)
-                
                 switch result {
                 case .success(let currentAuth):
                     self.loginUser.onNext(currentAuth)

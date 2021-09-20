@@ -38,6 +38,7 @@ class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased, Vie
     
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+        self.navigationItem.rightBarButtonItem = nil
     }
     
     func naviBarConfig(){
@@ -133,9 +134,17 @@ class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased, Vie
     }
     
     func handleWrite(){
-        self.view.makeToast("글을 쓰기 위해서는 로그인이 필요합니다", duration: 1.5, position: .center) { bool in
+        
+        var style = ToastStyle()
+        style.messageAlignment = .center
+        style.titleAlignment = .center
+        style.messageFont = UIFont(name: "AppleSDGothicNeo-Regular", size: 10)!
+        style.messageFont = UIFont(name: "AppleSDGothicNeo-Regular", size: 15)!
+        
+        self.view.makeToast("오른쪽 상단의 로그인 버튼을 확인해주세요", duration: 2, position: .center, title: "글을 쓰기 위해서는 로그인이 필요합니다", style: style){ bool in
             self.setBarBtnItem()
         }
+ 
     }
     
     @objc func login(){

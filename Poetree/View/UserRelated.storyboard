@@ -294,6 +294,7 @@
                     </view>
                     <connections>
                         <outlet property="appleLogInBtn" destination="4RM-p6-PR2" id="Nsc-1x-QZl"/>
+                        <outlet property="editPennameStackView" destination="Lk2-Ja-Ei4" id="Sce-pU-vXJ"/>
                         <outlet property="facebookLogInBtn" destination="Gz5-Pn-Z2w" id="tEC-a7-aas"/>
                         <outlet property="googleLogInBtn" destination="4US-4x-o1R" id="LyK-Et-kPY"/>
                         <outlet property="loginBtn" destination="WIg-IP-I0G" id="mEQ-4Q-a0o"/>

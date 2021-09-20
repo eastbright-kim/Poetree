@@ -284,6 +284,25 @@ class PoemService {
         }
     }
     
+    func sortPoemsByLikeCount_Recent_All(_ poems: [Poem]) -> [Poem] {
+        
+        if poems.count > 3 {
+            let sorted = poems.sorted { p1, p2 in
+                p1.likers.count > p2.likers.count
+            }
+            let prefix = sorted.prefix(3)
+            let rest = sorted.dropFirst(3).sorted { p1, p2 in
+                p1.uploadAt.timeIntervalSinceReferenceDate > p2.uploadAt.timeIntervalSinceReferenceDate
+            }
+            return prefix + rest
+        } else {
+            return poems.sorted { p1, p2 in
+                p1.likers.count > p2.likers.count
+            }
+        }
+    }
+    
+    
     func fetchTempSaved(poems: [Poem], currentUser: User) -> [Poem] {
         
         let filteredPoems = poems.filter { poem in

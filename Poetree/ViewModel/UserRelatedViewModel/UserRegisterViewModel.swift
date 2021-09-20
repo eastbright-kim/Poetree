@@ -48,7 +48,7 @@ class UserRegisterViewModel: ViewModelType {
                 if letter.contains(" ") {
                     return "필명엔 공백이 포함될 수 없습니다."
                 } else if letter.count == 0 {
-                    return "필명은 로그인 후 수정할 수 없으니\n신중히 선택해주세요 :)"
+                    return "필명엔 공백이 포함될 수 없습니다."
                 } else if checkBadWords(content: letter) {
                     return "필명엔 욕설이 포함될 수 없습니다."
                 } else {
