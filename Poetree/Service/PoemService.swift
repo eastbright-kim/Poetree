@@ -9,11 +9,12 @@ import Foundation
 import RxSwift
 import Firebase
 
-class PoemService {
+class PoemService: UserLogInListener {
     
     var poems = [Poem]()
     var poemsByUID = [String: [Poem]]()
     lazy var poemsStore = BehaviorSubject<[Poem]>(value: poems)
+    
     
     let poemRepository: PoemRepository
     
@@ -28,15 +29,29 @@ class PoemService {
     
     func createPoem(poem: Poem, completion: @escaping ((String) -> Void)) {
         
-        poem.isTemp = false
-        poemRepository.createPoem(poemModel: poem) { result in
-            switch result {
-            case .success(let s):
-                completion(s.rawValue)
-                self.poems.insert(poem, at: 0)
-                self.poemsStore.onNext(self.poems)
-            case .failure:
-                completion("write poem error")
+        if poem.isTemp {
+            poem.isTemp = false
+            poemRepository.createPoem(poemModel: poem) { result in
+                switch result {
+                case .success(let s):
+                    completion(s.rawValue)
+                    guard let index = self.poems.firstIndex(of: poem) else { return }
+                    self.poems[index] = poem
+                    self.poemsStore.onNext(self.poems)
+                case .failure:
+                    completion("write poem error")
+                }
+            }
+        } else{
+            poemRepository.createPoem(poemModel: poem) { result in
+                switch result {
+                case .success(let s):
+                    completion(s.rawValue)
+                    self.poems.insert(poem, at: 0)
+                    self.poemsStore.onNext(self.poems)
+                case .failure:
+                    completion("write poem error")
+                }
             }
         }
     }
@@ -56,6 +71,8 @@ class PoemService {
             p1.likers.count > p2.likers.count
         }.filter { poem in
             poem.isPrivate == false
+        }.filter { poem in
+            poem.isTemp == false
         }
         
         return userLikedPoems
@@ -67,17 +84,13 @@ class PoemService {
             switch result {
             case .success(let s):
          
-                if let index = self.poems.firstIndex(where: { poem in
-                    poem.id == beforeEdited.id
-                }) {
+                if let index = self.poems.firstIndex(of: beforeEdited) {
                     
-                    self.poems.remove(at: index)
-                    self.poems.insert(editedPoem, at: index)
-                    
+                    self.poems[index] = editedPoem
                     self.poemsStore.onNext(self.poems)
-                    
                     completion(s.rawValue)
                 }
+                
             case .failure:
                 completion("write poem error")
             }
@@ -117,7 +130,7 @@ class PoemService {
         }
     }
     
-    func fetchPoemsByPhotoId_Sorted_Public(poems: [Poem], photoId: Int) -> [Poem] {
+    func fetchPoemsByPhotoId_SortedLikesCount(poems: [Poem], photoId: Int) -> [Poem] {
         
         let publicPoems = poems.filter{$0.isPrivate == false}
         
@@ -248,27 +261,27 @@ class PoemService {
         guard let index = poems.firstIndex(of: poem) else {return poem}
         return poems[index]
     }
+//
+//    func sortPoemsByLikeCount_Random_Public(_ poems: [Poem]) -> [Poem] {
+//
+//        let publicPoem = poems.filter{$0.isPrivate == false}
+//
+//        if publicPoem.count > 3 {
+//            let sorted = publicPoem.sorted { p1, p2 in
+//                p1.likers.count > p2.likers.count
+//            }
+//            let prefix = sorted.prefix(3)
+//            let rest = sorted.dropFirst(3).shuffled()
+//            let arr = prefix + rest
+//            return arr.filter { $0.isPrivate == false}
+//        } else {
+//            return publicPoem.sorted { p1, p2 in
+//                p1.likers.count > p2.likers.count
+//            }
+//        }
+//    }
     
-    func sortPoemsByLikeCount_Random_Public(_ poems: [Poem]) -> [Poem] {
-        
-        let publicPoem = poems.filter{$0.isPrivate == false}
-        
-        if publicPoem.count > 3 {
-            let sorted = publicPoem.sorted { p1, p2 in
-                p1.likers.count > p2.likers.count
-            }
-            let prefix = sorted.prefix(3)
-            let rest = sorted.dropFirst(3).shuffled()
-            let arr = prefix + rest
-            return arr.filter { $0.isPrivate == false}
-        } else {
-            return publicPoem.sorted { p1, p2 in
-                p1.likers.count > p2.likers.count
-            }
-        }
-    }
-    
-    func sortPoemsByLikeCount_Random_All(_ poems: [Poem]) -> [Poem] {
+    func sortPoemsByLikeCount_Random(_ poems: [Poem]) -> [Poem] {
         
         if poems.count > 3 {
             let sorted = poems.sorted { p1, p2 in
@@ -284,7 +297,7 @@ class PoemService {
         }
     }
     
-    func sortPoemsByLikeCount_Recent_All(_ poems: [Poem]) -> [Poem] {
+    func sortPoemsByLikeCount_Recent(_ poems: [Poem]) -> [Poem] {
         
         if poems.count > 3 {
             let sorted = poems.sorted { p1, p2 in
@@ -306,8 +319,30 @@ class PoemService {
     func fetchTempSaved(poems: [Poem], currentUser: User) -> [Poem] {
         
         let filteredPoems = poems.filter { poem in
-            return poem.userUID == currentUser.uid && poem.isTemp == true
+            return (poem.userUID == currentUser.uid) && (poem.isTemp == true)
         }
+        return filteredPoems
+    }
+    
+    func updatePenname(userResisterRepository: UserRegisterRepository, logInUser: CurrentAuth) {
+        
+        var userWritings = [Poem]()
+        
+        for poem in self.poems {
+            if poem.userUID == logInUser.userUID {
+                poem.userPenname = logInUser.userPenname
+                userWritings.append(poem)
+            }
+            self.poemsStore.onNext(self.poems)
+            
+            if userWritings.isEmpty == false {
+                self.poemRepository.updatePenname(poems: userWritings, currentAuth: logInUser)
+            }
+        }
+    }
+    
+    func filterPoemsForPublic(_ poems: [Poem]) -> [Poem] {
+        let filteredPoems = poems.filter{$0.isPrivate == false}.filter{$0.isTemp == false}
         return filteredPoems
     }
     

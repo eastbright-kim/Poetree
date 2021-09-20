@@ -40,6 +40,7 @@ class MainViewModel: ViewModelType {
         self.photoService = photoService
         self.userService = userService
         let poems = poemService.allPoems()
+            .map(poemService.filterPoemsForPublic)
         let photos = photoService.photos()
         
         let currentDate = Observable<String>.just(poemService.getCurrentDate())
@@ -56,7 +57,7 @@ class MainViewModel: ViewModelType {
         }
         
         let displayingPoems = Observable.combineLatest(poems, selectedPhotoId){ poems, photoId -> [Poem] in
-            let displayingPoem = poemService.fetchPoemsByPhotoId_Sorted_Public(poems: poems, photoId: photoId)
+            let displayingPoem = poemService.fetchPoemsByPhotoId_SortedLikesCount(poems: poems, photoId: photoId)
                 .prefix(3)
             
             return Array(displayingPoem)

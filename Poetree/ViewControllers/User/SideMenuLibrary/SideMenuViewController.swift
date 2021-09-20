@@ -41,7 +41,7 @@ class SideMenuViewController: UIViewController{
         
         
     })
-    lazy var savedWritings = SideMenuCell(title: "보관한 글", btnAction: {
+    lazy var savedWritings = SideMenuCell(title: "저장해둔 글", btnAction: {
         
         if let currentUser = Auth.auth().currentUser {
             let viewModel = PoemListViewModel(poemService: self.viewModel.poemServcie, userService: self.viewModel.userService, listType: .tempSaved(currentUser))

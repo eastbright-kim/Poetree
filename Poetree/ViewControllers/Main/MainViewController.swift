@@ -80,7 +80,7 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
     
     func resetDate() {
         viewModel.output.currentDate
-            .drive(dateLabel.rx.text)
+            .drive(onNext:{ date in self.dateLabel.rx.text.onNext(date + " week")})
             .disposed(by: rx.disposeBag)
     }
     
@@ -111,9 +111,9 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
     
     func bindViewModel() {
         
-        viewModel.output.currentDate
-            .drive(dateLabel.rx.text)
-            .disposed(by: rx.disposeBag)
+//        viewModel.output.currentDate
+//            .drive(onNext:{ date in self.dateLabel.rx.text.onNext(date + " week")})
+//            .disposed(by: rx.disposeBag)
         
         viewModel.output.thisWeekPhotoURL
             .bind(to: collectionView.rx.items(cellIdentifier: "cell", cellType: MainPhotoCollectionViewCell.self)) { index, photo, cell in

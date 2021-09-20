@@ -145,7 +145,7 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
                 guard let self = self else {return}
                 
                 let alert = UIAlertController(title: "글 삭제", message: "글을 삭제하시겠습니까?", preferredStyle: .alert)
-                let deleteAction = UIAlertAction(title: "확인", style: .default) { action in
+                let deleteAction = UIAlertAction(title: "확인", style: .destructive) { action in
                     self.viewModel.poemService.deletePoem(deletingPoem: poem)
                     DispatchQueue.main.async {
                         self.performSegue(withIdentifier: "unwindfromDetailView", sender: self)

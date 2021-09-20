@@ -24,9 +24,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let poemRepository = PoemRepository()
         let photoRepository = PhotoRepository()
-        let userRegisterRepository = UserRegisterRepository()
-        let photoServie = PhotoService(photoRepository: photoRepository)
         let poemService = PoemService(poemRepository: poemRepository)
+        let userRegisterRepository = UserRegisterRepository(delegate: poemService)
+        let photoServie = PhotoService(photoRepository: photoRepository)
         let userService = UserService(userRegisterRepository: userRegisterRepository)
         let currentUser = Auth.auth().currentUser
         

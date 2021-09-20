@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NIm-x4-doj">
-    <device id="retina6_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Image references" minToolsVersion="12.0"/>
@@ -27,7 +27,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="baM-CR-H88">
                                                 <rect key="frame" x="10" y="10" width="394" height="780"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aug 2nd" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCU-xM-0Zn">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aug 2nd week" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCU-xM-0Zn">
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="48"/>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="40"/>
                                                         <nil key="textColor"/>
@@ -75,18 +75,18 @@
                                                         <rect key="frame" x="0.0" y="514" width="394" height="40"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GoF-Ds-r5t">
-                                                                <rect key="frame" x="179.66666666666666" y="3.6666666666666288" width="35" height="33"/>
+                                                                <rect key="frame" x="179.5" y="3.5" width="35" height="33"/>
                                                                 <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="29"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fB-A2-Ykb">
-                                                                <rect key="frame" x="361.33333333333331" y="9" width="12.666666666666686" height="22"/>
+                                                                <rect key="frame" x="361.5" y="9" width="12.5" height="22"/>
                                                                 <color key="tintColor" systemColor="systemGray4Color"/>
                                                                 <state key="normal" image="chevron.right" catalog="system"/>
                                                             </button>
                                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13u-eE-nYk">
-                                                                <rect key="frame" x="20" y="9" width="12.666666666666664" height="22"/>
+                                                                <rect key="frame" x="20" y="9" width="12.5" height="22"/>
                                                                 <color key="tintColor" systemColor="systemGray4Color"/>
                                                                 <state key="normal" image="chevron.left" catalog="system"/>
                                                             </button>
@@ -110,24 +110,24 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khz-UM-wCX">
-                                                                    <rect key="frame" x="20" y="5.6666666666666679" width="102" height="33"/>
+                                                                    <rect key="frame" x="20" y="5.5" width="102" height="33"/>
                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                                     <state key="normal" title="#1 사진에 쓴 글">
                                                                         <color key="titleColor" systemColor="labelColor"/>
                                                                     </state>
                                                                 </button>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="LGq-ke-geZ">
-                                                                    <rect key="frame" x="281.33333333333331" y="7.6666666666666679" width="92.666666666666686" height="29.000000000000004"/>
+                                                                    <rect key="frame" x="281.5" y="7.5" width="92.5" height="29"/>
                                                                     <subviews>
-                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hn7-JN-bKV">
+                                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hn7-JN-bKV">
                                                                             <rect key="frame" x="0.0" y="0.0" width="84" height="29"/>
                                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="14"/>
                                                                             <state key="normal" title="이번 주 글 보기">
                                                                                 <color key="titleColor" systemColor="systemPinkColor"/>
                                                                             </state>
                                                                         </button>
-                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdc-Gb-wT6">
-                                                                            <rect key="frame" x="86" y="0.0" width="6.6666666666666714" height="29"/>
+                                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdc-Gb-wT6">
+                                                                            <rect key="frame" x="86" y="0.0" width="6.5" height="29"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                             <color key="tintColor" systemColor="systemPinkColor"/>
                                                                             <state key="normal" image="chevron.right" catalog="system">
@@ -147,7 +147,7 @@
                                                         </view>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="poemCell" id="vhC-Du-2ML" customClass="MainPoemTableViewCell" customModule="Poetree" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="68.333333969116211" width="394" height="44"/>
+                                                                <rect key="frame" x="0.0" y="68.5" width="394" height="44"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vhC-Du-2ML" id="LYI-bj-xCv">
                                                                     <rect key="frame" x="0.0" y="0.0" width="394" height="44"/>
@@ -160,13 +160,13 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by. wayne" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwg-vQ-r4K">
-                                                                            <rect key="frame" x="134" y="13.666666666666664" width="58" height="17"/>
+                                                                            <rect key="frame" x="134" y="13.5" width="58" height="17"/>
                                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="14"/>
                                                                             <color key="textColor" systemColor="systemGray2Color"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CSe-BY-8KZ">
-                                                                            <rect key="frame" x="328" y="7.6666666666666679" width="46" height="29.000000000000004"/>
+                                                                            <rect key="frame" x="328" y="7.5" width="46" height="29"/>
                                                                             <color key="backgroundColor" systemColor="systemPinkColor"/>
                                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
                                                                             <state key="normal" title="favorite">
@@ -174,10 +174,10 @@
                                                                             </state>
                                                                         </button>
                                                                         <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="pOl-4R-VUT">
-                                                                            <rect key="frame" x="336.66666666666669" y="14.666666666666664" width="30.333333333333314" height="15"/>
+                                                                            <rect key="frame" x="336.5" y="14.5" width="30.5" height="15"/>
                                                                             <subviews>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rny-co-xL5">
-                                                                                    <rect key="frame" x="0.0" y="1.9999999999999982" width="15" height="12.000000000000002"/>
+                                                                                    <rect key="frame" x="0.0" y="1.5" width="15" height="12.5"/>
                                                                                     <color key="tintColor" systemColor="systemPinkColor"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="15" id="bhC-OF-PX6"/>
@@ -185,7 +185,7 @@
                                                                                     </constraints>
                                                                                 </imageView>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="34" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZh-zl-1XF">
-                                                                                    <rect key="frame" x="18" y="0.66666666666666785" width="12.333333333333336" height="13.333333333333334"/>
+                                                                                    <rect key="frame" x="18" y="1" width="12.5" height="13.5"/>
                                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="11"/>
                                                                                     <color key="textColor" systemColor="systemPinkColor"/>
                                                                                     <nil key="highlightedColor"/>
@@ -274,7 +274,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YeQ-wr-S7h">
-                            <rect key="frame" x="0.0" y="1.9999999999999982" width="15" height="12.000000000000002"/>
+                            <rect key="frame" x="0.0" y="1.5" width="15" height="12.5"/>
                             <color key="tintColor" systemColor="systemPinkColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="YeQ-wr-S7h" secondAttribute="height" multiplier="1:1" id="IM6-Nb-0RR"/>
@@ -282,7 +282,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="34" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsx-7I-GRo">
-                            <rect key="frame" x="18" y="1" width="12.333333333333336" height="13.333333333333334"/>
+                            <rect key="frame" x="18" y="1" width="12.5" height="13.5"/>
                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="11"/>
                             <color key="textColor" systemColor="systemPinkColor"/>
                             <nil key="highlightedColor"/>
@@ -298,11 +298,11 @@
             <objects>
                 <viewController storyboardIdentifier="PhotoViewController" hidesBottomBarWhenPushed="YES" id="zrZ-A6-Ygs" customClass="PhotoViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w2G-wh-FJ1">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="838"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qDb-TH-vHa">
-                                <rect key="frame" x="10" y="165" width="408" height="408"/>
+                                <rect key="frame" x="10" y="157" width="394" height="394"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="qDb-TH-vHa" secondAttribute="height" multiplier="1:1" id="rfO-ZN-3Fx"/>
@@ -315,7 +315,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoViewCell" id="OCu-ak-dql" customClass="PhotoViewCollectionViewCell" customModule="Poetree" customModuleProvider="target">
-                                        <rect key="frame" x="-10" y="0.0" width="428" height="431"/>
+                                        <rect key="frame" x="-17" y="0.0" width="428" height="431"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="X5G-lM-Bvz">
                                             <rect key="frame" x="0.0" y="0.0" width="428" height="431"/>
@@ -343,13 +343,13 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사진을 감상하신 후, 사진을 탭하면 글을 작성하실 수 있습니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcO-Mb-hzE">
-                                <rect key="frame" x="34.333333333333343" y="633" width="359.33333333333326" height="18"/>
+                                <rect key="frame" x="27.5" y="611" width="359" height="18"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="즐겁게 사진 감상하세요 :)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heu-kG-8pI">
-                                <rect key="frame" x="133.66666666666669" y="633" width="160.66666666666669" height="19.666666666666629"/>
+                                <rect key="frame" x="126.5" y="611" width="161" height="19.5"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -384,29 +384,29 @@
             <objects>
                 <viewController storyboardIdentifier="HistoryViewController" id="P1n-3g-Yc3" customClass="HistoryViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GYr-sc-Rwt">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b0i-Gr-hAg">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N57-R8-yb8">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="800"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bFe-jN-32d">
-                                                <rect key="frame" x="10" y="10" width="408" height="400"/>
+                                                <rect key="frame" x="10" y="10" width="394" height="400"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YvL-sR-eeB">
-                                                        <rect key="frame" x="20" y="8.0000000000000018" width="78.333333333333329" height="21.666666666666671"/>
+                                                        <rect key="frame" x="20" y="8" width="78.5" height="22"/>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZP9-eZ-F97">
-                                                        <rect key="frame" x="0.0" y="29.666666666666657" width="408" height="370.33333333333337"/>
+                                                        <rect key="frame" x="0.0" y="30" width="394" height="370"/>
                                                         <subviews>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="r8N-ng-bC4">
-                                                                <rect key="frame" x="0.0" y="0.0" width="408" height="209.33333333333334"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="394" height="209.5"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vT3-Ds-Pum">
                                                                     <size key="itemSize" width="128" height="150"/>
@@ -416,7 +416,7 @@
                                                                 </collectionViewFlowLayout>
                                                                 <cells>
                                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LastWeekPhotoCell" id="qpu-57-gd3" customClass="LastWeekPhotoCollectionViewCell" customModule="Poetree" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="29.666666666666668" width="128" height="150"/>
+                                                                        <rect key="frame" x="0.0" y="30" width="128" height="150"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="JDS-A8-0Pi">
                                                                             <rect key="frame" x="0.0" y="0.0" width="128" height="150"/>
@@ -441,38 +441,38 @@
                                                                 </cells>
                                                             </collectionView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2l-y2-7d1">
-                                                                <rect key="frame" x="0.0" y="209.33333333333334" width="408" height="30"/>
+                                                                <rect key="frame" x="0.0" y="209.5" width="394" height="30"/>
                                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
                                                                 <state key="normal" title="Writings for #1">
                                                                     <color key="titleColor" systemColor="systemGrayColor"/>
                                                                 </state>
                                                             </button>
                                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yww-QB-wtX">
-                                                                <rect key="frame" x="0.0" y="239.33333333333337" width="408" height="131"/>
+                                                                <rect key="frame" x="0.0" y="239.5" width="394" height="130.5"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <prototypes>
                                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ThreePoemsTableViewCell" rowHeight="59" id="Akp-Ht-Swo" customClass="ThreePoemsTableViewCell" customModule="Poetree" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="24.333333969116211" width="408" height="59"/>
+                                                                        <rect key="frame" x="0.0" y="24.5" width="394" height="59"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Akp-Ht-Swo" id="acz-zj-p00">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="408" height="59"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="394" height="59"/>
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="우리에게도 보습대일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6SH-9Y-IgR">
-                                                                                    <rect key="frame" x="35" y="20.666666666666668" width="121" height="18.000000000000004"/>
+                                                                                    <rect key="frame" x="35" y="20.5" width="121" height="18"/>
                                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="15"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gold-medal" translatesAutoresizingMaskIntoConstraints="NO" id="Fi7-US-76b">
-                                                                                    <rect key="frame" x="349" y="10" width="39" height="39"/>
+                                                                                    <rect key="frame" x="335" y="10" width="39" height="39"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" secondItem="Fi7-US-76b" secondAttribute="height" multiplier="1:1" id="t03-PI-Qhs"/>
                                                                                     </constraints>
                                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="14"/>
                                                                                 </imageView>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="by. author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lk5-6y-YZP">
-                                                                                    <rect key="frame" x="274.66666666666669" y="20.666666666666668" width="64.333333333333314" height="18.000000000000004"/>
+                                                                                    <rect key="frame" x="260.5" y="20.5" width="64.5" height="18"/>
                                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
                                                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                                                     <nil key="highlightedColor"/>
@@ -512,7 +512,7 @@
                                                 </constraints>
                                             </view>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FUG-xb-Kqu">
-                                                <rect key="frame" x="10" y="451.66666666666669" width="408" height="209.33333333333331"/>
+                                                <rect key="frame" x="10" y="452" width="394" height="209.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ign-Fx-oxT">
                                                     <size key="itemSize" width="123" height="144"/>
@@ -522,7 +522,7 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AllPhotoCell" id="JCQ-Yp-C6Z" customClass="HistoryPhotoCollectionViewCell" customModule="Poetree" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="32.666666666666664" width="123" height="144"/>
+                                                        <rect key="frame" x="0.0" y="33" width="123" height="144"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="QNv-Nf-JiE">
                                                             <rect key="frame" x="0.0" y="0.0" width="123" height="144"/>
@@ -547,7 +547,7 @@
                                                 </cells>
                                             </collectionView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wdt-lw-Fp0">
-                                                <rect key="frame" x="159" y="686" width="110" height="39"/>
+                                                <rect key="frame" x="152" y="686.5" width="110" height="38.5"/>
                                                 <color key="backgroundColor" systemColor="systemPinkColor"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
                                                 <state key="normal" title="이전 글 모두 보기">
@@ -555,7 +555,7 @@
                                                 </state>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmO-X9-wMr">
-                                                <rect key="frame" x="29.999999999999993" y="430" width="104.33333333333331" height="21.666666666666686"/>
+                                                <rect key="frame" x="30" y="430" width="104.5" height="22"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -644,7 +644,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Ms5-eC-62x">
-                        <rect key="frame" x="0.0" y="44" width="428" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -666,7 +666,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Eed-iX-ZFY">
-                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -693,7 +693,7 @@
         <image name="book.fill" catalog="system" width="128" height="102"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
-        <image name="gold-medal" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="gold-medal" width="170.5" height="170.5"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">

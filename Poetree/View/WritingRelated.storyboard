@@ -529,9 +529,11 @@
                         <outlet property="titleTextField" destination="rvQ-yJ-m5S" id="7v5-vr-2dq"/>
                         <outlet property="userDateLabel" destination="tGQ-hi-UTQ" id="IjR-bf-yxI"/>
                         <outlet property="writeComplete" destination="lla-AM-CN4" id="KKB-s7-vf1"/>
+                        <segue destination="Oid-2E-d6o" kind="unwind" identifier="unwindfromWritingView" unwindAction="unwind:" id="yz3-Vw-elG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="woS-gW-YHZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Oid-2E-d6o" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="726" y="297"/>
         </scene>

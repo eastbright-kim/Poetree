@@ -33,7 +33,9 @@ class HistoryViewModel: ViewModelType {
         
         
         let allPhotos = photoService.photos()
+            
         let allPoems = poemSevice.allPoems()
+                .map(poemSevice.filterPoemsForPublic)
         
         let displayingPhoto = allPhotos.map(photoService.photoReveredOrder)
         
@@ -49,7 +51,7 @@ class HistoryViewModel: ViewModelType {
         
         let displyingPoemsByPhoto = Observable.combineLatest(allPoems, photoSelected) {
             poems, weekphoto -> [Poem] in
-            let dpPoems = poemSevice.fetchPoemsByPhotoId_Sorted_Public(poems: poems, photoId: weekphoto.id)
+            let dpPoems = poemSevice.fetchPoemsByPhotoId_SortedLikesCount(poems: poems, photoId: weekphoto.id)
                 .prefix(3)
             return Array(dpPoems)
         }

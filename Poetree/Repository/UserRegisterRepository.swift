@@ -11,7 +11,12 @@ import Firebase
 
 class UserRegisterRepository{
     
-    static let shared = UserRegisterRepository()
+//    static let shared = UserRegisterRepository()
+    var delegate: UserLogInListener?
+    
+    init(delegate: UserLogInListener) {
+        self.delegate = delegate
+    }
     
     // 기존의 사용자가 penname을 바꾸는 경우 or 처음 가입하는 경우
     func RegisterToFirebase(penname: String, credential: AuthCredential, completion: @escaping ((Result<CurrentAuth, RegisterError>) -> Void)){
@@ -31,6 +36,10 @@ class UserRegisterRepository{
                         completion(.failure(.registerError))
                     } else {
                         let currentAuth = CurrentAuth(userEmail: currentUser.email!, userPenname: currentUser.displayName!, userUID: currentUser.uid)
+                        
+                        if let delegate = self.delegate {
+                            delegate.updatePenname(userResisterRepository: self, logInUser: currentAuth)
+                        }
                         
                         completion(.success(currentAuth))
                     }

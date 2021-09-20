@@ -31,7 +31,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
     
     private lazy var writingTempManager: BLTNItemManager = {
         let item = BLTNPageItem(title: "이 글을 임시 저장하시겠습니까?")
-        item.descriptionText = "임시 저장한 후에는 My Poem탭의\n보관한 글에서 확인하실 수 있습니다"
+        item.descriptionText = "임시 저장한 후에는 My Poem탭의\n저장해둔 글에서 확인하실 수 있습니다"
         item.actionButtonTitle = "저장"
         item.alternativeButtonTitle = "아니요"
         item.appearance.titleFontSize = 20
@@ -117,7 +117,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
         case .edit:
             self.title = "글 수정하기"
         case .temp:
-            self.title = "글 가다듬기"
+            self.title = "글 이어서 쓰기"
         }
     }
     
@@ -152,7 +152,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
             self.selectedPhoto.kf.setImage(with: weekPhoto.url)
             self.userDateLabel.text = viewModel.poemService.getWritingTimeString(date: Date())
             self.editComplete.isHidden = true
-            
+            self.publicNoticeLabel.isHidden = false
         case .temp(let writingPoem):
             self.selectedPhoto.kf.setImage(with: writingPoem.photoURL)
             self.userDateLabel.text = viewModel.poemService.getWritingTimeString(date: Date())
@@ -193,7 +193,6 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
             .bind { [weak self] content, height in
                 
                 guard let self = self else {return}
-                
                 self.viewModel.input.content.onNext(content)
                 self.backScrollView.contentOffset.y = height
                 self.contentTextView.contentInset.bottom = height
@@ -379,18 +378,19 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
                 .observe(on: ConcurrentDispatchQueueScheduler(queue: DispatchQueue.global()))
                 .subscribe(onNext:{ deletingPoem in
                     self.viewModel.poemService.deletePoem(deletingPoem: deletingPoem)
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "unwindfromWritingView", sender: self)
+                    }
+                    
                 })
                 .disposed(by: self.rx.disposeBag)
-            
         }
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
         alert.addAction(deleteAction)
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
-        
     }
-    
 }
 
 extension WritingViewController: UIGestureRecognizerDelegate {
@@ -401,7 +401,6 @@ extension WritingViewController: UIGestureRecognizerDelegate {
             
             return false
         } else if (touch.view?.isDescendant(of: self.contentTextView) == true){
-            
             return false
         } else {
             view.endEditing(true)

@@ -125,4 +125,11 @@ class PoemRepository {
         reportedPoemRef.child(poem.userUID).child(currentUser?.uid ?? "unknown").setValue(reportedPoemDict)
         completion()
     }
+    
+    func updatePenname(poems: [Poem], currentAuth: CurrentAuth){
+        
+        for poem in poems {
+            poemRef.child(poem.userUID).child(poem.id).updateChildValues(["userPenname":currentAuth.userPenname])
+        }
+    }
 }

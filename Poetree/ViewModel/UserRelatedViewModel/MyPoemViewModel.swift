@@ -48,15 +48,13 @@ class MyPoemViewModel: ViewModelType {
         }
         .subscribe(on: MainScheduler.instance)
         .map{poems -> [Poem] in
-            let sorted = poemService.sortPoemsByLikeCount_Recent_All(poems).prefix(10)
+            let sorted = poemService.sortPoemsByLikeCount_Recent(poems).prefix(10)
             return Array(sorted)
         }
         
         let userLikedWritings = Observable.combineLatest(user, poem){
             user, poem -> [Poem] in
-            
             let userLikedWritings = poemService.fetchUserLikedWriting_Sorted(poems: poem, currentUser: user).prefix(6)
-            
             return Array(userLikedWritings)
         }
         
