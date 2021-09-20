@@ -42,7 +42,7 @@ class MyPoemViewModel: ViewModelType {
             let userWritings = poemService.fetchUserWriting(poem: poem, currentUser: user)
                 
             if userWritings.count == 0 {
-                let defaultPoem = Poem(id: "", userEmail: "", userNickname: "", title: "no writings yet", content: "", photoId: 0, uploadAt: Date(), isPrivate: false, likers: [:], photoURL: URL(string: "https://i.ibb.co/6yQ5kzm/image6.jpg")!, userUID: "", isTemp: false)
+                let defaultPoem = Poem(id: "no writings yet", userEmail: "", userNickname: "", title: "no writings yet", content: "", photoId: 0, uploadAt: Date(), isPrivate: false, likers: [:], photoURL: URL(string: "https://i.ibb.co/6yQ5kzm/image6.jpg")!, userUID: "", isTemp: false)
                 return [defaultPoem]
             }
             

@@ -80,7 +80,7 @@ class ListWithHeadPhotoViewController: UIViewController, ViewModelBindable, HasD
                 semiDetailVC.bind(viewModel: viewModel)
                 
                 semiDetailVC.modalTransitionStyle = .crossDissolve
-                semiDetailVC.modalPresentationStyle = .overCurrentContext
+                semiDetailVC.modalPresentationStyle = .custom
                 
                 self.present(semiDetailVC, animated: true, completion: nil)
                 

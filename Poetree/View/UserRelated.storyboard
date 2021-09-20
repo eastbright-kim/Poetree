@@ -281,12 +281,6 @@
                                     <constraint firstItem="ish-hw-GpN" firstAttribute="top" secondItem="6x7-QD-4Ay" secondAttribute="top" constant="160" id="n8c-Gg-LLN"/>
                                     <constraint firstItem="ish-hw-GpN" firstAttribute="leading" secondItem="6x7-QD-4Ay" secondAttribute="leading" constant="160" id="wbp-xi-NxM"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="subviews">
-                                        <exclude reference="5z9-vf-Xxz"/>
-                                        <exclude reference="dgZ-mP-85n"/>
-                                    </mask>
-                                </variation>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="I2D-nr-6fM"/>

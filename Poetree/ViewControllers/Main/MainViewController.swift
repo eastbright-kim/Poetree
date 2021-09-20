@@ -222,6 +222,14 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
             })
             .disposed(by: rx.disposeBag)
         
+        writeChev.rx.tap
+            .subscribe(onNext:{[unowned self]_ in
+                let viewModel = PoemListViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, listType: .thisWeek)
+                var vc = PoemListViewController.instantiate(storyboardID: "ListRelated")
+                vc.bind(viewModel: viewModel)
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
+            .disposed(by: rx.disposeBag)
         
         self.poemTableView.rx.itemSelected
             .withLatestFrom(self.viewModel.output.selectedPhotoId)

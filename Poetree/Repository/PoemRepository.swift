@@ -13,7 +13,6 @@ class PoemRepository {
 
     static let shared = PoemRepository()
 
-    
     func createPoem(poemModel: Poem, completion: @escaping ((Result<Complete, Error>) -> Void)) {
         
         let currentUser = Auth.auth().currentUser
@@ -123,7 +122,7 @@ class PoemRepository {
             "poemId" : poem.id,
             "reporter" : currentUser?.uid ?? "unknown"
         ]
-        
         reportedPoemRef.child(poem.userUID).child(currentUser?.uid ?? "unknown").setValue(reportedPoemDict)
+        completion()
     }
 }

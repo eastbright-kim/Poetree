@@ -116,8 +116,8 @@
                                                                         <color key="titleColor" systemColor="labelColor"/>
                                                                     </state>
                                                                 </button>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="LGq-ke-geZ">
-                                                                    <rect key="frame" x="280.33333333333331" y="7.6666666666666679" width="93.666666666666686" height="29.000000000000004"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="LGq-ke-geZ">
+                                                                    <rect key="frame" x="281.33333333333331" y="7.6666666666666679" width="92.666666666666686" height="29.000000000000004"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hn7-JN-bKV">
                                                                             <rect key="frame" x="0.0" y="0.0" width="84" height="29"/>
@@ -127,7 +127,7 @@
                                                                             </state>
                                                                         </button>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdc-Gb-wT6">
-                                                                            <rect key="frame" x="87" y="0.0" width="6.6666666666666714" height="29"/>
+                                                                            <rect key="frame" x="86" y="0.0" width="6.6666666666666714" height="29"/>
                                                                             <color key="tintColor" systemColor="systemPinkColor"/>
                                                                             <state key="normal" image="chevron.right" catalog="system">
                                                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="9"/>

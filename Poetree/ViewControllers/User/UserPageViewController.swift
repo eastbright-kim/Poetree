@@ -133,6 +133,11 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
                 
                 switch indexPath {
                 case 0:
+                    
+                    if poem.id == "no writings yet" {
+                        cell.isUserInteractionEnabled = false
+                    }
+                    
                     cell.likeStatusBtn.contentEdgeInsets = UIEdgeInsets(top: 2, left: 4, bottom: 2, right: 4)
                     cell.likeStatusBtn.setTitle("Most favorite", for: .normal)
                     cell.likeStatusBtn.layer.cornerRadius = 8
@@ -145,6 +150,7 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
                 }
             }
             .disposed(by: rx.disposeBag)
+        
         
         
         self.viewModel.output.userLikedWritings
@@ -217,7 +223,10 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
         
         self.likeWritingMoreBtn.rx.tap
             .subscribe(onNext:{ _ in
-                guard let currentUser = Auth.auth().currentUser else {return}
+                
+                
+                guard let currentUser = Auth.auth().currentUser else { self.view.makeToast("로그인 이후에 확인하실 수 있습니다", duration: 1.0, position: .center)
+                return}
                 
                 let currentAuth = CurrentAuth(userEmail: currentUser.email!, userPenname: currentUser.displayName!, userUID: currentUser.uid)
                 
@@ -231,7 +240,9 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
         
         self.likeWritingMoreBtn2.rx.tap
             .subscribe(onNext:{ _ in
-                guard let currentUser = Auth.auth().currentUser else {return}
+                
+                guard let currentUser = Auth.auth().currentUser else { self.view.makeToast("로그인 이후에 확인하실 수 있습니다", duration: 1.0, position: .center)
+                    return}
                 
                 let currentAuth = CurrentAuth(userEmail: currentUser.email!, userPenname: currentUser.displayName!, userUID: currentUser.uid)
                 
