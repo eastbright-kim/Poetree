@@ -31,17 +31,23 @@ class SideMenuViewController: UIViewController{
         self.dismiss(animated: true, completion: nil)
     })
     lazy var aboutPoetree = SideMenuCell(title: "About Poetree", btnAction: {
-                                            let viewModel = UserRegisterViewModel(userService: self.viewModel.userService)
-                                            
-                                            var registerVC = UserRegisterViewController.instantiate(storyboardID: "UserRelated")
-                                            registerVC.bind(viewModel: viewModel)
-                                 
-                                            self.navigationController?.pushViewController(registerVC, animated: true) })
-    lazy var sendPhoto = SideMenuCell(title: "사진 보내기", btnAction: {
-        
+                    
+        let aboutPoetreeVC = AboutPoetreeViewController.instantiate(storyboardID: "SideMenuRelated")
+        self.navigationController?.pushViewController(aboutPoetreeVC, animated: true)
         
     })
-    lazy var savedWritings = SideMenuCell(title: "저장해둔 글", btnAction: {
+    lazy var sendPhoto = SideMenuCell(title: "사진 보내기", btnAction: {
+        let noticeDetailViewController = NoticeDetailViewController.instantiate(storyboardID: "SideMenuRelated")
+        self.navigationController?.pushViewController(noticeDetailViewController, animated: true)
+    })
+    
+    lazy var notice = SideMenuCell(title: "공지사항", btnAction: {
+        let noticeVC = NoticeViewController.instantiate(storyboardID: "SideMenuRelated")
+//        let noticeViewModel = NoticeViewModel(notices: <#T##[Notice]#>) // from userService
+        self.navigationController?.pushViewController(noticeVC, animated: true)
+    })
+    
+    lazy var savedWritings = SideMenuCell(title: "임시 저장한 글", btnAction: {
         
         if let currentUser = Auth.auth().currentUser {
             let viewModel = PoemListViewModel(poemService: self.viewModel.poemServcie, userService: self.viewModel.userService, listType: .tempSaved(currentUser))
@@ -61,10 +67,17 @@ class SideMenuViewController: UIViewController{
         super.viewDidLoad()
         
         menuTableView.tableFooterView = UIView()
-        self.navigationController?.navigationBar.shadowImage = UIImage()
+        
         menuTableView.cellLayoutMarginsFollowReadableWidth = false
-        menuTableView.separatorInset.left = 15
-        menuTableView.separatorInset.right = 15
+        
+        menuTableView.separatorInset.left = 20
+        menuTableView.separatorInset.right = 20
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.view.layoutIfNeeded()
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
 }

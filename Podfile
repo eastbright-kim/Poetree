@@ -10,7 +10,7 @@ target 'Poetree' do
   pod 'RxCocoa'
   pod 'NSObject+Rx'
   pod 'RxDataSources'
-  pod 'Kingfisher', '~> 6.0'
+  pod 'Kingfisher', '~> 7.0'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'

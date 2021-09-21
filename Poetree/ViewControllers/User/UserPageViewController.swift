@@ -299,6 +299,9 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
  
     }
     
+    @IBAction func unwind( _ seg: UIStoryboardSegue) {
+    }
+    
 }
 
 extension UserPageViewController: UITableViewDelegate {

@@ -12,7 +12,6 @@ import Firebase
 class PoemService: UserLogInListener {
     
     var poems = [Poem]()
-    var poemsByUID = [String: [Poem]]()
     lazy var poemsStore = BehaviorSubject<[Poem]>(value: poems)
     
     
@@ -151,7 +150,7 @@ class PoemService: UserLogInListener {
     }
     
     func fetchThisWeekPoems(poems: [Poem]) -> [Poem] {
-        let thisWeekPoems = self.poems.filter { poem in
+        let thisWeekPoems = poems.filter { poem in
             return poem.uploadAt >= getThisMonday(myDate: Date())
         }
         return thisWeekPoems

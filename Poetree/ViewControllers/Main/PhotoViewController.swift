@@ -26,14 +26,22 @@ class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased, Vie
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         naviBarConfig()
         noticeLabelAni()
         guard let selectedIndexPath = selectedIndexPath else {return}
+        self.view.layoutIfNeeded()
         self.photoCollectionView.scrollToItem(at: selectedIndexPath, at: .centeredHorizontally, animated: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -49,6 +57,7 @@ class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased, Vie
     }
     
     func configureUI(){
+        
         collectionViewDelegate()
         let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         self.navigationItem.backBarButtonItem = backBarButtonItem

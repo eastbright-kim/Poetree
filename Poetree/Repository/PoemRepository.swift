@@ -10,9 +10,9 @@ import Firebase
 
 
 class PoemRepository {
-
+    
     static let shared = PoemRepository()
-
+    
     func createPoem(poemModel: Poem, completion: @escaping ((Result<Complete, Error>) -> Void)) {
         
         let currentUser = Auth.auth().currentUser
@@ -41,26 +41,23 @@ class PoemRepository {
         
     }
     
-    public func fetchPoems(completion: @escaping (([PoemEntity], Result<[String:[Poem]], Error>)) -> Void) {
+    public func fetchPoems(completion: @escaping ([PoemEntity]) -> Void) {
         
         poemRef.observeSingleEvent(of: .value) { snapshot in
             
             let allUsers = snapshot.value as? [String:Any] ?? [:]
-       
+            
             var poemEntities = [PoemEntity]()
-            var uid_poem = [String:[Poem]]()
             
             for user in allUsers {
                 let userDict = user.value as! [String:Any]
-                let uid = user.key
-                uid_poem.updateValue([], forKey: uid)
                 for poemDict in userDict.values {
                     let poemDict = poemDict as! [String:Any]
                     let poemEntity = PoemEntity(poemDic: poemDict)
                     poemEntities.append(poemEntity)
                 }
             }
-            completion((poemEntities, .success(uid_poem)))
+            completion(poemEntities)
         }
     }
     

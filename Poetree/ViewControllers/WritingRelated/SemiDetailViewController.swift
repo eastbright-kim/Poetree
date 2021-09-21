@@ -74,6 +74,10 @@ class SemiDetailViewController: UIViewController, StoryboardBased, ViewModelBind
                 self.titleLabel.text = poem.title
                 self.contenTextView.text = poem.content
                 self.heartBtn.isSelected = poem.isLike
+                if Auth.auth().currentUser == nil {
+                    self.heartBtn.isSelected = false
+                }
+                
                 if self.viewModel.output.isTempSemiDetail {
                     self.heartBtn.isHidden = true
                 }

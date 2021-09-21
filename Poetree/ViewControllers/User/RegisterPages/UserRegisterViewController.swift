@@ -15,11 +15,10 @@ import NSObject_Rx
 
 
 
-class UserRegisterViewController: UIViewController, ViewModelBindable, StoryboardBased {
+class UserRegisterViewController: UIViewController, ViewModelBindable, StoryboardBased, UIGestureRecognizerDelegate {
     
-    
-    var viewModel: UserRegisterViewModel!
     @IBOutlet weak var logoImage: UIImageView!
+    var viewModel: UserRegisterViewModel!
     
     
     // ------------------------------ AVPlayer
@@ -78,8 +77,9 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
     }
     
     
+    
     func configureUI(){
-        
+        penNameTextField.addDoneButtonOnKeyboard()
         pennameCompleteBtn.isEnabled = false
         penNameTextField.borderStyle = .none
         let border = CALayer()

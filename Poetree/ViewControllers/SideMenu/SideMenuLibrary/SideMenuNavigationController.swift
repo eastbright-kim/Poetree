@@ -14,13 +14,8 @@ class SideMenuNavigation: SideMenuNavigationController {
         super.viewDidLoad()
         
         self.presentationStyle = .menuSlideIn
-//        self.presentationStyle.backgroundColor = .black
-//        self.presentationStyle.presentingEndAlpha = 0.7
         self.presentDuration = 0.5
         self.dismissDuration = 0.5
         
     }
-    
-
-
 }

@@ -30,16 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let userService = UserService(userRegisterRepository: userRegisterRepository)
         let currentUser = Auth.auth().currentUser
         
-        poemRepository.fetchPoems { poemEntities, result in
-            
-            var uidDicts = [String: [Poem]]()
-            
-            switch result {
-            case .success(let dict):
-                uidDicts = dict
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
+        poemRepository.fetchPoems { poemEntitiesin in
             
             let poemModels = poemEntities.map { poemEntity -> Poem in
                 let id = poemEntity.id
@@ -57,12 +48,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 
                 let poem = Poem(id: id, userEmail: userEmail, userNickname: userNickname, title: title, content: content, photoId: photoId, uploadAt: uploadAt, isPrivate: isPrivate, likers: likers, photoURL: photoURL, userUID: userUID, isTemp: isTemp)
                 
-                uidDicts[userUID]?.append(poem)
-                
                 return poem
             }
             
-            poemService.poemsByUID = uidDicts
             poemService.poems = poemModels
             poemService.poemsStore.onNext(poemModels)
         }
@@ -84,6 +72,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             photoServie.weekPhotos = weekPhotos
             photoServie.photoStore.onNext(weekPhotos)
         }
+        
+        
+        
         
         var mainVC = MainViewController.instantiate(storyboardID: "Main")
         mainVC.bind(viewModel: MainViewModel(poemService: poemService, photoService: photoServie, userService: userService))

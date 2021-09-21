@@ -35,7 +35,7 @@ class PoemListViewModel: ViewModelType {
             let displayingPoems = poems.map(poemService.filterPoemsForPublic).map(poemService.sortPoemsByLikeCount_Random)
             self.output = Output(displayingPoems: displayingPoems, listType: listType)
         case .thisWeek:
-            let thisWeekPoems = poems.map(poemService.filterPoemsForPublic).map(poemService.fetchThisWeekPoems)
+            let thisWeekPoems = poems.map(poemService.filterPoemsForPublic).map(poemService.fetchThisWeekPoems).map(poemService.sortPoemsByLikeCount_Random)
             self.output = Output(displayingPoems: thisWeekPoems, listType: listType)
         case .userLiked(let currentAuth):
             let displayingPoems = poems

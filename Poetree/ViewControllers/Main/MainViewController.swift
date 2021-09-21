@@ -111,10 +111,7 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
     
     func bindViewModel() {
         
-//        viewModel.output.currentDate
-//            .drive(onNext:{ date in self.dateLabel.rx.text.onNext(date + " week")})
-//            .disposed(by: rx.disposeBag)
-        
+
         viewModel.output.thisWeekPhotoURL
             .bind(to: collectionView.rx.items(cellIdentifier: "cell", cellType: MainPhotoCollectionViewCell.self)) { index, photo, cell in
                 let url = photo.url
@@ -199,12 +196,13 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
                 cell.authorLabel.text = "by. \(poem.userPenname)"
                 cell.selectionStyle = UITableViewCell.SelectionStyle.none
                 
+                cell.favoriteBtn.isHidden = (index != 0)
+                cell.likeCountStackView.isHidden = (index != 1) && (index != 2)
+                
                 if index == 0 {
-                    cell.favoriteBtn.isHidden = false
                     cell.favoriteBtn.layer.cornerRadius = 8
                     cell.favoriteBtn.contentEdgeInsets = UIEdgeInsets(top: 2, left: 4, bottom: 4, right: 2)
                 } else {
-                    cell.likeCountStackView.isHidden = false
                     cell.likesCountLabel.text = "\(poem.likers.count)"
                 }
                 

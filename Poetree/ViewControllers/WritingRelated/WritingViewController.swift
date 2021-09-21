@@ -30,7 +30,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
     
     private lazy var writingTempManager: BLTNItemManager = {
         let item = BLTNPageItem(title: "이 글을 임시 저장하시겠습니까?")
-        item.descriptionText = "임시 저장한 후에는 My Poem탭의\n저장해둔 글에서 확인하실 수 있습니다"
+        item.descriptionText = "임시 저장한 후에는 My Poem탭의\n임시 저장한 글에서 확인하실 수 있습니다"
         item.actionButtonTitle = "저장"
         item.alternativeButtonTitle = "아니요"
         item.appearance.titleFontSize = 20
@@ -231,10 +231,16 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
                 self.viewModel.poemService.createPoem(poem: aPoem) { result in
                     print(result)
                 }
+                
+                let writingType = self.viewModel.output.writingType
+                
                 DispatchQueue.main.async {
                     if self.viewModel.output.isFromMain {
                         self.navigationController?.popToRootViewController(animated: true)
-                    }else {
+                    } else if case .temp = writingType {
+                        self.performSegue(withIdentifier: "unwindfromWritingView", sender: self)
+                    }
+                    else {
                         self.navigationController?.popViewController(animated: true)
                     }
                 }
