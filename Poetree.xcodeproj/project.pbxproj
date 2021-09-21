@@ -3,15 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		837DEFCB984EC8B76674524A /* Pods_Poetree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A7CB735EE61484A0C8E1AA /* Pods_Poetree.framework */; };
+		C5340D9B14BA063F6282BF11 /* Pods_Poetree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C42E90B4993FA3D1F4D09BFE /* Pods_Poetree.framework */; };
 		DB02496A26DE770800FC948A /* ThreePoemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB02496926DE770800FC948A /* ThreePoemsTableViewCell.swift */; };
 		DB048DCF26C7A4B80058302C /* UserRelated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB048DCE26C7A4B80058302C /* UserRelated.storyboard */; };
 		DB048DD326C7A5C10058302C /* UserRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB048DD226C7A5C10058302C /* UserRegisterViewModel.swift */; };
-		DB048DD726C7A8AF0058302C /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB048DD626C7A8AF0058302C /* UserRepository.swift */; };
 		DB048DD926C7ABC90058302C /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB048DD826C7ABC90058302C /* Result.swift */; };
 		DB0B4D6926F3913000E2F05F /* PhotoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0B4D6826F3913000E2F05F /* PhotoEntity.swift */; };
 		DB0B4D6D26F3A15E00E2F05F /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0B4D6C26F3A15E00E2F05F /* Extension.swift */; };
@@ -42,7 +41,6 @@
 		DB34289126C1CEC1007C5A6A /* Poem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34289026C1CEC1007C5A6A /* Poem.swift */; };
 		DB3CCEAF26D0F45E005C3074 /* SideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3CCEAE26D0F45E005C3074 /* SideMenuNavigationController.swift */; };
 		DB3CCEB126D0F4C8005C3074 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3CCEB026D0F4C8005C3074 /* SideMenuViewController.swift */; };
-		DB407B9D26E45F3300D7DF41 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB407B9C26E45F3300D7DF41 /* User.swift */; };
 		DB453BA026E902EF0034774A /* SemiDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB453B9F26E902EF0034774A /* SemiDetailViewModel.swift */; };
 		DB53ADAA26C3E53400FAA8B8 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53ADA926C3E53400FAA8B8 /* DummyData.swift */; };
 		DB54BD3926D4E63700711295 /* UserRegisterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB54BD3826D4E63700711295 /* UserRegisterRepository.swift */; };
@@ -58,7 +56,7 @@
 		DB6A238826ED432000A4BDEE /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A238726ED432000A4BDEE /* SideMenuViewModel.swift */; };
 		DB76DC3F26F9E38600BDE4E3 /* SideMenuRelated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB76DC3E26F9E38600BDE4E3 /* SideMenuRelated.storyboard */; };
 		DB76DC4226F9E6C900BDE4E3 /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB76DC4126F9E6C900BDE4E3 /* NoticeViewController.swift */; };
-		DB76DC4426F9E80700BDE4E3 /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB76DC4326F9E80700BDE4E3 /* Notice.swift */; };
+		DB76DC4426F9E80700BDE4E3 /* NoticeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB76DC4326F9E80700BDE4E3 /* NoticeEntity.swift */; };
 		DB76DC4626F9E86F00BDE4E3 /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB76DC4526F9E86F00BDE4E3 /* Notice.swift */; };
 		DB76DC4926F9F63300BDE4E3 /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB76DC4826F9F63300BDE4E3 /* NoticeViewModel.swift */; };
 		DB7AC1ED26C2E004001A62B6 /* PoemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7AC1EC26C2E004001A62B6 /* PoemService.swift */; };
@@ -76,6 +74,7 @@
 		DBDC5A0626D794BB0066B45A /* PhotoViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC5A0526D794BB0066B45A /* PhotoViewCollectionViewCell.swift */; };
 		DBDFD04A26FA229D002B18EA /* NoticeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDFD04926FA229D002B18EA /* NoticeDetailViewController.swift */; };
 		DBDFD04C26FA23C9002B18EA /* AboutPoetreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDFD04B26FA23C9002B18EA /* AboutPoetreeViewController.swift */; };
+		DBDFD04F26FA2CBD002B18EA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DBDFD04E26FA2CBD002B18EA /* Kingfisher */; };
 		DBF1E25926D18D60006474C8 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF1E25826D18D60006474C8 /* UserService.swift */; };
 		DBFCE5E826C3AA8400E3FC16 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5E726C3AA8400E3FC16 /* HistoryViewModel.swift */; };
 		DBFCE5EA26C3AA9D00E3FC16 /* MyPoemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFCE5E926C3AA9D00E3FC16 /* MyPoemViewModel.swift */; };
@@ -86,13 +85,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1ACB32708FFD3EB56C965507 /* Pods-Poetree.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poetree.release.xcconfig"; path = "Target Support Files/Pods-Poetree/Pods-Poetree.release.xcconfig"; sourceTree = "<group>"; };
-		1F25C0A03A4253B5E0F2D913 /* Pods-Poetree.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poetree.debug.xcconfig"; path = "Target Support Files/Pods-Poetree/Pods-Poetree.debug.xcconfig"; sourceTree = "<group>"; };
-		71A7CB735EE61484A0C8E1AA /* Pods_Poetree.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Poetree.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0038F497349DE87CF5EE2434 /* Pods-Poetree.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poetree.debug.xcconfig"; path = "Target Support Files/Pods-Poetree/Pods-Poetree.debug.xcconfig"; sourceTree = "<group>"; };
+		25171564C6F84A3AB7CB0E48 /* Pods-Poetree.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poetree.release.xcconfig"; path = "Target Support Files/Pods-Poetree/Pods-Poetree.release.xcconfig"; sourceTree = "<group>"; };
+		C42E90B4993FA3D1F4D09BFE /* Pods_Poetree.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Poetree.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB02496926DE770800FC948A /* ThreePoemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreePoemsTableViewCell.swift; sourceTree = "<group>"; };
 		DB048DCE26C7A4B80058302C /* UserRelated.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserRelated.storyboard; sourceTree = "<group>"; };
 		DB048DD226C7A5C10058302C /* UserRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterViewModel.swift; sourceTree = "<group>"; };
-		DB048DD626C7A8AF0058302C /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		DB048DD826C7ABC90058302C /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		DB0B4D6826F3913000E2F05F /* PhotoEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEntity.swift; sourceTree = "<group>"; };
 		DB0B4D6C26F3A15E00E2F05F /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -125,7 +123,6 @@
 		DB34289026C1CEC1007C5A6A /* Poem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poem.swift; sourceTree = "<group>"; };
 		DB3CCEAE26D0F45E005C3074 /* SideMenuNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuNavigationController.swift; sourceTree = "<group>"; };
 		DB3CCEB026D0F4C8005C3074 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
-		DB407B9C26E45F3300D7DF41 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DB453B9F26E902EF0034774A /* SemiDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiDetailViewModel.swift; sourceTree = "<group>"; };
 		DB53ADA926C3E53400FAA8B8 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		DB54BD3826D4E63700711295 /* UserRegisterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterRepository.swift; sourceTree = "<group>"; };
@@ -141,7 +138,7 @@
 		DB6A238726ED432000A4BDEE /* SideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
 		DB76DC3E26F9E38600BDE4E3 /* SideMenuRelated.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenuRelated.storyboard; sourceTree = "<group>"; };
 		DB76DC4126F9E6C900BDE4E3 /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
-		DB76DC4326F9E80700BDE4E3 /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
+		DB76DC4326F9E80700BDE4E3 /* NoticeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEntity.swift; sourceTree = "<group>"; };
 		DB76DC4526F9E86F00BDE4E3 /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
 		DB76DC4826F9F63300BDE4E3 /* NoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewModel.swift; sourceTree = "<group>"; };
 		DB7AC1EC26C2E004001A62B6 /* PoemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemService.swift; sourceTree = "<group>"; };
@@ -174,17 +171,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				837DEFCB984EC8B76674524A /* Pods_Poetree.framework in Frameworks */,
+				DBDFD04F26FA2CBD002B18EA /* Kingfisher in Frameworks */,
+				C5340D9B14BA063F6282BF11 /* Pods_Poetree.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9CF1D9FB11581F5EF328A32F /* Frameworks */ = {
+		4093201632F527928F4B030F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				71A7CB735EE61484A0C8E1AA /* Pods_Poetree.framework */,
+				C42E90B4993FA3D1F4D09BFE /* Pods_Poetree.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -192,8 +190,8 @@
 		C71350AC3118F16B6F26FFE5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1F25C0A03A4253B5E0F2D913 /* Pods-Poetree.debug.xcconfig */,
-				1ACB32708FFD3EB56C965507 /* Pods-Poetree.release.xcconfig */,
+				0038F497349DE87CF5EE2434 /* Pods-Poetree.debug.xcconfig */,
+				25171564C6F84A3AB7CB0E48 /* Pods-Poetree.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -204,7 +202,7 @@
 				DB21A25D26C16B3F0048FB17 /* Poetree */,
 				DB21A25C26C16B3F0048FB17 /* Products */,
 				C71350AC3118F16B6F26FFE5 /* Pods */,
-				9CF1D9FB11581F5EF328A32F /* Frameworks */,
+				4093201632F527928F4B030F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -297,9 +295,8 @@
 			isa = PBXGroup;
 			children = (
 				DB15716726C52720003F58FC /* PoemEntity.swift */,
-				DB407B9C26E45F3300D7DF41 /* User.swift */,
 				DB0B4D6826F3913000E2F05F /* PhotoEntity.swift */,
-				DB76DC4326F9E80700BDE4E3 /* Notice.swift */,
+				DB76DC4326F9E80700BDE4E3 /* NoticeEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -425,7 +422,6 @@
 		DBAFED0026C8376A00D96C46 /* Depreacated */ = {
 			isa = PBXGroup;
 			children = (
-				DB048DD626C7A8AF0058302C /* UserRepository.swift */,
 			);
 			path = Depreacated;
 			sourceTree = "<group>";
@@ -539,17 +535,20 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB21A26F26C16B410048FB17 /* Build configuration list for PBXNativeTarget "Poetree" */;
 			buildPhases = (
-				64A7D46F33153F2E7B4EE0E7 /* [CP] Check Pods Manifest.lock */,
+				87D14E620853539BE8F07E4B /* [CP] Check Pods Manifest.lock */,
 				DB21A25726C16B3F0048FB17 /* Sources */,
 				DB21A25826C16B3F0048FB17 /* Frameworks */,
 				DB21A25926C16B3F0048FB17 /* Resources */,
-				C940C75E0558FB75EF9F9FF6 /* [CP] Embed Pods Frameworks */,
+				689682F199E7F3254651CF4A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Poetree;
+			packageProductDependencies = (
+				DBDFD04E26FA2CBD002B18EA /* Kingfisher */,
+			);
 			productName = Poetree;
 			productReference = DB21A25B26C16B3F0048FB17 /* Poetree.app */;
 			productType = "com.apple.product-type.application";
@@ -577,6 +576,9 @@
 				Base,
 			);
 			mainGroup = DB21A25226C16B3F0048FB17;
+			packageReferences = (
+				DBDFD04D26FA2CBD002B18EA /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = DB21A25C26C16B3F0048FB17 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -610,7 +612,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		64A7D46F33153F2E7B4EE0E7 /* [CP] Check Pods Manifest.lock */ = {
+		689682F199E7F3254651CF4A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Poetree/Pods-Poetree-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Poetree/Pods-Poetree-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Poetree/Pods-Poetree-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		87D14E620853539BE8F07E4B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -632,23 +651,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C940C75E0558FB75EF9F9FF6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Poetree/Pods-Poetree-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Poetree/Pods-Poetree-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Poetree/Pods-Poetree-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -659,7 +661,6 @@
 				DB76DC4626F9E86F00BDE4E3 /* Notice.swift in Sources */,
 				DBFCE5E826C3AA8400E3FC16 /* HistoryViewModel.swift in Sources */,
 				DB7AC1ED26C2E004001A62B6 /* PoemService.swift in Sources */,
-				DB407B9D26E45F3300D7DF41 /* User.swift in Sources */,
 				DBD5CFC826DFA37500BDEBDA /* CurrentAuth.swift in Sources */,
 				DBFCE5EC26C3AAFA00E3FC16 /* WriteViewModel.swift in Sources */,
 				DB9D575E26C43E6000A86148 /* MainPhotoCollectionViewCell.swift in Sources */,
@@ -693,9 +694,8 @@
 				DB666DBE26CA907600A588AC /* FirebaseReference.swift in Sources */,
 				DB0B4D6926F3913000E2F05F /* PhotoEntity.swift in Sources */,
 				DB048DD926C7ABC90058302C /* Result.swift in Sources */,
-				DB76DC4426F9E80700BDE4E3 /* Notice.swift in Sources */,
+				DB76DC4426F9E80700BDE4E3 /* NoticeEntity.swift in Sources */,
 				DB54BD3926D4E63700711295 /* UserRegisterRepository.swift in Sources */,
-				DB048DD726C7A8AF0058302C /* UserRepository.swift in Sources */,
 				DB21A27D26C174420048FB17 /* MainViewController.swift in Sources */,
 				DB666DC226CAAF8D00A588AC /* PhotoRepository.swift in Sources */,
 				DBCE060A26C2ACEE0008EBF8 /* MainViewModel.swift in Sources */,
@@ -861,7 +861,7 @@
 		};
 		DB21A27026C16B410048FB17 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1F25C0A03A4253B5E0F2D913 /* Pods-Poetree.debug.xcconfig */;
+			baseConfigurationReference = 0038F497349DE87CF5EE2434 /* Pods-Poetree.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -882,7 +882,7 @@
 		};
 		DB21A27126C16B410048FB17 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1ACB32708FFD3EB56C965507 /* Pods-Poetree.release.xcconfig */;
+			baseConfigurationReference = 25171564C6F84A3AB7CB0E48 /* Pods-Poetree.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -923,6 +923,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DBDFD04D26FA2CBD002B18EA /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DBDFD04E26FA2CBD002B18EA /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBDFD04D26FA2CBD002B18EA /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DB21A25326C16B3F0048FB17 /* Project object */;
 }

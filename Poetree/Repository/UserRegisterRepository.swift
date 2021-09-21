@@ -11,7 +11,6 @@ import Firebase
 
 class UserRegisterRepository{
     
-//    static let shared = UserRegisterRepository()
     var delegate: UserLogInListener?
     
     init(delegate: UserLogInListener) {
@@ -73,7 +72,20 @@ class UserRegisterRepository{
         }
     }
     
-    
-    
-    
+    func fetchNotices(completion: @escaping ([NoticeEntity]) -> Void){
+        
+        noticeRef.observeSingleEvent(of: .value) { snapshot in
+            
+            let value = snapshot.value as? [String:Any] ?? [:]
+            
+            var noticeEntity = [NoticeEntity]()
+            
+            for value in value.values {
+                let dic = value as! [String : String]
+                let notice = NoticeEntity(noticeDic: dic)
+                noticeEntity.append(notice)
+            }
+            completion(noticeEntity)
+        }
+    }
 }

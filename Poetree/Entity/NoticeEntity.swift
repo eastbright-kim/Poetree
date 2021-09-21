@@ -15,7 +15,7 @@ struct NoticeEntity {
     init(noticeDic: [String:String]){
         self.title = noticeDic["title"] ?? ""
         self.content = noticeDic["content"] ?? ""
-        self.uploadDate = noticeDic["uploadDate"] ?? ""
+        self.uploadDate = noticeDic["date"] ?? ""
     }
     
 }

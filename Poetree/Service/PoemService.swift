@@ -105,7 +105,7 @@ class PoemService: UserLogInListener {
     
     func fetchPoems(completion: @escaping (Complete) -> Void) {
         
-        poemRepository.fetchPoems { poemEntities, result in
+        poemRepository.fetchPoems { poemEntities in
             
             let poemModels = poemEntities.map { poemEntity -> Poem in
                 let id = poemEntity.id

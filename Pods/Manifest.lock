@@ -76,7 +76,6 @@ PODS:
     - GTMSessionFetcher/Core (~> 1.5)
   - GTMSessionFetcher/Core (1.6.1)
   - IQKeyboardManagerSwift (6.5.6)
-  - Kingfisher (6.3.1)
   - leveldb-library (1.22.1)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
@@ -106,7 +105,6 @@ DEPENDENCIES:
   - Firebase/Database
   - GoogleSignIn
   - IQKeyboardManagerSwift
-  - Kingfisher (~> 6.0)
   - "NSObject+Rx"
   - RxCocoa
   - RxDataSources
@@ -134,7 +132,6 @@ SPEC REPOS:
     - GTMAppAuth
     - GTMSessionFetcher
     - IQKeyboardManagerSwift
-    - Kingfisher
     - leveldb-library
     - nanopb
     - "NSObject+Rx"
@@ -165,7 +162,6 @@ SPEC CHECKSUMS:
   GTMAppAuth: ad5c2b70b9a8689e1a04033c9369c4915bfcbe89
   GTMSessionFetcher: 36689134877faeb055b27dfa4ccc9ceaa42e029e
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
-  Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   "NSObject+Rx": 61cf1f7306a73dcef8b36649198af0813ec18dfd
@@ -177,6 +173,6 @@ SPEC CHECKSUMS:
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: 4bf3755999e365ea69ed22f573f5a5ed6813dca9
+PODFILE CHECKSUM: 9b15c2fb624c6903f4b0fa7581bfdc846f681da3
 
 COCOAPODS: 1.10.0

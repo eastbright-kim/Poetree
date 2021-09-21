@@ -17,7 +17,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: windowScene)
@@ -30,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let userService = UserService(userRegisterRepository: userRegisterRepository)
         let currentUser = Auth.auth().currentUser
         
-        poemRepository.fetchPoems { poemEntitiesin in
+        poemRepository.fetchPoems { poemEntities in
             
             let poemModels = poemEntities.map { poemEntity -> Poem in
                 let id = poemEntity.id
@@ -73,7 +72,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             photoServie.photoStore.onNext(weekPhotos)
         }
         
-        
+        userRegisterRepository.fetchNotices { noticeEntities in
+            let notices = noticeEntities.map { notice -> Notice in
+                let title = notice.title
+                let content = notice.content
+                let date = convertStringToDate(dateFormat: "yyyy MMM d", dateString: notice.uploadDate)
+                let uploadDate = date
+                return Notice(title: title, content: content, uploadDate: uploadDate)
+            }
+            
+            let sortedNotices = notices.sorted{$0.uploadDate.timeIntervalSinceReferenceDate > $1.uploadDate.timeIntervalSinceReferenceDate}
+            
+            userService.notices = sortedNotices
+        }
         
         
         var mainVC = MainViewController.instantiate(storyboardID: "Main")

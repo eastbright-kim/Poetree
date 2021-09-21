@@ -43,7 +43,8 @@ class SideMenuViewController: UIViewController{
     
     lazy var notice = SideMenuCell(title: "공지사항", btnAction: {
         let noticeVC = NoticeViewController.instantiate(storyboardID: "SideMenuRelated")
-//        let noticeViewModel = NoticeViewModel(notices: <#T##[Notice]#>) // from userService
+        let noticeViewModel = NoticeViewModel(notices: self.viewModel.userService.notices)
+        noticeVC.noticeViewModel = noticeViewModel
         self.navigationController?.pushViewController(noticeVC, animated: true)
     })
     
@@ -58,9 +59,8 @@ class SideMenuViewController: UIViewController{
     })
     
     
-    lazy var loginUser = [savedWritings, sendPhoto, aboutPoetree, logout]
-    lazy var logoutUser = [register_login, sendPhoto, aboutPoetree]
-    
+    lazy var loginUser = [savedWritings, sendPhoto, notice, aboutPoetree, logout]
+    lazy var logoutUser = [register_login, sendPhoto, notice, aboutPoetree]
     
     
     override func viewDidLoad() {

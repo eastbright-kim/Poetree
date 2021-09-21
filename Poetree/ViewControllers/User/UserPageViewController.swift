@@ -114,8 +114,8 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
                 menuVC.viewModel = viewModel
                 let menu = SideMenuNavigationController(rootViewController: menuVC)
                 menu.presentationStyle = .menuSlideIn
-                menu.presentationStyle.backgroundColor = .white
-                menu.presentationStyle.presentingEndAlpha = 0.5
+                menu.presentationStyle.backgroundColor = .systemGray3
+                menu.presentationStyle.presentingEndAlpha = 0.6
                 self.present(menu, animated: true, completion: nil)
                 
             })

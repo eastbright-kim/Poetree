@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class NoticeViewController: UITableViewController, StoryboardBased {
+class NoticeViewController: UIViewController, StoryboardBased {
 
     @IBOutlet var noticeTableView: UITableView!
     
@@ -20,6 +20,8 @@ class NoticeViewController: UITableViewController, StoryboardBased {
         super.viewDidLoad()
         bindViewModel()
         self.title = "공지사항"
+        let backItem = UIBarButtonItem(title: "", style: .done, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = backItem
     }
     
     func bindViewModel() {
@@ -34,10 +36,12 @@ class NoticeViewController: UITableViewController, StoryboardBased {
         noticeTableView.rx.modelSelected(Notice.self)
             .subscribe(onNext:{ notice in
                 
-                
-                
+                let detailVC = NoticeDetailViewController.instantiate(storyboardID: "SideMenuRelated")
+                detailVC.notice = notice
+                self.navigationController?.pushViewController(detailVC, animated: true)
             })
             .disposed(by: rx.disposeBag)
+        
     }
 }
 

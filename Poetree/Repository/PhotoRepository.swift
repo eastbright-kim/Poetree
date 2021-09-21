@@ -16,11 +16,11 @@ class PhotoRepository {
     public func fetchPhotos(completion: @escaping (([PhotoEntity]) -> Void)) {
         
         photoRef.observeSingleEvent(of: .value) { snapshot in
-            let valud = snapshot.value as? [String:Any] ?? [:]
+            let value = snapshot.value as? [String:Any] ?? [:]
             
             var photoEntity = [PhotoEntity]()
             
-            for value in valud.values {
+            for value in value.values {
                 let dic = value as! [String : Any]
                 print(dic)
                 let photo = PhotoEntity(photoDic: dic)

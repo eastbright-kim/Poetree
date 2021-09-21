@@ -15,6 +15,7 @@ class UserService {
     
     let userRegisterRepository: UserRegisterRepository!
     var currentUser = Auth.auth().currentUser
+    var notices = [Notice]()
     
     private lazy var defaultUser = CurrentAuth(userEmail: currentUser?.email ?? "unknowned", userPenname: currentUser?.displayName ?? "unknowned", userUID: currentUser?.uid ?? "unknowned")
     
