@@ -58,7 +58,7 @@ class PoemService: UserLogInListener {
     func fetchUserWriting(poem: [Poem], currentUser: CurrentAuth) -> [Poem] {
         let userWrting = poem.filter { poem in
             poem.userUID == currentUser.userUID
-        }
+        }.filter{$0.isTemp == false}
         return userWrting
     }
     

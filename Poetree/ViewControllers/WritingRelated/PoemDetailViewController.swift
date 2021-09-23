@@ -60,6 +60,7 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
         self.photoImageView.layer.cornerRadius = 8
         self.privateBtn.contentEdgeInsets = UIEdgeInsets(top: 3, left: 5, bottom: 3, right: 5)
         self.privateBtn.layer.cornerRadius = 5
+        
     }
     
     
@@ -77,6 +78,10 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
                 self.likesCountLabel.text = "좋아요 \(poem.likers.count)개"
                 self.likeBtn.isSelected = poem.isLike
                 self.privateBtn.isHidden = !poem.isPrivate
+                
+                if Auth.auth().currentUser == nil {
+                    self.likeBtn.isSelected = false
+                }
                 
                 if self.viewModel.output.isTempDetail {
                     self.likeBtn.isHidden = true

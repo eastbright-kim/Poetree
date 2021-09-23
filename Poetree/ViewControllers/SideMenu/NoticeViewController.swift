@@ -22,16 +22,17 @@ class NoticeViewController: UIViewController, StoryboardBased {
         self.title = "공지사항"
         let backItem = UIBarButtonItem(title: "", style: .done, target: nil, action: nil)
         self.navigationItem.backBarButtonItem = backItem
+        self.navigationController?.navigationBar.shadowImage = nil
     }
     
+  
     func bindViewModel() {
         
         noticeViewModel.noticeObservable
-            .bind(to: noticeTableView.rx.items(cellIdentifier: "noticeCell")){ index, notice, cell in
-                cell.textLabel?.text = notice.title
+            .bind(to: noticeTableView.rx.items(cellIdentifier: "NoticeTableViewCell", cellType: NoticeTableViewCell.self)){ row, notice, cell in
+                cell.titleLabel.text = notice.title
             }
             .disposed(by: rx.disposeBag)
-        
         
         noticeTableView.rx.modelSelected(Notice.self)
             .subscribe(onNext:{ notice in

@@ -358,13 +358,13 @@
                                                 <rect key="frame" x="0.0" y="140" width="414" height="250"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User123님의 글" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvw-Dj-x47">
-                                                        <rect key="frame" x="24.999999999999993" y="5" width="100.33333333333331" height="19.333333333333332"/>
+                                                        <rect key="frame" x="24.999999999999993" y="14.999999999999998" width="100.33333333333331" height="19.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="16"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GRL-Ei-lmX">
-                                                        <rect key="frame" x="10" y="34.333333333333357" width="394" height="205.66666666666663"/>
+                                                        <rect key="frame" x="10" y="44.333333333333357" width="394" height="195.66666666666663"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3TD-2J-zrn">
                                                             <size key="itemSize" width="154" height="199"/>
@@ -453,7 +453,7 @@
                                                         </cells>
                                                     </collectionView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="XU0-UV-186">
-                                                        <rect key="frame" x="340.33333333333331" y="0.66666666666665719" width="43.666666666666686" height="28"/>
+                                                        <rect key="frame" x="340.33333333333331" y="10.666666666666657" width="43.666666666666686" height="28"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zV3-uB-aSk">
                                                                 <rect key="frame" x="0.0" y="0.0" width="34" height="28"/>
@@ -478,7 +478,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="XU0-UV-186" secondAttribute="trailing" constant="30" id="8D1-rT-LCd"/>
                                                     <constraint firstItem="GRL-Ei-lmX" firstAttribute="top" secondItem="pvw-Dj-x47" secondAttribute="bottom" constant="10" id="92D-NO-CMI"/>
                                                     <constraint firstAttribute="height" constant="250" id="IFH-uz-Flc"/>
-                                                    <constraint firstItem="pvw-Dj-x47" firstAttribute="top" secondItem="05y-ll-2zl" secondAttribute="top" constant="5" id="LU1-im-dVD"/>
+                                                    <constraint firstItem="pvw-Dj-x47" firstAttribute="top" secondItem="05y-ll-2zl" secondAttribute="top" constant="15" id="LU1-im-dVD"/>
                                                     <constraint firstAttribute="trailing" secondItem="GRL-Ei-lmX" secondAttribute="trailing" constant="10" id="gDT-gi-izD"/>
                                                     <constraint firstAttribute="bottom" secondItem="GRL-Ei-lmX" secondAttribute="bottom" constant="10" id="hEl-zf-HDc"/>
                                                     <constraint firstItem="GRL-Ei-lmX" firstAttribute="leading" secondItem="05y-ll-2zl" secondAttribute="leading" constant="10" id="pbi-0J-wUX"/>

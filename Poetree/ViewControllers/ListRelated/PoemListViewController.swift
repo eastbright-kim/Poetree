@@ -55,7 +55,7 @@ class PoemListViewController: UIViewController, StoryboardBased, ViewModelBindab
         case .userWrote:
             title = "쓴 글"
         case .tempSaved:
-            title = "보관한 글"
+            title = "임시 저장한 글"
         }
         self.title = title ?? "글 목록"
         tableView.tableFooterView = UIView()

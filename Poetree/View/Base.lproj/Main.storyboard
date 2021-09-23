@@ -118,17 +118,17 @@
                                                                     </state>
                                                                 </button>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="LGq-ke-geZ">
-                                                                    <rect key="frame" x="274.5" y="7" width="99.5" height="30"/>
+                                                                    <rect key="frame" x="280.5" y="7.5" width="93.5" height="29"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hn7-JN-bKV">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="90" height="30"/>
-                                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="15"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="84" height="29"/>
+                                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="14"/>
                                                                             <state key="normal" title="이번 주 글 보기">
                                                                                 <color key="titleColor" systemColor="systemPinkColor"/>
                                                                             </state>
                                                                         </button>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdc-Gb-wT6">
-                                                                            <rect key="frame" x="92" y="0.0" width="7.5" height="30"/>
+                                                                            <rect key="frame" x="86" y="0.0" width="7.5" height="29"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                             <color key="tintColor" systemColor="systemPinkColor"/>
                                                                             <state key="normal" image="chevron.right" catalog="system">
@@ -143,7 +143,7 @@
                                                                 <constraint firstItem="khz-UM-wCX" firstAttribute="leading" secondItem="RYy-pd-rKR" secondAttribute="leading" constant="20" id="3IY-C5-hX1"/>
                                                                 <constraint firstAttribute="trailing" secondItem="LGq-ke-geZ" secondAttribute="trailing" constant="20.000000000000057" id="3cA-S7-iqE"/>
                                                                 <constraint firstItem="khz-UM-wCX" firstAttribute="centerY" secondItem="RYy-pd-rKR" secondAttribute="centerY" id="GaZ-c3-ZtU"/>
-                                                                <constraint firstItem="LGq-ke-geZ" firstAttribute="centerY" secondItem="RYy-pd-rKR" secondAttribute="centerY" id="cLM-9S-vcp"/>
+                                                                <constraint firstItem="LGq-ke-geZ" firstAttribute="centerY" secondItem="khz-UM-wCX" secondAttribute="centerY" id="Jyu-9K-xoD"/>
                                                             </constraints>
                                                         </view>
                                                         <prototypes>

@@ -8,7 +8,6 @@
 import UIKit
 import Firebase
 import Toast_Swift
-//회원가입/로그인, 로그아웃, 공지사항, About Poetree, Poetree 사진 보내기, // 임시 저장 글보기
 
 class SideMenuViewController: UIViewController{
     
@@ -67,9 +66,7 @@ class SideMenuViewController: UIViewController{
         super.viewDidLoad()
         
         menuTableView.tableFooterView = UIView()
-        
         menuTableView.cellLayoutMarginsFollowReadableWidth = false
-        
         menuTableView.separatorInset.left = 20
         menuTableView.separatorInset.right = 20
     }
@@ -123,10 +120,7 @@ extension SideMenuViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 
-
 struct SideMenuCell {
-    
     let title: String
     let btnAction: (()-> Void)
-    
 }

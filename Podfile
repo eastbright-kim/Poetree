@@ -10,7 +10,6 @@ target 'Poetree' do
   pod 'RxCocoa'
   pod 'NSObject+Rx'
   pod 'RxDataSources'
- 
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'

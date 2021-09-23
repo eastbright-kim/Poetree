@@ -17,7 +17,6 @@ class ListWithHeadPhotoViewController: UIViewController, ViewModelBindable, HasD
     @IBOutlet weak var poemListTableView: UITableView!
     @IBOutlet weak var backScrollView: UIScrollView!
     
-    
     var viewModel: HeadPhotoWithListViewModel!
     
     override func viewDidLoad() {

@@ -21,22 +21,38 @@
                                 <rect key="frame" x="10" y="59" width="404" height="837"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="noticeCell" textLabel="SqF-Vy-x1f" style="IBUITableViewCellStyleDefault" id="Udy-cZ-vQG">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="NoticeTableViewCell" id="Udy-cZ-vQG" customClass="NoticeTableViewCell" customModule="Poetree" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="404" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Udy-cZ-vQG" id="CvQ-xd-kqL">
-                                            <rect key="frame" x="0.0" y="0.0" width="374.5" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="404" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SqF-Vy-x1f">
-                                                    <rect key="frame" x="20" y="0.0" width="346.5" height="60"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개인 정보 처리 방침" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="UA7-hc-P5B">
+                                                    <rect key="frame" x="15" y="20" width="131.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lv-J0-Hsq">
+                                                    <rect key="frame" x="146.5" y="17" width="33" height="26"/>
+                                                    <color key="tintColor" systemColor="systemGray3Color"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="10"/>
+                                                    </buttonConfiguration>
+                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="UA7-hc-P5B" firstAttribute="leading" secondItem="CvQ-xd-kqL" secondAttribute="leading" constant="15" id="38V-Jy-vfh"/>
+                                                <constraint firstItem="5lv-J0-Hsq" firstAttribute="leading" secondItem="UA7-hc-P5B" secondAttribute="trailing" id="CZN-wm-Qw5"/>
+                                                <constraint firstItem="5lv-J0-Hsq" firstAttribute="centerY" secondItem="UA7-hc-P5B" secondAttribute="centerY" id="L2z-w4-Ri4"/>
+                                                <constraint firstItem="UA7-hc-P5B" firstAttribute="centerY" secondItem="CvQ-xd-kqL" secondAttribute="centerY" id="R3E-Ji-UJX"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5lv-J0-Hsq" secondAttribute="trailing" constant="5" id="pf7-xE-AS4"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="UA7-hc-P5B" id="Zpd-da-LsG"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -66,20 +82,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개인정보 보호 방침" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bYJ-Ba-WeT">
-                                <rect key="frame" x="60" y="59" width="294" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Poetree에 참여해주세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bYJ-Ba-WeT">
+                                <rect key="frame" x="50" y="54" width="314" height="24"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="공지사항입니다" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cB9-Kd-G9K">
-                                <rect key="frame" x="60" y="139" width="294" height="18"/>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cB9-Kd-G9K">
+                                <rect key="frame" x="50" y="134" width="314" height="286.5"/>
+                                <string key="text">개발자의 이메일로 사진을 보내주시면 검토를 통해서 사진을 게시하여 드립니다.  직접 찍으신 사진에 다른 분들의 글이 지어지는 멋진 경험을 체험해보세요 !  • 보내주시는 사진은 Poetree에 게시되는 용도 외에는 사용되지 않습니다.  • 저작권이 있는 사진일 경우, 추후 문제가 발생할 수 있으니 반드시 직접 찍으신 사진을 보내주시기 바랍니다.  Poetree 개발자 이메일  1033513@naver.com</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DjM-Fe-OE1">
-                                <rect key="frame" x="40" y="108" width="334" height="1"/>
+                                <rect key="frame" x="40" y="103" width="334" height="1"/>
                                 <color key="backgroundColor" systemColor="labelColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="RPZ-NZ-jHB"/>
@@ -91,9 +108,9 @@
                         <constraints>
                             <constraint firstItem="cB9-Kd-G9K" firstAttribute="leading" secondItem="bYJ-Ba-WeT" secondAttribute="leading" id="CQx-8E-i5Q"/>
                             <constraint firstItem="cB9-Kd-G9K" firstAttribute="top" secondItem="DjM-Fe-OE1" secondAttribute="bottom" constant="30" id="EgU-LS-P3x"/>
-                            <constraint firstItem="bYJ-Ba-WeT" firstAttribute="leading" secondItem="yjb-F3-Mia" secondAttribute="leading" constant="60" id="F9v-f8-dPL"/>
-                            <constraint firstItem="bYJ-Ba-WeT" firstAttribute="top" secondItem="yjb-F3-Mia" secondAttribute="top" constant="15" id="Igf-PH-TcD"/>
-                            <constraint firstItem="yjb-F3-Mia" firstAttribute="trailing" secondItem="bYJ-Ba-WeT" secondAttribute="trailing" constant="60" id="UXl-BL-r7L"/>
+                            <constraint firstItem="bYJ-Ba-WeT" firstAttribute="leading" secondItem="yjb-F3-Mia" secondAttribute="leading" constant="50" id="F9v-f8-dPL"/>
+                            <constraint firstItem="bYJ-Ba-WeT" firstAttribute="top" secondItem="yjb-F3-Mia" secondAttribute="top" constant="10" id="Igf-PH-TcD"/>
+                            <constraint firstItem="yjb-F3-Mia" firstAttribute="trailing" secondItem="bYJ-Ba-WeT" secondAttribute="trailing" constant="50" id="UXl-BL-r7L"/>
                             <constraint firstItem="DjM-Fe-OE1" firstAttribute="leading" secondItem="wOQ-rB-Bo4" secondAttribute="leadingMargin" constant="20" id="b7z-Xl-9Gx"/>
                             <constraint firstItem="cB9-Kd-G9K" firstAttribute="trailing" secondItem="bYJ-Ba-WeT" secondAttribute="trailing" id="ids-6j-eb1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DjM-Fe-OE1" secondAttribute="trailing" constant="20" id="meE-wf-18Y"/>
@@ -114,14 +131,14 @@
             <objects>
                 <viewController storyboardIdentifier="AboutPoetreeViewController" id="6L1-Nk-56H" customClass="AboutPoetreeViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="euW-pM-EOM">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="1200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Alq-gA-xTA">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="1200"/>
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="1500"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ij5-19-B7C">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="1000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="1200"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchImage.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="TxV-9W-s2b">
                                                 <rect key="frame" x="20" y="30" width="388" height="400"/>
@@ -129,24 +146,25 @@
                                                     <constraint firstAttribute="height" constant="400" id="VuD-Gh-Nqa"/>
                                                 </constraints>
                                             </imageView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Poetree를 만드는 데에 도움을 주신 모든 분들께 감사드립니다." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uje-7g-IxL">
-                                                <rect key="frame" x="20" y="511.5" width="388" height="488.5"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <color key="textColor" systemColor="labelColor"/>
-                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
-                                            </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Potree" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XdO-X6-4m9">
                                                 <rect key="frame" x="20" y="470" width="388" height="31.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="26"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uje-7g-IxL">
+                                                <rect key="frame" x="20" y="541.5" width="388" height="658.5"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <mutableString key="text">Poetree에는 매주 월요일 새로운 세 장의 사진이 업로드 됩니다. 사진을 감상하시고, 자유 형식의 글을 남겨주세요. 사진을 보고 연상된 시, 에세이, 짧은 소설 등 어떠한 글이라도 좋습니다.  • 글에 대한 다른 사람의 반응보다, 쓰고 싶은 글을 쓰는 경험을 우선시 하고자 SNS 기능을 최소화하였습니다. 모든 회원 분들이 보실 수 있는 This Week, History 탭의 리스트에서는 좋아요를 많이 받은 상위 3개의 글들을 제외하고는 무작위 순으로 글이 나열됩니다.  • 임시 저장하기 기능으로 쓰던 글을 두고두고 고쳐 쓰다가, 글이 완성된 시점에 모든 분들이 볼 수 있는 공간에 게시할 수 있습니다.  • Poetree에 업로드 되는 모든 사진은 개발자가 찍거나 회원님들이 직접 찍어 보내주신 사진들과 같이, 게시되는 데에 저작권 문제가 없는 사진들입니다.  • 어떤 글이 부적절한 글이라고 판단하신 경우, 해당 글에서 신고하기 기능으로 해당 글을 신고하여 주시기 바랍니다. 창작의 자유를 존중하지만, 정책상 해당 글은 검토 후 삭제되며, 해당 글을 올린 회원은 Poetree에서 활동할 수 없습니다.  즐겁게 글과 사진을 감상하고, 마음껏 글을 지을 수 있도록 앱을 개발했습니다. Poetree를 재밌게 즐겨주세요 :)  끝으로, Poetree를 만드는 데 도움을 주신 모든 분들께 감사드립니다.  Poetree 개발자 드림</mutableString>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                            </textView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1000" id="0dF-Hk-h9D"/>
-                                            <constraint firstItem="uje-7g-IxL" firstAttribute="top" secondItem="XdO-X6-4m9" secondAttribute="bottom" constant="10" id="7lA-Wv-VXQ"/>
+                                            <constraint firstAttribute="height" constant="1200" id="0dF-Hk-h9D"/>
+                                            <constraint firstItem="uje-7g-IxL" firstAttribute="top" secondItem="XdO-X6-4m9" secondAttribute="bottom" constant="40" id="7lA-Wv-VXQ"/>
                                             <constraint firstItem="XdO-X6-4m9" firstAttribute="leading" secondItem="Ij5-19-B7C" secondAttribute="leading" constant="20" id="HCb-5o-NKf"/>
                                             <constraint firstAttribute="bottom" secondItem="uje-7g-IxL" secondAttribute="bottom" id="LBi-EN-za7"/>
                                             <constraint firstAttribute="trailing" secondItem="TxV-9W-s2b" secondAttribute="trailing" constant="20" id="ddf-5L-Vvl"/>
@@ -180,7 +198,7 @@
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <size key="freeformSize" width="428" height="1200"/>
+                    <size key="freeformSize" width="428" height="1500"/>
                     <connections>
                         <outlet property="photoImage" destination="TxV-9W-s2b" id="SXC-bQ-MWU"/>
                     </connections>
@@ -191,12 +209,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="launchImage.jpg" width="640" height="960"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
