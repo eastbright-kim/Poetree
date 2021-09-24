@@ -71,6 +71,7 @@
 		DBDC59FF26D790DC0066B45A /* ListRelated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBDC59FE26D790DC0066B45A /* ListRelated.storyboard */; };
 		DBDC5A0426D793D40066B45A /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC5A0326D793D40066B45A /* PhotoViewController.swift */; };
 		DBDC5A0626D794BB0066B45A /* PhotoViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC5A0526D794BB0066B45A /* PhotoViewCollectionViewCell.swift */; };
+		DBDEFB2026FD858F00FBFBE4 /* PoetreeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = DBDEFB1F26FD858F00FBFBE4 /* PoetreeIcon.png */; };
 		DBDFD04A26FA229D002B18EA /* NoticeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDFD04926FA229D002B18EA /* NoticeDetailViewController.swift */; };
 		DBDFD04C26FA23C9002B18EA /* AboutPoetreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDFD04B26FA23C9002B18EA /* AboutPoetreeViewController.swift */; };
 		DBDFD04F26FA2CBD002B18EA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DBDFD04E26FA2CBD002B18EA /* Kingfisher */; };
@@ -152,6 +153,7 @@
 		DBDC59FE26D790DC0066B45A /* ListRelated.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListRelated.storyboard; sourceTree = "<group>"; };
 		DBDC5A0326D793D40066B45A /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		DBDC5A0526D794BB0066B45A /* PhotoViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewCollectionViewCell.swift; sourceTree = "<group>"; };
+		DBDEFB1F26FD858F00FBFBE4 /* PoetreeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PoetreeIcon.png; sourceTree = "<group>"; };
 		DBDFD04926FA229D002B18EA /* NoticeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailViewController.swift; sourceTree = "<group>"; };
 		DBDFD04B26FA23C9002B18EA /* AboutPoetreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPoetreeViewController.swift; sourceTree = "<group>"; };
 		DBE1DBDC26D1EFEC00D263C8 /* Poetree.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Poetree.entitlements; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				DBCE060B26C2C8E40008EBF8 /* API */,
 				DB21A26726C16B410048FB17 /* Assets.xcassets */,
 				DB127D8926F9220F003B3230 /* launchImage@3x.jpg */,
+				DBDEFB1F26FD858F00FBFBE4 /* PoetreeIcon.png */,
 				DB2F53C926F1FC90007FD1EC /* badwords.json */,
 				DB0EB76D26D4C27E0039D8F6 /* shadow.mp4 */,
 			);
@@ -601,6 +604,7 @@
 				DBDC59FD26D790270066B45A /* WritingRelated.storyboard in Resources */,
 				DB127D8A26F9220F003B3230 /* launchImage@3x.jpg in Resources */,
 				DB21A26626C16B3F0048FB17 /* Main.storyboard in Resources */,
+				DBDEFB2026FD858F00FBFBE4 /* PoetreeIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -790,7 +794,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -845,7 +849,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

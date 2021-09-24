@@ -68,7 +68,7 @@ class HistoryViewModel: ViewModelType {
         }
         
         self.input = Input(indexSelected: indexSelected)
-        self.output = Output(printedIndex: printedIndex, displayingPhoto: displayingPhoto, lastWeekPhotos: lastWeekPhotos,displyingPoemsByPhoto: displyingPoemsByPhoto)
+        self.output = Output(printedIndex: printedIndex, displayingPhoto: displayingPhoto, lastWeekPhotos: lastWeekPhotos, displyingPoemsByPhoto: displyingPoemsByPhoto)
         self.poemSevice = poemSevice
         self.photoService = photoService
         self.userService = userService
