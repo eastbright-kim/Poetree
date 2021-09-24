@@ -16,7 +16,6 @@
 		DB0B4D6D26F3A15E00E2F05F /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0B4D6C26F3A15E00E2F05F /* Extension.swift */; };
 		DB0EB76E26D4C27E0039D8F6 /* shadow.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DB0EB76D26D4C27E0039D8F6 /* shadow.mp4 */; };
 		DB127D8A26F9220F003B3230 /* launchImage@3x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB127D8926F9220F003B3230 /* launchImage@3x.jpg */; };
-		DB127D8C26F9221D003B3230 /* woodImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB127D8B26F9221D003B3230 /* woodImage.jpg */; };
 		DB15716826C52720003F58FC /* PoemEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15716726C52720003F58FC /* PoemEntity.swift */; };
 		DB15716C26C5301A003F58FC /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15716B26C5301A003F58FC /* Function.swift */; };
 		DB21A25F26C16B3F0048FB17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21A25E26C16B3F0048FB17 /* AppDelegate.swift */; };
@@ -26,7 +25,6 @@
 		DB21A26B26C16B410048FB17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB21A26926C16B410048FB17 /* LaunchScreen.storyboard */; };
 		DB21A27326C1700F0048FB17 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB21A27226C1700F0048FB17 /* GoogleService-Info.plist */; };
 		DB21A27D26C174420048FB17 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21A27C26C174420048FB17 /* MainViewController.swift */; };
-		DB21A27F26C175250048FB17 /* PoetreeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = DB21A27E26C175250048FB17 /* PoetreeIcon.png */; };
 		DB21A28726C18F4D0048FB17 /* MainPoemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21A28626C18F4D0048FB17 /* MainPoemTableViewCell.swift */; };
 		DB23A1EF26E9CCE200A64CA9 /* ListWithHeadPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB23A1EE26E9CCE200A64CA9 /* ListWithHeadPhotoViewController.swift */; };
 		DB23A1F126E9CD1D00A64CA9 /* headPhotoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB23A1F026E9CD1D00A64CA9 /* headPhotoListTableViewCell.swift */; };
@@ -97,7 +95,6 @@
 		DB0B4D6C26F3A15E00E2F05F /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		DB0EB76D26D4C27E0039D8F6 /* shadow.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = shadow.mp4; sourceTree = "<group>"; };
 		DB127D8926F9220F003B3230 /* launchImage@3x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "launchImage@3x.jpg"; sourceTree = "<group>"; };
-		DB127D8B26F9221D003B3230 /* woodImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = woodImage.jpg; sourceTree = "<group>"; };
 		DB15716726C52720003F58FC /* PoemEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemEntity.swift; sourceTree = "<group>"; };
 		DB15716B26C5301A003F58FC /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
 		DB21A25B26C16B3F0048FB17 /* Poetree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poetree.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,7 +106,6 @@
 		DB21A26C26C16B410048FB17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB21A27226C1700F0048FB17 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DB21A27C26C174420048FB17 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		DB21A27E26C175250048FB17 /* PoetreeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PoetreeIcon.png; sourceTree = "<group>"; };
 		DB21A28626C18F4D0048FB17 /* MainPoemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPoemTableViewCell.swift; sourceTree = "<group>"; };
 		DB23A1EE26E9CCE200A64CA9 /* ListWithHeadPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWithHeadPhotoViewController.swift; sourceTree = "<group>"; };
 		DB23A1F026E9CD1D00A64CA9 /* headPhotoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = headPhotoListTableViewCell.swift; sourceTree = "<group>"; };
@@ -256,10 +252,8 @@
 			children = (
 				DBAFED0026C8376A00D96C46 /* Depreacated */,
 				DBCE060B26C2C8E40008EBF8 /* API */,
-				DB21A27E26C175250048FB17 /* PoetreeIcon.png */,
 				DB21A26726C16B410048FB17 /* Assets.xcassets */,
 				DB127D8926F9220F003B3230 /* launchImage@3x.jpg */,
-				DB127D8B26F9221D003B3230 /* woodImage.jpg */,
 				DB2F53C926F1FC90007FD1EC /* badwords.json */,
 				DB0EB76D26D4C27E0039D8F6 /* shadow.mp4 */,
 			);
@@ -605,9 +599,7 @@
 				DB76DC3F26F9E38600BDE4E3 /* SideMenuRelated.storyboard in Resources */,
 				DB0EB76E26D4C27E0039D8F6 /* shadow.mp4 in Resources */,
 				DBDC59FD26D790270066B45A /* WritingRelated.storyboard in Resources */,
-				DB127D8C26F9221D003B3230 /* woodImage.jpg in Resources */,
 				DB127D8A26F9220F003B3230 /* launchImage@3x.jpg in Resources */,
-				DB21A27F26C175250048FB17 /* PoetreeIcon.png in Resources */,
 				DB21A26626C16B3F0048FB17 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
