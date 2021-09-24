@@ -47,7 +47,9 @@ class UserService {
             let credential = GoogleAuthProvider.credential(withIDToken: idToken,accessToken: authentication.accessToken)
             
             
-            guard let penname = penname else { self.userRegisterRepository.firebaseLogIn(credential: credential) { result in
+            guard let penname = penname else {
+                self.sendNotification()
+                self.userRegisterRepository.firebaseLogIn(credential: credential) { result in
                 
                 switch result {
                 case .success(let currentAuth):
@@ -83,7 +85,8 @@ class UserService {
                 let credential = FacebookAuthProvider
                     .credential(withAccessToken: token!.tokenString)
                 
-                guard let penname = penname else { self.userRegisterRepository.firebaseLogIn(credential: credential) { result in
+                guard let penname = penname else { self.sendNotification()
+                    self.userRegisterRepository.firebaseLogIn(credential: credential) { result in
              
                     switch result {
                     case .success(let currentAuth):
@@ -117,7 +120,8 @@ class UserService {
     
     func appleRegister(penname: String?, credential: OAuthCredential, completion: @escaping ((Result<CurrentAuth, SignInErorr>) -> Void)){
         
-        guard let penname = penname else { self.userRegisterRepository.firebaseLogIn(credential: credential) { result in
+        guard let penname = penname else { self.sendNotification()
+            self.userRegisterRepository.firebaseLogIn(credential: credential) { result in
      
             switch result {
             case .success(let currentAuth):
@@ -143,7 +147,7 @@ class UserService {
     
     
     func register(penname: String, credential: AuthCredential, completion: @escaping ((Result<CurrentAuth, RegisterError>) -> Void)) {
-        
+        self.sendNotification()
         self.userRegisterRepository.RegisterToFirebase(penname: penname, credential: credential) { result in
             switch result {
             case .success(let loggedInUser):
@@ -198,8 +202,11 @@ class UserService {
             return "행복한 저녁 시간 보내세요"
         }
     }
+    
+    func sendNotification() {
+        NotificationCenter.default.post(name: NSNotification.Name("login"), object: nil)
+    }
 }
-
 
 enum SignInFlatform {
     case google

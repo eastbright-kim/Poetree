@@ -74,11 +74,15 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
             navigationController?.navigationBar.shadowImage = nil
+        self.view.hideToast()
     }
     
     
     
     func configureUI(){
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(showActivity), name: NSNotification.Name("login"), object: nil)
+        
         penNameTextField.addDoneButtonOnKeyboard()
         pennameCompleteBtn.isEnabled = false
         penNameTextField.borderStyle = .none
@@ -92,6 +96,12 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
         
         registerBtn.contentEdgeInsets = UIEdgeInsets(top: 8, left: 15, bottom: 8, right: 15)
         registerBtn.layer.cornerRadius = 8
+        
+    }
+    
+    @objc func showActivity() {
+        
+        self.view.makeToastActivity(.center)
         
     }
     

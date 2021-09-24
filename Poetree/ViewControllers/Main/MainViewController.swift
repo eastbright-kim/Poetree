@@ -44,6 +44,7 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
         resetDate()
     }
     
+    
     func collectionViewAni() {
         collectionView.alpha = 0
         UIView.animate(withDuration: 0.8, delay: 0.3, options: .curveEaseIn) { [unowned self] in
