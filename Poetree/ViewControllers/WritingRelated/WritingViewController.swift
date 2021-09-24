@@ -20,13 +20,14 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
     @IBOutlet weak var selectedPhoto: UIImageView!
     @IBOutlet weak var userDateLabel: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var contentTextView: UITextView!
+    @IBOutlet weak var contentTextView: MyTextView!
     @IBOutlet weak var privateCheckBtn: UIButton!
     @IBOutlet weak var editComplete: UIButton!
     @IBOutlet weak var writeComplete: UIButton!
     @IBOutlet weak var backScrollView: UIScrollView!
     @IBOutlet weak var publicNoticeLabel: UILabel!
     @IBOutlet weak var privateNoticeLabel: UILabel!
+    
     
     private lazy var writingTempManager: BLTNItemManager = {
         let item = BLTNPageItem(title: "이 글을 임시 저장하시겠습니까?")
@@ -75,6 +76,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
         super.viewDidLoad()
         setUpUI()
         addObserver()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -176,12 +178,14 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
         
         self.titleTextField.rx.text.orEmpty
             .bind(onNext: { title in
+                
                 self.viewModel.input.title.onNext(title)
             })
             .disposed(by: rx.disposeBag)
         
         self.contentTextView.rx.text.orEmpty
             .bind(onNext: { content in
+                
                 self.viewModel.input.content.onNext(content)
             })
             .disposed(by: rx.disposeBag)
@@ -446,5 +450,19 @@ extension UITextView {
     
     @objc func doneButtonAction() {
         self.resignFirstResponder()
+    }
+}
+
+
+class MyTextView: UITextView {
+
+    override func caretRect(for position: UITextPosition) -> CGRect {
+        var superRect = super.caretRect(for: position)
+        guard let font = self.font else { return superRect }
+
+        // "descender" is expressed as a negative value,
+        // so to add its height you must subtract its value
+        superRect.size.height = font.pointSize - font.descender
+        return superRect
     }
 }

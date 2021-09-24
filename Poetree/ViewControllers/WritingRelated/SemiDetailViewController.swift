@@ -39,6 +39,13 @@ class SemiDetailViewController: UIViewController, StoryboardBased, ViewModelBind
     }
     
     func configureUI(){
+        
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 3
+        let attributes = [NSAttributedString.Key.paragraphStyle: style]
+        self.contenTextView.attributedText = NSAttributedString(string: self.contenTextView.text, attributes: attributes)
+        self.contenTextView.font = UIFont(name: "AppleSDGothicNeo-Light", size: 15)
+        
         photoImageView.layer.cornerRadius = 8
         windowView.layer.cornerRadius = 8
         self.privateBtn.contentEdgeInsets = UIEdgeInsets(top: 3, left: 5, bottom: 3, right: 5)

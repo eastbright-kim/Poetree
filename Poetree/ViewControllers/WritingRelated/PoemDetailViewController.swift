@@ -57,6 +57,14 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
     }
     
     func configureUI(){
+        
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 5
+        let attributes = [NSAttributedString.Key.paragraphStyle: style]
+        self.contentLabel.attributedText = NSAttributedString(string: self.contentLabel.text, attributes: attributes)
+        self.contentLabel.font = UIFont(name: "AppleSDGothicNeo-Light", size: 18)
+        
+        
         self.photoImageView.layer.cornerRadius = 8
         self.privateBtn.contentEdgeInsets = UIEdgeInsets(top: 3, left: 5, bottom: 3, right: 5)
         self.privateBtn.layer.cornerRadius = 5

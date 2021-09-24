@@ -29,5 +29,11 @@ class NoticeDetailViewController: UIViewController, StoryboardBased {
             contentLabel.text = notice.content
         }
         
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 5
+        let attributes = [NSAttributedString.Key.paragraphStyle: style]
+        self.contentLabel.attributedText = NSAttributedString(string: self.contentLabel.text!, attributes: attributes)
+        self.contentLabel.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        
     }
 }
