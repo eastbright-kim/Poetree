@@ -56,6 +56,7 @@ class PoemService: UserLogInListener {
     }
     
     func fetchUserWriting(poem: [Poem], currentUser: CurrentAuth) -> [Poem] {
+        
         let userWrting = poem.filter { poem in
             poem.userUID == currentUser.userUID
         }.filter{$0.isTemp == false}
@@ -260,25 +261,6 @@ class PoemService: UserLogInListener {
         guard let index = poems.firstIndex(of: poem) else {return poem}
         return poems[index]
     }
-//
-//    func sortPoemsByLikeCount_Random_Public(_ poems: [Poem]) -> [Poem] {
-//
-//        let publicPoem = poems.filter{$0.isPrivate == false}
-//
-//        if publicPoem.count > 3 {
-//            let sorted = publicPoem.sorted { p1, p2 in
-//                p1.likers.count > p2.likers.count
-//            }
-//            let prefix = sorted.prefix(3)
-//            let rest = sorted.dropFirst(3).shuffled()
-//            let arr = prefix + rest
-//            return arr.filter { $0.isPrivate == false}
-//        } else {
-//            return publicPoem.sorted { p1, p2 in
-//                p1.likers.count > p2.likers.count
-//            }
-//        }
-//    }
     
     func sortPoemsByLikeCount_Random(_ poems: [Poem]) -> [Poem] {
         
