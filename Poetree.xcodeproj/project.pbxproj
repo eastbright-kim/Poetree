@@ -63,7 +63,6 @@
 		DBCE060326C2A8CA0008EBF8 /* PoemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE060226C2A8CA0008EBF8 /* PoemDetailViewController.swift */; };
 		DBCE060A26C2ACEE0008EBF8 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE060926C2ACEE0008EBF8 /* MainViewModel.swift */; };
 		DBCE060D26C2C8F00008EBF8 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE060C26C2C8F00008EBF8 /* Protocol.swift */; };
-		DBCE061126C2D2430008EBF8 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE061026C2D2430008EBF8 /* Constant.swift */; };
 		DBD5CFC826DFA37500BDEBDA /* CurrentAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5CFC726DFA37500BDEBDA /* CurrentAuth.swift */; };
 		DBD6ABC026E9FB9600EE01E2 /* HeadPhotoWithListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6ABBF26E9FB9600EE01E2 /* HeadPhotoWithListViewModel.swift */; };
 		DBD90A3026FCD42B0012CCDF /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD90A2F26FCD42B0012CCDF /* NoticeTableViewCell.swift */; };
@@ -145,7 +144,6 @@
 		DBCE060226C2A8CA0008EBF8 /* PoemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemDetailViewController.swift; sourceTree = "<group>"; };
 		DBCE060926C2ACEE0008EBF8 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		DBCE060C26C2C8F00008EBF8 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
-		DBCE061026C2D2430008EBF8 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		DBD5CFC726DFA37500BDEBDA /* CurrentAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentAuth.swift; sourceTree = "<group>"; };
 		DBD6ABBF26E9FB9600EE01E2 /* HeadPhotoWithListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadPhotoWithListViewModel.swift; sourceTree = "<group>"; };
 		DBD90A2F26FCD42B0012CCDF /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
@@ -492,7 +490,6 @@
 			isa = PBXGroup;
 			children = (
 				DBCE060C26C2C8F00008EBF8 /* Protocol.swift */,
-				DBCE061026C2D2430008EBF8 /* Constant.swift */,
 				DB15716B26C5301A003F58FC /* Function.swift */,
 				DB048DD826C7ABC90058302C /* Result.swift */,
 				DB666DBD26CA907600A588AC /* FirebaseReference.swift */,
@@ -668,7 +665,6 @@
 				DBD90A3026FCD42B0012CCDF /* NoticeTableViewCell.swift in Sources */,
 				DB2CFD6B26C2887100130078 /* PoemListViewController.swift in Sources */,
 				DB76DC4926F9F63300BDE4E3 /* NoticeViewModel.swift in Sources */,
-				DBCE061126C2D2430008EBF8 /* Constant.swift in Sources */,
 				DB048DD326C7A5C10058302C /* UserRegisterViewModel.swift in Sources */,
 				DB53ADAA26C3E53400FAA8B8 /* DummyData.swift in Sources */,
 				DB5C351626D10E0600275863 /* UserRegisterViewController.swift in Sources */,
