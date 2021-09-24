@@ -157,22 +157,6 @@ class PoemService: UserLogInListener {
         return thisWeekPoems
     }
     
-    func fetchLastWeekPoems() -> [Poem] {
-        
-        let lowerBoundComp = DateComponents(day: -7)
-        let lastMonday = Calendar.current.date(byAdding: lowerBoundComp, to: getThisMonday(myDate: Date()))!
-        
-        let upperBoundComp = DateComponents(day: 7, second: -1)
-        let dealLine = Calendar.current.date(byAdding: upperBoundComp, to: lastMonday)!
-        
-        let lastWeekPoems = self.poems.filter { poem in
-            (lastMonday...dealLine).contains(poem.uploadAt)
-        }.sorted {$0.likers.count > $1.likers.count}.prefix(5)
-        
-        return Array(lastWeekPoems)
-    }
-    
-    
     
     func getThreeTopPoems(_ poems: [Poem]) -> [Poem]{
         

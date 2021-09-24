@@ -26,27 +26,10 @@ class PhotoService {
         return photoStore
     }
     
-    
     func getThisWeekPhoto(_ photos: [WeekPhoto]) -> [WeekPhoto] {
-        
         let sortedArr = photos.prefix(3)
-        
         return Array(sortedArr)
     }
-    
-    //    func getWeekPhotos(completion: @escaping ([WeekPhoto]) -> Void) {
-    //        photoRepository.fetchPhotos {[unowned self] photoEntities in
-    //            let weekPhotos = photoEntities.map { entity -> WeekPhoto in
-    //                let url = URL(string: entity.imageURL)!
-    //                let photoId = entity.photoId
-    //                let date = convertStringToDate(dateFormat: "YYYY MMM d", dateString: entity.date)
-    //                return WeekPhoto(date: date, id: photoId, url: url)
-    //            }
-    //            completion(weekPhotos)
-    //            self.weekPhotos = weekPhotos
-    //            self.photoStore.onNext(weekPhotos)
-    //        }
-    //    }
     
     func fetchPhotos(completion: @escaping ((Complete) -> Void)){
         
