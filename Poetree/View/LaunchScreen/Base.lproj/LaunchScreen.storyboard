@@ -27,7 +27,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="plant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ga-zG-k4g">
-                                <rect key="frame" x="130" y="499.5" width="54" height="31.5"/>
+                                <rect key="frame" x="149.5" y="474.5" width="54" height="31.5"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -38,9 +38,9 @@
                         <constraints>
                             <constraint firstItem="36C-sK-4WL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LCt-Wd-APc"/>
                             <constraint firstItem="zEd-zc-2uk" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="LuK-Us-4pk"/>
-                            <constraint firstItem="8Ga-zG-k4g" firstAttribute="top" secondItem="zEd-zc-2uk" secondAttribute="bottom" constant="30" id="RYI-hx-A78"/>
-                            <constraint firstItem="8Ga-zG-k4g" firstAttribute="centerX" secondItem="zEd-zc-2uk" secondAttribute="centerX" constant="-50" id="a24-gG-fEu"/>
+                            <constraint firstItem="8Ga-zG-k4g" firstAttribute="top" secondItem="zEd-zc-2uk" secondAttribute="bottom" constant="5" id="RYI-hx-A78"/>
                             <constraint firstItem="zEd-zc-2uk" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="c8l-fz-uA6"/>
+                            <constraint firstItem="8Ga-zG-k4g" firstAttribute="leading" secondItem="zEd-zc-2uk" secondAttribute="leading" id="je4-Ua-qUo"/>
                             <constraint firstItem="36C-sK-4WL" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="ldV-ka-5L9"/>
                             <constraint firstAttribute="bottom" secondItem="36C-sK-4WL" secondAttribute="bottom" id="peN-Ec-ckk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="36C-sK-4WL" secondAttribute="trailing" id="xfI-6O-Zf9"/>

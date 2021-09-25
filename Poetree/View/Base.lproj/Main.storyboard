@@ -166,7 +166,7 @@
                                                                             <color key="textColor" systemColor="systemGray2Color"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CSe-BY-8KZ">
+                                                                        <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CSe-BY-8KZ">
                                                                             <rect key="frame" x="328" y="7.5" width="46" height="29"/>
                                                                             <color key="backgroundColor" systemColor="systemPinkColor"/>
                                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
@@ -200,6 +200,7 @@
                                                                         <constraint firstItem="pOl-4R-VUT" firstAttribute="centerY" secondItem="LYI-bj-xCv" secondAttribute="centerY" id="IPu-Lf-LVE"/>
                                                                         <constraint firstItem="j40-B3-czb" firstAttribute="centerY" secondItem="LYI-bj-xCv" secondAttribute="centerY" id="J7x-wC-Phx"/>
                                                                         <constraint firstAttribute="trailing" secondItem="pOl-4R-VUT" secondAttribute="trailing" constant="27" id="Nc6-Gj-jKq"/>
+                                                                        <constraint firstItem="CSe-BY-8KZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fwg-vQ-r4K" secondAttribute="trailing" constant="5" id="Rqj-3T-6Wl"/>
                                                                         <constraint firstAttribute="trailing" secondItem="CSe-BY-8KZ" secondAttribute="trailing" constant="20" id="Yux-0X-5kw"/>
                                                                         <constraint firstItem="fwg-vQ-r4K" firstAttribute="centerY" secondItem="j40-B3-czb" secondAttribute="centerY" id="exA-q6-lQS"/>
                                                                         <constraint firstItem="fwg-vQ-r4K" firstAttribute="leading" secondItem="j40-B3-czb" secondAttribute="trailing" constant="30" id="fvm-WO-VuX"/>

@@ -135,12 +135,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GG7-Ow-O0R">
                                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image3" translatesAutoresizingMaskIntoConstraints="NO" id="RVt-eT-30s">
-                                                <rect key="frame" x="35" y="62" width="358" height="358"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="RVt-eT-30s" secondAttribute="height" multiplier="1:1" id="yfp-mL-SV0"/>
-                                                </constraints>
-                                            </imageView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="100" estimatedRowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Uyt-Ax-zbZ">
                                                 <rect key="frame" x="25" y="430" width="378" height="476"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -214,6 +208,12 @@
                                                     </tableViewCell>
                                                 </prototypes>
                                             </tableView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image3" translatesAutoresizingMaskIntoConstraints="NO" id="RVt-eT-30s">
+                                                <rect key="frame" x="35" y="62" width="358" height="358"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="RVt-eT-30s" secondAttribute="height" multiplier="1:1" id="yfp-mL-SV0"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>

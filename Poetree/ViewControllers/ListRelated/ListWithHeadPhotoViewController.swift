@@ -29,6 +29,7 @@ class ListWithHeadPhotoViewController: UIViewController, ViewModelBindable, HasD
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         naviBarConfig()
+        
     }
     
     func naviBarConfig(){
@@ -95,10 +96,15 @@ class ListWithHeadPhotoViewController: UIViewController, ViewModelBindable, HasD
     
     func configureUI(){
         
-        photoImageView.layer.cornerRadius = 8
+        
         navigationItem.largeTitleDisplayMode = .never
         poemListTableView.tableFooterView = UIView()
         
+        
+        photoImageView.layer.cornerRadius = 8
+        photoImageView.clipsToBounds = true
+        
+
         if Auth.auth().currentUser != nil {
             let image = UIImage(systemName: "pencil")
             image?.withTintColor(UIColor.darkGray)

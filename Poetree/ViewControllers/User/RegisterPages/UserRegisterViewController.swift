@@ -278,6 +278,7 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
             
             self.viewModel.userService.deleteUser()
             DispatchQueue.main.async {
+                self.view.hideToastActivity()
                 self.avQueuePlayer.play()
             }
             
@@ -285,9 +286,6 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
-    
- 
-    
 }
 
 //MARK: ----------------------AppleLogin
