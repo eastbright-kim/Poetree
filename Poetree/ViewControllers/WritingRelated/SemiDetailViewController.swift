@@ -44,7 +44,7 @@ class SemiDetailViewController: UIViewController, StoryboardBased, ViewModelBind
         style.lineSpacing = 3
         let attributes = [NSAttributedString.Key.paragraphStyle: style]
         self.contenTextView.attributedText = NSAttributedString(string: self.contenTextView.text, attributes: attributes)
-        self.contenTextView.font = UIFont(name: "AppleSDGothicNeo-Light", size: 15)
+        self.contenTextView.font = UIFont.systemFont(ofSize: 15, weight: .light)
         
         photoImageView.layer.cornerRadius = 8
         windowView.layer.cornerRadius = 8

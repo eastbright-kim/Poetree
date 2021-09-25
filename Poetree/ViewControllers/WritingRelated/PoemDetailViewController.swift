@@ -15,6 +15,7 @@ import Toast_Swift
 class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardBased, HasDisposeBag {
     
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var photoView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var contentLabel: UITextView!
@@ -58,12 +59,13 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
     
     func configureUI(){
         
+        makePhotoViewShadow(superView: photoView, photoImageView: photoImageView)
+        
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 5
         let attributes = [NSAttributedString.Key.paragraphStyle: style]
         self.contentLabel.attributedText = NSAttributedString(string: self.contentLabel.text, attributes: attributes)
-        self.contentLabel.font = UIFont(name: "AppleSDGothicNeo-Light", size: 18)
-        
+        self.contentLabel.font = UIFont.systemFont(ofSize: 18, weight: .light)
         
         self.photoImageView.layer.cornerRadius = 8
         self.privateBtn.contentEdgeInsets = UIEdgeInsets(top: 3, left: 5, bottom: 3, right: 5)

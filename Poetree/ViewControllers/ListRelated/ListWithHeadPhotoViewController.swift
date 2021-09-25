@@ -16,6 +16,7 @@ class ListWithHeadPhotoViewController: UIViewController, ViewModelBindable, HasD
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var poemListTableView: UITableView!
     @IBOutlet weak var backScrollView: UIScrollView!
+    @IBOutlet weak var photoView: UIView!
     
     var viewModel: HeadPhotoWithListViewModel!
     
@@ -96,15 +97,11 @@ class ListWithHeadPhotoViewController: UIViewController, ViewModelBindable, HasD
     
     func configureUI(){
         
-        
         navigationItem.largeTitleDisplayMode = .never
         poemListTableView.tableFooterView = UIView()
+        poemListTableView.separatorInset.right = 5
+        makePhotoViewShadow(superView: photoView, photoImageView: photoImageView)
         
-        
-        photoImageView.layer.cornerRadius = 8
-        photoImageView.clipsToBounds = true
-        
-
         if Auth.auth().currentUser != nil {
             let image = UIImage(systemName: "pencil")
             image?.withTintColor(UIColor.darkGray)

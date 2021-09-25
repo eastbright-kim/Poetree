@@ -18,6 +18,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
     var viewModel: WriteViewModel!
     
     @IBOutlet weak var selectedPhoto: UIImageView!
+    @IBOutlet weak var photoView: UIView!
     @IBOutlet weak var userDateLabel: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentTextView: MyTextView!
@@ -27,6 +28,8 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
     @IBOutlet weak var backScrollView: UIScrollView!
     @IBOutlet weak var publicNoticeLabel: UILabel!
     @IBOutlet weak var privateNoticeLabel: UILabel!
+    
+    
     
     
     private lazy var writingTempManager: BLTNItemManager = {
@@ -123,7 +126,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
     }
     
     func setUpUI(){
-        
+        makePhotoViewShadowForWriting(superView: photoView, photoImageView: selectedPhoto)
         selectedPhoto.layer.cornerRadius = 8
         self.writeComplete.contentEdgeInsets = UIEdgeInsets(top: 3, left: 10, bottom: 3, right: 10)
         self.writeComplete.layer.cornerRadius = 5

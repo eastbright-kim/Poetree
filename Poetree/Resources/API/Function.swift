@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 func convertDateToString(format: String, date: Date) -> String {
@@ -107,6 +108,36 @@ func checkBadWords(content: String) -> Bool {
     return false
 }
 
+func makePhotoViewShadow(superView: UIView, photoImageView: UIImageView) {
+    
+    superView.clipsToBounds = false
+    superView.layer.cornerRadius = 8
+    superView.layer.shadowOffset = CGSize(width: 10,
+                                          height: 10)
+    superView.layer.shadowColor = UIColor.darkGray.cgColor
+    superView.layer.shadowOpacity = 0.6
+    superView.layer.shadowRadius = 10
+    superView.layer.shadowPath = UIBezierPath(roundedRect: superView.bounds, cornerRadius: 8).cgPath
+    photoImageView.clipsToBounds = true
+    photoImageView.layer.cornerRadius = 8
+    
+}
+
+func makePhotoViewShadowForWriting(superView: UIView, photoImageView: UIImageView) {
+    
+    superView.clipsToBounds = false
+    superView.layer.cornerRadius = 8
+    superView.layer.shadowOffset = CGSize(width: 10,
+                                          height: 10)
+    superView.layer.shadowColor = UIColor.gray.cgColor
+    superView.layer.shadowOpacity = 0.6
+    superView.layer.shadowRadius = 10
+    superView.layer.shadowPath = UIBezierPath(roundedRect: superView.bounds, cornerRadius: 8).cgPath
+    
+    photoImageView.clipsToBounds = true
+    photoImageView.layer.cornerRadius = 8
+    
+}
 
 import CryptoKit
 

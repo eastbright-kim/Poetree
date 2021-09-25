@@ -9,20 +9,20 @@ import UIKit
 
 class AboutPoetreeViewController: UIViewController, StoryboardBased {
 
+    @IBOutlet weak var photoView: UIView!
     @IBOutlet weak var photoImage: UIImageView!
     @IBOutlet weak var infoTextField: UITextView!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.photoImage.layer.cornerRadius = 8
         
         configureUI()
-        
     }
 
     func configureUI(){
+        self.photoImage.layer.cornerRadius = 8
+        
+        makePhotoViewShadowForWriting(superView: photoView, photoImageView: photoImage)
         
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 5
