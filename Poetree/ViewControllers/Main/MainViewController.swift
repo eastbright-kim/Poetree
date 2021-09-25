@@ -294,7 +294,6 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
                 
                 self.viewModel.input.selectedIndex.onNext(currentIndexPathItem - 1)
                 
-                
             })
             .disposed(by: rx.disposeBag)
     }

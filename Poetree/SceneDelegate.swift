@@ -96,7 +96,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let historyNVC = UINavigationController(rootViewController: historyVC)
         
         
-        var userPoemVC = UserPageViewController.instantiate(storyboardID: "UserRelated")
+        var userPoemVC = MyPoemViewController.instantiate(storyboardID: "UserRelated")
         userPoemVC.bind(viewModel: MyPoemViewModel(poemService: poemService, userService: userService))
         let userNAV = UINavigationController(rootViewController: userPoemVC)
         

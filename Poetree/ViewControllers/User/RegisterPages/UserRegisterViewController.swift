@@ -14,12 +14,10 @@ import RxCocoa
 import NSObject_Rx
 
 
-
 class UserRegisterViewController: UIViewController, ViewModelBindable, StoryboardBased, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var logoImage: UIImageView!
     var viewModel: UserRegisterViewModel!
-    
     
     // ------------------------------ AVPlayer
     
@@ -73,7 +71,7 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
-            navigationController?.navigationBar.shadowImage = nil
+        navigationController?.navigationBar.shadowImage = nil
         self.view.hideToast()
     }
     
@@ -82,7 +80,6 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
     func configureUI(){
         
         NotificationCenter.default.addObserver(self, selector: #selector(showActivity), name: NSNotification.Name("login"), object: nil)
-        
         penNameTextField.addDoneButtonOnKeyboard()
         pennameCompleteBtn.isEnabled = false
         penNameTextField.borderStyle = .none
@@ -128,11 +125,9 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
             .subscribe { [weak self] _ in
                 
                 guard let self = self else {return}
-                
                 self.viewModel.userService.facebookRegister(penname: self.penname, presentingVC: self) { result in
                     self.handleLogInResult(result)
                 }
-                
             }
             .disposed(by: rx.disposeBag)
         

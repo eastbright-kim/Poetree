@@ -21,7 +21,6 @@ class PoemService: UserLogInListener {
         self.poemRepository = poemRepository
     }
     
-    
     func allPoems() -> Observable<[Poem]> {
         return poemsStore
     }
@@ -64,17 +63,20 @@ class PoemService: UserLogInListener {
     }
     
     func fetchUserLikedWriting_Sorted(poems: [Poem], currentUser: CurrentAuth) -> [Poem] {
-  
+        
         let userLikedPoems = poems.filter { poem in
-           poem.likers[currentUser.userUID] ?? false
+            poem.likers[currentUser.userUID] ?? false
         }.sorted { p1, p2 in
             p1.likers.count > p2.likers.count
         }.filter { poem in
-            poem.isPrivate == false
+            if poem.userUID == currentUser.userUID {
+                return true
+            } else {
+                return poem.isPrivate == false
+            }
         }.filter { poem in
             poem.isTemp == false
         }
-        
         return userLikedPoems
     }
     

@@ -12,10 +12,15 @@ import NSObject_Rx
 import Kingfisher
 
 class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBased, UICollectionViewDelegate {
-
+    
     
     @IBOutlet weak var allPoemsBtn: UIButton!
     @IBOutlet var imageArr: [UIImageView]!
+    @IBOutlet var imageViewArr: [UIView]!
+    
+    @IBOutlet weak var imageView1: UIView!
+    @IBOutlet weak var imageView2: UIView!
+    @IBOutlet weak var imageView3: UIView!
     @IBOutlet weak var image1Btn: UIButton!
     @IBOutlet weak var image2Btn: UIButton!
     @IBOutlet weak var image3Btn: UIButton!
@@ -51,21 +56,18 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
         allPhotoCollectionView.isPagingEnabled = false
         allPhotoCollectionView.delegate = self
         
-        
         let flowlayoutForLastWeekPhotos = UICollectionViewFlowLayout()
         flowlayoutForLastWeekPhotos.itemSize = CGSize(width: 100, height: 100 * 10 / 7)
         flowlayoutForLastWeekPhotos.minimumInteritemSpacing = 28
         flowlayoutForLastWeekPhotos.minimumLineSpacing = 28
         flowlayoutForLastWeekPhotos.scrollDirection = .horizontal
         
-
-        
         let flowlayoutForAllPhotos = UICollectionViewFlowLayout()
         flowlayoutForAllPhotos.itemSize = CGSize(width: 100, height: 100 * 10 / 7)
         flowlayoutForAllPhotos.minimumInteritemSpacing = 15
         flowlayoutForAllPhotos.minimumLineSpacing = 15
         flowlayoutForAllPhotos.scrollDirection = .horizontal
-
+        
         allPhotoCollectionView.collectionViewLayout = flowlayoutForAllPhotos
     }
     
@@ -76,10 +78,13 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
         allPoemsBtn.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
         allPoemsBtn.layer.cornerRadius = 8
         
-        for photo in self.imageArr {
-            photo.layer.cornerRadius = 8
-        }
+//        for photo in self.imageArr {
+//            photo.layer.cornerRadius = 8
+//        }
         
+        for i in 0...2 {
+            makePhotoViewShadowForWriting(superView: self.imageViewArr[i], photoImageView: self.imageArr[i])
+        }
     }
     
     private func configureNavTab() {
@@ -122,7 +127,10 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
             .disposed(by: rx.disposeBag)
         
         allPoemsBtn.rx.tap
-            .subscribe(onNext: { [unowned self] _ in
+            .subscribe(onNext: { [weak self] _ in
+                
+                guard let self = self else {return}
+                
                 let viewModel = PoemListViewModel(poemService: self.viewModel.poemSevice, userService: self.viewModel.userService, listType: .allPoems)
                 var vc = PoemListViewController.instantiate(storyboardID: "ListRelated")
                 vc.bind(viewModel: viewModel)
@@ -183,8 +191,6 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
         
         self.viewModel.output.displyingPoemsByPhoto
             .bind(to: self.threePoemsTableView.rx.items(cellIdentifier: "ThreePoemsTableViewCell", cellType: ThreePoemsTableViewCell.self)){indexPath, poem, cell in
-                
-                print("photo \(poem.title)")
                 
                 switch indexPath {
                 case 0:

@@ -12,7 +12,7 @@ import NSObject_Rx
 import FirebaseAuth
 import SideMenu
 
-class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBased {
+class MyPoemViewController: UIViewController, ViewModelBindable, StoryboardBased {
     
     @IBOutlet weak var navBarBtn: UIBarButtonItem!
     @IBOutlet weak var pennameLabel: UILabel!
@@ -261,7 +261,6 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
                     if user.userPenname == "비회원" {
                         self.pennameLabel.text = self.viewModel.userService.greetingLine(date: Date())
                     }
-                    
                     self.pennameLabel.rx.text.onNext("\(user.userPenname)님")
                     self.greetingLabel.text = self.viewModel.userService.greetingLine(date: Date())
                 })
@@ -281,7 +280,6 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
                     
                 }
             }
-            
         } else {
             self.greetingLabel.text = self.viewModel.userService.greetingLine(date: Date())
             UIView.animate(withDuration: 1, delay: 1, options: .curveEaseOut) {
@@ -292,10 +290,11 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
     
     func makeShadow() {
         greetingView.layer.cornerRadius = 8
-        greetingView.layer.shadowColor = UIColor.systemGray5.cgColor
+        greetingView.layer.shadowColor = UIColor.systemGray3.cgColor
         greetingView.layer.shadowRadius = 5
-        greetingView.layer.shadowOffset = .zero
-        greetingView.layer.shadowOpacity = 0.4
+        greetingView.layer.shadowOffset = CGSize(width: 3,
+                                                 height: 3)
+        greetingView.layer.shadowOpacity = 0.3
  
     }
     
@@ -304,7 +303,7 @@ class UserPageViewController: UIViewController, ViewModelBindable, StoryboardBas
     
 }
 
-extension UserPageViewController: UITableViewDelegate {
+extension MyPoemViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return (tableView.frame.height) / 5
@@ -312,7 +311,7 @@ extension UserPageViewController: UITableViewDelegate {
     
 }
 
-extension UserPageViewController: UICollectionViewDelegateFlowLayout{
+extension MyPoemViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 150, height: self.userWritingCollectionView.frame.height)
     }

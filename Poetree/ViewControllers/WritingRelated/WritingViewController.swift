@@ -21,16 +21,13 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
     @IBOutlet weak var photoView: UIView!
     @IBOutlet weak var userDateLabel: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var contentTextView: MyTextView!
+    @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var privateCheckBtn: UIButton!
     @IBOutlet weak var editComplete: UIButton!
     @IBOutlet weak var writeComplete: UIButton!
     @IBOutlet weak var backScrollView: UIScrollView!
     @IBOutlet weak var publicNoticeLabel: UILabel!
     @IBOutlet weak var privateNoticeLabel: UILabel!
-    
-    
-    
     
     private lazy var writingTempManager: BLTNItemManager = {
         let item = BLTNPageItem(title: "이 글을 임시 저장하시겠습니까?")
@@ -72,7 +69,6 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
     
     var keyboardDismissTabGesture : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
     
-    
     var isPrvate = false
     
     override func viewDidLoad() {
@@ -91,13 +87,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
         super.viewDidAppear(animated)
         titleTextField.becomeFirstResponder()
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-        
-    }
-    
+   
     func addObserver(){
         self.keyboardDismissTabGesture.delegate = self
         self.view.addGestureRecognizer(keyboardDismissTabGesture)
@@ -351,7 +341,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
     func saveTempFromTemp(){
         
         self.tempManager.dismissBulletin(animated: true)
-        
+        self.title = "글 이어서 쓰기"
         viewModel.output.aPoem
             .take(1)
             .observe(on: ConcurrentDispatchQueueScheduler(queue: DispatchQueue.global()))
@@ -391,24 +381,22 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
     }
-    
-    
-    
 }
 
 extension WritingViewController: UIGestureRecognizerDelegate {
-    
+
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         
-        if(touch.view?.isDescendant(of: self.titleTextField) == true){
-            
-            return false
-        } else if (touch.view?.isDescendant(of: self.contentTextView) == true){
-            return false
-        } else {
-            view.endEditing(true)
-            return true
-        }
+        view.endEditing(true)
+        return true
+//        if(touch.view?.isDescendant(of: self.titleTextField) == true){
+//            return false
+//        } else if (touch.view?.isDescendant(of: self.contentTextView) == true){
+//            return false
+//        } else {
+//            view.endEditing(true)
+//            return true
+//        }
     }
 }
 
@@ -453,19 +441,5 @@ extension UITextView {
     
     @objc func doneButtonAction() {
         self.resignFirstResponder()
-    }
-}
-
-
-class MyTextView: UITextView {
-
-    override func caretRect(for position: UITextPosition) -> CGRect {
-        var superRect = super.caretRect(for: position)
-        guard let font = self.font else { return superRect }
-
-        // "descender" is expressed as a negative value,
-        // so to add its height you must subtract its value
-        superRect.size.height = font.pointSize - font.descender
-        return superRect
     }
 }

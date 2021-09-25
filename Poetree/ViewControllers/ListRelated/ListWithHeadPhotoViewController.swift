@@ -64,8 +64,6 @@ class ListWithHeadPhotoViewController: UIViewController, ViewModelBindable, HasD
             }
             .disposed(by: rx.disposeBag)
         
-        
-        
         self.poemListTableView.rx.itemSelected
             .subscribe(onNext:{ indexPath in
                 self.poemListTableView.cellForRow(at: indexPath)?.isSelected = false

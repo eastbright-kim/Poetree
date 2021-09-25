@@ -31,7 +31,7 @@ class MyPoemViewModel: ViewModelType {
         
         self.poemService = poemService
         self.userService = userService
-        //유저 없다가 들어가면 안 먹음
+        
         let user = userService.loggedInUser()
         let poem = poemService.allPoems()
         
