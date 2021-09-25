@@ -17,10 +17,6 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
     @IBOutlet weak var allPoemsBtn: UIButton!
     @IBOutlet var imageArr: [UIImageView]!
     @IBOutlet var imageViewArr: [UIView]!
-    
-    @IBOutlet weak var imageView1: UIView!
-    @IBOutlet weak var imageView2: UIView!
-    @IBOutlet weak var imageView3: UIView!
     @IBOutlet weak var image1Btn: UIButton!
     @IBOutlet weak var image2Btn: UIButton!
     @IBOutlet weak var image3Btn: UIButton!
@@ -77,13 +73,9 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
         configureNavTab()
         allPoemsBtn.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
         allPoemsBtn.layer.cornerRadius = 8
-        
-//        for photo in self.imageArr {
-//            photo.layer.cornerRadius = 8
-//        }
-        
+
         for i in 0...2 {
-            makePhotoViewShadowForWriting(superView: self.imageViewArr[i], photoImageView: self.imageArr[i])
+            makePhotoViewShadowForHistory(superView: self.imageViewArr[i], photoImageView: self.imageArr[i])
         }
     }
     
