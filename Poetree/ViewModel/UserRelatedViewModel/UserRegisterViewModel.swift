@@ -36,7 +36,7 @@ class UserRegisterViewModel: ViewModelType {
         
         let isCompleteBtnValid = pennameInput
             .map { letter in
-                if (letter.count == 0 || letter.contains(" ")) || checkBadWords(content: letter) {
+                if (letter.count == 0 || letter.contains(" ")) || checkBadWords(content: letter){
                     return false
                 }
                 return true
@@ -51,7 +51,7 @@ class UserRegisterViewModel: ViewModelType {
                     return "필명엔 공백이 포함될 수 없습니다."
                 } else if checkBadWords(content: letter) {
                     return "필명엔 욕설이 포함될 수 없습니다."
-                } else {
+                }else {
                     return ""
                 }
             }

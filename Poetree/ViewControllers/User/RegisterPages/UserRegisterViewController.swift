@@ -97,9 +97,7 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
     }
     
     @objc func showActivity() {
-        
         self.view.makeToastActivity(.center)
-        
     }
     
     func setupBtn(){
@@ -132,7 +130,17 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
             .disposed(by: rx.disposeBag)
         
         penNameTextField.rx.text.orEmpty
-            .bind(to: viewModel.input.pennameInput)
+            .bind(onNext:{ text in
+                
+                if text.count == 8 {
+                    let validText = String(text.dropLast())
+                    self.penNameTextField.text = validText
+                    self.viewModel.input.pennameInput.onNext(validText)
+                    self.validCheckLabel.text = "필명은 7글자를 넘을 수 없습니다."
+                } else {
+                    self.viewModel.input.pennameInput.onNext(text)
+                }
+            })
             .disposed(by: rx.disposeBag)
         
         viewModel.output.isCompleteBtnValid
