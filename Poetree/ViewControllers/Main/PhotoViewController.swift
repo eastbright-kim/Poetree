@@ -102,12 +102,12 @@ class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased, Vie
     
     func noticeLabelAni(){
         
-        UIView.animate(withDuration: 1, delay: 1, options: .curveEaseOut) {
+        UIView.animate(withDuration: 0.8, delay: 0.8, options: .curveEaseOut) {
             self.firstNoticeLabel.alpha = 1
         } completion: { firstNoticeFadeIn in
             
             if firstNoticeFadeIn {
-                UIView.animate(withDuration: 1.5, delay: 1, options: .curveEaseIn) {
+                UIView.animate(withDuration: 2.0, delay: 1, options: .curveEaseIn) {
                     self.firstNoticeLabel.alpha = 0
                 } completion: { firstNoticeFadeout in
                     

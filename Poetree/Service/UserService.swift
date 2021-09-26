@@ -77,7 +77,7 @@ class UserService {
     func facebookRegister(penname: String?, presentingVC: UIViewController, completion: @escaping ((Result<CurrentAuth, SignInErorr>) -> Void)){
         
         let loginManager = LoginManager()
-        loginManager.logIn(permissions: [.email], viewController: presentingVC) { result in
+        loginManager.logIn(permissions: [.email, .publicProfile], viewController: presentingVC) { result in
             switch result {
             
             case .success(granted: _, declined: _, token: let token):

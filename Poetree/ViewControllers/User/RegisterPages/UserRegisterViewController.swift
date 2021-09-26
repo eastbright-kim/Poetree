@@ -265,6 +265,7 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
             self.viewModel.userService.deleteUser()
             
             DispatchQueue.main.async{
+                self.view.hideToastActivity()
                 self.videoLayer.sendSubviewToBack(self.registerStackView)
                 self.videoLayer.bringSubviewToFront(self.penNameStackView)
                 self.penNameStackView.isHidden = false

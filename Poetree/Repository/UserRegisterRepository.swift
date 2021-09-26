@@ -34,13 +34,24 @@ class UserRegisterRepository{
                     if let _ = error {
                         completion(.failure(.registerError))
                     } else {
-                        let currentAuth = CurrentAuth(userEmail: currentUser.email!, userPenname: currentUser.displayName!, userUID: currentUser.uid)
                         
-                        if let delegate = self.delegate {
-                            delegate.updatePenname(userResisterRepository: self, logInUser: currentAuth)
+                        if let email = currentUser.email {
+                            let currentAuth = CurrentAuth(userEmail: email, userPenname: currentUser.displayName!, userUID: currentUser.uid)
+                            
+                            if let delegate = self.delegate {
+                                delegate.updatePenname(userResisterRepository: self, logInUser: currentAuth)
+                            }
+                            
+                            completion(.success(currentAuth))
+                        } else {
+                            let currentAuth = CurrentAuth(userEmail: currentUser.uid, userPenname: currentUser.displayName!, userUID: currentUser.uid)
+                            
+                            if let delegate = self.delegate {
+                                delegate.updatePenname(userResisterRepository: self, logInUser: currentAuth)
+                            }
+                            
+                            completion(.success(currentAuth))
                         }
-                        
-                        completion(.success(currentAuth))
                     }
                 }
             }
