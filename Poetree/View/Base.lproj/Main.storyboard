@@ -35,10 +35,10 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Wea-DR-SIG">
-                                                        <rect key="frame" x="0.0" y="56" width="394" height="450"/>
+                                                        <rect key="frame" x="0.0" y="56" width="394" height="430"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="450" id="Hqh-Kr-hNn"/>
+                                                            <constraint firstAttribute="height" constant="430" id="Hqh-Kr-hNn"/>
                                                         </constraints>
                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="13" minimumInteritemSpacing="18" id="93z-Xm-CSS">
                                                             <size key="itemSize" width="394" height="483"/>
@@ -48,7 +48,7 @@
                                                         </collectionViewFlowLayout>
                                                         <cells>
                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="peE-Vw-t7t" customClass="MainPhotoCollectionViewCell" customModule="Poetree" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="-25" width="394" height="500"/>
+                                                                <rect key="frame" x="0.0" y="-35" width="394" height="500"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="5cs-9C-ag1">
                                                                     <rect key="frame" x="0.0" y="0.0" width="394" height="500"/>
@@ -73,10 +73,10 @@
                                                         </cells>
                                                     </collectionView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uj6-PA-9v7">
-                                                        <rect key="frame" x="0.0" y="514" width="394" height="40"/>
+                                                        <rect key="frame" x="0.0" y="494" width="394" height="40"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GoF-Ds-r5t">
-                                                                <rect key="frame" x="179.66666666666666" y="3.6666666666666288" width="35" height="33"/>
+                                                                <rect key="frame" x="179.66666666666666" y="3.6666666666666856" width="35" height="33"/>
                                                                 <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="29"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -105,7 +105,7 @@
                                                         </constraints>
                                                     </view>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jrN-g0-cPp">
-                                                        <rect key="frame" x="0.0" y="562" width="394" height="218"/>
+                                                        <rect key="frame" x="0.0" y="542" width="394" height="238"/>
                                                         <view key="tableHeaderView" contentMode="scaleToFill" id="RYy-pd-rKR">
                                                             <rect key="frame" x="0.0" y="0.0" width="394" height="44"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -142,8 +142,8 @@
                                                             <constraints>
                                                                 <constraint firstItem="khz-UM-wCX" firstAttribute="leading" secondItem="RYy-pd-rKR" secondAttribute="leading" constant="20" id="3IY-C5-hX1"/>
                                                                 <constraint firstAttribute="trailing" secondItem="LGq-ke-geZ" secondAttribute="trailing" constant="20.000000000000057" id="3cA-S7-iqE"/>
-                                                                <constraint firstItem="khz-UM-wCX" firstAttribute="centerY" secondItem="RYy-pd-rKR" secondAttribute="centerY" id="GaZ-c3-ZtU"/>
-                                                                <constraint firstItem="LGq-ke-geZ" firstAttribute="centerY" secondItem="khz-UM-wCX" secondAttribute="centerY" id="Jyu-9K-xoD"/>
+                                                                <constraint firstItem="khz-UM-wCX" firstAttribute="centerY" secondItem="LGq-ke-geZ" secondAttribute="centerY" id="Tz2-Bl-c7S"/>
+                                                                <constraint firstItem="LGq-ke-geZ" firstAttribute="centerY" secondItem="RYy-pd-rKR" secondAttribute="centerY" id="xw7-NP-6Fa"/>
                                                             </constraints>
                                                         </view>
                                                         <prototypes>

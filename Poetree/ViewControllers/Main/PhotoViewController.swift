@@ -107,7 +107,7 @@ class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased, Vie
         } completion: { firstNoticeFadeIn in
             
             if firstNoticeFadeIn {
-                UIView.animate(withDuration: 2.0, delay: 1, options: .curveEaseIn) {
+                UIView.animate(withDuration: 2.0, delay: 2.0, options: .curveEaseIn) {
                     self.firstNoticeLabel.alpha = 0
                 } completion: { firstNoticeFadeout in
                     

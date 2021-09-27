@@ -36,9 +36,7 @@ class PoemRepository {
     }
     
     func deletePoem(poemModel: Poem) {
-        
         poemRef.child(poemModel.userUID).child(poemModel.id).removeValue()
-
     }
     
     public func fetchPoems(completion: @escaping ([PoemEntity]) -> Void) {
