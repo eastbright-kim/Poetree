@@ -80,7 +80,6 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
     func configureUI(){
         
         NotificationCenter.default.addObserver(self, selector: #selector(showActivity), name: NSNotification.Name("login"), object: nil)
-        penNameTextField.addDoneButtonOnKeyboard()
         pennameCompleteBtn.isEnabled = false
         penNameTextField.borderStyle = .none
         let border = CALayer()
