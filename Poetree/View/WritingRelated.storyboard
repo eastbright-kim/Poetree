@@ -12,7 +12,7 @@
         <!--Poem Detail View Controller-->
         <scene sceneID="qeA-Lu-kzo">
             <objects>
-                <viewController storyboardIdentifier="PoemDetailViewController" id="k27-Hg-Spm" customClass="PoemDetailViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PoemDetailViewController" hidesBottomBarWhenPushed="YES" id="k27-Hg-Spm" customClass="PoemDetailViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H0g-QC-Ejk">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="1400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -375,7 +375,7 @@
         <!--글 쓰기-->
         <scene sceneID="oLD-Pj-MNr">
             <objects>
-                <viewController storyboardIdentifier="WritingViewController" id="U0B-vy-2lf" customClass="WritingViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WritingViewController" hidesBottomBarWhenPushed="YES" id="U0B-vy-2lf" customClass="WritingViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cit-v4-vUe">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="1400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -97,6 +97,7 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
     
     @objc func showActivity() {
         self.view.makeToastActivity(.center)
+        self.view.isUserInteractionEnabled = false
     }
     
     func setupBtn(){
@@ -225,7 +226,6 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
                 case .LoginError(let error):
                     self.loginErrorHandle(error: error)
                 case .RegisterError(let error):
-                    //에러 핸들링 필요
                     self.registerErrorHandle(error: error)
                     break
                 }

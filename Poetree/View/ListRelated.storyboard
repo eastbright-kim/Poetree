@@ -12,7 +12,7 @@
         <!--글 리스트-->
         <scene sceneID="TqG-2h-hP8">
             <objects>
-                <viewController storyboardIdentifier="PoemListViewController" id="QbL-or-oiO" customClass="PoemListViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PoemListViewController" hidesBottomBarWhenPushed="YES" id="QbL-or-oiO" customClass="PoemListViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xVk-JJ-ihf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -124,7 +124,7 @@
         <!--List With Head Photo View Controller-->
         <scene sceneID="EBq-kK-Qya">
             <objects>
-                <viewController storyboardIdentifier="ListWithHeadPhotoViewController" id="aDe-Ia-ieg" customClass="ListWithHeadPhotoViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ListWithHeadPhotoViewController" hidesBottomBarWhenPushed="YES" id="aDe-Ia-ieg" customClass="ListWithHeadPhotoViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kLH-Xd-nT9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
