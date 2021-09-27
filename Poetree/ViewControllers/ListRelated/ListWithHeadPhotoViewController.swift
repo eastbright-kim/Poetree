@@ -98,6 +98,7 @@ class ListWithHeadPhotoViewController: UIViewController, ViewModelBindable, HasD
         navigationItem.largeTitleDisplayMode = .never
         poemListTableView.tableFooterView = UIView()
         poemListTableView.separatorInset.right = 5
+        self.view.layoutIfNeeded()
         makePhotoViewShadow(superView: photoView, photoImageView: photoImageView)
         
         if Auth.auth().currentUser != nil {

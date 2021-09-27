@@ -25,20 +25,37 @@ func convertStringToDate(dateFormat: String, dateString: String) -> Date {
     return date
 }
 
-func getWeek(day: Int) -> String {
-    switch day {
-    case 1...7:
-        return "1st"
-    case 8...14:
-        return "2nd"
-    case 15...21:
-        return "3rd"
-    case 22...27:
-        return "4th"
-    default:
-        return "5th"
+func getWeekString(myDate: Date) -> String {
+    if myDate.dayNumberOfWeek() == 1 {
+        let weekNum = Calendar.current.component(.weekOfMonth, from: myDate)
+        switch weekNum {
+        case 1:
+            return "1st"
+        case 2:
+            return "\(weekNum - 1)st"
+        case 3:
+            return "\(weekNum - 1)nd"
+        case 4:
+            return "\(weekNum - 1)rd"
+        default:
+            return "\(weekNum - 1)th"
+        }
+        
+    } else {
+        let weekNum = Calendar.current.component(.weekOfMonth, from: myDate)
+        switch weekNum {
+        case 1:
+            return "\(weekNum)st"
+        case 2:
+            return "\(weekNum)nd"
+        case 3:
+            return "\(weekNum)rd"
+        default:
+            return "\(weekNum)th"
+        }
     }
 }
+
 
 func getCycleString(time: Int) -> String {
     switch time {

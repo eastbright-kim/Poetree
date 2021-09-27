@@ -293,7 +293,7 @@
                     <viewLayoutGuide key="safeArea" id="fXl-EJ-N0L"/>
                 </stackView>
             </objects>
-            <point key="canvasLocation" x="-845.32710280373828" y="1545.3563714902809"/>
+            <point key="canvasLocation" x="-855" y="1595"/>
         </scene>
         <!--Photo View Controller-->
         <scene sceneID="dLV-S8-ouR">

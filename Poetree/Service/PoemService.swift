@@ -172,11 +172,9 @@ class PoemService: UserLogInListener {
         
         let currentDate = convertDateToString(format: "MMM-d", date: Date())
         let current = currentDate.components(separatedBy: "-")
+        let week = getWeekString(myDate: Date())
         
-        let day = Int(current[1])!
-        let week = getWeek(day: day)
-        
-        return "\(current[0]) \(week)"
+        return "\(current[0]) " + week
     }
     
     func getWritingTimeString(date: Date) -> String {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_7" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
@@ -14,18 +14,18 @@
             <objects>
                 <viewController storyboardIdentifier="PoemListViewController" id="QbL-or-oiO" customClass="PoemListViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xVk-JJ-ihf">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="110" estimatedRowHeight="110" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kqe-8m-eho">
-                                <rect key="frame" x="0.0" y="88" width="428" height="804"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PoemListCell" rowHeight="110" id="wEs-Pr-TZH" customClass="PoemListTableViewCell" customModule="Poetree" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="110"/>
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wEs-Pr-TZH" id="R04-UY-Gl3">
-                                            <rect key="frame" x="0.0" y="0.0" width="428" height="110"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="tE5-BN-880">
@@ -41,7 +41,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="7c3-LA-MNY">
-                                                    <rect key="frame" x="365.66666666666669" y="76" width="32.333333333333314" height="22"/>
+                                                    <rect key="frame" x="351.66666666666669" y="76" width="32.333333333333314" height="22"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSX-K1-jH0">
                                                             <rect key="frame" x="0.0" y="0.0" width="14.333333333333334" height="22"/>
@@ -58,14 +58,14 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="꽃게가 간장 속에서 울컥울컥" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWX-5I-Sf8">
-                                                    <rect key="frame" x="135" y="51" width="233" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="꽃게가 간장 속에서 울컥울컥" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWX-5I-Sf8">
+                                                    <rect key="frame" x="135" y="51" width="169" height="18"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스며드는 것" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="IQy-o4-032">
-                                                    <rect key="frame" x="135" y="19.333333333333329" width="173" height="21.666666666666671"/>
+                                                    <rect key="frame" x="135" y="19.333333333333329" width="249" height="21.666666666666671"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -76,12 +76,12 @@
                                                 <constraint firstItem="CWX-5I-Sf8" firstAttribute="top" secondItem="IQy-o4-032" secondAttribute="bottom" constant="10" id="EWG-LM-7No"/>
                                                 <constraint firstItem="7c3-LA-MNY" firstAttribute="centerY" secondItem="iIa-vL-fn7" secondAttribute="centerY" id="F3Z-0a-Qxm"/>
                                                 <constraint firstItem="iIa-vL-fn7" firstAttribute="top" secondItem="CWX-5I-Sf8" secondAttribute="bottom" constant="10" id="FIe-et-EtQ"/>
-                                                <constraint firstItem="CWX-5I-Sf8" firstAttribute="trailing" secondItem="7c3-LA-MNY" secondAttribute="trailing" constant="-30" id="IBf-Je-FEV"/>
+                                                <constraint firstItem="CWX-5I-Sf8" firstAttribute="trailing" secondItem="7c3-LA-MNY" secondAttribute="trailing" constant="-80" id="IBf-Je-FEV"/>
                                                 <constraint firstAttribute="bottom" secondItem="tE5-BN-880" secondAttribute="bottom" constant="10" id="N2f-bX-S8C"/>
                                                 <constraint firstItem="IQy-o4-032" firstAttribute="leading" secondItem="tE5-BN-880" secondAttribute="trailing" constant="25" id="O0z-XD-xz4"/>
-                                                <constraint firstItem="IQy-o4-032" firstAttribute="trailing" secondItem="CWX-5I-Sf8" secondAttribute="trailing" constant="-60" id="PXi-V3-dFL"/>
                                                 <constraint firstItem="tE5-BN-880" firstAttribute="top" secondItem="R04-UY-Gl3" secondAttribute="top" constant="10" id="Pj0-Ta-nZ4"/>
                                                 <constraint firstItem="CWX-5I-Sf8" firstAttribute="centerY" secondItem="tE5-BN-880" secondAttribute="centerY" constant="5" id="Uvw-6d-0CH"/>
+                                                <constraint firstItem="IQy-o4-032" firstAttribute="trailing" secondItem="7c3-LA-MNY" secondAttribute="trailing" id="bxm-Id-e1N"/>
                                                 <constraint firstItem="7c3-LA-MNY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iIa-vL-fn7" secondAttribute="trailing" constant="5" id="eBX-fB-oBU"/>
                                                 <constraint firstItem="iIa-vL-fn7" firstAttribute="leading" secondItem="IQy-o4-032" secondAttribute="leading" id="f86-kM-f6T"/>
                                                 <constraint firstItem="tE5-BN-880" firstAttribute="leading" secondItem="R04-UY-Gl3" secondAttribute="leading" constant="20" id="gTp-ez-VJD"/>
@@ -126,28 +126,28 @@
             <objects>
                 <viewController storyboardIdentifier="ListWithHeadPhotoViewController" id="aDe-Ia-ieg" customClass="ListWithHeadPhotoViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kLH-Xd-nT9">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zpy-dj-v4Y">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GG7-Ow-O0R">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="100" estimatedRowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Uyt-Ax-zbZ">
-                                                <rect key="frame" x="20" y="440" width="373" height="466"/>
+                                                <rect key="frame" x="20" y="382" width="359" height="334"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="headPhotoListTableViewCell" rowHeight="96" id="jNe-YQ-fID" customClass="headPhotoListTableViewCell" customModule="Poetree" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="44.666666030883789" width="373" height="96"/>
+                                                        <rect key="frame" x="0.0" y="44.666666030883789" width="359" height="96"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jNe-YQ-fID" id="KGa-MA-V41">
-                                                            <rect key="frame" x="0.0" y="0.0" width="373" height="96"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="359" height="96"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="꽃게가 간장 속에서 울컥울컥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6A-3d-muO">
-                                                                    <rect key="frame" x="25" y="44" width="298" height="18"/>
+                                                                    <rect key="frame" x="25" y="44" width="284" height="18"/>
                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="15"/>
                                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -159,7 +159,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="0kc-sY-eDy">
-                                                                    <rect key="frame" x="325.66666666666669" y="64" width="32.333333333333314" height="22"/>
+                                                                    <rect key="frame" x="311.66666666666669" y="64" width="32.333333333333314" height="22"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="04G-Qe-En5">
                                                                             <rect key="frame" x="0.0" y="0.0" width="14.333333333333334" height="22"/>
@@ -177,7 +177,7 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스며드는 것" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DND-ru-HPe">
-                                                                    <rect key="frame" x="25" y="11" width="298" height="28"/>
+                                                                    <rect key="frame" x="25" y="11" width="284" height="28"/>
                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -209,10 +209,10 @@
                                                 </prototypes>
                                             </tableView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WuJ-Uc-npg">
-                                                <rect key="frame" x="35" y="62" width="358" height="358"/>
+                                                <rect key="frame" x="35" y="18" width="344" height="344"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image3" translatesAutoresizingMaskIntoConstraints="NO" id="RVt-eT-30s">
-                                                        <rect key="frame" x="0.0" y="0.0" width="358" height="358"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="344" height="344"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="RVt-eT-30s" secondAttribute="height" multiplier="1:1" id="yfp-mL-SV0"/>
                                                         </constraints>
