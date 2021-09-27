@@ -22,7 +22,7 @@ class AboutPoetreeViewController: UIViewController, StoryboardBased {
     func configureUI(){
         self.photoImage.layer.cornerRadius = 8
         
-        makePhotoViewShadowForWriting(superView: photoView, photoImageView: photoImage)
+        makePhotoViewShadow(superView: photoView, photoImageView: photoImage)
         
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 5

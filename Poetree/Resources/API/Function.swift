@@ -131,7 +131,7 @@ func makePhotoViewShadow(superView: UIView, photoImageView: UIImageView) {
     superView.layer.cornerRadius = 8
     superView.layer.shadowOffset = CGSize(width: 10,
                                           height: 10)
-    superView.layer.shadowColor = UIColor.darkGray.cgColor
+    superView.layer.shadowColor = UIColor(named: "photoViewShadowColor")!.cgColor
     superView.layer.shadowOpacity = 0.6
     superView.layer.shadowRadius = 10
     superView.layer.shadowPath = UIBezierPath(roundedRect: superView.bounds, cornerRadius: 8).cgPath
@@ -140,20 +140,6 @@ func makePhotoViewShadow(superView: UIView, photoImageView: UIImageView) {
     
 }
 
-func makePhotoViewShadowForWriting(superView: UIView, photoImageView: UIImageView) {
-    
-    superView.clipsToBounds = false
-    superView.layer.cornerRadius = 8
-    superView.layer.shadowOffset = CGSize(width: 10,
-                                          height: 10)
-    superView.layer.shadowColor = UIColor.gray.cgColor
-    superView.layer.shadowOpacity = 0.6
-    superView.layer.shadowRadius = 10
-    superView.layer.shadowPath = UIBezierPath(roundedRect: superView.bounds, cornerRadius: 8).cgPath
-    photoImageView.clipsToBounds = true
-    photoImageView.layer.cornerRadius = 8
-    
-}
 
 func makePhotoViewShadowForHistory(superView: UIView, photoImageView: UIImageView) {
     
@@ -161,7 +147,7 @@ func makePhotoViewShadowForHistory(superView: UIView, photoImageView: UIImageVie
     superView.layer.cornerRadius = 8
     superView.layer.shadowOffset = CGSize(width: 6,
                                           height: 5)
-    superView.layer.shadowColor = UIColor.systemGray.cgColor
+    superView.layer.shadowColor = UIColor(named: "historyShadowColor")!.cgColor
     superView.layer.shadowOpacity = 0.6
     superView.layer.shadowRadius = 6
     superView.layer.shadowPath = UIBezierPath(roundedRect: superView.bounds, cornerRadius: 8).cgPath

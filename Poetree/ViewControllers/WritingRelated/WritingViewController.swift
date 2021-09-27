@@ -116,7 +116,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
     }
     
     func setUpUI(){
-        makePhotoViewShadowForWriting(superView: photoView, photoImageView: selectedPhoto)
+        makePhotoViewShadow(superView: photoView, photoImageView: selectedPhoto)
         selectedPhoto.layer.cornerRadius = 8
         self.writeComplete.contentEdgeInsets = UIEdgeInsets(top: 3, left: 10, bottom: 3, right: 10)
         self.writeComplete.layer.cornerRadius = 5
