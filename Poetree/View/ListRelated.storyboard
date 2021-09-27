@@ -76,7 +76,6 @@
                                                 <constraint firstItem="CWX-5I-Sf8" firstAttribute="top" secondItem="IQy-o4-032" secondAttribute="bottom" constant="10" id="EWG-LM-7No"/>
                                                 <constraint firstItem="7c3-LA-MNY" firstAttribute="centerY" secondItem="iIa-vL-fn7" secondAttribute="centerY" id="F3Z-0a-Qxm"/>
                                                 <constraint firstItem="iIa-vL-fn7" firstAttribute="top" secondItem="CWX-5I-Sf8" secondAttribute="bottom" constant="10" id="FIe-et-EtQ"/>
-                                                <constraint firstItem="CWX-5I-Sf8" firstAttribute="trailing" secondItem="7c3-LA-MNY" secondAttribute="trailing" constant="-80" id="IBf-Je-FEV"/>
                                                 <constraint firstAttribute="bottom" secondItem="tE5-BN-880" secondAttribute="bottom" constant="10" id="N2f-bX-S8C"/>
                                                 <constraint firstItem="IQy-o4-032" firstAttribute="leading" secondItem="tE5-BN-880" secondAttribute="trailing" constant="25" id="O0z-XD-xz4"/>
                                                 <constraint firstItem="tE5-BN-880" firstAttribute="top" secondItem="R04-UY-Gl3" secondAttribute="top" constant="10" id="Pj0-Ta-nZ4"/>
@@ -85,6 +84,7 @@
                                                 <constraint firstItem="7c3-LA-MNY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iIa-vL-fn7" secondAttribute="trailing" constant="5" id="eBX-fB-oBU"/>
                                                 <constraint firstItem="iIa-vL-fn7" firstAttribute="leading" secondItem="IQy-o4-032" secondAttribute="leading" id="f86-kM-f6T"/>
                                                 <constraint firstItem="tE5-BN-880" firstAttribute="leading" secondItem="R04-UY-Gl3" secondAttribute="leading" constant="20" id="gTp-ez-VJD"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="CWX-5I-Sf8" secondAttribute="trailing" constant="90" id="nLN-MN-oDx"/>
                                                 <constraint firstItem="CWX-5I-Sf8" firstAttribute="leading" secondItem="IQy-o4-032" secondAttribute="leading" id="q9s-am-eFh"/>
                                             </constraints>
                                         </tableViewCellContentView>

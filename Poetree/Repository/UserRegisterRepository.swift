@@ -28,7 +28,7 @@ class UserRegisterRepository{
                     return }
                 
                 let changeRequest = currentUser.createProfileChangeRequest()
-              
+                
                 changeRequest.displayName = penname
                 changeRequest.commitChanges { error in
                     if let _ = error {
@@ -63,11 +63,10 @@ class UserRegisterRepository{
         
         Auth.auth().signIn(with: credential) { authDataResult, error in
             
-
             if let isNew = authDataResult?.additionalUserInfo?.isNewUser {
                 if isNew == true {
                     completion(.failure(.newUser))
-                        return
+                    return
                 }
             }
             
