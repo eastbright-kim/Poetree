@@ -58,14 +58,14 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="꽃게가 간장 속에서 울컥울컥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWX-5I-Sf8">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="꽃게가 간장 속에서 울컥울컥" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWX-5I-Sf8">
                                                     <rect key="frame" x="135" y="51" width="233" height="18"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스며드는 것" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="IQy-o4-032">
-                                                    <rect key="frame" x="135" y="19.333333333333329" width="233" height="21.666666666666671"/>
+                                                    <rect key="frame" x="135" y="19.333333333333329" width="173" height="21.666666666666671"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -79,7 +79,7 @@
                                                 <constraint firstItem="CWX-5I-Sf8" firstAttribute="trailing" secondItem="7c3-LA-MNY" secondAttribute="trailing" constant="-30" id="IBf-Je-FEV"/>
                                                 <constraint firstAttribute="bottom" secondItem="tE5-BN-880" secondAttribute="bottom" constant="10" id="N2f-bX-S8C"/>
                                                 <constraint firstItem="IQy-o4-032" firstAttribute="leading" secondItem="tE5-BN-880" secondAttribute="trailing" constant="25" id="O0z-XD-xz4"/>
-                                                <constraint firstItem="IQy-o4-032" firstAttribute="trailing" secondItem="CWX-5I-Sf8" secondAttribute="trailing" id="PXi-V3-dFL"/>
+                                                <constraint firstItem="IQy-o4-032" firstAttribute="trailing" secondItem="CWX-5I-Sf8" secondAttribute="trailing" constant="-60" id="PXi-V3-dFL"/>
                                                 <constraint firstItem="tE5-BN-880" firstAttribute="top" secondItem="R04-UY-Gl3" secondAttribute="top" constant="10" id="Pj0-Ta-nZ4"/>
                                                 <constraint firstItem="CWX-5I-Sf8" firstAttribute="centerY" secondItem="tE5-BN-880" secondAttribute="centerY" constant="5" id="Uvw-6d-0CH"/>
                                                 <constraint firstItem="7c3-LA-MNY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iIa-vL-fn7" secondAttribute="trailing" constant="5" id="eBX-fB-oBU"/>

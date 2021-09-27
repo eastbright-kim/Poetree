@@ -386,17 +386,15 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
 extension WritingViewController: UIGestureRecognizerDelegate {
 
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        
-        view.endEditing(true)
-        return true
-//        if(touch.view?.isDescendant(of: self.titleTextField) == true){
-//            return false
-//        } else if (touch.view?.isDescendant(of: self.contentTextView) == true){
-//            return false
-//        } else {
-//            view.endEditing(true)
-//            return true
-//        }
+      
+        if(touch.view?.isDescendant(of: self.titleTextField) == true){
+            return false
+        } else if (touch.view?.isDescendant(of: self.contentTextView) == true){
+            return false
+        } else {
+            view.endEditing(true)
+            return true
+        }
     }
 }
 

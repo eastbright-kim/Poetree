@@ -89,8 +89,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cB9-Kd-G9K">
-                                <rect key="frame" x="50" y="134" width="314" height="286.5"/>
-                                <string key="text">개발자의 이메일로 사진을 보내주시면 적절성 검토 후에 사진을 게시하여 드립니다.  직접 찍으신 사진에 다른 분들의 글이 지어지는 멋진 경험을 체험해보세요 !  • 보내주시는 사진은 Poetree에 게시되는 용도 외에는 사용되지 않습니다.  • 저작권이 있는 사진일 경우, 추후 문제가 발생할 수 있으니 반드시 직접 찍으신 사진을 보내주시기 바랍니다.  Poetree 개발자 이메일  1033513@naver.com</string>
+                                <rect key="frame" x="50" y="134" width="314" height="340.5"/>
+                                <string key="text">개발자의 이메일로 사진을 보내주시면 적절성 검토 후에 사진을 게시하여 드립니다.  직접 찍으신 사진에 다른 분들의 글이 지어지는 멋진 경험을 체험해보세요 !  • 새롭게 게시된 사진은 약 한 달간 History 탭 Photo History에 게시됩니다.  • 보내주시는 사진은 Poetree에 게시되는 용도 외에는 사용되지 않습니다.  • 저작권이 있는 사진일 경우, 추후 문제가 발생할 수 있으니 반드시 직접 찍으신 사진을 보내주시기 바랍니다.  Poetree 개발자 이메일  1033513@naver.com</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -138,7 +138,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="1500"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ij5-19-B7C">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="1330"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="1360"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Potree" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XdO-X6-4m9">
                                                 <rect key="frame" x="20" y="475" width="388" height="31.5"/>
@@ -147,9 +147,9 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uje-7g-IxL">
-                                                <rect key="frame" x="20" y="546.5" width="388" height="783.5"/>
+                                                <rect key="frame" x="20" y="546.5" width="388" height="813.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <string key="text">Poetree에는 매주 월요일 새로운 세 장의 사진이 업로드 됩니다. 사진을 감상하시고, 자유 형식의 글을 남겨주세요. 사진을 보고 연상된 시, 에세이, 짧은 소설 등 어떠한 글이라도 좋습니다.  • 글에 대한 다른 사람의 반응을 보기 보다는, 쓰고 싶은 글을 쓰는 경험을 우선시 하고자 SNS 기능을 최소화하였습니다. 모든 회원 분들이 보실 수 있는 This Week, History 탭의 리스트에서는 좋아요를 많이 받은 상위 3개의 글들을 제외하고는 무작위 순으로 글이 나열됩니다.  • 임시 저장하기 기능으로 쓰던 글을 두고두고 고쳐 쓰다가, 글이 완성된 시점에 모든 분들이 볼 수 있는 공간에 게시할 수 있습니다.  • Poetree에 업로드 되는 모든 사진은 개발자가 찍거나 회원님들이 직접 찍어 보내주신 사진들과 같이, 게시되는 데에 저작권 문제가 없는 사진들입니다. 또한, App Store 심사지침에 의거하여 "부적절한 컨텐츠"에 해당하지 않는 사진들입니다.  • 게시된 글 중 어떤 글이 부적절한 글이라고 판단하신 경우, 해당 글에서 신고하기 기능으로 해당 글을 신고하여 주시기 바랍니다. 창작의 자유를 존중하지만, 정책상 해당 글은 검토 후 삭제되며, 해당 글을 올린 회원은 Poetree에서 활동하실 수 없습니다.  즐겁게 글과 사진을 감상하고, 쓰고 싶은 글을 쓸 수 있도록 앱을 개발했습니다. Poetree를 재밌게 즐겨주세요 :)  끝으로, Poetree를 만드는 데 도움을 주신 모든 분들께 감사드립니다.  Poetree 개발자 드림</string>
+                                                <string key="text">Poetree에는 매주 월요일 세 장의 사진이 업로드 됩니다. 사진을 감상하시고, 자유 형식의 글을 남겨주세요. 사진을 보고 연상된 시, 에세이, 짧은 소설 등 어떠한 글이라도 좋습니다.  • 글에 대한 다른 사람의 반응을 보기 보다는, 쓰고 싶은 글을 쓰는 경험을 우선시 하고자 SNS 기능을 최소화하였습니다. 모든 회원 분들이 보실 수 있는 This Week, History 탭의 리스트에서는 좋아요를 많이 받은 상위 3개의 글들을 제외하고는 무작위 순으로 글이 나열됩니다.  • 임시 저장하기 기능으로 쓰던 글을 두고두고 고쳐 쓰다가, 글이 완성된 시점에 모든 분들이 볼 수 있는 공간에 게시할 수 있습니다.  • Poetree에 업로드 되는 모든 사진은 개발자가 찍거나 회원님들이 직접 찍어 보내주신 사진들과 같이, 게시되는 데에 저작권 문제가 없는 사진들입니다. 또한, App Store 심사지침에 의거하여 "부적절한 컨텐츠"에 해당하지 않는 사진들입니다.  • 게시된 글 중 어떤 글이 부적절한 글이라고 판단하신 경우, 해당 글에서 신고하기 기능으로 해당 글을 신고하여 주시기 바랍니다. 창작의 자유를 존중하지만, 정책상 해당 글은 검토 후 삭제되며, 해당 글을 올린 회원은 Poetree에서 활동하실 수 없습니다.  즐겁게 글과 사진을 감상하고, 쓰고 싶은 글을 쓸 수 있도록 앱을 개발했습니다. Poetree를 재밌게 즐겨주세요 :)  끝으로, Poetree를 만드는 데 도움을 주신 모든 분들께 감사드립니다.  Poetree 개발자 드림</string>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -176,7 +176,7 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1330" id="0dF-Hk-h9D"/>
+                                            <constraint firstAttribute="height" constant="1360" id="0dF-Hk-h9D"/>
                                             <constraint firstItem="XdO-X6-4m9" firstAttribute="top" secondItem="Vnb-6E-eTh" secondAttribute="bottom" constant="45" id="6VD-KC-QDu"/>
                                             <constraint firstAttribute="trailing" secondItem="Vnb-6E-eTh" secondAttribute="trailing" constant="20" id="6Vq-mF-Dd3"/>
                                             <constraint firstItem="uje-7g-IxL" firstAttribute="top" secondItem="XdO-X6-4m9" secondAttribute="bottom" constant="40" id="7lA-Wv-VXQ"/>
