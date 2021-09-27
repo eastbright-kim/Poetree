@@ -398,14 +398,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kQR-Li-RPL">
-                                                <rect key="frame" x="20" y="589.33333333333326" width="388" height="527.33333333333326"/>
+                                                <rect key="frame" x="20" y="589.33333333333326" width="388" height="549.33333333333326"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9a-Dh-0t3">
-                                                <rect key="frame" x="8" y="1116.6666666666667" width="412" height="40"/>
+                                                <rect key="frame" x="8" y="1138.6666666666667" width="412" height="40"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGd-AP-hxN">
                                                         <rect key="frame" x="8" y="3.6666666666665151" width="112" height="33"/>
@@ -459,13 +459,13 @@
                                                 </constraints>
                                             </view>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="글을 모두가 볼 수 있도록 게시합니다. Poetree가 모두에게 소중한 공간이 될 수 있도록 협조해주세요." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ImL-d5-2PW">
-                                                <rect key="frame" x="55.333333333333343" y="1168.6666666666667" width="317.33333333333326" height="31.333333333333258"/>
+                                                <rect key="frame" x="55.333333333333343" y="1183.6666666666667" width="317.33333333333326" height="31.333333333333258"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="글을 혼자 보관합니다. 해당 글은 My Poem탭에서 확인하실 수 있습니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eh2-wD-4Kw">
-                                                <rect key="frame" x="88.333333333333329" y="1168.6666666666667" width="251.33333333333337" height="31.333333333333258"/>
+                                                <rect key="frame" x="88.333333333333329" y="1183.6666666666667" width="251.33333333333337" height="31.333333333333258"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -495,20 +495,20 @@
                                             <constraint firstItem="vzW-9E-j2m" firstAttribute="top" secondItem="JM1-jN-xmo" secondAttribute="top" constant="30" id="3a6-He-SgB"/>
                                             <constraint firstItem="tGQ-hi-UTQ" firstAttribute="top" secondItem="rvQ-yJ-m5S" secondAttribute="bottom" constant="29.333333333333314" id="3tH-lZ-SWy"/>
                                             <constraint firstItem="kQR-Li-RPL" firstAttribute="top" secondItem="tGQ-hi-UTQ" secondAttribute="bottom" constant="30" id="4OT-uh-xNu"/>
-                                            <constraint firstItem="ImL-d5-2PW" firstAttribute="top" secondItem="a9a-Dh-0t3" secondAttribute="bottom" constant="12" id="5nE-jY-XKC"/>
+                                            <constraint firstItem="ImL-d5-2PW" firstAttribute="top" secondItem="a9a-Dh-0t3" secondAttribute="bottom" constant="5" id="5nE-jY-XKC"/>
                                             <constraint firstAttribute="trailing" secondItem="kQR-Li-RPL" secondAttribute="trailing" constant="20" id="74z-vb-2qE"/>
                                             <constraint firstItem="vzW-9E-j2m" firstAttribute="leading" secondItem="JM1-jN-xmo" secondAttribute="leading" constant="20" id="BHG-rG-aeO"/>
                                             <constraint firstAttribute="trailing" secondItem="vzW-9E-j2m" secondAttribute="trailing" constant="20" id="E6X-eX-V18"/>
-                                            <constraint firstAttribute="bottom" secondItem="ImL-d5-2PW" secondAttribute="bottom" constant="20" id="GM5-3n-11z"/>
+                                            <constraint firstAttribute="bottom" secondItem="ImL-d5-2PW" secondAttribute="bottom" constant="5" id="GM5-3n-11z"/>
                                             <constraint firstItem="tGQ-hi-UTQ" firstAttribute="trailing" secondItem="rvQ-yJ-m5S" secondAttribute="trailing" id="H6q-1r-dqL"/>
                                             <constraint firstItem="kQR-Li-RPL" firstAttribute="leading" secondItem="JM1-jN-xmo" secondAttribute="leading" constant="20" id="JaR-gW-dY1"/>
                                             <constraint firstItem="a9a-Dh-0t3" firstAttribute="top" secondItem="kQR-Li-RPL" secondAttribute="bottom" id="L62-G9-Ct2"/>
                                             <constraint firstItem="a9a-Dh-0t3" firstAttribute="leading" secondItem="JM1-jN-xmo" secondAttribute="leading" constant="8" id="NWe-gR-2lH"/>
                                             <constraint firstItem="rvQ-yJ-m5S" firstAttribute="leading" secondItem="JM1-jN-xmo" secondAttribute="leading" constant="20" id="OzQ-jj-DEA"/>
                                             <constraint firstItem="rvQ-yJ-m5S" firstAttribute="top" secondItem="vzW-9E-j2m" secondAttribute="bottom" constant="45" id="SSk-18-q6H"/>
-                                            <constraint firstItem="eh2-wD-4Kw" firstAttribute="top" secondItem="a9a-Dh-0t3" secondAttribute="bottom" constant="12" id="ZNM-ae-6MZ"/>
+                                            <constraint firstItem="eh2-wD-4Kw" firstAttribute="top" secondItem="a9a-Dh-0t3" secondAttribute="bottom" constant="5" id="ZNM-ae-6MZ"/>
                                             <constraint firstAttribute="height" constant="1220" id="aqQ-FH-IjJ"/>
-                                            <constraint firstAttribute="bottom" secondItem="eh2-wD-4Kw" secondAttribute="bottom" constant="20" id="coq-iT-ICp"/>
+                                            <constraint firstAttribute="bottom" secondItem="eh2-wD-4Kw" secondAttribute="bottom" constant="5" id="coq-iT-ICp"/>
                                             <constraint firstAttribute="trailing" secondItem="rvQ-yJ-m5S" secondAttribute="trailing" constant="20" id="khZ-uE-D5B"/>
                                             <constraint firstAttribute="trailing" secondItem="a9a-Dh-0t3" secondAttribute="trailing" constant="8" id="mFP-YH-reG"/>
                                             <constraint firstItem="eh2-wD-4Kw" firstAttribute="centerX" secondItem="JM1-jN-xmo" secondAttribute="centerX" id="pAf-og-fiM"/>
