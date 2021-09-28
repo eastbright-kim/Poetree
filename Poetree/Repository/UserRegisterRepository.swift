@@ -36,7 +36,7 @@ class UserRegisterRepository{
                     } else {
                         
                         if let email = currentUser.email {
-                            let currentAuth = CurrentAuth(userEmail: email, userPenname: currentUser.displayName!, userUID: currentUser.uid)
+                            let currentAuth = CurrentAuth(userEmail: email, userPenname: currentUser.displayName ?? "회원", userUID: currentUser.uid)
                             
                             if let delegate = self.delegate {
                                 delegate.updatePenname(userResisterRepository: self, logInUser: currentAuth)
@@ -44,7 +44,7 @@ class UserRegisterRepository{
                             
                             completion(.success(currentAuth))
                         } else {
-                            let currentAuth = CurrentAuth(userEmail: currentUser.uid, userPenname: currentUser.displayName!, userUID: currentUser.uid)
+                            let currentAuth = CurrentAuth(userEmail: currentUser.uid, userPenname: currentUser.displayName ?? "회원", userUID: currentUser.uid)
                             
                             if let delegate = self.delegate {
                                 delegate.updatePenname(userResisterRepository: self, logInUser: currentAuth)

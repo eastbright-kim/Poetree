@@ -163,8 +163,6 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
             }
             self.editComplete.isHidden = true
         }
-//        titleTextField.addDoneButtonOnKeyboard()
-//        contentTextView.addDoneButtonOnKeyboard()
     }
     
     func bindViewModel() {
