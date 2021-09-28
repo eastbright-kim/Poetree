@@ -257,22 +257,23 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
     }
     
     func firstUserHandle() {
-        
-        let alert = UIAlertController(title: "회원 정보 없음", message: "필명과 함께 회원 가입을 먼저 해주세요", preferredStyle: .alert)
-        let action = UIAlertAction(title: "확인", style: .default) { action in
-            
-            self.viewModel.userService.deleteUser()
-            
-            DispatchQueue.main.async{
-                self.view.hideToastActivity()
-                self.videoLayer.sendSubviewToBack(self.registerStackView)
-                self.videoLayer.bringSubviewToFront(self.penNameStackView)
-                self.penNameStackView.isHidden = false
-            }
-        }
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
-    }
+         
+         let alert = UIAlertController(title: "회원 정보 없음", message: "필명과 함께 회원 가입을 먼저 해주세요", preferredStyle: .alert)
+         let action = UIAlertAction(title: "확인", style: .default) { action in
+             
+             self.viewModel.userService.deleteUser()
+             
+             DispatchQueue.main.async{
+                 self.view.hideToastActivity()
+                 self.videoLayer.sendSubviewToBack(self.registerStackView)
+                 self.videoLayer.bringSubviewToFront(self.penNameStackView)
+                 self.penNameStackView.isHidden = false
+                 self.view.isUserInteractionEnabled = true
+             }
+         }
+         alert.addAction(action)
+         present(alert, animated: true, completion: nil)
+     }
     
     func flatformErrorHandle() {
         self.avQueuePlayer.play()

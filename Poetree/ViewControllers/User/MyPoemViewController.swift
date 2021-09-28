@@ -180,7 +180,7 @@ class MyPoemViewController: UIViewController, ViewModelBindable, StoryboardBased
                 guard let currentUser = Auth.auth().currentUser else { self.view.makeToast("로그인 이후에 확인하실 수 있습니다", duration: 1.0, position: .center)
                     return}
                 
-                let currentAuth = CurrentAuth(userEmail: currentUser.email!, userPenname: currentUser.displayName!, userUID: currentUser.uid)
+                let currentAuth = CurrentAuth(userEmail: currentUser.email ?? currentUser.uid, userPenname: currentUser.displayName ?? "", userUID: currentUser.uid)
                 
                 let viewModel = PoemListViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, listType: .userWrote(currentAuth))
                 var listVC = PoemListViewController.instantiate(storyboardID: "ListRelated")
@@ -195,7 +195,7 @@ class MyPoemViewController: UIViewController, ViewModelBindable, StoryboardBased
                 guard let currentUser = Auth.auth().currentUser else { self.view.makeToast("로그인 이후에 확인하실 수 있습니다", duration: 1.0, position: .center)
                     return}
                 
-                let currentAuth = CurrentAuth(userEmail: currentUser.email!, userPenname: currentUser.displayName!, userUID: currentUser.uid)
+                let currentAuth = CurrentAuth(userEmail: currentUser.email ?? currentUser.uid, userPenname: currentUser.displayName ?? "", userUID: currentUser.uid)
                 
                 let viewModel = PoemListViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, listType: .userWrote(currentAuth))
                 var listVC = PoemListViewController.instantiate(storyboardID: "ListRelated")
@@ -225,7 +225,7 @@ class MyPoemViewController: UIViewController, ViewModelBindable, StoryboardBased
                 guard let currentUser = Auth.auth().currentUser else { self.view.makeToast("로그인 이후에 확인하실 수 있습니다", duration: 1.0, position: .center)
                 return}
                 
-                let currentAuth = CurrentAuth(userEmail: currentUser.email!, userPenname: currentUser.displayName!, userUID: currentUser.uid)
+                let currentAuth = CurrentAuth(userEmail: currentUser.email ?? currentUser.uid, userPenname: currentUser.displayName ?? "", userUID: currentUser.uid)
                 
                 let viewModel = PoemListViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, listType: .userLiked(currentAuth))
                 var listVC = PoemListViewController.instantiate(storyboardID: "ListRelated")
@@ -241,7 +241,7 @@ class MyPoemViewController: UIViewController, ViewModelBindable, StoryboardBased
                 guard let currentUser = Auth.auth().currentUser else { self.view.makeToast("로그인 이후에 확인하실 수 있습니다", duration: 1.0, position: .center)
                     return}
                 
-                let currentAuth = CurrentAuth(userEmail: currentUser.email!, userPenname: currentUser.displayName!, userUID: currentUser.uid)
+                let currentAuth = CurrentAuth(userEmail: currentUser.email ?? currentUser.uid, userPenname: currentUser.displayName ?? "", userUID: currentUser.uid)
                 
                 let viewModel = PoemListViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, listType: .userLiked(currentAuth))
                 var listVC = PoemListViewController.instantiate(storyboardID: "ListRelated")

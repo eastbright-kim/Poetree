@@ -40,7 +40,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 let uploadAt = convertStringToDate(dateFormat: "yyyy MMM d", dateString: poemEntity.uploadAt)
                 let isPrivate = poemEntity.isPrivate
                 let likers = poemEntity.likers
-                let photoURL = URL(string: poemEntity.photoURL)!
+                let photoURL = URL(string: poemEntity.photoURL) ?? URL(string: "https://firebasestorage.googleapis.com/v0/b/poetree-e472e.appspot.com/o/white%2F2-2.jpg?alt=media&token=3945142a-4a01-431b-9a0c-51ff8ee10538")!
                 let userUID = poemEntity.userUID
                 let isTemp = poemEntity.isTemp
                 
@@ -55,7 +55,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         photoRepository.fetchPhotos { photoEntities in
             let weekPhotos = photoEntities.map { entity -> WeekPhoto in
-                let url = URL(string: entity.imageURL)!
+                let url = URL(string: entity.imageURL) ?? URL(string: "https://firebasestorage.googleapis.com/v0/b/poetree-e472e.appspot.com/o/white%2F2-2.jpg?alt=media&token=3945142a-4a01-431b-9a0c-51ff8ee10538")!
                 let photoId = entity.photoId
                 let date = convertStringToDate(dateFormat: "yyyy MMM d", dateString: entity.date)
                 return WeekPhoto(date: date, id: photoId, url: url)

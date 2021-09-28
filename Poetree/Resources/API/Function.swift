@@ -21,7 +21,7 @@ func convertDateToString(format: String, date: Date) -> String {
 func convertStringToDate(dateFormat: String, dateString: String) -> Date {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = dateFormat
-    let date = dateFormatter.date(from: dateString)!
+    let date = dateFormatter.date(from: dateString) ?? Date()
     return date
 }
 
