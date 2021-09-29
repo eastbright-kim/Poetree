@@ -39,6 +39,7 @@
 		DB34289126C1CEC1007C5A6A /* Poem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34289026C1CEC1007C5A6A /* Poem.swift */; };
 		DB3CCEAF26D0F45E005C3074 /* SideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3CCEAE26D0F45E005C3074 /* SideMenuNavigationController.swift */; };
 		DB3CCEB126D0F4C8005C3074 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3CCEB026D0F4C8005C3074 /* SideMenuViewController.swift */; };
+		DB3D85C027050EB600428846 /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3D85BF27050EB600428846 /* LicenseViewController.swift */; };
 		DB453BA026E902EF0034774A /* SemiDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB453B9F26E902EF0034774A /* SemiDetailViewModel.swift */; };
 		DB53ADAA26C3E53400FAA8B8 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53ADA926C3E53400FAA8B8 /* DummyData.swift */; };
 		DB54BD3926D4E63700711295 /* UserRegisterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB54BD3826D4E63700711295 /* UserRegisterRepository.swift */; };
@@ -120,6 +121,7 @@
 		DB34289026C1CEC1007C5A6A /* Poem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poem.swift; sourceTree = "<group>"; };
 		DB3CCEAE26D0F45E005C3074 /* SideMenuNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuNavigationController.swift; sourceTree = "<group>"; };
 		DB3CCEB026D0F4C8005C3074 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		DB3D85BF27050EB600428846 /* LicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseViewController.swift; sourceTree = "<group>"; };
 		DB453B9F26E902EF0034774A /* SemiDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiDetailViewModel.swift; sourceTree = "<group>"; };
 		DB53ADA926C3E53400FAA8B8 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		DB54BD3826D4E63700711295 /* UserRegisterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterRepository.swift; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				DB5C351526D10E0600275863 /* UserRegisterViewController.swift */,
+				DB3D85BF27050EB600428846 /* LicenseViewController.swift */,
 			);
 			path = RegisterPages;
 			sourceTree = "<group>";
@@ -687,6 +690,7 @@
 				DBB0B48726E8C84D008FA163 /* SemiDetailViewController.swift in Sources */,
 				DB02496A26DE770800FC948A /* ThreePoemsTableViewCell.swift in Sources */,
 				DB34288F26C1CDF9007C5A6A /* MyPoemViewController.swift in Sources */,
+				DB3D85C027050EB600428846 /* LicenseViewController.swift in Sources */,
 				DB666DBE26CA907600A588AC /* FirebaseReference.swift in Sources */,
 				DB0B4D6926F3913000E2F05F /* PhotoEntity.swift in Sources */,
 				DB048DD926C7ABC90058302C /* Result.swift in Sources */,
@@ -862,7 +866,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Poetree/Poetree.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 5YP67MDYBC;
 				INFOPLIST_FILE = Poetree/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -871,8 +876,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kimhwan.Poetree;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = dev_Poetree;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -883,7 +889,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Poetree/Poetree.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 5YP67MDYBC;
 				INFOPLIST_FILE = Poetree/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -892,8 +899,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kimhwan.Poetree;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = appstore_Poetree;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -55,8 +55,9 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
         configureUI()
         playVideo()
         setupBtn()
-        
+        addObservers()
     }
+   
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -75,11 +76,16 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
         self.view.hideToast()
     }
     
+    func addObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(showActivity), name: NSNotification.Name("login"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(showPenname), name: NSNotification.Name("Agreed"), object: nil)
+    }
     
     
     func configureUI(){
         
-        NotificationCenter.default.addObserver(self, selector: #selector(showActivity), name: NSNotification.Name("login"), object: nil)
+        
         pennameCompleteBtn.isEnabled = false
         penNameTextField.borderStyle = .none
         let border = CALayer()
@@ -98,6 +104,13 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
     @objc func showActivity() {
         self.view.makeToastActivity(.center)
         self.view.isUserInteractionEnabled = false
+    }
+    
+    @objc func showPenname() {
+        
+        self.videoLayer.bringSubviewToFront(self.penNameStackView)
+        self.penNameStackView.isHidden = false
+        self.videoLayer.sendSubviewToBack(self.optionStackView)
     }
     
     func setupBtn(){
