@@ -133,10 +133,10 @@
                                         </constraints>
                                     </imageView>
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dI7-Xg-0vO">
-                                        <rect key="frame" x="123" y="408" width="168" height="80"/>
+                                        <rect key="frame" x="157.66666666666666" y="408" width="98.999999999999972" height="80"/>
                                         <subviews>
                                             <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIg-IP-I0G">
-                                                <rect key="frame" x="0.0" y="0.0" width="168" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="99" height="30"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="15"/>
                                                 <state key="normal" title="기존 회원 로그인">
@@ -147,10 +147,10 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOX-7w-XT6">
-                                                <rect key="frame" x="0.0" y="50" width="168" height="30"/>
+                                                <rect key="frame" x="0.0" y="50" width="99" height="30"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="15"/>
-                                                <state key="normal" title="간편 회원 가입 / 필명 바꾸기">
+                                                <state key="normal" title="간편 회원 가입">
                                                     <color key="titleColor" red="0.99215692280000001" green="0.99215692280000001" blue="0.99215680360000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
@@ -283,6 +283,12 @@
                                     <constraint firstItem="ish-hw-GpN" firstAttribute="top" secondItem="6x7-QD-4Ay" secondAttribute="top" constant="160" id="n8c-Gg-LLN"/>
                                     <constraint firstItem="ish-hw-GpN" firstAttribute="leading" secondItem="6x7-QD-4Ay" secondAttribute="leading" constant="160" id="wbp-xi-NxM"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="dI7-Xg-0vO"/>
+                                        <exclude reference="5z9-vf-Xxz"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="I2D-nr-6fM"/>
@@ -319,7 +325,7 @@
         <!--License View Controller-->
         <scene sceneID="0gG-yz-HSH">
             <objects>
-                <viewController id="F5W-xX-Jhe" customClass="LicenseViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LicenseViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="F5W-xX-Jhe" customClass="LicenseViewController" customModule="Poetree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="16l-sa-LoU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

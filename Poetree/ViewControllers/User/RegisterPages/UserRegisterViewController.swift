@@ -205,9 +205,26 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
     
     
     @IBAction func registerBtnTapped(_ sender: UIButton) {
+        
+        
+        let eulaVC = UIStoryboard(name: "UserRelated", bundle: nil).instantiateViewController(withIdentifier: "LicenseViewController")
+        
+        self.present(eulaVC, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func changePennameTapped(_ sender: UIButton) {
+        
+//        self.videoLayer.bringSubviewToFront(self.registerStackView)
+//        self.registerStackView.isHidden = false
+//        self.editPennameStackView.isHidden = true
+//        self.videoLayer.sendSubviewToBack(self.optionStackView)
+        
         self.videoLayer.bringSubviewToFront(self.penNameStackView)
-        self.penNameStackView.isHidden = false
-        self.videoLayer.sendSubviewToBack(self.optionStackView)
+        self.registerStackView.isHidden = false
+        self.optionStackView.isHidden = true
+        
+        
     }
     
     
@@ -279,8 +296,8 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
              DispatchQueue.main.async{
                  self.view.hideToastActivity()
                  self.videoLayer.sendSubviewToBack(self.registerStackView)
-                 self.videoLayer.bringSubviewToFront(self.penNameStackView)
-                 self.penNameStackView.isHidden = false
+                 self.videoLayer.bringSubviewToFront(self.optionStackView)
+                 self.optionStackView.isHidden = false
                  self.view.isUserInteractionEnabled = true
              }
          }
