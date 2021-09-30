@@ -117,7 +117,11 @@ class PoemRepository {
             "poemId" : poem.id,
             "reporter" : currentUser?.uid ?? "unknown"
         ]
+        
+        let reportedUsers: [String:Bool] = [currentUser?.uid ?? "unknown":true]
+        
         reportedPoemRef.child(poem.userUID).child(currentUser?.uid ?? "unknown").setValue(reportedPoemDict)
+        poemRef.child(poem.userUID).child(poem.id).setValue(reportedUsers)
         completion()
     }
     

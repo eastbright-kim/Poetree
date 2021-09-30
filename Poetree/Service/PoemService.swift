@@ -123,8 +123,13 @@ class PoemService: UserLogInListener {
                 let photoURL = URL(string: poemEntity.photoURL)!
                 let userUID = poemEntity.userUID
                 let isTemp = poemEntity.isTemp
+                let reportedUsers = poemEntity.reportedUsers
                 
-                return Poem(id: id, userEmail: userEmail, userNickname: userNickname, title: title, content: content, photoId: photoId, uploadAt: uploadAt, isPrivate: isPrivate, likers: likers, photoURL: photoURL, userUID: userUID, isTemp: isTemp)
+                if let currentUser = Auth.auth().currentUser{
+                    return Poem(id: id, userEmail: userEmail, userNickname: userNickname, title: title, content: content, photoId: photoId, uploadAt: uploadAt, isPrivate: isPrivate, likers: likers, photoURL: photoURL, userUID: userUID, isTemp: isTemp, isBlocked: reportedUsers[currentUser.uid] ?? false)
+                } else {
+                    return Poem(id: id, userEmail: userEmail, userNickname: userNickname, title: title, content: content, photoId: photoId, uploadAt: uploadAt, isPrivate: isPrivate, likers: likers, photoURL: photoURL, userUID: userUID, isTemp: isTemp, isBlocked: false)
+                }
             }
             self.poems = poemModels
             self.poemsStore.onNext(poemModels)
@@ -309,6 +314,10 @@ class PoemService: UserLogInListener {
     func filterPoemsForPublic(_ poems: [Poem]) -> [Poem] {
         let filteredPoems = poems.filter{$0.isPrivate == false}.filter{$0.isTemp == false}
         return filteredPoems
+    }
+    
+    func reportPoem(){
+        
     }
     
 }

@@ -38,6 +38,7 @@ class LicenseViewController: UIViewController {
     }
     
     @objc func processDisagree() {
+        NotificationCenter.default.post(name: NSNotification.Name("DisAgreed"), object: nil)
         self.dismiss(animated: true, completion: nil)
     }
 

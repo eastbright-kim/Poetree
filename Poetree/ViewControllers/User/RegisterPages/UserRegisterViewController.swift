@@ -84,6 +84,9 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
         NotificationCenter.default.addObserver(self, selector: #selector(showActivity), name: NSNotification.Name("login"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(showPenname), name: NSNotification.Name("Agreed"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keepPlayingVideo), name: NSNotification.Name("DisAgreed"), object: nil)
+        
     }
     
     
@@ -122,6 +125,11 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
         self.videoLayer.bringSubviewToFront(self.penNameStackView)
         self.penNameStackView.isHidden = false
         self.videoLayer.sendSubviewToBack(self.optionStackView)
+        self.avQueuePlayer.play()
+    }
+    
+    @objc func keepPlayingVideo(){
+        self.avQueuePlayer.play()
     }
     
     func setupBtn(){

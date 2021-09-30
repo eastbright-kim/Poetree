@@ -28,6 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let photoServie = PhotoService(photoRepository: photoRepository)
         let userService = UserService(userRegisterRepository: userRegisterRepository)
         
+        
         poemRepository.fetchPoems { poemEntities in
             
             let poemModels = poemEntities.map { poemEntity -> Poem in
@@ -43,8 +44,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 let photoURL = URL(string: poemEntity.photoURL) ?? URL(string: "https://firebasestorage.googleapis.com/v0/b/poetree-e472e.appspot.com/o/white%2F2-2.jpg?alt=media&token=3945142a-4a01-431b-9a0c-51ff8ee10538")!
                 let userUID = poemEntity.userUID
                 let isTemp = poemEntity.isTemp
+                var isBlocked = false
+                if let currentUser = Auth.auth().currentUser, poemEntity.reportedUsers[currentUser.uid] ?? false {
+                    isBlocked = true
+                }
                 
-                let poem = Poem(id: id, userEmail: userEmail, userNickname: userNickname, title: title, content: content, photoId: photoId, uploadAt: uploadAt, isPrivate: isPrivate, likers: likers, photoURL: photoURL, userUID: userUID, isTemp: isTemp)
+                let poem = Poem(id: id, userEmail: userEmail, userNickname: userNickname, title: title, content: content, photoId: photoId, uploadAt: uploadAt, isPrivate: isPrivate, likers: likers, photoURL: photoURL, userUID: userUID, isTemp: isTemp, isBlocked: isBlocked)
                 
                 return poem
             }
