@@ -183,7 +183,7 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
                 guard self.viewModel.output.isTempDetail == false else { self.view.makeToast("임시로 저장된 글은 신고할 수 없습니다", duration: 1.0, position: .center)
                     return}
                 
-                let alert = UIAlertController(title: "글 신고하기", message: "비속어 등 악의적인 표현이 있는 글을 신고해 주시기 바랍니다.\n참여해주셔서 감사합니다.", preferredStyle: .actionSheet)
+                let alert = UIAlertController(title: "글 신고하기", message: "비속어 등 악의적인 표현이 있는 글을 신고해 주시기 바랍니다.\n해당 글은 검토 후, 문제가 있을 시 하루 이내에 삭제됩니다.\n 참여해주셔서 감사합니다.", preferredStyle: .actionSheet)
                 let reportAction = UIAlertAction(title: "신고하기", style: .destructive) { _ in
                     let currentUser = Auth.auth().currentUser
                     self.viewModel.poemService.poemRepository.reportPoem(poem: poem, currentUser: currentUser) {

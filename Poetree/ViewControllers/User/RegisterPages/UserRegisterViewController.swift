@@ -36,12 +36,16 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
     
     
     // ------------------------------ regiserView
-    @IBOutlet weak var registerStackView: UIStackView!
+    @IBOutlet weak var registerStackView: UIView!
     @IBOutlet weak var googleLogInBtn: UIButton!
     @IBOutlet weak var appleLogInBtn: UIButton!
     @IBOutlet weak var facebookLogInBtn: UIButton!
     @IBOutlet weak var selectLoginLabel: UILabel!
     @IBOutlet weak var editPennameStackView: UIStackView!
+    @IBOutlet weak var appleLogo: UIImageView!
+    @IBOutlet weak var resetLeftBtn: UIButton!
+    @IBOutlet weak var resetRightBtn: UIButton!
+    
     
     // ------------------------------ chooseOptionView
     @IBOutlet weak var optionStackView: UIStackView!
@@ -85,7 +89,7 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
     
     func configureUI(){
         
-        
+        signInBtnConfigure()
         pennameCompleteBtn.isEnabled = false
         penNameTextField.borderStyle = .none
         let border = CALayer()
@@ -93,12 +97,19 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
         border.backgroundColor = UIColor.lightGray.cgColor
         penNameTextField.layer.addSublayer(border)
         
-        loginBtn.contentEdgeInsets = UIEdgeInsets(top: 8, left: 15, bottom: 8, right: 15)
+        loginBtn.contentEdgeInsets = UIEdgeInsets(top: 8, left: 50, bottom: 8, right: 50)
         loginBtn.layer.cornerRadius = 8
         
-        registerBtn.contentEdgeInsets = UIEdgeInsets(top: 8, left: 15, bottom: 8, right: 15)
+        registerBtn.contentEdgeInsets = UIEdgeInsets(top: 8, left: 50, bottom: 8, right: 50)
         registerBtn.layer.cornerRadius = 8
         
+    }
+    
+    
+    
+    func signInBtnConfigure(){
+        appleLogo.layer.cornerRadius = appleLogo.frame.size.height / 2
+        appleLogo.backgroundColor = UIColor.black
     }
     
     @objc func showActivity() {
@@ -198,7 +209,10 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
         } else {
             self.videoLayer.bringSubviewToFront(self.registerStackView)
             self.registerStackView.isHidden = false
-            self.editPennameStackView.isHidden = true
+            
+            self.resetLeftBtn.setImage(UIImage(systemName: "arrow.clockwise.circle"), for: .normal)
+            
+            self.resetRightBtn.setTitle("필명 바꾸기", for: .normal)
             self.videoLayer.sendSubviewToBack(self.optionStackView)
         }
     }
@@ -213,21 +227,6 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
         
     }
     
-    @IBAction func changePennameTapped(_ sender: UIButton) {
-        
-//        self.videoLayer.bringSubviewToFront(self.registerStackView)
-//        self.registerStackView.isHidden = false
-//        self.editPennameStackView.isHidden = true
-//        self.videoLayer.sendSubviewToBack(self.optionStackView)
-        
-        self.videoLayer.bringSubviewToFront(self.penNameStackView)
-        self.registerStackView.isHidden = false
-        self.optionStackView.isHidden = true
-        
-        
-    }
-    
-    
     @IBAction func pennameCompleteBtnTapped(_ sender: Any) {
         self.penname = penNameTextField.text
         self.videoLayer.sendSubviewToBack(self.penNameStackView)
@@ -240,6 +239,7 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
     @IBAction func backBtnTapped(_ sender: UIButton) {
         self.videoLayer.sendSubviewToBack(registerStackView)
         self.videoLayer.bringSubviewToFront(penNameStackView)
+        self.penNameStackView.isHidden = false
     }
     
     
