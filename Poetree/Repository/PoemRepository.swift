@@ -127,32 +127,38 @@ class PoemRepository {
             "reporter" : currentUser?.uid ?? "unknown"
         ]
         
-        let poemDic: [String:Any] = [
-            "id" : poem.id as Any,
-            "userEmail": poem.userEmail,
-            "userPenname": poem.userPenname,
-            "title": poem.title,
-            "content": poem.content,
-            "photoId": poem.photoId,
-            "uploadAt": convertDateToString(format: "yyyy MMM d", date: poem.uploadAt),
-            "isPrivate": poem.isPrivate,
-            "likers": [:],
-            "photoURL": poem.photoURL.absoluteString,
-            "userUID": poem.userUID,
-            "isTemp": poem.isTemp,
-            "reportedUsers": [currentUser?.uid:true]
-        ]
         
+        
+        guard let currentUser = currentUser else {
+            return
+        }
         reportedPoemRef.child(poem.userUID).child(poem.id).setValue(reportedPoemDict)
-        poemRef.child(poem.userUID).child(poem.id).updateChildValues(poemDic)
+        
+        poemRef.child(poem.userUID).child(poem.id).runTransactionBlock { currentData in
+            if var updatedPoem = currentData.value as? [String:Any] {
+                var reportedUser = updatedPoem["reportedUsers"] as? [String:Bool] ?? [:]
+                reportedUser[currentUser.uid] = true
+                updatedPoem["reportedUsers"] = reportedUser
+                currentData.value = updatedPoem
+                return TransactionResult.success(withValue: currentData)
+            }
+            completion()
+            return TransactionResult.success(withValue: currentData)
+        }
+        
+        
+        
+
         
     }
     
     func blockWriter(poem: Poem, currentUser: User?, completion: @escaping (() -> Void)){
         
-        if let currentUser = currentUser {
-            blockingRef.child(currentUser.uid).child(poem.userUID).setValue(UUID().uuidString)
+        guard let currentUser = currentUser else {
+            return
         }
+        
+        blockingRef.child(currentUser.uid).child(poem.userUID).setValue(UUID().uuidString)
         
         
         poemRef.child(poem.userUID).observeSingleEvent(of: .value) { snapshot in
@@ -160,10 +166,22 @@ class PoemRepository {
             let allPoems = snapshot.value as? [String:Any] ?? [:]
             
             for poem in allPoems {
-                var poemDic = poem.value as! [String:Any]
-                poemDic["reportedUsers"] = [currentUser?.uid ?? "unknown": true]
-                poemRef.child(poemDic["userUID"] as! String).child(poemDic["id"] as! String)
-                    .updateChildValues(poemDic)
+
+                let poemDic = poem.value as! [String:Any]
+//                poemDic["reportedUsers"] = [currentUser.uid : true]
+//                poemRef.child(poemDic["userUID"] as! String).child(poemDic["id"] as! String)
+//                    .updateChildValues(poemDic)
+                poemRef.child(poemDic["userUID"]! as! String).child(poemDic["id"]! as! String).runTransactionBlock { currentData in
+                    if var updatedPoem = currentData.value as? [String:Any] {
+                        var reportedUser = updatedPoem["reportedUsers"] as? [String:Bool] ?? [:]
+                        reportedUser[currentUser.uid] = true
+                        updatedPoem["reportedUsers"] = reportedUser
+                        currentData.value = updatedPoem
+                        return TransactionResult.success(withValue: currentData)
+                    }
+                    return TransactionResult.success(withValue: currentData)
+                }
+                
             }
             completion()
         }
