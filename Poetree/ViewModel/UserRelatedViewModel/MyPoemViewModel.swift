@@ -33,7 +33,7 @@ class MyPoemViewModel: ViewModelType {
         self.userService = userService
         
         let user = userService.loggedInUser()
-        let poem = poemService.allPoems()
+        let poem = poemService.allPoems().map(poemService.filterBlockedPoem)
         
         let currentUser = user.asDriver(onErrorJustReturn: CurrentAuth(userEmail: "unknowned", userPenname: "unknowned", userUID: "unknowned"))
         

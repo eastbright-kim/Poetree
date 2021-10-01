@@ -108,10 +108,8 @@ class UserRegisterRepository{
             
             var list = [String]()
             
-            for value in blockedUsers.values {
-                if let value = value as? String {
-                    list.append(value)
-                }
+            for value in blockedUsers.keys {
+                list.append(value)
             }
             completion(list)
         }

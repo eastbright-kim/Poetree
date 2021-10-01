@@ -38,6 +38,7 @@ class HistoryViewModel: ViewModelType {
         
         let allPoems = poemSevice.allPoems()
             .map(poemSevice.filterPoemsForPublic)
+            .map(poemSevice.filterBlockedPoem)
         
         let displayingPhoto = allPhotos.map(photoService.photoReveredOrder)
         
@@ -64,7 +65,7 @@ class HistoryViewModel: ViewModelType {
             let dpPoems = poemSevice.fetchPoemsByPhotoId_SortedLikesCount(poems: poems, photoId: weekphoto.id)
                 .prefix(3)
             return Array(dpPoems)
-        }.map(poemSevice.filterBlockedPoem)
+        }
         
         self.input = Input(indexSelected: indexSelected)
         self.output = Output(printedIndex: printedIndex, displayingPhoto: displayingPhoto, lastWeekPhotos: lastWeekPhotos, displyingPoemsByPhoto: displyingPoemsByPhoto)

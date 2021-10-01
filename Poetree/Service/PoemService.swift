@@ -320,7 +320,7 @@ class PoemService: UserLogInListener {
         
         let filteredPoems = poems.filter { poem in
             return self.blockedUserList.contains(poem.userUID) == false
-        }
+        }.filter{$0.isBlocked == false}
         
         return filteredPoems
     }
