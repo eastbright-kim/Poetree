@@ -122,16 +122,17 @@ class PoemRepository {
     
     func reportPoem(poem: Poem, currentUser: User?, completion: @escaping (() -> Void)) {
         
-        let reportedPoemDict: [String:String] = [
-            "poemId" : poem.id,
-            "reporter" : currentUser?.uid ?? "unknown"
-        ]
-        
-        
-        
         guard let currentUser = currentUser else {
             return
         }
+        
+        let reportedPoemDict: [String:String] = [
+            "poemId" : poem.id,
+            "reporter" : currentUser.uid,
+            "title" : poem.title,
+            "content": poem.content
+        ]
+        
         reportedPoemRef.child(poem.userUID).child(poem.id).setValue(reportedPoemDict)
         
         poemRef.child(poem.userUID).child(poem.id).runTransactionBlock { currentData in
@@ -145,11 +146,6 @@ class PoemRepository {
             completion()
             return TransactionResult.success(withValue: currentData)
         }
-        
-        
-        
-
-        
     }
     
     func blockWriter(poem: Poem, currentUser: User?, completion: @escaping (() -> Void)){
@@ -158,7 +154,14 @@ class PoemRepository {
             return
         }
         
-        blockingRef.child(currentUser.uid).child(poem.userUID).setValue(UUID().uuidString)
+        let reportedPoemDict: [String:String] = [
+            "poemId" : poem.id,
+            "reporter" : currentUser.uid,
+            "title" : poem.title,
+            "content": poem.content
+        ]
+        
+        reportedPoemRef.child(poem.userUID).child(poem.id).setValue(reportedPoemDict)
         
         
         poemRef.child(poem.userUID).observeSingleEvent(of: .value) { snapshot in
@@ -168,9 +171,7 @@ class PoemRepository {
             for poem in allPoems {
 
                 let poemDic = poem.value as! [String:Any]
-//                poemDic["reportedUsers"] = [currentUser.uid : true]
-//                poemRef.child(poemDic["userUID"] as! String).child(poemDic["id"] as! String)
-//                    .updateChildValues(poemDic)
+
                 poemRef.child(poemDic["userUID"]! as! String).child(poemDic["id"]! as! String).runTransactionBlock { currentData in
                     if var updatedPoem = currentData.value as? [String:Any] {
                         var reportedUser = updatedPoem["reportedUsers"] as? [String:Bool] ?? [:]
