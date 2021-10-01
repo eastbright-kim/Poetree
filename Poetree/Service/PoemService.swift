@@ -120,7 +120,7 @@ class PoemService: UserLogInListener {
                 let uploadAt = convertStringToDate(dateFormat: "yyyy MMM d", dateString: poemEntity.uploadAt)
                 let isPrivate = poemEntity.isPrivate
                 let likers = poemEntity.likers
-                let photoURL = URL(string: poemEntity.photoURL)!
+                let photoURL = URL(string: poemEntity.photoURL) ?? URL(string: "https://firebasestorage.googleapis.com/v0/b/poetree-e472e.appspot.com/o/white%2F2-2.jpg?alt=media&token=3945142a-4a01-431b-9a0c-51ff8ee10538")!
                 let userUID = poemEntity.userUID
                 let isTemp = poemEntity.isTemp
                 let reportedUsers = poemEntity.reportedUsers
@@ -316,8 +316,34 @@ class PoemService: UserLogInListener {
         return filteredPoems
     }
     
-    func reportPoem(){
+    func filterBlockedPoem(_ poems: [Poem]) -> [Poem]{
+        let filteredPoems = poems.filter{$0.isBlocked == false}
+        return filteredPoems
+    }
+    
+    func reportPoem(poem: Poem, currentUser: User?, completion: @escaping (() -> Void)){
         
+//        guard let index = self.poems.firstIndex(of: poem) else {return}
+        let filteredPoem = self.poems.filter{$0.id != poem.id}
+//        self.poems[index].isBlocked = true
+        self.poemsStore.onNext(filteredPoem)
+        
+        guard currentUser != nil else { completion()
+            return}
+        
+        self.poemRepository.reportPoem(poem: poem, currentUser: currentUser) {
+            completion()
+        }
+    }
+    
+    func blockWriter(poem: Poem, currentUser: User, completion: @escaping (()-> Void)) {
+        
+        let filteredPoem = self.poems.filter{$0.userUID != poem.userUID}
+        self.poemsStore.onNext(filteredPoem)
+        
+        self.poemRepository.blockWriter(poem: poem, currentUser: currentUser) {
+            completion()
+        }
     }
     
 }

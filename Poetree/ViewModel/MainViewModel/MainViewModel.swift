@@ -61,7 +61,7 @@ class MainViewModel: ViewModelType {
                 .prefix(3)
             
             return Array(displayingPoem)
-        }
+        }.map(poemService.filterBlockedPoem)
         
         self.input = Input(selectedIndex: selectedIndex)
         self.output = Output(currentDate: currentDate, thisWeekPhotoURL: thisWeekPhotoURL, displayingPoems: displayingPoems, selectedPhotoId: selectedPhotoId)

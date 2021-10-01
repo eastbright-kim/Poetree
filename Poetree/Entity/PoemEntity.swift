@@ -36,7 +36,7 @@ struct PoemEntity {
         self.likers = poemDic["likers"] as? [String:Bool] ?? [:]
         self.userUID = poemDic["userUID"] as? String ?? ""
         self.isTemp = poemDic["isTemp"] as? Bool ?? false
-        self.reportedUsers = poemDic["reportedUser"] as? [String:Bool] ?? [:]
+        self.reportedUsers = poemDic["reportedUsers"] as? [String:Bool] ?? [:]
     }
 }
 

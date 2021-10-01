@@ -47,11 +47,11 @@ class WriteViewModel: ViewModelType {
         let aPoem = Observable<Poem>.combineLatest(title, content, isPrivate, currentUser) { title, content, isPrivate, currentAuth in
             switch writingType {
             case .write(let weekPhoto):
-                return Poem(id: UUID().uuidString, userEmail: currentAuth.userEmail, userNickname: currentAuth.userPenname, title: title, content: content, photoId: weekPhoto.id, uploadAt: Date(), isPrivate: isPrivate, likers: [:], photoURL: weekPhoto.url, userUID: currentAuth.userUID, isTemp: false)
+                return Poem(id: UUID().uuidString, userEmail: currentAuth.userEmail, userNickname: currentAuth.userPenname, title: title, content: content, photoId: weekPhoto.id, uploadAt: Date(), isPrivate: isPrivate, likers: [:], photoURL: weekPhoto.url, userUID: currentAuth.userUID, isTemp: false, isBlocked: false)
             case .edit(let editingPoem):
-                return Poem(id: editingPoem.id, userEmail: currentAuth.userEmail, userNickname: currentAuth.userPenname, title: title, content: content, photoId: editingPoem.photoId, uploadAt: editingPoem.uploadAt, isPrivate: isPrivate, likers: editingPoem.likers, photoURL: editingPoem.photoURL, userUID: currentAuth.userUID, isTemp: editingPoem.isTemp)
+                return Poem(id: editingPoem.id, userEmail: currentAuth.userEmail, userNickname: currentAuth.userPenname, title: title, content: content, photoId: editingPoem.photoId, uploadAt: editingPoem.uploadAt, isPrivate: isPrivate, likers: editingPoem.likers, photoURL: editingPoem.photoURL, userUID: currentAuth.userUID, isTemp: editingPoem.isTemp, isBlocked: false)
             case .temp(let writingPoem):
-                return Poem(id: writingPoem.id, userEmail: currentAuth.userEmail, userNickname: currentAuth.userPenname, title: title, content: content, photoId: writingPoem.photoId, uploadAt: Date(), isPrivate: isPrivate, likers: [:], photoURL: writingPoem.photoURL, userUID: currentAuth.userUID, isTemp: writingPoem.isTemp)
+                return Poem(id: writingPoem.id, userEmail: currentAuth.userEmail, userNickname: currentAuth.userPenname, title: title, content: content, photoId: writingPoem.photoId, uploadAt: Date(), isPrivate: isPrivate, likers: [:], photoURL: writingPoem.photoURL, userUID: currentAuth.userUID, isTemp: writingPoem.isTemp, isBlocked: false)
             }
         }
         

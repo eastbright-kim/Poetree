@@ -19,8 +19,8 @@ class PoemRepository {
         
         let poemDic: [String:Any] = [
             "id" : poemModel.id as Any,
-            "userEmail": currentUser!.email ?? currentUser?.uid as Any,
-            "userPenname": currentUser!.displayName as Any,
+            "userEmail": currentUser?.email ?? currentUser?.uid as Any,
+            "userPenname": currentUser?.displayName ?? "" as Any,
             "title": poemModel.title,
             "content": poemModel.content,
             "photoId": poemModel.photoId,
@@ -111,6 +111,15 @@ class PoemRepository {
         completion(.success(.writedPoem))
     }
     
+    
+    func updatePenname(poems: [Poem], currentAuth: CurrentAuth){
+        
+        for poem in poems {
+            poemRef.child(poem.userUID).child(poem.id).updateChildValues(["userPenname":currentAuth.userPenname])
+        }
+    }
+    
+    
     func reportPoem(poem: Poem, currentUser: User?, completion: @escaping (() -> Void)) {
         
         let reportedPoemDict: [String:String] = [
@@ -118,17 +127,40 @@ class PoemRepository {
             "reporter" : currentUser?.uid ?? "unknown"
         ]
         
-        let reportedUsers: [String:Bool] = [currentUser?.uid ?? "unknown":true]
+        let poemDic: [String:Any] = [
+            "id" : poem.id as Any,
+            "userEmail": currentUser?.email ?? currentUser?.uid as Any,
+            "userPenname": currentUser?.displayName ?? "" as Any,
+            "title": poem.title,
+            "content": poem.content,
+            "photoId": poem.photoId,
+            "uploadAt": convertDateToString(format: "yyyy MMM d", date: poem.uploadAt),
+            "isPrivate": poem.isPrivate,
+            "likers": [:],
+            "photoURL": poem.photoURL.absoluteString,
+            "userUID": poem.userUID,
+            "isTemp": poem.isTemp,
+            "reportedUsers": [currentUser?.uid:true]
+        ]
         
-        reportedPoemRef.child(poem.userUID).child(currentUser?.uid ?? "unknown").setValue(reportedPoemDict)
-        poemRef.child(poem.userUID).child(poem.id).setValue(reportedUsers)
-        completion()
+        reportedPoemRef.child(poem.userUID).child(poem.id).setValue(reportedPoemDict)
+        poemRef.child(poem.userUID).child(poem.id).updateChildValues(poemDic)
+        
     }
     
-    func updatePenname(poems: [Poem], currentAuth: CurrentAuth){
+    func blockWriter(poem: Poem, currentUser: User?, completion: @escaping (() -> Void)){
         
-        for poem in poems {
-            poemRef.child(poem.userUID).child(poem.id).updateChildValues(["userPenname":currentAuth.userPenname])
+        poemRef.child(poem.userUID).observeSingleEvent(of: .value) { snapshot in
+            
+            let allPoems = snapshot.value as? [String:Any] ?? [:]
+            
+            for poem in allPoems {
+                var poemDic = poem.value as! [String:Any]
+                poemDic["reportedUsers"] = [currentUser?.uid ?? "unknown": true]
+                poemRef.child(poemDic["userUID"] as! String).child(poemDic["id"] as! String)
+                    .updateChildValues(poemDic)
+            }
+            completion()
         }
     }
 }
