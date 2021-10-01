@@ -28,6 +28,7 @@
 		DB21A28726C18F4D0048FB17 /* MainPoemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21A28626C18F4D0048FB17 /* MainPoemTableViewCell.swift */; };
 		DB23A1EF26E9CCE200A64CA9 /* ListWithHeadPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB23A1EE26E9CCE200A64CA9 /* ListWithHeadPhotoViewController.swift */; };
 		DB23A1F126E9CD1D00A64CA9 /* headPhotoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB23A1F026E9CD1D00A64CA9 /* headPhotoListTableViewCell.swift */; };
+		DB29FD1B2706B0C600F09D08 /* BlockedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB29FD1A2706B0C600F09D08 /* BlockedUser.swift */; };
 		DB2B4DF526DFEE3100A3F597 /* UserWritingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B4DF426DFEE3100A3F597 /* UserWritingTableViewCell.swift */; };
 		DB2B4DF726DFEEAB00A3F597 /* UserLikedWritingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B4DF626DFEEAB00A3F597 /* UserLikedWritingTableViewCell.swift */; };
 		DB2CFD6926C2884D00130078 /* WritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2CFD6826C2884D00130078 /* WritingViewController.swift */; };
@@ -110,6 +111,7 @@
 		DB21A28626C18F4D0048FB17 /* MainPoemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPoemTableViewCell.swift; sourceTree = "<group>"; };
 		DB23A1EE26E9CCE200A64CA9 /* ListWithHeadPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWithHeadPhotoViewController.swift; sourceTree = "<group>"; };
 		DB23A1F026E9CD1D00A64CA9 /* headPhotoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = headPhotoListTableViewCell.swift; sourceTree = "<group>"; };
+		DB29FD1A2706B0C600F09D08 /* BlockedUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedUser.swift; sourceTree = "<group>"; };
 		DB2B4DF426DFEE3100A3F597 /* UserWritingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWritingTableViewCell.swift; sourceTree = "<group>"; };
 		DB2B4DF626DFEEAB00A3F597 /* UserLikedWritingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLikedWritingTableViewCell.swift; sourceTree = "<group>"; };
 		DB2CFD6826C2884D00130078 /* WritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewController.swift; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 				DB34289026C1CEC1007C5A6A /* Poem.swift */,
 				DBD5CFC726DFA37500BDEBDA /* CurrentAuth.swift */,
 				DB76DC4526F9E86F00BDE4E3 /* Notice.swift */,
+				DB29FD1A2706B0C600F09D08 /* BlockedUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -714,6 +717,7 @@
 				DB2B4DF726DFEEAB00A3F597 /* UserLikedWritingTableViewCell.swift in Sources */,
 				DB34288D26C1CDE3007C5A6A /* HistoryViewController.swift in Sources */,
 				DBCE060326C2A8CA0008EBF8 /* PoemDetailViewController.swift in Sources */,
+				DB29FD1B2706B0C600F09D08 /* BlockedUser.swift in Sources */,
 				DB3CCEAF26D0F45E005C3074 /* SideMenuNavigationController.swift in Sources */,
 				DB21A28726C18F4D0048FB17 /* MainPoemTableViewCell.swift in Sources */,
 				DBDC5A0426D793D40066B45A /* PhotoViewController.swift in Sources */,

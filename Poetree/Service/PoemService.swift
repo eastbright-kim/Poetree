@@ -12,6 +12,7 @@ import Firebase
 class PoemService: UserLogInListener {
     
     var poems = [Poem]()
+    var blockedUserList = [String]()
     lazy var poemsStore = BehaviorSubject<[Poem]>(value: poems)
     
     let poemRepository: PoemRepository
@@ -316,7 +317,11 @@ class PoemService: UserLogInListener {
     }
     
     func filterBlockedPoem(_ poems: [Poem]) -> [Poem]{
-        let filteredPoems = poems.filter{$0.isBlocked == false}
+        
+        let filteredPoems = poems.filter { poem in
+            return self.blockedUserList.contains(poem.userUID) == false
+        }
+        
         return filteredPoems
     }
     
@@ -335,6 +340,7 @@ class PoemService: UserLogInListener {
     
     func blockWriter(poem: Poem, currentUser: User, completion: @escaping (()-> Void)) {
         
+        self.blockedUserList.append(poem.userUID)
         let filteredPoem = self.poems.filter{$0.userUID != poem.userUID}
         self.poemsStore.onNext(filteredPoem)
         

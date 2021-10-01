@@ -98,4 +98,22 @@ class UserRegisterRepository{
             completion(noticeEntity)
         }
     }
+    
+    func fecthBlockedUser(completion: @escaping ([String]) -> Void){
+        
+        guard let currentUser = Auth.auth().currentUser else {return}
+        
+        blockingRef.child(currentUser.uid).observeSingleEvent(of: .value) { snapshot in
+            let blockedUsers = snapshot.value as? [String:Any] ?? [:]
+            
+            var list = [String]()
+            
+            for value in blockedUsers.values {
+                if let value = value as? String {
+                    list.append(value)
+                }
+            }
+            completion(list)
+        }
+    }
 }

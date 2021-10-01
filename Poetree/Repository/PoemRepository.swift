@@ -150,7 +150,10 @@ class PoemRepository {
     
     func blockWriter(poem: Poem, currentUser: User?, completion: @escaping (() -> Void)){
         
-        
+        if let currentUser = currentUser {
+            let blockedUserDict = ["blockedUser": poem.userUID]
+            blockingRef.child(currentUser.uid).setValue(blockedUserDict)
+        }
         
         
         poemRef.child(poem.userUID).observeSingleEvent(of: .value) { snapshot in
