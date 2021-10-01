@@ -150,6 +150,9 @@ class PoemRepository {
     
     func blockWriter(poem: Poem, currentUser: User?, completion: @escaping (() -> Void)){
         
+        
+        
+        
         poemRef.child(poem.userUID).observeSingleEvent(of: .value) { snapshot in
             
             let allPoems = snapshot.value as? [String:Any] ?? [:]

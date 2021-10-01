@@ -29,13 +29,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="tE5-BN-880">
-                                                    <rect key="frame" x="25" y="10" width="90" height="90"/>
+                                                    <rect key="frame" x="22" y="10" width="90" height="90"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="tE5-BN-880" secondAttribute="height" multiplier="1:1" id="WY3-X3-7Ld"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by. User123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIa-vL-fn7">
-                                                    <rect key="frame" x="140" y="79" width="62" height="16"/>
+                                                    <rect key="frame" x="137" y="79" width="62" height="16"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -59,13 +59,13 @@
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="꽃게가 간장 속에서 울컥울컥" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWX-5I-Sf8">
-                                                    <rect key="frame" x="140" y="51" width="164" height="18"/>
+                                                    <rect key="frame" x="137" y="51" width="167" height="18"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스며드는 것" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="IQy-o4-032">
-                                                    <rect key="frame" x="140" y="19" width="244" height="22"/>
+                                                    <rect key="frame" x="137" y="19" width="247" height="22"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -83,7 +83,7 @@
                                                 <constraint firstItem="IQy-o4-032" firstAttribute="trailing" secondItem="7c3-LA-MNY" secondAttribute="trailing" id="bxm-Id-e1N"/>
                                                 <constraint firstItem="7c3-LA-MNY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iIa-vL-fn7" secondAttribute="trailing" constant="5" id="eBX-fB-oBU"/>
                                                 <constraint firstItem="iIa-vL-fn7" firstAttribute="leading" secondItem="IQy-o4-032" secondAttribute="leading" id="f86-kM-f6T"/>
-                                                <constraint firstItem="tE5-BN-880" firstAttribute="leading" secondItem="R04-UY-Gl3" secondAttribute="leading" constant="25" id="gTp-ez-VJD"/>
+                                                <constraint firstItem="tE5-BN-880" firstAttribute="leading" secondItem="R04-UY-Gl3" secondAttribute="leading" constant="22" id="gTp-ez-VJD"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="CWX-5I-Sf8" secondAttribute="trailing" constant="90" id="nLN-MN-oDx"/>
                                                 <constraint firstItem="CWX-5I-Sf8" firstAttribute="leading" secondItem="IQy-o4-032" secondAttribute="leading" id="q9s-am-eFh"/>
                                             </constraints>

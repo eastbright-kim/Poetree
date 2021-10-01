@@ -14,7 +14,6 @@ class PoemService: UserLogInListener {
     var poems = [Poem]()
     lazy var poemsStore = BehaviorSubject<[Poem]>(value: poems)
     
-    
     let poemRepository: PoemRepository
     
     init(poemRepository: PoemRepository) {
@@ -322,10 +321,8 @@ class PoemService: UserLogInListener {
     }
     
     func reportPoem(poem: Poem, currentUser: User?, completion: @escaping (() -> Void)){
-        
-//        guard let index = self.poems.firstIndex(of: poem) else {return}
+      
         let filteredPoem = self.poems.filter{$0.id != poem.id}
-//        self.poems[index].isBlocked = true
         self.poemsStore.onNext(filteredPoem)
         
         guard currentUser != nil else { completion()

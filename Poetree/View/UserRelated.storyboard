@@ -352,9 +352,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPG-N6-Rr0">
-                                <rect key="frame" x="20" y="104.66666666666669" width="374" height="685.33333333333326"/>
+                                <rect key="frame" x="20" y="104.66666666666669" width="374" height="705.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <mutableString key="text">이 최종 사용자 라이센스 계약서("EULA")는 사용자와 ‘Poetree’ 사이의 법적 계약입니다. 사용자는 본 계약을 자세히 읽은 후 소프트웨어를 설치해야 합니다. 본 소프트웨어를 설치할 경우 본 EULA의 조항에 구 속됨을 동의하는 것입니다. 본 EULA의 조항에 동의하지 않을 경우, 구입처의 관련 반환 정책의 약관에 따라 환불을 위해 제품을 반환할 수 있습니다. 사용자가 미국에 거주하고 있고(또는 주요 사업장이 미국 소재일 경우), 개인적 또는 가정용으로만 소프트웨어를 사용할 경우 소비자 중재 규칙 하에 중재가 시행되므로 아래의 17절을 읽어 주십시오. 아래 4절에서 기술한 것처럼 사용자는 자동 소프트웨어 업데이트에 동의하는 것입니다. 동의하지 않으면 소프트웨어를 설치하지 못합니다. 아래의 제품 제한 절은 생명 안전 및 중요 사용과 관련하여 소프트웨어 및 관련 서비스의 중요한 제한 사항을 설명합니다. 이 절은 이해와 동의가 요구되므로 신중히 읽으십시오.
+                                <string key="text">이 최종 사용자 라이센스 계약서("EULA")는 사용자와 ‘Poetree’ 사이의 법적 계약입니다. 사용자는 본 계약을 자세히 읽은 후 소프트웨어를 설치해야 합니다. 본 소프트웨어를 설치할 경우 본 EULA의 조항에 구 속됨을 동의하는 것입니다. 본 EULA의 조항에 동의하지 않을 경우, 구입처의 관련 반환 정책의 약관에 따라 환불을 위해 제품을 반환할 수 있습니다. 사용자가 미국에 거주하고 있고(또는 주요 사업장이 미국 소재일 경우), 개인적 또는 가정용으로만 소프트웨어를 사용할 경우 소비자 중재 규칙 하에 중재가 시행되므로 아래의 17절을 읽어 주십시오. 아래 4절에서 기술한 것처럼 사용자는 자동 소프트웨어 업데이트에 동의하는 것입니다. 동의하지 않으면 소프트웨어를 설치하지 못합니다. 아래의 제품 제한 절은 생명 안전 및 중요 사용과 관련하여 소프트웨어 및 관련 서비스의 중요한 제한 사항을 설명합니다. 이 절은 이해와 동의가 요구되므로 신중히 읽으십시오.
 
 "소프트웨어"는 다음을 의미합니다. (i) 데스크톱 또는 모바일 장치에 다운로드하여 설치한 소프트웨어 응용 프로그램을 포함한 모든 소프트웨어 프로그램 또는 응용 프로그램; (ii) 소프트웨어의 관련 문서, 수정 된 버전, 업그레이드 또는 개선 기능(업데이트 또는 다운로드 시점에 서 다른 약관 하에 제공되지 않는 한), 그러한 소프트웨어의 모든 후속 버전, 사본(총칭하여 "소프트웨어"라고 함)을 의미합니다. 이 조항은 사용자에게 구체적인 법적 권리를 부여하며 사용자는 또한 관할권에 따라 다른 법적 권리를 추가로 갖습니다.
 
@@ -430,13 +430,13 @@ Apple App Store, Apple Mac Store 또는 Google Play(이하 "App Store")와 같�
 
 본 계약은 사용자와 Poetree 간의 전체 계약을 명시하며 소프트웨어와 관련하여 서면 또는 구두로 이루어진 모든 이전 계약에 우선합니다. 본 EULA에 대한 번역은 해당 지역의 요구에 따라 이루어지며 영어와 영어가 아닌 버전 간의 불일치가 발생하는 경우, 본 EULA의 영어 버전이 우선됩니다. 본 소프트웨어는 미국 저작권법 및 국제 협약에 의해 보호됩니다. 본 소프트웨어의 무단 복제나 배포 시 민사 및 형사 책임이 적용될 수 있습니다.
 
-© 2021 Poetree. All rights reserved</mutableString>
+© 2021 Poetree. All rights reserved</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="r72-Af-fcJ">
-                                <rect key="frame" x="45" y="800" width="324" height="32"/>
+                                <rect key="frame" x="45" y="820" width="324" height="32"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jyt-tr-siQ">
                                         <rect key="frame" x="0.0" y="0.0" width="132" height="32"/>
@@ -468,7 +468,7 @@ Apple App Store, Apple Mac Store 또는 Google Play(이하 "App Store")와 같�
                             <constraint firstItem="r72-Af-fcJ" firstAttribute="top" secondItem="uPG-N6-Rr0" secondAttribute="bottom" constant="10" id="QBq-GB-ocG"/>
                             <constraint firstItem="uPG-N6-Rr0" firstAttribute="leading" secondItem="XEo-jz-Vub" secondAttribute="leading" constant="20" id="QpZ-kn-0az"/>
                             <constraint firstItem="uPG-N6-Rr0" firstAttribute="top" secondItem="4oV-oG-hrU" secondAttribute="bottom" constant="20" id="Xo4-1S-pji"/>
-                            <constraint firstItem="XEo-jz-Vub" firstAttribute="bottom" secondItem="r72-Af-fcJ" secondAttribute="bottom" constant="30" id="ifb-4d-dWy"/>
+                            <constraint firstItem="XEo-jz-Vub" firstAttribute="bottom" secondItem="r72-Af-fcJ" secondAttribute="bottom" constant="10" id="ifb-4d-dWy"/>
                             <constraint firstItem="XEo-jz-Vub" firstAttribute="trailing" secondItem="uPG-N6-Rr0" secondAttribute="trailing" constant="20" id="xzz-di-h91"/>
                         </constraints>
                     </view>

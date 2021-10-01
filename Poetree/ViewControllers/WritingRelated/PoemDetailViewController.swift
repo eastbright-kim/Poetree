@@ -183,7 +183,7 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
                 guard self.viewModel.output.isTempDetail == false else { self.view.makeToast("임시로 저장된 글은 신고할 수 없습니다", duration: 1.0, position: .center)
                     return}
                 
-                let alert = UIAlertController(title: "신고하기", message: "비속어 등 악의적인 표현이 있는 글을 신고해 주시기 바랍니다.\n신고된 글은 추후에 볼 수 없으며, 적절성 검토 후에 글쓴이를 제재합니다.\n또한, 해당 사용자를 차단할 경우, 이후 해당 사용자의 글은 볼 수 없습니다.\n참여해주셔서 감사합니다.", preferredStyle: .actionSheet)
+                let alert = UIAlertController(title: "신고하기", message: "비속어 등 악의적인 표현이 있는 글을 신고해 주시기 바랍니다.\n신고된 글은 추후에 볼 수 없으며, 적절성 검토 후에 글쓴이를 제재합니다.\n또한, 글쓴이를 차단할 경우, 해당 글쓴이의 글은 볼 수 없습니다.\n참여해주셔서 감사합니다.", preferredStyle: .actionSheet)
                 let reportAction = UIAlertAction(title: "신고하기", style: .destructive) { _ in
                     let currentUser = Auth.auth().currentUser
                     
@@ -196,7 +196,7 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
                 let blockAction = UIAlertAction(title: "글쓴이 차단하기", style: .destructive) { _ in
                     guard let currentUser = Auth.auth().currentUser else {
                         
-                        let alert = UIAlertController(title: "로그인이 필요합니다", message: "글쓴이 차단 기능은 로그인 후 이용할 수 있습니다", preferredStyle: .alert)
+                        let alert = UIAlertController(title: "로그인이 필요합니다", message: "글쓴이 차단 기능은\n로그인 후 이용할 수 있습니다", preferredStyle: .alert)
                         let action = UIAlertAction(title: "확인", style: .default, handler: nil)
                         alert.addAction(action)
                         self.present(alert, animated: true, completion: nil)
