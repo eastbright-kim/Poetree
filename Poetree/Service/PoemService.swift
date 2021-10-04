@@ -126,11 +126,22 @@ class PoemService: UserLogInListener {
                 let reportedUsers = poemEntity.reportedUsers
                 
                 if let currentUser = Auth.auth().currentUser{
-                    return Poem(id: id, userEmail: userEmail, userNickname: userNickname, title: title, content: content, photoId: photoId, uploadAt: uploadAt, isPrivate: isPrivate, likers: likers, photoURL: photoURL, userUID: userUID, isTemp: isTemp, isBlocked: reportedUsers[currentUser.uid] ?? false)
+                    return Poem(id: id, userEmail: userEmail, userNickname: userNickname, title: title, content: content, photoId: photoId, uploadAt: uploadAt, isPrivate: isPrivate, likers: likers, photoURL: photoURL, userUID: userUID, isTemp: isTemp, isBlocked: reportedUsers[currentUser.uid] ?? false, currentUserUID: currentUser.uid)
                 } else {
                     return Poem(id: id, userEmail: userEmail, userNickname: userNickname, title: title, content: content, photoId: photoId, uploadAt: uploadAt, isPrivate: isPrivate, likers: likers, photoURL: photoURL, userUID: userUID, isTemp: isTemp, isBlocked: false)
                 }
+            }.filter { poem in
+                if let currentUser = Auth.auth().currentUser, poem.userUID == currentUser.uid {
+                    return true
+                } else {
+                    if poem.isTemp == true || poem.isPrivate == true {
+                        return false
+                    } else {
+                        return true
+                    }
+                }
             }
+            
             self.poems = poemModels
             self.poemsStore.onNext(poemModels)
             completion(.fetchedPoem)

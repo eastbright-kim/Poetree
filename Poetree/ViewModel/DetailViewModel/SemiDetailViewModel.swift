@@ -24,6 +24,7 @@ class SemiDetailViewModel: ViewModelType {
     struct Output{
         let displayingPoem: Driver<Poem>
         let isTempSemiDetail: Bool
+        let poem: Poem
     }
     
     
@@ -40,6 +41,6 @@ class SemiDetailViewModel: ViewModelType {
             .asDriver(onErrorJustReturn: poem)
         
         self.input = Input(isLikeThisPoem: isLikeThisPoem)
-        self.output = Output(displayingPoem: displayingPoem, isTempSemiDetail: isTempSemiDetail)
+        self.output = Output(displayingPoem: displayingPoem, isTempSemiDetail: isTempSemiDetail, poem: poem)
     }
 }

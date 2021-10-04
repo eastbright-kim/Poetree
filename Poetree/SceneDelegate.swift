@@ -49,9 +49,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     isBlocked = true
                 }
                 
-                let poem = Poem(id: id, userEmail: userEmail, userNickname: userNickname, title: title, content: content, photoId: photoId, uploadAt: uploadAt, isPrivate: isPrivate, likers: likers, photoURL: photoURL, userUID: userUID, isTemp: isTemp, isBlocked: isBlocked)
+                let poem = Poem(id: id, userEmail: userEmail, userNickname: userNickname, title: title, content: content, photoId: photoId, uploadAt: uploadAt, isPrivate: isPrivate, likers: likers, photoURL: photoURL, userUID: userUID, isTemp: isTemp, isBlocked: isBlocked, currentUserUID: Auth.auth().currentUser?.uid)
                 
                 return poem
+            }.filter { poem in
+                if let currentUser = Auth.auth().currentUser, poem.userUID == currentUser.uid {
+                    return true
+                } else {
+                    if poem.isTemp == true || poem.isPrivate == true {
+                        return false
+                    } else {
+                        return true
+                    }
+                }
             }
             
             poemService.poems = poemModels

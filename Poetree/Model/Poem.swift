@@ -25,7 +25,7 @@ class Poem: Equatable, Identifiable {
     var isTemp: Bool = false
     var isBlocked: Bool = false
     
-    init(id: String, userEmail: String, userNickname: String, title: String, content: String, photoId: Int, uploadAt: Date, isPrivate: Bool, likers: [String:Bool], photoURL: URL, userUID: String, isTemp: Bool, isBlocked: Bool) {
+    init(id: String, userEmail: String, userNickname: String, title: String, content: String, photoId: Int, uploadAt: Date, isPrivate: Bool, likers: [String:Bool], photoURL: URL, userUID: String, isTemp: Bool, isBlocked: Bool, currentUserUID: String? = nil) {
         self.id = id
         self.userEmail = userEmail
         self.userPenname = userNickname
@@ -37,7 +37,11 @@ class Poem: Equatable, Identifiable {
         self.likers = likers
         self.photoURL = photoURL
         self.userUID = userUID
-        self.isLike = likers[userUID] ?? false
+        if let currentUserUID = currentUserUID, likers[currentUserUID] ?? false {
+            self.isLike = true
+        } else {
+            self.isLike = false
+        }
         self.isTemp = isTemp
         self.isBlocked = isBlocked
     }
