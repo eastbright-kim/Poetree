@@ -163,6 +163,7 @@ class PoemRepository {
         
         reportedPoemRef.child(poem.userUID).child(poem.id).setValue(reportedPoemDict)
         
+        blockingRef.child(currentUser.uid).child(poem.userUID).setValue(UUID().uuidString)
         
         poemRef.child(poem.userUID).observeSingleEvent(of: .value) { snapshot in
             
