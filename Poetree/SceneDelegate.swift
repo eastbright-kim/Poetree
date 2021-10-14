@@ -56,7 +56,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 if let currentUser = Auth.auth().currentUser, poem.userUID == currentUser.uid {
                     return true
                 } else {
-                    if poem.isTemp == true || poem.isPrivate == true {
+                    if poem.isTemp || poem.isPrivate || poem.isBlocked {
                         return false
                     } else {
                         return true
