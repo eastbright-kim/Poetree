@@ -5,7 +5,6 @@ PODS:
   - AppAuth/Core (1.4.0)
   - AppAuth/ExternalUserAgent (1.4.0)
   - BulletinBoard (5.0.0)
-  - Differentiator (5.0.0)
   - FBAEMKit (11.1.0):
     - FBAEMKit/AEM (= 11.1.0)
   - FBAEMKit/AEM (11.1.0):
@@ -85,18 +84,18 @@ PODS:
   - "NSObject+Rx (5.2.2)":
     - RxSwift (~> 6.2)
   - PromisesObjC (2.0.0)
+  - ReactorKit (3.1.0):
+    - RxSwift (~> 6.0)
+    - WeakMapTable (~> 1.1)
   - RxCocoa (6.2.0):
     - RxRelay (= 6.2.0)
     - RxSwift (= 6.2.0)
-  - RxDataSources (5.0.0):
-    - Differentiator (~> 5.0)
-    - RxCocoa (~> 6.0)
-    - RxSwift (~> 6.0)
   - RxRelay (6.2.0):
     - RxSwift (= 6.2.0)
   - RxSwift (6.2.0)
   - SideMenu (6.5.0)
   - Toast-Swift (5.0.1)
+  - WeakMapTable (1.2.0)
 
 DEPENDENCIES:
   - BulletinBoard
@@ -106,9 +105,9 @@ DEPENDENCIES:
   - GoogleSignIn
   - IQKeyboardManagerSwift
   - "NSObject+Rx"
-  - RxCocoa
-  - RxDataSources
-  - RxSwift
+  - ReactorKit
+  - RxCocoa (= 6.2.0)
+  - RxSwift (= 6.2.0)
   - SideMenu
   - Toast-Swift (~> 5.0.1)
 
@@ -116,7 +115,6 @@ SPEC REPOS:
   trunk:
     - AppAuth
     - BulletinBoard
-    - Differentiator
     - FBAEMKit
     - FBSDKCoreKit
     - FBSDKCoreKit_Basics
@@ -136,17 +134,17 @@ SPEC REPOS:
     - nanopb
     - "NSObject+Rx"
     - PromisesObjC
+    - ReactorKit
     - RxCocoa
-    - RxDataSources
     - RxRelay
     - RxSwift
     - SideMenu
     - Toast-Swift
+    - WeakMapTable
 
 SPEC CHECKSUMS:
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   BulletinBoard: dba77053c2a7b64953f63073f7534165af2edd21
-  Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
   FBAEMKit: 5c8a8d08e5b2c79628490784883e0fcc75b12615
   FBSDKCoreKit: 7ccb8b4bb2b5ee2ad94327b774dc23f03509675d
   FBSDKCoreKit_Basics: 8f978bce195845f609b0ec6b425949d0d24f525b
@@ -166,13 +164,14 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   "NSObject+Rx": 61cf1f7306a73dcef8b36649198af0813ec18dfd
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
+  ReactorKit: a06dd2a5c9339287aedf3dc821cfab6347eca106
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
-  RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+  WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
 
-PODFILE CHECKSUM: 9b15c2fb624c6903f4b0fa7581bfdc846f681da3
+PODFILE CHECKSUM: 3d82efb97dbed40e207d60a81dfbdf6d97b4a6bd
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.11.2

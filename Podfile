@@ -6,10 +6,11 @@ target 'Poetree' do
   use_frameworks!
 
   # Pods for Poetree
-  pod 'RxSwift'
-  pod 'RxCocoa'
+
+  pod 'RxSwift', '6.2.0'
+  pod 'RxCocoa', '6.2.0'
   pod 'NSObject+Rx'
-  pod 'RxDataSources'
+  pod 'ReactorKit'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
