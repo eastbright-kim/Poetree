@@ -44,14 +44,14 @@ class PoemListViewModel: ViewModelType {
             self.output = Output(displayingPoems: displayingPoems, listType: listType)
         case .userWrote(let currentAuth):
             let displayingPoems = poems
-                .map { poems in poemService.fetchUserWriting(poem: poems, currentUser: currentAuth)}
+                .map { poems in poemService.fetchUserWritings(poem: poems, currentUser: currentAuth)}
                 .map(poemService.filterBlockedPoem)
                 .map(poemService.sortPoemsByLikeCount_Recent)
             self.output = Output(displayingPoems: displayingPoems, listType: listType)
         case .tempSaved(let currentUser):
             let displayingPoems = poems
                 .map { poems in
-                    poemService.fetchTempSaved(poems: poems, currentUser: currentUser)
+                    poemService.fetchTempSavedPoem(poems: poems, currentUser: currentUser)
                 }
             self.output = Output(displayingPoems: displayingPoems, listType: listType)
         }

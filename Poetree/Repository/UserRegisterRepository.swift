@@ -18,7 +18,7 @@ class UserRegisterRepository{
     }
     
     // 기존의 사용자가 penname을 바꾸는 경우 or 처음 가입하는 경우
-    func RegisterToFirebase(penname: String, credential: AuthCredential, completion: @escaping ((Result<CurrentAuth, RegisterError>) -> Void)){
+    func registUserToFirebase(penname: String, credential: AuthCredential, completion: @escaping ((Result<CurrentAuth, RegisterError>) -> Void)){
         
         Auth.auth().signIn(with: credential) { authDataResult, error in
             

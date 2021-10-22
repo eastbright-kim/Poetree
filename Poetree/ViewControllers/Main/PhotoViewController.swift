@@ -33,7 +33,7 @@ class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased, Vie
         super.viewWillAppear(animated)
         
         naviBarConfig()
-        noticeLabelAni()
+        animateNoticeLabel()
         guard let selectedIndexPath = selectedIndexPath else {return}
         self.view.layoutIfNeeded()
         self.photoCollectionView.scrollToItem(at: selectedIndexPath, at: .centeredHorizontally, animated: true)
@@ -100,7 +100,7 @@ class PhotoViewController: UIViewController, HasDisposeBag, StoryboardBased, Vie
         
     }
     
-    func noticeLabelAni(){
+    func animateNoticeLabel(){
         
         UIView.animate(withDuration: 0.8, delay: 0.8, options: .curveEaseOut) {
             self.firstNoticeLabel.alpha = 1

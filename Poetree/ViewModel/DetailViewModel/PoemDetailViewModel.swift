@@ -33,7 +33,7 @@ class PoemDetailViewModel: ViewModelType {
         self.poemService = poemService
         self.userService = userService
         let poems = poemService.allPoems()
-        let displayingPoem = poems.map{poems in poemService.fetchMatchedPoem(poems: poems, poem: poem)}
+        let displayingPoem = poems.map{poems in poemService.fetchEditedPoem(poems: poems, poem: poem)}
             .asDriver(onErrorJustReturn: poem)
         self.input = Input()
         self.output = Output(displayingPoem: displayingPoem, isTempDetail: isTempDetail, isUserWriting: isUserWriting)

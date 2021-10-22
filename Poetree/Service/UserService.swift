@@ -26,12 +26,12 @@ class UserService {
         self.userRegisterRepository = userRegisterRepository
     }
     
-    func loggedInUser() -> Observable<CurrentAuth> {
+    func fetchLoggedInUser() -> Observable<CurrentAuth> {
         return loginUser
     }
     
     
-    func googleRegister(penname: String?, presentingVC: UIViewController, completion: @escaping ((Result<CurrentAuth, SignInErorr>) -> Void)){
+    func registerByGoogle(penname: String?, presentingVC: UIViewController, completion: @escaping ((Result<CurrentAuth, SignInErorr>) -> Void)){
         
         guard let clientId = FirebaseApp.app()?.options.clientID else {return}
         let config = GIDConfiguration(clientID: clientId)
@@ -63,7 +63,7 @@ class UserService {
             return
             }
             
-            self.register(penname: penname, credential: credential) { result in
+            self.registerToFirebase(penname: penname, credential: credential) { result in
    
                 switch result {
                 case .success(let currentUser):
@@ -75,7 +75,7 @@ class UserService {
         }
     }
     
-    func facebookRegister(penname: String?, presentingVC: UIViewController, completion: @escaping ((Result<CurrentAuth, SignInErorr>) -> Void)){
+    func registerByFacebook(penname: String?, presentingVC: UIViewController, completion: @escaping ((Result<CurrentAuth, SignInErorr>) -> Void)){
         
         let loginManager = LoginManager()
         loginManager.logIn(permissions: [.email, .publicProfile], viewController: presentingVC) { result in
@@ -99,7 +99,7 @@ class UserService {
                 }
                 return
                 }
-                self.register(penname: penname, credential: credential) { result in
+                self.registerToFirebase(penname: penname, credential: credential) { result in
        
                     switch result {
                     case .success(let currentUser):
@@ -119,7 +119,7 @@ class UserService {
         }
     }
     
-    func appleRegister(penname: String?, credential: OAuthCredential, completion: @escaping ((Result<CurrentAuth, SignInErorr>) -> Void)){
+    func registerByApple(penname: String?, credential: OAuthCredential, completion: @escaping ((Result<CurrentAuth, SignInErorr>) -> Void)){
         
         guard let penname = penname else { self.sendNotification()
             self.userRegisterRepository.firebaseLogIn(credential: credential) { result in
@@ -135,7 +135,7 @@ class UserService {
         return
         }
         
-        self.register(penname: penname, credential: credential) { result in
+        self.registerToFirebase(penname: penname, credential: credential) { result in
 
             switch result {
             case .success(let currentUser):
@@ -147,9 +147,9 @@ class UserService {
     }
     
     
-    func register(penname: String, credential: AuthCredential, completion: @escaping ((Result<CurrentAuth, RegisterError>) -> Void)) {
+    func registerToFirebase(penname: String, credential: AuthCredential, completion: @escaping ((Result<CurrentAuth, RegisterError>) -> Void)) {
         self.sendNotification()
-        self.userRegisterRepository.RegisterToFirebase(penname: penname, credential: credential) { result in
+        self.userRegisterRepository.registUserToFirebase(penname: penname, credential: credential) { result in
             switch result {
             case .success(let loggedInUser):
                 self.loginUser.onNext(loggedInUser)
@@ -186,7 +186,7 @@ class UserService {
         }
     }
     
-    func greetingLine(date: Date) -> String {
+    func getGreetingLine(date: Date) -> String {
         
        let now = Calendar.current.component(.hour, from: date)
         

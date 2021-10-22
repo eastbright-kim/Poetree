@@ -29,7 +29,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
     @IBOutlet weak var publicNoticeLabel: UILabel!
     @IBOutlet weak var privateNoticeLabel: UILabel!
     
-    private lazy var writingTempManager: BLTNItemManager = {
+    private lazy var addTempPoemFromWriting: BLTNItemManager = {
         let item = BLTNPageItem(title: "이 글을 임시 저장하시겠습니까?")
         item.descriptionText = "임시 저장한 후에는 My Poem탭의\n임시 저장한 글에서 확인하실 수 있습니다"
         item.actionButtonTitle = "저장"
@@ -48,7 +48,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
         return BLTNItemManager(rootItem: item)
     }()
     
-    private lazy var tempManager: BLTNItemManager = {
+    private lazy var editTempPoemManager: BLTNItemManager = {
         let item = BLTNPageItem(title: "이 글을 임시 저장하시겠습니까?")
         item.appearance.titleFontSize = 20
         item.appearance.titleTextColor = UIColor.black
@@ -197,7 +197,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
             .disposed(by: rx.disposeBag)
     }
     
-    @IBAction func sendPoemTapped(_ sender: UIButton) {
+    @IBAction func sendPoem(_ sender: UIButton) {
         
         if checkBadWords(content: self.contentTextView.text + self.titleTextField.text!){
             
@@ -246,7 +246,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
     
     
     
-    @IBAction func editCompleteTapped(_ sender: UIButton) {
+    @IBAction func completeEdit(_ sender: UIButton) {
         
         if checkBadWords(content: self.contentTextView.text + self.titleTextField.text!){
             
@@ -304,25 +304,25 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
         
         switch type {
         case .write:
-            self.writingTempManager.showBulletin(above: self)
+            self.addTempPoemFromWriting.showBulletin(above: self)
             
         case .temp:
-            self.tempManager.showBulletin(above: self)
+            self.editTempPoemManager.showBulletin(above: self)
             
         case .edit:
-            self.tempManager.showBulletin(above: self)
+            self.editTempPoemManager.showBulletin(above: self)
         }
     }
     
     func addTempFromWriting(){
         
-        self.writingTempManager.dismissBulletin()
+        self.addTempPoemFromWriting.dismissBulletin()
         
         viewModel.output.aPoem
             .take(1)
             .observe(on: ConcurrentDispatchQueueScheduler(queue: DispatchQueue.global()))
             .subscribe(onNext:{ savingPoem in
-                self.viewModel.poemService.tempCreate(poem: savingPoem) { result in
+                self.viewModel.poemService.createTempPoem(poem: savingPoem) { result in
                     print(result)
                     DispatchQueue.main.async {
                         self.navigationController?.popViewController(animated: true)
@@ -333,18 +333,18 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
     }
     
     func cancelSave() {
-        self.writingTempManager.dismissBulletin(animated: false)
+        self.addTempPoemFromWriting.dismissBulletin(animated: false)
     }
     
     func saveTempFromTemp(){
         
-        self.tempManager.dismissBulletin(animated: true)
+        self.editTempPoemManager.dismissBulletin(animated: true)
         self.title = "글 이어서 쓰기"
         viewModel.output.aPoem
             .take(1)
             .observe(on: ConcurrentDispatchQueueScheduler(queue: DispatchQueue.global()))
             .subscribe(onNext:{ savingPoem in
-                self.viewModel.poemService.editTemp(poem: savingPoem) { result in
+                self.viewModel.poemService.editTempPoem(poem: savingPoem) { result in
                     DispatchQueue.main.async {
                         self.view.makeToast("임시 저장 완료", duration: 1, position: .center)
                     }
@@ -354,7 +354,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
     }
     
     func deletePoem(){
-        self.tempManager.dismissBulletin(animated: true)
+        self.editTempPoemManager.dismissBulletin(animated: true)
         
         let alert = UIAlertController(title: "삭제", message: "이 글을 삭제하시겠습니까?", preferredStyle: .alert)
         let deleteAction = UIAlertAction(title: "삭제", style: .destructive) { [weak self] action in

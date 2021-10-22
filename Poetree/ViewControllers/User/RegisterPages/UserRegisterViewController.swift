@@ -92,7 +92,7 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
     
     func configureUI(){
         
-        signInBtnConfigure()
+        configureAppleSignInBtn()
         pennameCompleteBtn.isEnabled = false
         penNameTextField.borderStyle = .none
         let border = CALayer()
@@ -110,7 +110,7 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
     
     
     
-    func signInBtnConfigure(){
+    func configureAppleSignInBtn(){
         appleLogo.layer.cornerRadius = appleLogo.frame.size.height / 2
         appleLogo.backgroundColor = UIColor.black
     }
@@ -144,7 +144,7 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
                 
                 guard let self = self else {return}
                 
-                self.viewModel.userService.googleRegister(penname: self.penname, presentingVC: self) { result in
+                self.viewModel.userService.registerByGoogle(penname: self.penname, presentingVC: self) { result in
                     self.handleLogInResult(result)
                 }
             }
@@ -155,7 +155,7 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
             .subscribe { [weak self] _ in
                 
                 guard let self = self else {return}
-                self.viewModel.userService.facebookRegister(penname: self.penname, presentingVC: self) { result in
+                self.viewModel.userService.registerByFacebook(penname: self.penname, presentingVC: self) { result in
                     self.handleLogInResult(result)
                 }
             }
@@ -208,7 +208,7 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
         
     }
     
-    @IBAction func logInBtnTapped(_ sender: UIButton) {
+    @IBAction func showSignInIconsFromLogin(_ sender: UIButton) {
         
         if let _ = self.penname {
             self.videoLayer.bringSubviewToFront(self.registerStackView)
@@ -226,7 +226,7 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
     }
     
     
-    @IBAction func registerBtnTapped(_ sender: UIButton) {
+    @IBAction func showEULA_ForRegister(_ sender: UIButton) {
         
         
         let eulaVC = UIStoryboard(name: "UserRelated", bundle: nil).instantiateViewController(withIdentifier: "LicenseViewController")
@@ -235,7 +235,7 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
         
     }
     
-    @IBAction func pennameCompleteBtnTapped(_ sender: Any) {
+    @IBAction func showSignInIconsFromPenname(_ sender: Any) {
         self.penname = penNameTextField.text
         self.videoLayer.sendSubviewToBack(self.penNameStackView)
         self.videoLayer.bringSubviewToFront(self.registerStackView)
@@ -244,7 +244,7 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
     }
     
     
-    @IBAction func backBtnTapped(_ sender: UIButton) {
+    @IBAction func editPenname(_ sender: UIButton) {
         self.videoLayer.sendSubviewToBack(registerStackView)
         self.videoLayer.bringSubviewToFront(penNameStackView)
         self.penNameStackView.isHidden = false
@@ -262,39 +262,39 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
                 
                 switch error{
                 case .LoginError(let error):
-                    self.loginErrorHandle(error: error)
+                    self.handleLoginError(error: error)
                 case .RegisterError(let error):
-                    self.registerErrorHandle(error: error)
+                    self.handleRegisterError(error: error)
                     break
                 }
             }
         }
     }
     
-    func loginErrorHandle(error: LoginError){
+    func handleLoginError(error: LoginError){
         
         switch error {
         case .newUser:
-            self.firstUserHandle()
+            self.handleFirstUserError()
             break
         case .logInError:
             //에러 핸들링 필요
             break
         case .flatFormError:
-            self.flatformErrorHandle()
+            self.handleFlatformError()
         }
     }
     
-    func registerErrorHandle(error: RegisterError){
+    func handleRegisterError(error: RegisterError){
         switch error {
         case .flatFormError:
-            self.flatformErrorHandle()
+            self.handleFlatformError()
         default:
             break
         }
     }
     
-    func firstUserHandle() {
+    func handleFirstUserError() {
          
          let alert = UIAlertController(title: "회원 정보 없음", message: "필명과 함께 회원 가입을 먼저 해주세요", preferredStyle: .alert)
          let action = UIAlertAction(title: "확인", style: .default) { action in
@@ -313,7 +313,7 @@ class UserRegisterViewController: UIViewController, ViewModelBindable, Storyboar
          present(alert, animated: true, completion: nil)
      }
     
-    func flatformErrorHandle() {
+    func handleFlatformError() {
         self.avQueuePlayer.play()
         let alert = UIAlertController(title: "로그인 플랫폼 오류", message: "기존에 회원가입한 SNS 플랫폼이 아닙니다\n기존에 회원가입한 플랫폼을 선택해주세요", preferredStyle: .alert)
         let action = UIAlertAction(title: "확인", style: .default) { action in
@@ -373,7 +373,7 @@ extension UserRegisterViewController: ASAuthorizationControllerDelegate {
             
             let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: idTokenString, rawNonce: nonce)
             
-            self.viewModel.userService.appleRegister(penname: penname, credential: credential) { result in
+            self.viewModel.userService.registerByApple(penname: penname, credential: credential) { result in
                 
                 self.handleLogInResult(result)
             }

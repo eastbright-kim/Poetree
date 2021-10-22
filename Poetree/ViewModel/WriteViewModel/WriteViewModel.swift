@@ -41,7 +41,7 @@ class WriteViewModel: ViewModelType {
         let title = BehaviorSubject<String>(value: "")
         let content = BehaviorSubject<String>(value: "")
         let isPrivate = BehaviorSubject<Bool>(value: false)
-        let currentUser = userService.loggedInUser()
+        let currentUser = userService.fetchLoggedInUser()
         
         
         let aPoem = Observable<Poem>.combineLatest(title, content, isPrivate, currentUser) { title, content, isPrivate, currentAuth in

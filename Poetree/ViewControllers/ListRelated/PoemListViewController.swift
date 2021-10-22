@@ -33,7 +33,7 @@ class PoemListViewController: UIViewController, StoryboardBased, ViewModelBindab
     }
     
     @objc func handleRefreshControl() {
-        self.viewModel.poemService.fetchPoems { complete in
+        self.viewModel.poemService.fetchPoemsByRefresh { complete in
             DispatchQueue.main.async {
                 self.tableView.refreshControl?.endRefreshing()
             }

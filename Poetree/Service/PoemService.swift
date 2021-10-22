@@ -54,7 +54,7 @@ class PoemService: UserLogInListener {
         }
     }
     
-    func fetchUserWriting(poem: [Poem], currentUser: CurrentAuth) -> [Poem] {
+    func fetchUserWritings(poem: [Poem], currentUser: CurrentAuth) -> [Poem] {
         
         let userWrting = poem.filter { poem in
             poem.userUID == currentUser.userUID
@@ -63,7 +63,7 @@ class PoemService: UserLogInListener {
     }
     
     func fetchUserLikedWriting_Sorted(poems: [Poem], currentUser: CurrentAuth) -> [Poem] {
-        
+        //하나만 하게하기
         let userLikedPoems = poems.filter { poem in
             poem.likers[currentUser.userUID] ?? false
         }.sorted { p1, p2 in
@@ -106,7 +106,7 @@ class PoemService: UserLogInListener {
         self.poemsStore.onNext(self.poems)
     }
     
-    func fetchPoems(completion: @escaping (Complete) -> Void) {
+    func fetchPoemsByRefresh(completion: @escaping (Complete) -> Void) {
         
         poemRepository.fetchPoems { poemEntities in
             
@@ -149,7 +149,7 @@ class PoemService: UserLogInListener {
     }
     
     func fetchPoemsByPhotoId_SortedLikesCount(poems: [Poem], photoId: Int) -> [Poem] {
-        
+        //하나만 하게하기
         let publicPoems = poems.filter{$0.isPrivate == false}
         
         let displayingPoems = publicPoems.filter { poem in
@@ -184,7 +184,7 @@ class PoemService: UserLogInListener {
     }
     
     
-    func getCurrentDate() -> String {
+    func getCurrentWeek() -> String {
         
         let currentDate = convertDateToString(format: "MMM-d", date: Date())
         let current = currentDate.components(separatedBy: "-")
@@ -194,7 +194,7 @@ class PoemService: UserLogInListener {
     }
     
     func getWritingTimeString(date: Date) -> String {
-        
+        //한번에 하나
         let monthDay = convertDateToString(format: "M월 d일", date: date)
         let time = Int(convertDateToString(format: "H", date: date))!
         
@@ -206,7 +206,7 @@ class PoemService: UserLogInListener {
     }
     
     func likeHandle(poem: Poem, user: User, completion: @escaping((Poem) -> Void)){
-        
+        //하나에 하나
         let poemIndex = self.poems.firstIndex(of: poem)
         
         guard let index = poemIndex else {return}
@@ -216,17 +216,17 @@ class PoemService: UserLogInListener {
             self.poems[index].isLike = false
             completion(self.poems[index])
             self.poemsStore.onNext(self.poems)
-            self.poemRepository.likeCancel(poem: poem, user: user)
+            self.poemRepository.cancelLike(poem: poem, user: user)
         } else {
             self.poems[index].likers.updateValue(true, forKey: user.uid)
             self.poems[index].isLike = true
             completion(self.poems[index])
             self.poemsStore.onNext(self.poems)
-            self.poemRepository.likeAdd(poem: poem, user: user)
+            self.poemRepository.addLikesToPoem(poem: poem, user: user)
         }
     }
     
-    func tempCreate(poem: Poem, completion: @escaping ((String) -> Void)) {
+    func createTempPoem(poem: Poem, completion: @escaping ((String) -> Void)) {
        
         poem.isTemp = true
         self.poemRepository.createPoem(poemModel: poem) { result in
@@ -241,10 +241,10 @@ class PoemService: UserLogInListener {
         }
     }
     
-    func editTemp(poem: Poem, completion: @escaping ((String) -> Void)) {
+    func editTempPoem(poem: Poem, completion: @escaping ((String) -> Void)) {
 
         poem.isTemp = true
-        self.poemRepository.editPoemFromTemp(poemModel: poem) { result in
+        self.poemRepository.editTempSavedPoem(poemModel: poem) { result in
             switch result {
             case .success(let s):
                 guard let index = self.poems.firstIndex(of: poem) else { return }
@@ -257,13 +257,13 @@ class PoemService: UserLogInListener {
         }
     }
     
-    func fetchMatchedPoem(poems: [Poem], poem: Poem) -> Poem {
+    func fetchEditedPoem(poems: [Poem], poem: Poem) -> Poem {
         guard let index = poems.firstIndex(of: poem) else {return poem}
         return poems[index]
     }
     
     func sortPoemsByLikeCount_Random(_ poems: [Poem]) -> [Poem] {
-        
+        //하나만 처리
         if poems.count > 3 {
             let sorted = poems.sorted { p1, p2 in
                 p1.likers.count > p2.likers.count
@@ -279,7 +279,7 @@ class PoemService: UserLogInListener {
     }
     
     func sortPoemsByLikeCount_Recent(_ poems: [Poem]) -> [Poem] {
-        
+        //하나처리
         if poems.count > 3 {
             let sorted = poems.sorted { p1, p2 in
                 p1.likers.count > p2.likers.count
@@ -297,7 +297,7 @@ class PoemService: UserLogInListener {
     }
     
     
-    func fetchTempSaved(poems: [Poem], currentUser: User) -> [Poem] {
+    func fetchTempSavedPoem(poems: [Poem], currentUser: User) -> [Poem] {
         
         let filteredPoems = poems.filter { poem in
             return (poem.userUID == currentUser.uid) && (poem.isTemp == true)

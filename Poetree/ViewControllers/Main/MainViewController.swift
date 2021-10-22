@@ -40,7 +40,7 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        naviBarConfig()
+        configureNaviBar()
         resetDate()
     }
     
@@ -86,12 +86,12 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
     }
     
     private func configureUI() {
-        configureNavTab()
+        configureTabBar()
         thisWeekPoemBtn.contentEdgeInsets = UIEdgeInsets(top: 3, left: 5, bottom: 3, right: 5)
         thisWeekPoemBtn.layer.cornerRadius = 3
     }
     
-    private func configureNavTab() {
+    private func configureTabBar() {
         self.navigationItem.title = "Poetree"
         self.navigationItem.largeTitleDisplayMode = .always
         self.tabBarItem.image = UIImage(systemName: "pencil")
@@ -101,7 +101,7 @@ class MainViewController: UIViewController, ViewModelBindable, StoryboardBased, 
         self.navigationItem.backBarButtonItem = backItem
     }
  
-    func naviBarConfig() {
+    func configureNaviBar() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.tintColor = UIColor.label
         self.navigationController?.navigationBar.barTintColor = UIColor.systemBackground

@@ -35,10 +35,10 @@ class HistoryViewController: UIViewController, ViewModelBindable, StoryboardBase
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        naviBarConfig()
+        configureNaviBar()
     }
     
-    func naviBarConfig(){
+    func configureNaviBar(){
         self.navigationController?.navigationBar.tintColor = UIColor.label
         self.navigationController?.navigationBar.barTintColor = UIColor.systemBackground
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.label]

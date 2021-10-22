@@ -40,7 +40,7 @@ class HistoryViewModel: ViewModelType {
             .map(poemSevice.filterPoemsForPublic)
             .map(poemSevice.filterBlockedPoem)
         
-        let displayingPhoto = allPhotos.map(photoService.photoReveredOrder)
+        let displayingPhoto = allPhotos.map(photoService.reversePhotosOrder)
         
         
         let lastWeekPhotos = allPhotos.map{ photos in Array(photoService.fetchLastWeekPhotos(weekPhotos: photos).prefix(3)) }

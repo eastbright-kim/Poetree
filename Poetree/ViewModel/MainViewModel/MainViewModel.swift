@@ -45,7 +45,7 @@ class MainViewModel: ViewModelType {
         
         let photos = photoService.photos()
         
-        let currentDate = Observable<String>.just(poemService.getCurrentDate())
+        let currentDate = Observable<String>.just(poemService.getCurrentWeek())
             .asDriver(onErrorJustReturn: "Jan 1st")
         
         let thisWeekPhotoURL = photos.map(photoService.getThisWeekPhoto)

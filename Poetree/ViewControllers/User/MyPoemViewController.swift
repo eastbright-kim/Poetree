@@ -41,11 +41,11 @@ class MyPoemViewController: UIViewController, ViewModelBindable, StoryboardBased
         
         self.pennameLabel.alpha = 0
         self.greetingLabel.alpha = 0
-        greetingAni()
-        naviBarConfig()
+        animateGreetingLabel()
+        configureNaviBar()
     }
     
-    func naviBarConfig(){
+    func configureNaviBar(){
         self.navigationController?.navigationBar.tintColor = UIColor.label
         self.navigationController?.navigationBar.barTintColor = UIColor.systemBackground
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.label]
@@ -54,7 +54,7 @@ class MyPoemViewController: UIViewController, ViewModelBindable, StoryboardBased
     }
     
     private func configureUI() {
-        configureNavTab()
+        configureTabBar()
         makeShadow()
         likedWrtingsTableView.tableFooterView = UIView()
         self.navigationController?.navigationBar.tintColor = UIColor.black
@@ -66,7 +66,7 @@ class MyPoemViewController: UIViewController, ViewModelBindable, StoryboardBased
         greetingView.layer.borderWidth = 1
     }
     
-    private func configureNavTab() {
+    private func configureTabBar() {
         self.navigationItem.title = "My Poem"
         self.navigationItem.largeTitleDisplayMode = .automatic
         self.tabBarItem.image = UIImage(systemName: "person.fill")
@@ -251,7 +251,7 @@ class MyPoemViewController: UIViewController, ViewModelBindable, StoryboardBased
             .disposed(by: rx.disposeBag)
     }
     
-    func greetingAni(){
+    func animateGreetingLabel(){
         
         if let _ = Auth.auth().currentUser {
             
@@ -259,10 +259,10 @@ class MyPoemViewController: UIViewController, ViewModelBindable, StoryboardBased
                 .drive(onNext:{ user in
                     
                     if user.userPenname == "비회원" {
-                        self.pennameLabel.text = self.viewModel.userService.greetingLine(date: Date())
+                        self.pennameLabel.text = self.viewModel.userService.getGreetingLine(date: Date())
                     }
                     self.pennameLabel.rx.text.onNext("\(user.userPenname)님")
-                    self.greetingLabel.text = self.viewModel.userService.greetingLine(date: Date())
+                    self.greetingLabel.text = self.viewModel.userService.getGreetingLine(date: Date())
                 })
                 .disposed(by: rx.disposeBag)
             
@@ -281,7 +281,7 @@ class MyPoemViewController: UIViewController, ViewModelBindable, StoryboardBased
                 }
             }
         } else {
-            self.greetingLabel.text = self.viewModel.userService.greetingLine(date: Date())
+            self.greetingLabel.text = self.viewModel.userService.getGreetingLine(date: Date())
             UIView.animate(withDuration: 1, delay: 1, options: .curveEaseOut) {
                 self.greetingLabel.alpha = 1
             }

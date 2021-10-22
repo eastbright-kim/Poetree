@@ -143,7 +143,7 @@
                                                     <color key="titleColor" red="0.99215692280000001" green="0.99215692280000001" blue="0.99215680360000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="logInBtnTapped:" destination="G5i-Sh-I4R" eventType="touchUpInside" id="VHk-yi-Lf4"/>
+                                                    <action selector="showSignInIconsFromLogin:" destination="G5i-Sh-I4R" eventType="touchUpInside" id="mdk-S6-kYA"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOX-7w-XT6">
@@ -154,7 +154,7 @@
                                                     <color key="titleColor" red="0.99215692280000001" green="0.99215692280000001" blue="0.99215680360000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="registerBtnTapped:" destination="G5i-Sh-I4R" eventType="touchUpInside" id="yHC-xo-2pg"/>
+                                                    <action selector="showEULA_ForRegister:" destination="G5i-Sh-I4R" eventType="touchUpInside" id="zvY-fm-VLc"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -186,7 +186,7 @@
                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="27"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="pennameCompleteBtnTapped:" destination="G5i-Sh-I4R" eventType="touchUpInside" id="UNv-8P-RbD"/>
+                                                                    <action selector="showSignInIconsFromPenname:" destination="G5i-Sh-I4R" eventType="touchUpInside" id="bqd-cy-eCN"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -221,7 +221,7 @@
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="19"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="backBtnTapped:" destination="G5i-Sh-I4R" eventType="touchUpInside" id="0X6-Yo-ske"/>
+                                                            <action selector="editPenname:" destination="G5i-Sh-I4R" eventType="touchUpInside" id="e4f-Oe-OJg"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1h0-D8-vBK">
@@ -231,7 +231,7 @@
                                                             <color key="titleColor" systemColor="systemYellowColor"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="backBtnTapped:" destination="G5i-Sh-I4R" eventType="touchUpInside" id="so8-9d-AAx"/>
+                                                            <action selector="editPenname:" destination="G5i-Sh-I4R" eventType="touchUpInside" id="sVm-Cq-tbe"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -335,7 +335,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UDV-qJ-n8f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3518.840579710145" y="28.794642857142854"/>
+            <point key="canvasLocation" x="3525" y="29"/>
         </scene>
         <!--License View Controller-->
         <scene sceneID="0gG-yz-HSH">

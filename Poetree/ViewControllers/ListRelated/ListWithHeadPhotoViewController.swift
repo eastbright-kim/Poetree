@@ -29,11 +29,11 @@ class ListWithHeadPhotoViewController: UIViewController, ViewModelBindable, HasD
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        naviBarConfig()
+        configureNavBar()
         
     }
     
-    func naviBarConfig(){
+    func configureNavBar(){
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.tintColor = UIColor.label
     }
@@ -44,7 +44,7 @@ class ListWithHeadPhotoViewController: UIViewController, ViewModelBindable, HasD
     }
     
     @objc func handleRefreshControl() {
-        self.viewModel.poemService.fetchPoems { complete in
+        self.viewModel.poemService.fetchPoemsByRefresh { complete in
             DispatchQueue.main.async {
                 self.backScrollView.refreshControl?.endRefreshing()
             }

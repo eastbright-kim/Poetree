@@ -59,7 +59,7 @@ class PoemRepository {
         }
     }
     
-    func likeAdd(poem: Poem, user: User) {
+    func addLikesToPoem(poem: Poem, user: User) {
         
         poemRef.child(poem.userUID).child(poem.id).runTransactionBlock { currentData in
             
@@ -74,7 +74,7 @@ class PoemRepository {
         }
     }
     
-    func likeCancel(poem: Poem, user: User){
+    func cancelLike(poem: Poem, user: User){
         
         poemRef.child(poem.userUID).child(poem.id).runTransactionBlock { currentData in
             
@@ -89,7 +89,7 @@ class PoemRepository {
         }
     }
     
-    func editPoemFromTemp(poemModel: Poem, completion: @escaping ((Result<Complete, Error>) -> Void)) {
+    func editTempSavedPoem(poemModel: Poem, completion: @escaping ((Result<Complete, Error>) -> Void)) {
         
         let currentUser = Auth.auth().currentUser
         

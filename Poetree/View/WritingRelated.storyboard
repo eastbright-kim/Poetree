@@ -430,7 +430,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="sendPoemTapped:" destination="U0B-vy-2lf" eventType="touchUpInside" id="aCC-Sj-L6r"/>
+                                                            <action selector="sendPoem:" destination="U0B-vy-2lf" eventType="touchUpInside" id="gwK-wF-gMJ"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEC-K2-45A">
@@ -441,7 +441,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="editCompleteTapped:" destination="U0B-vy-2lf" eventType="touchUpInside" id="QRZ-N2-qMr"/>
+                                                            <action selector="completeEdit:" destination="U0B-vy-2lf" eventType="touchUpInside" id="aSi-2x-VrL"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
