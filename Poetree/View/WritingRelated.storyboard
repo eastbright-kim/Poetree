@@ -429,9 +429,6 @@
                                                         <state key="normal" title="글 보내기">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
-                                                        <connections>
-                                                            <action selector="sendPoem:" destination="U0B-vy-2lf" eventType="touchUpInside" id="gwK-wF-gMJ"/>
-                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEC-K2-45A">
                                                         <rect key="frame" x="333" y="3.6666666666665151" width="64" height="33"/>
@@ -440,9 +437,6 @@
                                                         <state key="normal" title="수정 완료">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
-                                                        <connections>
-                                                            <action selector="completeEdit:" destination="U0B-vy-2lf" eventType="touchUpInside" id="aSi-2x-VrL"/>
-                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -540,24 +534,22 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="kc3-Db-PkV"/>
                         <barButtonItem key="rightBarButtonItem" image="ellipsis.circle" catalog="system" id="6wa-vk-cuZ">
                             <color key="tintColor" systemColor="systemOrangeColor"/>
-                            <connections>
-                                <action selector="tempSaveBtnTapped:" destination="U0B-vy-2lf" id="6KY-L5-mfc"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="428" height="1400"/>
                     <connections>
                         <outlet property="backScrollView" destination="0JF-8G-ir6" id="cNv-x8-gVP"/>
                         <outlet property="contentTextView" destination="kQR-Li-RPL" id="RC9-mN-pnm"/>
-                        <outlet property="editComplete" destination="bEC-K2-45A" id="YKz-Ku-lQR"/>
+                        <outlet property="editCompleteBtn" destination="bEC-K2-45A" id="YKz-Ku-lQR"/>
                         <outlet property="photoView" destination="vzW-9E-j2m" id="HP1-6g-2Kg"/>
                         <outlet property="privateCheckBtn" destination="Q43-UZ-22H" id="Uum-Zw-ckb"/>
                         <outlet property="privateNoticeLabel" destination="eh2-wD-4Kw" id="gVG-K7-WxH"/>
                         <outlet property="publicNoticeLabel" destination="ImL-d5-2PW" id="vFf-Ec-8z6"/>
+                        <outlet property="saveTempPoem" destination="6wa-vk-cuZ" id="hsz-9P-wch"/>
                         <outlet property="selectedPhoto" destination="9Qg-Ne-5WM" id="NlB-H1-cnq"/>
                         <outlet property="titleTextField" destination="rvQ-yJ-m5S" id="7v5-vr-2dq"/>
                         <outlet property="userDateLabel" destination="tGQ-hi-UTQ" id="IjR-bf-yxI"/>
-                        <outlet property="writeComplete" destination="lla-AM-CN4" id="KKB-s7-vf1"/>
+                        <outlet property="writeCompleteBtn" destination="lla-AM-CN4" id="KKB-s7-vf1"/>
                         <segue destination="Oid-2E-d6o" kind="unwind" identifier="unwindfromWritingView" unwindAction="unwind:" id="yz3-Vw-elG"/>
                     </connections>
                 </viewController>

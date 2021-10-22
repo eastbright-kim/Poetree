@@ -25,30 +25,30 @@ class PoemService: UserLogInListener {
         return poemsStore
     }
     
-    func createPoem(poem: Poem, completion: @escaping ((String) -> Void)) {
+    func createPoem(poem: Poem, completion: @escaping ((Result<Complete, Error>) -> Void)) {
         
         if poem.isTemp {
             poem.isTemp = false
             poemRepository.createPoem(poemModel: poem) { result in
                 switch result {
-                case .success(let s):
-                    completion(s.rawValue)
+                case .success(let success):
+                    completion(.success(success))
                     guard let index = self.poems.firstIndex(of: poem) else { return }
                     self.poems[index] = poem
                     self.poemsStore.onNext(self.poems)
-                case .failure:
-                    completion("write poem error")
+                case .failure(let error):
+                    completion(.failure(error))
                 }
             }
         } else{
             poemRepository.createPoem(poemModel: poem) { result in
                 switch result {
-                case .success(let s):
-                    completion(s.rawValue)
+                case .success(let success):
+                    completion(.success(success))
                     self.poems.insert(poem, at: 0)
                     self.poemsStore.onNext(self.poems)
-                case .failure:
-                    completion("write poem error")
+                case .failure(let error):
+                    completion(.failure(error))
                 }
             }
         }

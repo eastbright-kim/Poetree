@@ -23,11 +23,12 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var privateCheckBtn: UIButton!
-    @IBOutlet weak var editComplete: UIButton!
-    @IBOutlet weak var writeComplete: UIButton!
+    @IBOutlet weak var editCompleteBtn: UIButton!
+    @IBOutlet weak var writeCompleteBtn: UIButton!
     @IBOutlet weak var backScrollView: UIScrollView!
     @IBOutlet weak var publicNoticeLabel: UILabel!
     @IBOutlet weak var privateNoticeLabel: UILabel!
+    @IBOutlet weak var saveTempPoem: UIBarButtonItem!
     
     private lazy var addTempPoemFromWriting: BLTNItemManager = {
         let item = BLTNPageItem(title: "이 글을 임시 저장하시겠습니까?")
@@ -87,7 +88,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
         super.viewDidAppear(animated)
         titleTextField.becomeFirstResponder()
     }
-   
+    
     func addObserver(){
         self.keyboardDismissTabGesture.delegate = self
         self.view.addGestureRecognizer(keyboardDismissTabGesture)
@@ -118,15 +119,15 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
     func setUpUI(){
         makePhotoViewShadow(superView: photoView, photoImageView: selectedPhoto)
         selectedPhoto.layer.cornerRadius = 8
-        self.writeComplete.contentEdgeInsets = UIEdgeInsets(top: 3, left: 10, bottom: 3, right: 10)
-        self.writeComplete.layer.cornerRadius = 5
-        self.editComplete.contentEdgeInsets = UIEdgeInsets(top: 3, left: 10, bottom: 3, right: 10)
-        self.editComplete.layer.cornerRadius = 5
+        self.writeCompleteBtn.contentEdgeInsets = UIEdgeInsets(top: 3, left: 10, bottom: 3, right: 10)
+        self.writeCompleteBtn.layer.cornerRadius = 5
+        self.editCompleteBtn.contentEdgeInsets = UIEdgeInsets(top: 3, left: 10, bottom: 3, right: 10)
+        self.editCompleteBtn.layer.cornerRadius = 5
         
         let type = self.viewModel.output.writingType
         
         switch type {
-        
+            
         case .edit(let editingPoem):
             self.selectedPhoto.kf.setImage(with: editingPoem.photoURL)
             self.userDateLabel.text = viewModel.poemService.getWritingTimeString(date: editingPoem.uploadAt)
@@ -141,11 +142,11 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
                 self.privateNoticeLabel.isHidden = true
                 self.publicNoticeLabel.isHidden = false
             }
-            self.writeComplete.isHidden = true
+            self.writeCompleteBtn.isHidden = true
         case .write(let weekPhoto):
             self.selectedPhoto.kf.setImage(with: weekPhoto.url)
             self.userDateLabel.text = viewModel.poemService.getWritingTimeString(date: Date())
-            self.editComplete.isHidden = true
+            self.editCompleteBtn.isHidden = true
             self.publicNoticeLabel.isHidden = false
         case .temp(let writingPoem):
             self.selectedPhoto.kf.setImage(with: writingPoem.photoURL)
@@ -161,7 +162,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
                 self.privateNoticeLabel.isHidden = true
                 self.publicNoticeLabel.isHidden = false
             }
-            self.editComplete.isHidden = true
+            self.editCompleteBtn.isHidden = true
         }
     }
     
@@ -192,132 +193,110 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
                     self.privateNoticeLabel.isHidden = false
                 }
             })
-            .map{[unowned self] in self.isPrvate}
+            .map{self.isPrvate}
             .bind(to: viewModel.input.isPrivate)
             .disposed(by: rx.disposeBag)
-    }
-    
-    @IBAction func sendPoem(_ sender: UIButton) {
         
-        if checkBadWords(content: self.contentTextView.text + self.titleTextField.text!){
-            
-            let alert = UIAlertController(title: "이상 내용 감지", message: "창작의 자유를 존중하지만\n정책상 비속어 게시가 불가합니다", preferredStyle: .alert)
-            let action = UIAlertAction(title: "확인", style: .default)
-            alert.addAction(action)
-            self.present(alert, animated: true, completion: nil)
-            
-            return
-        }
-        
-        if self.titleTextField.text!.isEmpty && self.contentTextView.text.isEmpty {
-            
-            let alert = UIAlertController(title: "이상 내용 감지", message: "공백의 글은 게시할 수 없습니다", preferredStyle: .alert)
-            let action = UIAlertAction(title: "확인", style: .default)
-            alert.addAction(action)
-            self.present(alert, animated: true, completion: nil)
-            return
-        }
-        
-        self.viewModel.output.aPoem
-            .take(1)
-            .observe(on: ConcurrentDispatchQueueScheduler.init(queue: DispatchQueue.global()))
-            .subscribe(onNext: {[weak self] aPoem in
-                guard let self = self else {return}
-                self.viewModel.poemService.createPoem(poem: aPoem) { result in
-                    print(result)
+        writeCompleteBtn.rx.tap
+            .withLatestFrom(self.viewModel.output.aPoem)
+            .subscribe(onNext:{ poem in
+                
+                if let alertController = self.viewModel.fetchAlertForInvalidPoem(poem: poem) {
+                    self.present(alertController, animated: true, completion: nil)
+                    return
                 }
                 
-                let writingType = self.viewModel.output.writingType
-                
-                DispatchQueue.main.async {
-                    if self.viewModel.output.isFromMain {
-                        self.navigationController?.popToRootViewController(animated: true)
-                    } else if case .temp = writingType {
-                        self.performSegue(withIdentifier: "unwindfromWritingView", sender: self)
-                    }
-                    else {
-                        self.navigationController?.popViewController(animated: true)
+                DispatchQueue.global().async {
+                    self.viewModel.poemService.createPoem(poem: poem) { result in
+                        DispatchQueue.main.async {
+                            switch result {
+                            case .success:
+                                let writingType = self.viewModel.output.writingType
+                                if self.viewModel.output.isFromMain {
+                                    self.navigationController?.popToRootViewController(animated: true)
+                                } else if case .temp = writingType {
+                                    self.performSegue(withIdentifier: "unwindfromWritingView", sender: self)
+                                }
+                            default:
+                                break
+                            }
+                        }
                     }
                 }
             })
-            .disposed(by: self.rx.disposeBag)
+            .disposed(by: rx.disposeBag)
         
-    }
-    
-    
-    
-    @IBAction func completeEdit(_ sender: UIButton) {
-        
-        if checkBadWords(content: self.contentTextView.text + self.titleTextField.text!){
-            
-            let alert = UIAlertController(title: "이상 내용 감지", message: "창작의 자유를 존중하지만\n정책상 비속어 게시가 불가합니다", preferredStyle: .alert)
-            let action = UIAlertAction(title: "확인", style: .default)
-            alert.addAction(action)
-            self.present(alert, animated: true, completion: nil)
-            
-            return
-        }
-        
-        if self.titleTextField.text!.isEmpty && self.contentTextView.text.isEmpty {
-            
-            let alert = UIAlertController(title: "이상 내용 감지", message: "공백의 글은 게시할 수 없습니다", preferredStyle: .alert)
-            let action = UIAlertAction(title: "확인", style: .default)
-            alert.addAction(action)
-            self.present(alert, animated: true, completion: nil)
-            
-            return
-            
-        }
-        
-            self.viewModel.output.aPoem
-                .take(1)
-                .observe(on: ConcurrentDispatchQueueScheduler.init(queue: DispatchQueue.global()))
-                .subscribe(onNext: {[weak self] editedPoem in
-                    
-                    guard let self = self, let editingPoem = self.viewModel.output.editingPoem else {return}
-                    
-                    self.viewModel.poemService.editPoem(beforeEdited: editingPoem, editedPoem: editedPoem) { result in
-                        print(result)
-                        
+        editCompleteBtn.rx.tap
+            .withLatestFrom(self.viewModel.output.aPoem)
+            .subscribe(onNext:{ poem in
+                
+                if let alertController = self.viewModel.fetchAlertForInvalidPoem(poem: poem) {
+                    self.present(alertController, animated: true, completion: nil)
+                    return
+                }
+                
+                guard let poemBeforeEdited = self.viewModel.output.editingPoem else {return}
+                
+                DispatchQueue.global().async {
+                    self.viewModel.poemService.editPoem(beforeEdited: poemBeforeEdited, editedPoem: poem) { result in
                         DispatchQueue.main.async {
                             self.navigationController?.popViewController(animated: true)
                         }
                     }
-                })
-                .disposed(by: self.rx.disposeBag)
-            
-        }
+                    
+                }
+            })
+            .disposed(by: rx.disposeBag)
         
-        @IBAction func tempSaveBtnTapped(_ sender: UIBarButtonItem) {
-            
-            if checkBadWords(content: self.contentTextView.text + self.titleTextField.text!){
-            
-            let alert = UIAlertController(title: "이상 내용 감지", message: "창작의 자유를 존중하지만\n정책상 비속어 게시가 불가합니다", preferredStyle: .alert)
-            let action = UIAlertAction(title: "확인", style: .default)
-            alert.addAction(action)
-            self.present(alert, animated: true, completion: nil)
-            
-            return
-        }
-        
-        let type = self.viewModel.output.writingType
-        
-        switch type {
-        case .write:
-            self.addTempPoemFromWriting.showBulletin(above: self)
-            
-        case .temp:
-            self.editTempPoemManager.showBulletin(above: self)
-            
-        case .edit:
-            self.editTempPoemManager.showBulletin(above: self)
-        }
+        saveTempPoem.rx.tap
+            .withLatestFrom(self.viewModel.output.aPoem)
+            .subscribe(onNext:{ poem in
+                
+                if checkBadWords(content: poem.content + poem.title) {
+                    let alertController = self.viewModel.fetchAlert(type: .badWords)
+                    self.present(alertController, animated: true, completion: nil)
+                    return
+                }
+                
+                let type = self.viewModel.output.writingType
+                
+                switch type {
+                case .write:
+                    self.addTempPoemFromWriting.showBulletin(above: self)
+                    
+                case .temp:
+                    self.editTempPoemManager.showBulletin(above: self)
+                    
+                case .edit:
+                    self.editTempPoemManager.showBulletin(above: self)
+                }
+                
+            })
+            .disposed(by: rx.disposeBag)
     }
     
+}
+
+extension WritingViewController: UIGestureRecognizerDelegate {
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        
+        if(touch.view?.isDescendant(of: self.titleTextField) == true){
+            return false
+        } else if (touch.view?.isDescendant(of: self.contentTextView) == true){
+            return false
+        } else {
+            view.endEditing(true)
+            return true
+        }
+    }
+}
+
+//MARK: - BLTN board related
+extension WritingViewController {
+    
     func addTempFromWriting(){
-        
         self.addTempPoemFromWriting.dismissBulletin()
-        
         viewModel.output.aPoem
             .take(1)
             .observe(on: ConcurrentDispatchQueueScheduler(queue: DispatchQueue.global()))
@@ -379,19 +358,5 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
     }
-}
-
-extension WritingViewController: UIGestureRecognizerDelegate {
-
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-      
-        if(touch.view?.isDescendant(of: self.titleTextField) == true){
-            return false
-        } else if (touch.view?.isDescendant(of: self.contentTextView) == true){
-            return false
-        } else {
-            view.endEditing(true)
-            return true
-        }
-    }
+    
 }
