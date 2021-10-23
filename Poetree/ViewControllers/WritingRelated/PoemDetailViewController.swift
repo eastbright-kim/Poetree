@@ -28,8 +28,6 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
     @IBOutlet weak var keepWriteBtn: UIButton!
     @IBOutlet weak var privateBtn: UIButton!
     
-    
-    
     var viewModel: PoemDetailViewModel!
     var isLike: Bool = false
     
@@ -80,6 +78,7 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
             .drive(onNext:{ [weak self] poem in
                 
                 guard let self = self else {return}
+                
                 self.photoImageView.kf.setImage(with: poem.photoURL)
                 self.titleLabel.text = poem.title
                 self.contentLabel.text = poem.content
@@ -121,7 +120,7 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
                 
                 guard let self = self else {return}
                 
-                let viewModel = WriteViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, writingType: .edit(poem), editingPoem: poem)
+                let viewModel = WriteViewModel(poemService: self.viewModel.poemService, userService: self.viewModel.userService, writingType: .edit(poem), beforeEditedPoem: poem)
                 
                 let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
                 backBarButtonItem.tintColor = .systemOrange

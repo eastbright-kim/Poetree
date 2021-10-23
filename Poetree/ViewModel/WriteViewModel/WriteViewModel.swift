@@ -12,37 +12,36 @@ import FirebaseAuth
 
 class WriteViewModel: ViewModelType {
     
-    
     let poemService: PoemService
     let userService: UserService
+    let beforeEditedPoem: Poem?
+    let writingType: WritingType
+    let isFromMain: Bool
     
     struct Input {
         let title: BehaviorSubject<String>
         let content: BehaviorSubject<String>
         var isPrivate: BehaviorSubject<Bool>
-        
     }
     
     struct Output {
-        
         let aPoem: Observable<Poem>
-        let writingType: WritingType
-        let editingPoem: Poem?
-        let isFromMain: Bool
     }
     
     var input: Input
     var output: Output
     
-    init(poemService: PoemService, userService: UserService, writingType: WritingType, editingPoem: Poem? = nil, isFromMain: Bool = false) {
+    init(poemService: PoemService, userService: UserService, writingType: WritingType, beforeEditedPoem: Poem? = nil, isFromMain: Bool = false) {
         
         self.poemService = poemService
         self.userService = userService
+        self.beforeEditedPoem = beforeEditedPoem
+        self.writingType = writingType
+        self.isFromMain = isFromMain
         let title = BehaviorSubject<String>(value: "")
         let content = BehaviorSubject<String>(value: "")
         let isPrivate = BehaviorSubject<Bool>(value: false)
         let currentUser = userService.fetchLoggedInUser()
-        
         
         let aPoem = Observable<Poem>.combineLatest(title, content, isPrivate, currentUser) { title, content, isPrivate, currentAuth in
             switch writingType {
@@ -56,35 +55,30 @@ class WriteViewModel: ViewModelType {
         }
         
         self.input = Input(title: title, content: content, isPrivate: isPrivate)
-        self.output = Output(aPoem: aPoem, writingType: writingType, editingPoem: editingPoem, isFromMain: isFromMain)
+        self.output = Output(aPoem: aPoem)
     }
     
     func fetchAlertForInvalidPoem(poem: Poem) -> UIAlertController? {
-        if checkBadWords(content: poem.content + poem.title) {
-            return fetchAlert(type: .badWords)
-        } else if poem.title.isEmpty && poem.content.isEmpty {
-            return fetchAlert(type: .blank)
+        
+        if let badwordAlert = self.fetchBadwordAlert(poem: poem) {
+            return badwordAlert
+        }else if poem.title.isEmpty && poem.content.isEmpty {
+            return fetchBlankAlert()
         } else {
             return nil
         }
     }
     
-    func fetchAlert(type: AlertType) -> UIAlertController{
-        switch type {
-        case .badWords:
-            let alertController = fetchBadwordAlert()
-            return alertController
-        case .blank:
-            let alertController = fetchBlankAlert()
-            return alertController
+    func fetchBadwordAlert(poem: Poem) -> UIAlertController?{
+        
+        if checkBadWords(content: poem.title + poem.content) {
+            let alert = UIAlertController(title: "이상 내용 감지", message: "창작의 자유를 존중하지만\n정책상 비속어 게시가 불가합니다", preferredStyle: .alert)
+            let action = UIAlertAction(title: "확인", style: .default)
+            alert.addAction(action)
+            return alert
+        } else {
+            return nil
         }
-    }
-    
-    func fetchBadwordAlert() -> UIAlertController{
-        let alert = UIAlertController(title: "이상 내용 감지", message: "창작의 자유를 존중하지만\n정책상 비속어 게시가 불가합니다", preferredStyle: .alert)
-        let action = UIAlertAction(title: "확인", style: .default)
-        alert.addAction(action)
-        return alert
     }
     
     func fetchBlankAlert() -> UIAlertController{
@@ -101,6 +95,7 @@ enum WritingType {
     case write(WeekPhoto)
     case edit(Poem)
     case temp(Poem)
+    
 }
 
 enum AlertType {

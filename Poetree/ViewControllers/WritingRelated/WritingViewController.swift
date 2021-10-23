@@ -45,7 +45,6 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
         item.alternativeHandler = { _ in
             self.cancelSave()
         }
-        
         return BLTNItemManager(rootItem: item)
     }()
     
@@ -63,7 +62,6 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
         }
         item.alternativeHandler = { _ in
             self.deletePoem()
-            
         }
         return BLTNItemManager(rootItem: item)
     }()
@@ -105,7 +103,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
         self.navigationController?.navigationBar.barTintColor = UIColor.systemBackground
         self.navigationController?.navigationBar.tintColor = UIColor.systemOrange
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        let type = self.viewModel.output.writingType
+        let type = self.viewModel.writingType
         switch type {
         case .write:
             self.title = "글 쓰기"
@@ -117,6 +115,7 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
     }
     
     func setUpUI(){
+        
         makePhotoViewShadow(superView: photoView, photoImageView: selectedPhoto)
         selectedPhoto.layer.cornerRadius = 8
         self.writeCompleteBtn.contentEdgeInsets = UIEdgeInsets(top: 3, left: 10, bottom: 3, right: 10)
@@ -124,10 +123,8 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
         self.editCompleteBtn.contentEdgeInsets = UIEdgeInsets(top: 3, left: 10, bottom: 3, right: 10)
         self.editCompleteBtn.layer.cornerRadius = 5
         
-        let type = self.viewModel.output.writingType
-        
+        let type = self.viewModel.writingType
         switch type {
-            
         case .edit(let editingPoem):
             self.selectedPhoto.kf.setImage(with: editingPoem.photoURL)
             self.userDateLabel.text = viewModel.poemService.getWritingTimeString(date: editingPoem.uploadAt)
@@ -170,14 +167,12 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
         
         self.titleTextField.rx.text.orEmpty
             .bind(onNext: { title in
-                
                 self.viewModel.input.title.onNext(title)
             })
             .disposed(by: rx.disposeBag)
         
         self.contentTextView.rx.text.orEmpty
             .bind(onNext: { content in
-                
                 self.viewModel.input.content.onNext(content)
             })
             .disposed(by: rx.disposeBag)
@@ -211,8 +206,8 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
                         DispatchQueue.main.async {
                             switch result {
                             case .success:
-                                let writingType = self.viewModel.output.writingType
-                                if self.viewModel.output.isFromMain {
+                                let writingType = self.viewModel.writingType
+                                if self.viewModel.isFromMain {
                                     self.navigationController?.popToRootViewController(animated: true)
                                 } else if case .temp = writingType {
                                     self.performSegue(withIdentifier: "unwindfromWritingView", sender: self)
@@ -230,12 +225,12 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
             .withLatestFrom(self.viewModel.output.aPoem)
             .subscribe(onNext:{ poem in
                 
+                guard let poemBeforeEdited = self.viewModel.beforeEditedPoem else {return}
+                
                 if let alertController = self.viewModel.fetchAlertForInvalidPoem(poem: poem) {
                     self.present(alertController, animated: true, completion: nil)
                     return
                 }
-                
-                guard let poemBeforeEdited = self.viewModel.output.editingPoem else {return}
                 
                 DispatchQueue.global().async {
                     self.viewModel.poemService.editPoem(beforeEdited: poemBeforeEdited, editedPoem: poem) { result in
@@ -250,25 +245,23 @@ class WritingViewController: UIViewController, ViewModelBindable, StoryboardBase
         
         saveTempPoem.rx.tap
             .withLatestFrom(self.viewModel.output.aPoem)
-            .subscribe(onNext:{ poem in
+            .subscribe(onNext:{ [weak self] poem in
                 
-                if checkBadWords(content: poem.content + poem.title) {
-                    let alertController = self.viewModel.fetchAlert(type: .badWords)
-                    self.present(alertController, animated: true, completion: nil)
+                guard let weakSelf = self else {return}
+                
+                if let alertForBadword = weakSelf.viewModel.fetchBadwordAlert(poem: poem) {
+                    weakSelf.present(alertForBadword, animated: true, completion: nil)
                     return
                 }
                 
-                let type = self.viewModel.output.writingType
-                
+                let type = weakSelf.viewModel.writingType
                 switch type {
                 case .write:
-                    self.addTempPoemFromWriting.showBulletin(above: self)
-                    
+                    weakSelf.addTempPoemFromWriting.showBulletin(above: weakSelf)
                 case .temp:
-                    self.editTempPoemManager.showBulletin(above: self)
-                    
+                    weakSelf.editTempPoemManager.showBulletin(above: weakSelf)
                 case .edit:
-                    self.editTempPoemManager.showBulletin(above: self)
+                    weakSelf.editTempPoemManager.showBulletin(above: weakSelf)
                 }
                 
             })
@@ -292,7 +285,7 @@ extension WritingViewController: UIGestureRecognizerDelegate {
     }
 }
 
-//MARK: - BLTN board related
+//MARK: - BLTN Board related
 extension WritingViewController {
     
     func addTempFromWriting(){
