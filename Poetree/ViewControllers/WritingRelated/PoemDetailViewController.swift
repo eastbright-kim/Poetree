@@ -74,7 +74,7 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
     
     func bindViewModel() {
   
-        self.viewModel.output.displayingPoem
+        self.viewModel.displayingPoem
             .drive(onNext:{ [weak self] poem in
                 
                 guard let self = self else {return}
@@ -92,13 +92,13 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
                     self.likeBtn.isSelected = false
                 }
                 
-                if self.viewModel.output.isTempDetail {
+                if self.viewModel.isTempDetail {
                     self.likeBtn.isHidden = true
                     self.likesCountLabel.isHidden = true
                     self.deleteBtn.isHidden = false
                     self.editBtn.isHidden = true
                     self.keepWriteBtn.isHidden = false
-                } else if self.viewModel.output.isUserWriting {
+                } else if self.viewModel.isUserWriting {
                     self.deleteBtn.isHidden = false
                     self.editBtn.isHidden = false
                     self.keepWriteBtn.isHidden = true
@@ -115,7 +115,7 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
             .disposed(by: rx.disposeBag)
         
         self.editBtn.rx.tap
-            .withLatestFrom(self.viewModel.output.displayingPoem)
+            .withLatestFrom(self.viewModel.displayingPoem)
             .subscribe(onNext:{[weak self] poem in
                 
                 guard let self = self else {return}
@@ -134,7 +134,7 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
             .disposed(by: rx.disposeBag)
         
         self.keepWriteBtn.rx.tap
-            .withLatestFrom(self.viewModel.output.displayingPoem)
+            .withLatestFrom(self.viewModel.displayingPoem)
             .subscribe(onNext:{[weak self] poem in
                 
                 guard let self = self else {return}
@@ -153,65 +153,24 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
             .disposed(by: rx.disposeBag)
         
         self.deleteBtn.rx.tap
-            .withLatestFrom(self.viewModel.output.displayingPoem)
+            .withLatestFrom(self.viewModel.displayingPoem)
             .subscribe(onNext:{[weak self] poem in
                 
                 guard let self = self else {return}
-                
-                let alert = UIAlertController(title: "글 삭제", message: "글을 삭제하시겠습니까?", preferredStyle: .alert)
-                let deleteAction = UIAlertAction(title: "확인", style: .destructive) { action in
-                    self.viewModel.poemService.deletePoem(deletingPoem: poem)
-                    
-                    DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: "unwindfromDetailView", sender: self)
-                    }
-                    
-                }
-                let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-                alert.addAction(deleteAction)
-                alert.addAction(cancelAction)
-                self.present(alert, animated: true, completion: nil)
+                let deleteAlert = self.fetchAlertForDelete(poem: poem)
+                self.present(deleteAlert, animated: true, completion: nil)
                 
             })
             .disposed(by: rx.disposeBag)
         
         self.reportBtn.rx.tap
-            .withLatestFrom(self.viewModel.output.displayingPoem)
+            .withLatestFrom(self.viewModel.displayingPoem)
             .subscribe(onNext:{ poem in
                 
-                guard self.viewModel.output.isTempDetail == false else { self.view.makeToast("임시로 저장된 글은 신고할 수 없습니다", duration: 1.0, position: .center)
+                guard self.viewModel.isTempDetail == false else { self.view.makeToast("임시로 저장된 글은 신고할 수 없습니다", duration: 1.0, position: .center)
                     return}
-                
-                let alert = UIAlertController(title: "신고하기", message: "비속어 등 악의적인 표현이 있는 글을 신고해 주시기 바랍니다.\n신고된 글은 추후에 볼 수 없으며\n적절성 검토 후에 글쓴이의 Poetree 이용을 제한합니다.\n또한, 글쓴이를 차단할 경우, 이후 해당 글쓴이의 글은 볼 수 없습니다.\n참여해주셔서 감사합니다.", preferredStyle: .actionSheet)
-                let reportAction = UIAlertAction(title: "신고하기", style: .destructive) { _ in
-                    let currentUser = Auth.auth().currentUser
-                    
-                    self.viewModel.poemService.reportPoem(poem: poem, currentUser: currentUser) {
-                        DispatchQueue.main.async {
-                            self.performSegue(withIdentifier: "unwindfromDetailView", sender: self)
-                        }
-                    }
-                }
-                let blockAction = UIAlertAction(title: "글쓴이 차단하기", style: .destructive) { _ in
-                    guard let currentUser = Auth.auth().currentUser else {
-                        
-                        let alert = UIAlertController(title: "로그인이 필요합니다", message: "글쓴이 차단 기능은\n로그인 후 이용할 수 있습니다", preferredStyle: .alert)
-                        let action = UIAlertAction(title: "확인", style: .default, handler: nil)
-                        alert.addAction(action)
-                        self.present(alert, animated: true, completion: nil)
-                        return}
-                    
-                    self.viewModel.poemService.blockWriter(poem: poem, currentUser: currentUser) {
-                        DispatchQueue.main.async {
-                            self.performSegue(withIdentifier: "unwindfromDetailView", sender: self)
-                        }
-                    }
-                }
-                let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-                alert.addAction(reportAction)
-                alert.addAction(blockAction)
-                alert.addAction(cancelAction)
-                self.present(alert, animated: true, completion: nil)
+                let reportAlert = self.fetchAlertForReport(poem: poem)
+                self.present(reportAlert, animated: true, completion: nil)
             })
             .disposed(by: rx.disposeBag)
         
@@ -219,7 +178,7 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
         likeBtn.rx.tap
             .do(onNext:{ [weak self] _ in guard let self = self else {return}
                     self.likeBtn.animateView()})
-            .withLatestFrom(self.viewModel.output.displayingPoem)
+            .withLatestFrom(self.viewModel.displayingPoem)
             .subscribe(onNext:{ poem in
                 if let currentUser = Auth.auth().currentUser {
                     self.viewModel.poemService.likeHandle(poem: poem, user: currentUser){ poem in
@@ -234,5 +193,58 @@ class PoemDetailViewController: UIViewController, ViewModelBindable, StoryboardB
                 }
             })
             .disposed(by: rx.disposeBag)
+    }
+}
+
+//MARK: - Fetch UIAlert
+
+extension PoemDetailViewController {
+    
+    func fetchAlertForDelete(poem: Poem) -> UIAlertController {
+        let alert = UIAlertController(title: "글 삭제", message: "글을 삭제하시겠습니까?", preferredStyle: .alert)
+        let deleteAction = UIAlertAction(title: "확인", style: .destructive) { action in
+            self.viewModel.poemService.deletePoem(deletingPoem: poem)
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "unwindfromDetailView", sender: self)
+            }
+        }
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        
+        return alert
+    }
+    
+    func fetchAlertForReport(poem: Poem) -> UIAlertController {
+        let alert = UIAlertController(title: "신고하기", message: "비속어 등 악의적인 표현이 있는 글을 신고해 주시기 바랍니다.\n신고된 글은 추후에 볼 수 없으며\n적절성 검토 후에 글쓴이의 Poetree 이용을 제한합니다.\n또한, 글쓴이를 차단할 경우, 이후 해당 글쓴이의 글은 볼 수 없습니다.\n참여해주셔서 감사합니다.", preferredStyle: .actionSheet)
+        let reportAction = UIAlertAction(title: "신고하기", style: .destructive) { _ in
+            let currentUser = Auth.auth().currentUser
+            
+            self.viewModel.poemService.reportPoem(poem: poem, currentUser: currentUser) {
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "unwindfromDetailView", sender: self)
+                }
+            }
+        }
+        let blockAction = UIAlertAction(title: "글쓴이 차단하기", style: .destructive) { _ in
+            guard let currentUser = Auth.auth().currentUser else {
+                
+                let alert = UIAlertController(title: "로그인이 필요합니다", message: "글쓴이 차단 기능은\n로그인 후 이용할 수 있습니다", preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .default, handler: nil)
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
+                return}
+            
+            self.viewModel.poemService.blockWriter(poem: poem, currentUser: currentUser) {
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "unwindfromDetailView", sender: self)
+                }
+            }
+        }
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        alert.addAction(reportAction)
+        alert.addAction(blockAction)
+        alert.addAction(cancelAction)
+        return alert
     }
 }

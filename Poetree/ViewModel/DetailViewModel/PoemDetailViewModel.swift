@@ -5,7 +5,7 @@
 //  Created by 김동환 on 2021/08/11.
 //
 
-import Foundation
+import UIKit
 import RxSwift
 import RxCocoa
 
@@ -13,6 +13,10 @@ class PoemDetailViewModel: ViewModelType {
     
     let poemService: PoemService
     let userService: UserService
+    let displayingPoem: Driver<Poem>
+    let isTempDetail: Bool
+    let isUserWriting: Bool
+    var deleteAction: (()-> Void) = {}
     
     
     struct Input {
@@ -20,9 +24,7 @@ class PoemDetailViewModel: ViewModelType {
     }
     
     struct Output {
-        let displayingPoem: Driver<Poem>
-        let isTempDetail: Bool
-        let isUserWriting: Bool
+
     }
     
     var input: Input
@@ -33,13 +35,13 @@ class PoemDetailViewModel: ViewModelType {
         self.poemService = poemService
         self.userService = userService
         let poems = poemService.allPoems()
-        let displayingPoem = poems.map{poems in poemService.fetchEditedPoem(poems: poems, poem: poem)}
+        self.displayingPoem = poems.map{poems in poemService.fetchEditedPoem(poems: poems, poem: poem)}
             .asDriver(onErrorJustReturn: poem)
+        self.isTempDetail = isTempDetail
+        self.isUserWriting = isUserWriting
+        
         self.input = Input()
-        self.output = Output(displayingPoem: displayingPoem, isTempDetail: isTempDetail, isUserWriting: isUserWriting)
+        self.output = Output()
     }
     
-    func deletePoem(deletingPoem: Poem) {
-        poemService.deletePoem(deletingPoem: deletingPoem)
-    }
 }

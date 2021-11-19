@@ -552,8 +552,8 @@ Apple App Store (이하 "App Store")와 같은 애플리케이션 시장 또는 
                                                                                 <constraint firstAttribute="width" secondItem="fBc-b9-de5" secondAttribute="height" multiplier="1:1" id="9kj-8m-UBp"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 글" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oac-E2-vOk">
-                                                                            <rect key="frame" x="54" y="126.99999999999999" width="46" height="19.333333333333329"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 글" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Oac-E2-vOk">
+                                                                            <rect key="frame" x="0.0" y="126.99999999999999" width="154" height="19.333333333333329"/>
                                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="16"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -595,9 +595,11 @@ Apple App Store (이하 "App Store")와 같은 애플리케이션 시장 또는 
                                                                     <constraints>
                                                                         <constraint firstItem="Oac-E2-vOk" firstAttribute="top" secondItem="fBc-b9-de5" secondAttribute="bottom" constant="8" symbolic="YES" id="2qz-Zv-OGj"/>
                                                                         <constraint firstItem="Oac-E2-vOk" firstAttribute="centerX" secondItem="3MN-hW-iMh" secondAttribute="centerX" id="4YY-Cp-hrp"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="Oac-E2-vOk" secondAttribute="trailing" id="84H-r6-DEA"/>
                                                                         <constraint firstItem="4td-bG-rrZ" firstAttribute="top" secondItem="qSp-xu-ADU" secondAttribute="bottom" constant="2" id="9dU-D0-h0h"/>
                                                                         <constraint firstAttribute="trailing" secondItem="fBc-b9-de5" secondAttribute="trailing" constant="20" id="ClU-tE-TVI"/>
                                                                         <constraint firstItem="qSp-xu-ADU" firstAttribute="centerX" secondItem="3MN-hW-iMh" secondAttribute="centerX" id="ESj-1H-y1j"/>
+                                                                        <constraint firstItem="Oac-E2-vOk" firstAttribute="leading" secondItem="3MN-hW-iMh" secondAttribute="leading" id="I04-6Y-YQ1"/>
                                                                         <constraint firstItem="fBc-b9-de5" firstAttribute="leading" secondItem="3MN-hW-iMh" secondAttribute="leading" constant="20" id="JGJ-V4-dcW"/>
                                                                         <constraint firstItem="sVz-XE-PMS" firstAttribute="top" secondItem="qSp-xu-ADU" secondAttribute="bottom" constant="7" id="Lju-sH-A4n"/>
                                                                         <constraint firstItem="4td-bG-rrZ" firstAttribute="centerX" secondItem="3MN-hW-iMh" secondAttribute="centerX" id="QeP-gJ-fNW"/>
